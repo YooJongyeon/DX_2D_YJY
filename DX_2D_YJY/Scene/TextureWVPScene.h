@@ -20,10 +20,9 @@ private:
 	shared_ptr<MatrixBuffer> _worldBuffer;
 	XMFLOAT2 _worldPos = { 0,0 };
 
-	shared_ptr<MatrixBuffer> _viewBuffer;
 	XMFLOAT2 _cameraPos = { 0,0 };
 	float _angle = { 0.0f };
 
-	shared_ptr<MatrixBuffer> _projectionBuffer;
+	
 };
 

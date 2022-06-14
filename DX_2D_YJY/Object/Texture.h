@@ -10,7 +10,8 @@ public:
 
     XMFLOAT2& GetPos() { return _pos; }
 
-    XMMATRIX& GetMatrix() { return _srt_matrix; }
+    XMMATRIX* GetMatrix() { return& _srt_matrix; }
+    void SetParent(XMMATRIX* matrix) { _parentMatrix = matrix; }
 
     XMFLOAT2& GetScale() { return _scale; }
 
@@ -27,6 +28,7 @@ private:
     XMFLOAT2 _pos = { 0,0 };
 
     XMMATRIX _srt_matrix;
+    XMMATRIX* _parentMatrix = nullptr;
     shared_ptr<MatrixBuffer> _worldBuffer;
 
     shared_ptr<MatrixBuffer> _viewBuffer;

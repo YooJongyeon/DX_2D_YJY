@@ -29,21 +29,21 @@ void Texture::CreateVertices()
     {
         
         VertexUV v;
-        v.pos = XMFLOAT3(-200, 200, 0.0f);
+        v.pos = XMFLOAT3(-50, 50, 0.0f);
         v.uv = { 0.0f, 0.0f };
         _vertices.push_back(v);
 
         
-        v.pos = XMFLOAT3(200, 200, 0.0f);
+        v.pos = XMFLOAT3(50, 50, 0.0f);
         v.uv = { 1.0f, 0.0f };
         _vertices.push_back(v);
 
-        v.pos = XMFLOAT3(200, -200, 0.0f);
+        v.pos = XMFLOAT3(50, -50, 0.0f);
         v.uv = { 1.0f, 1.0f };
         _vertices.push_back(v);
 
         
-        v.pos = XMFLOAT3(-200, -200, 0.0f);
+        v.pos = XMFLOAT3(-50, -50, 0.0f);
         v.uv = { 0.0f, 1.0f };
         _vertices.push_back(v);
     }
@@ -63,6 +63,12 @@ void Texture::Update()
     XMMATRIX r = XMMatrixRotationZ(_angle);
     XMMATRIX t = XMMatrixTranslation(_pos.x, _pos.y, 0);
     _srt_matrix = s * r * t;
+
+    if (_parentMatrix != nullptr)
+    {
+        _srt_matrix *= (*_parentMatrix);
+        _worldBuffer->SetMatrix(_srt_matrix * (*_parentMatrix));
+    }
     _worldBuffer->SetMatrix(_srt_matrix);
 
     _cameraPos = { -100.0f,0 };
