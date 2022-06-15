@@ -1,5 +1,2 @@
-﻿  SolarSystemScene.cpp
-D:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Scene\SolarSystemScene.cpp(29,32): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Scene\SolarSystemScene.cpp(30,33): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Scene\SolarSystemScene.cpp(31,32): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  Time.cpp
   DX_2D_YJY.vcxproj -> D:\2022_06_15\DX_2D_YJY\x64\Debug\DX_2D_YJY.exe

@@ -26,7 +26,7 @@ SolarSystemScene::~SolarSystemScene()
 
 void SolarSystemScene::Update()
 {
-	_sun->GetAnagle() +=  0.01f * DELTA_TIME; // /DELTA_TIME : 1Tick당 걸리는 시간
+	_sun->GetAnagle() +=  0.01f * DELTA_TIME; // DELTA_TIME : 1Tick당 걸리는 시간
 	_earth->GetAnagle() += 0.01f * DELTA_TIME;
 	_moon->GetAnagle() += 0.01f * DELTA_TIME;
 

@@ -34,7 +34,7 @@ public:
 
 	double GetDeltamTime() { return _timeTiclElased; }
 	int GetFPS() { return _frameRate; }
-	int SetFPS(double fps) { _lockFPS = fps; }
+	void SetFPS(double fps) { _lockFPS = fps; }
 
 private:
 	static Time* _instacne;

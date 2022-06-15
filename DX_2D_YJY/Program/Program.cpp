@@ -13,6 +13,8 @@ Program::Program()
 	XMMATRIX projection = XMMatrixOrthographicLH(WIN_WIDTH, WIN_HEIGHT, 0.0f, 1.0f);
 
 	_projectionBuffer->SetMatrix(projection);
+
+	Time::GetInstance()->SetFPS(60);
 }
 
 Program::~Program()
@@ -24,6 +26,8 @@ void Program::Update()
 	_scene->Update();
 	_projectionBuffer->Update();
 	_viewBuffer->Update();
+
+	int temp = Time::GetInstance()->GetFPS();
 }
 
 void Program::Render()
