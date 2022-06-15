@@ -163,6 +163,7 @@
     <ClInclude Include="Object\Texture.h" />
     <ClInclude Include="Scene\TextureScene.h" />
     <ClInclude Include="Scene\TextureWVPScene.h" />
+    <ClInclude Include="Framework\Utillty\Time.h" />
     <ClInclude Include="TypeDef.h" />
     <ClInclude Include="Framework\Render\VertexBuffer.h" />
     <ClInclude Include="Framework\Render\VertexShader.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="Scene\TextureScene.cpp" />
     <ClCompile Include="Scene\TextureWVPScene.cpp" />
     <ClCompile Include="Scene\SolarSystemScene.cpp" />
+    <ClCompile Include="Framework\Utillty\Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc" />

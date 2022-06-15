@@ -36,6 +36,7 @@ using namespace std;
 // Types
 #include "TypeDef.h"
 
+
 // Device
 #include "Framework/Device/Device.h"
 
@@ -51,6 +52,9 @@ using namespace std;
 // Texture
 #include "Framework/Texture/SRV.h"
 #include "Framework/Texture/SamplerState.h"
+
+//Utillty
+#include "Framework/Utillty/Time.h"
 
 // Obj
 #include "Object/Texture.h"

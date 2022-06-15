@@ -5,3 +5,5 @@
 
 #define DEVICE Device::GetInstance()->GetDevice()
 #define DEVICE_CONTEXT Device::GetInstance()->GetDeviceContext()
+
+#define DELTA_TIME Time::GetInstance()->GetDeltamTime();
