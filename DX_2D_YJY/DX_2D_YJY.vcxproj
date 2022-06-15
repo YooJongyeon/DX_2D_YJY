@@ -153,6 +153,7 @@
     <ClInclude Include="Framework\Render\IndexBuffer.h" />
     <ClInclude Include="Framework\Render\PixelShader.h" />
     <ClInclude Include="Framework\Render\VertexLayOuts.h" />
+    <ClInclude Include="Framework\Utillty\InputManger.h" />
     <ClInclude Include="Program\Program.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Framework\Texture\SamplerState.h" />
@@ -184,6 +185,7 @@
     <ClCompile Include="Framework\Render\VertexShader.cpp" />
     <ClCompile Include="Framework\Texture\SamplerState.cpp" />
     <ClCompile Include="Framework\Texture\SRV.cpp" />
+    <ClCompile Include="Framework\Utillty\InputManger.cpp" />
     <ClCompile Include="Object\Texture.cpp" />
     <ClCompile Include="Program\Program.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />

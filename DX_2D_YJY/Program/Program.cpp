@@ -23,11 +23,11 @@ Program::~Program()
 
 void Program::Update()
 {
-	_scene->Update();
 	_projectionBuffer->Update();
 	_viewBuffer->Update();
 
 	int temp = Time::GetInstance()->GetFPS();
+	_scene->Update();
 }
 
 void Program::Render()

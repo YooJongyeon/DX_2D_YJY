@@ -22,6 +22,7 @@ Time::~Time()
 void Time::Update()
 {
 	QueryPerformanceCounter((LARGE_INTEGER*)&_curTime);
+	_timeTiclElased = (double)(_curTime - _lastTime) * _timeScale;
 	if (_lockFPS != 0)
 	{
 		double temp = (1.0 / _lockFPS);
@@ -30,10 +31,6 @@ void Time::Update()
 			QueryPerformanceCounter((LARGE_INTEGER*)&_curTime);
 			_timeTiclElased = (double)(_curTime - _lastTime) * _timeScale;
 		}
-	}
-	else
-	{
-		_timeTiclElased = (double)(_curTime - _lastTime) * _timeScale;
 	}
 	// 이 업데이트를 거쳐가 전의 진동한 횟수
 	_lastTime = _curTime;

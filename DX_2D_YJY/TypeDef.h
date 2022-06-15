@@ -7,3 +7,8 @@
 #define DEVICE_CONTEXT Device::GetInstance()->GetDeviceContext()
 
 #define DELTA_TIME Time::GetInstance()->GetDeltamTime();
+
+#define KEY_PRESS(k) InputManger::GetInstance()->Press(k)
+#define KEY_Down(k) InputManger::GetInstance()->Down(k)
+#define KEY_Up(k) InputManger::GetInstance()->Up(k)
+

@@ -26,9 +26,16 @@ SolarSystemScene::~SolarSystemScene()
 
 void SolarSystemScene::Update()
 {
-	_sun->GetAnagle() +=  0.01f * DELTA_TIME; // DELTA_TIME : 1Tick당 걸리는 시간
-	_earth->GetAnagle() += 0.01f * DELTA_TIME;
-	_moon->GetAnagle() += 0.01f * DELTA_TIME;
+	if (KEY_PRESS(VK_SPACE))
+	{
+		_sun->GetAnagle() += 1 * DELTA_TIME; // DELTA_TIME : 1Tick당 걸리는 시간
+		_earth->GetAnagle() += 1 * DELTA_TIME;
+		_moon->GetAnagle() += 1 * DELTA_TIME;
+	}
+
+
+
+	int temp = Time::GetInstance()->GetFPS();
 
 	_sun->Update();
 	_earth->Update();
