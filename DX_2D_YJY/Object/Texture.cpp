@@ -7,7 +7,7 @@ Texture::Texture(wstring file)
     _pixelShader = make_shared<PixelShader>(L"Shaders/TexturePixelShader.hlsl");
 
     _srv = make_shared<SRV>(file);
-    _sampler = make_shared<SamplerState>();
+  
 
     CreateVertices();
     UINT stride = sizeof(VertexUV);
@@ -89,8 +89,7 @@ void Texture::Render()
 
     DEVICE_CONTEXT->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
     _srv->PSSet(0);
-    _sampler->PSSet(0);
-
+   
     _vertexShader->Set();
     _pixelShader->PSSet();
 

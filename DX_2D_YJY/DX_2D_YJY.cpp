@@ -118,8 +118,13 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
     hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
+    RECT rc = { 0,0,WIN_WIDTH,WIN_HEIGHT };
+    AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, false);
+
     hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-        CW_USEDEFAULT, 0, WIN_WIDTH, WIN_HEIGHT, nullptr, nullptr, hInstance, nullptr);
+        0, 0, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance, nullptr);
+
+    SetMenu(hWnd, nullptr);
 
     if (!hWnd)
     {
@@ -163,6 +168,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         }
     }
     break;
+
+    case WM_MOUSEMOVE:
+    {
+        MOUSE_POS._x = (float)LOWORD(lParam) - WIN_WIDTH * 0.5f;
+        MOUSE_POS._y = -((float)HIWORD(lParam) - WIN_HEIGHT * 0.5f);    
+    }
+
+
     case WM_PAINT:
     {
         PAINTSTRUCT ps;

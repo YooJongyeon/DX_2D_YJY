@@ -44,7 +44,7 @@ private:
     shared_ptr<VertexBuffer>    _vertexBuffer;
     shared_ptr<IndexBuffer>     _indexBuffer;
     shared_ptr<SRV>             _srv;
-    shared_ptr<SamplerState>    _sampler;
+  
 
 };
 

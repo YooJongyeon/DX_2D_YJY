@@ -18,6 +18,9 @@ SolarSystemScene::SolarSystemScene()
 	_moon->GetPos().x = 150;
 	_moon->GetScale().x *= 0.8f;
 	_moon->GetScale().y *= 0.8f;
+
+	_samplerState = make_shared<SamplerState>();
+	_blendState = make_shared<BlendState>();
 }
 
 SolarSystemScene::~SolarSystemScene()
@@ -26,6 +29,9 @@ SolarSystemScene::~SolarSystemScene()
 
 void SolarSystemScene::Update()
 {
+
+	_sun->GetPos().x = MOUSE_POS._x;
+	_sun->GetPos().y = MOUSE_POS._y;
 	if (KEY_PRESS(VK_SPACE))
 	{
 		_sun->GetAnagle() += 1 * DELTA_TIME; // DELTA_TIME : 1Tick당 걸리는 시간
@@ -45,6 +51,10 @@ void SolarSystemScene::Update()
 
 void SolarSystemScene::Render()
 {
+	//_samplerState->PSSet(0);
+	_blendState->Additive();
+	_blendState->SetState();
+
 	_sun->Render();
 	_earth->Render();
 	_moon->Render();

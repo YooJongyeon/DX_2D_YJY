@@ -76,9 +76,9 @@ void Device::CreateBackBuffer()
 
 void Device::Clear()
 {
-    FLOAT myColorR = 184.0f / 255.0f;
-    FLOAT myColorG = 248.0f / 255.0f;
-    FLOAT myColorB = 251.0f / 255.0f;
+    FLOAT myColorR = 0.0f / 255.0f;
+    FLOAT myColorG = 0.0f / 255.0f;
+    FLOAT myColorB = 0.0f / 255.0f;
     FLOAT clearColor[4] = { myColorR,myColorG,myColorB , 1.0f };
 
     _deviceContext->ClearRenderTargetView(_renderTargetView.Get(), clearColor);

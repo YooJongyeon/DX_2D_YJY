@@ -40,6 +40,9 @@ using namespace std;
 // Device
 #include "Framework/Device/Device.h"
 
+//Math
+#include "Framework/Math/Vector2.h"
+
 // Render
 #include "Framework/Render/VertexLayOuts.h"
 #include "Framework/Render/ConstantBuffer.h"
@@ -52,9 +55,11 @@ using namespace std;
 //Utillty
 #include "Framework/Utillty/Time.h"
 #include "Framework/Utillty/InputManger.h"
+
 // Texture
 #include "Framework/Texture/SRV.h"
 #include "Framework/Texture/SamplerState.h"
+#include "Framework/Texture/BlendState.h"
 
 
 
