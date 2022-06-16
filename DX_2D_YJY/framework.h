@@ -60,6 +60,8 @@ using namespace std;
 #include "Framework/Texture/SRV.h"
 #include "Framework/Texture/SamplerState.h"
 #include "Framework/Texture/BlendState.h"
+#include"Framework/Texture/RasterizerState.h"
+#include "Framework/Texture/StateManager.h"
 
 
 

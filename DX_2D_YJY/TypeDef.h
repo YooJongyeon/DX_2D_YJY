@@ -9,7 +9,13 @@
 #define DELTA_TIME Time::GetInstance()->GetDeltamTime();
 
 #define KEY_PRESS(k) InputManger::GetInstance()->Press(k)
-#define KEY_Down(k) InputManger::GetInstance()->Down(k)
-#define KEY_Up(k) InputManger::GetInstance()->Up(k)
-#define MOUSE_POS InputManger::GetInstance()->GetMousePos()
+#define KEY_Down(k)  InputManger::GetInstance()->Down(k)
+#define KEY_Up(k)    InputManger::GetInstance()->Up(k)
+#define MOUSE_POS    InputManger::GetInstance()->GetMousePos()
+
+#define SMAPLER_STATE   StateManager::GetInstance()->GetSamplerState()
+#define ALPHA_STATE     StateManager::GetInstance()->GetAlphaState()
+#define ADDITVE_STATE   StateManager::GetInstance()->GetAdditiveState()
+#define BLEND_STATE     StateManager::GetInstance()->GetBlendState()
+#define CULL_MODE_STATE StateManager::GetInstance()->GetRastizerState()
 

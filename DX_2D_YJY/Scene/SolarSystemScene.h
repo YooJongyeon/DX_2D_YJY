@@ -13,8 +13,7 @@ private:
 	shared_ptr<Texture> _earth;
 	shared_ptr<Texture> _moon;
 
-	shared_ptr<SamplerState> _samplerState;
-	shared_ptr<BlendState> _blendState;
+
 };
 
 

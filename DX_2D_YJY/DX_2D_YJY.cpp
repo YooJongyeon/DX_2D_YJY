@@ -49,6 +49,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     Device::Create(hWnd);
     Time::Create();
     InputManger::Create();
+    StateManager::Create();
     shared_ptr<Program> program = make_shared<Program>();
 
     while (msg.message != WM_QUIT)
@@ -71,7 +72,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             program->Render();
         }
     }
-
+    StateManager::Delete();
     Time::Delete();
     Device::Delete();
 

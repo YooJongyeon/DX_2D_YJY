@@ -19,8 +19,7 @@ SolarSystemScene::SolarSystemScene()
 	_moon->GetScale().x *= 0.8f;
 	_moon->GetScale().y *= 0.8f;
 
-	_samplerState = make_shared<SamplerState>();
-	_blendState = make_shared<BlendState>();
+	
 }
 
 SolarSystemScene::~SolarSystemScene()
@@ -39,8 +38,6 @@ void SolarSystemScene::Update()
 		_moon->GetAnagle() += 1 * DELTA_TIME;
 	}
 
-
-
 	int temp = Time::GetInstance()->GetFPS();
 
 	_sun->Update();
@@ -51,12 +48,8 @@ void SolarSystemScene::Update()
 
 void SolarSystemScene::Render()
 {
-	//_samplerState->PSSet(0);
-	_blendState->Additive();
-	_blendState->SetState();
-
+	ALPHA_STATE->SetState();
 	_sun->Render();
 	_earth->Render();
 	_moon->Render();
-
 }

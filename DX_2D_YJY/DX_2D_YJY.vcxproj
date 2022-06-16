@@ -157,11 +157,13 @@
     <ClInclude Include="Framework\Render\VertexLayOuts.h" />
     <ClInclude Include="Framework\Utillty\InputManger.h" />
     <ClInclude Include="Program\Program.h" />
+    <ClInclude Include="Framework\Texture\RasterizerState.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Framework\Texture\SamplerState.h" />
     <ClInclude Include="Framework\Texture\SRV.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\SolarSystemScene.h" />
+    <ClInclude Include="Framework\Texture\StateManager.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Object\Texture.h" />
     <ClInclude Include="Scene\TextureScene.h" />
@@ -192,11 +194,13 @@
     <ClCompile Include="Framework\Utillty\InputManger.cpp" />
     <ClCompile Include="Object\Texture.cpp" />
     <ClCompile Include="Program\Program.cpp" />
+    <ClCompile Include="Framework\Texture\RasterizerState.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
     <ClCompile Include="Scene\TextureScene.cpp" />
     <ClCompile Include="Scene\TextureWVPScene.cpp" />
     <ClCompile Include="Scene\SolarSystemScene.cpp" />
     <ClCompile Include="Framework\Utillty\Time.cpp" />
+    <ClCompile Include="Framework\Texture\StateManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc" />
