@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Scene\DungreedScene.h" />
     <ClInclude Include="Framework\Texture\BlendState.h" />
     <ClInclude Include="Framework\Math\Vector2.h" />
     <ClInclude Include="Framework\Render\ConstantBuffer.h" />
@@ -169,11 +170,13 @@
     <ClInclude Include="Scene\TextureScene.h" />
     <ClInclude Include="Scene\TextureWVPScene.h" />
     <ClInclude Include="Framework\Utillty\Time.h" />
+    <ClInclude Include="Framework\Component\Transform.h" />
     <ClInclude Include="TypeDef.h" />
     <ClInclude Include="Framework\Render\VertexBuffer.h" />
     <ClInclude Include="Framework\Render\VertexShader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Scene\DungreedScene.cpp" />
     <ClCompile Include="Framework\Texture\BlendState.cpp" />
     <ClCompile Include="Framework\Math\Vector2.cpp" />
     <ClCompile Include="Framework\Render\ConstantBuffer.cpp" />
@@ -201,6 +204,7 @@
     <ClCompile Include="Scene\SolarSystemScene.cpp" />
     <ClCompile Include="Framework\Utillty\Time.cpp" />
     <ClCompile Include="Framework\Texture\StateManager.cpp" />
+    <ClCompile Include="Framework\Component\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc" />

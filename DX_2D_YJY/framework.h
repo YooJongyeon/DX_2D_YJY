@@ -43,6 +43,7 @@ using namespace std;
 //Math
 #include "Framework/Math/Vector2.h"
 
+
 // Render
 #include "Framework/Render/VertexLayOuts.h"
 #include "Framework/Render/ConstantBuffer.h"
@@ -64,6 +65,8 @@ using namespace std;
 #include "Framework/Texture/StateManager.h"
 
 
+// Coomponent
+#include "Framework/Component/Transform.h"
 
 // Obj
 #include "Object/Texture.h"

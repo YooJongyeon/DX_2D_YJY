@@ -15,8 +15,11 @@ Texture::Texture(wstring file)
     _vertexBuffer = make_shared<VertexBuffer>(_vertices.data(), stride, count);
     _indexBuffer = make_shared<IndexBuffer>(_indicies.data(), _indicies.size());
 
-    _worldBuffer = make_shared<MatrixBuffer>();
+   
+  
     _viewBuffer = make_shared<MatrixBuffer>();
+
+    _transform = make_shared<Transform>();
 }
 
 Texture::~Texture()
@@ -59,30 +62,20 @@ void Texture::CreateVertices()
 
 void Texture::Update()
 {
-    XMMATRIX s = XMMatrixScaling(_scale.x, _scale.y, 1);
-    XMMATRIX r = XMMatrixRotationZ(_angle);
-    XMMATRIX t = XMMatrixTranslation(_pos.x, _pos.y, 0);
-    _srt_matrix = s * r * t;
-
-    if (_parentMatrix != nullptr)
-    {
-        _srt_matrix *= (*_parentMatrix);
-        _worldBuffer->SetMatrix(_srt_matrix * (*_parentMatrix));
-    }
-    _worldBuffer->SetMatrix(_srt_matrix);
-
+   
     _cameraPos = { -100.0f,0 };
     XMMATRIX cameraMatrix = XMMatrixRotationZ(_angle);
     cameraMatrix = XMMatrixTranslation(_cameraPos.x, _cameraPos.y, 0);
     _viewBuffer->SetMatrix(cameraMatrix);
 
     _viewBuffer->Update();
-    _worldBuffer->Update();
+   
+    _transform->UpdateWorldBuffer();
 }
 
 void Texture::Render()
 {
-    _worldBuffer->SetVSBuffer(0);
+    _transform->SetWorldBuffer(0);
     _viewBuffer->SetPSBuffer(1);
     _vertexBuffer->IASet(0);
     _indexBuffer->IASet();

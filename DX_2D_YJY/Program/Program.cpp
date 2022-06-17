@@ -4,9 +4,10 @@
 #include "../Scene/TextureScene.h"
 #include "../Scene/TextureWVPScene.h"
 #include "../Scene/SolarSystemScene.h"
+#include "../Scene/DungreedScene.h"
 Program::Program()
 {
-	_scene = make_shared<SolarSystemScene>();
+	_scene = make_shared<DungreedScene>();
 	_viewBuffer = make_shared<MatrixBuffer>();
 	_projectionBuffer = make_shared<MatrixBuffer>();
 
