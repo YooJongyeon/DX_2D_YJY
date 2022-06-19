@@ -17,7 +17,10 @@ public:
 
     float& GetAnagle() { return _angle; }
 
-    
+
+    Vector2	m_pos = { 0.0f,0.0f };
+    float m_angle;
+   
 
 private:
     XMFLOAT2 _scale = { 1,1 };

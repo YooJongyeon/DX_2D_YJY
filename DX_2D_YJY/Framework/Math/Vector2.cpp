@@ -1,7 +1,7 @@
 #include "framework.h"
 #include "Vector2.h"
 
-Vector2 Vector2::operator+(const Vector2& value)
+Vector2 Vector2::operator+(const Vector2& value) 
 {
 	return Vector2(_x + value._x, _y + value._y);
 }
@@ -19,7 +19,7 @@ Vector2 Vector2::operator-(const Vector2& value)
 	return Vector2(_x - value._x, _y - value._y);
 }
 
-Vector2& Vector2::operator-=(const Vector2& value)
+Vector2& Vector2::operator-=(const Vector2& value) 
 {
 	this->_x -= value._x;
 	this->_y -= value._y;
@@ -27,7 +27,7 @@ Vector2& Vector2::operator-=(const Vector2& value)
 	return *this;
 }
 
-Vector2 Vector2::operator*(const float& value)
+Vector2 Vector2::operator*(const float& value) 
 {
 	return Vector2(_x * value, _y * value);
 }
@@ -71,6 +71,19 @@ float Vector2::Distance(const Vector2& pos)
 	return sqrtf(w * w + h * h);
 }
 
+float Vector2::Angle() const
+{
+	return atan2(_y, _x);
+}
+
+float Vector2::Angle(const Vector2& value) const
+{
+	float D = this->Angle();
+	float cos = D / (this->Length() * value.Length());
+
+	return acos(cos);
+}
+
 Vector2 Vector2::NormalVector()
 {
 	float length = Length();
@@ -110,3 +123,5 @@ int Vector2::Manhattan(const Vector2& value) const
 {
 	return abs(value._x - _x) + abs(value._y - _y);
 }
+
+

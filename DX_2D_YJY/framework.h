@@ -70,6 +70,9 @@ using namespace std;
 
 // Obj
 #include "Object/Texture.h"
+#include "Object/GameObject/Bullet.h"
+
+
 
 // Scene
 #include "Scene/Scene.h"
@@ -77,3 +80,4 @@ using namespace std;
 // Program
 #include "Program/Program.h"
 
+extern Vector2 mousePos;

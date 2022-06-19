@@ -1,17 +1,17 @@
 #pragma once
 
- class Vector2
+ class Vector2 : public Float2
 {
 public:
 	Vector2() {}
 	Vector2(float x, float y) : _x(x), _y(y) {}
 	~Vector2() {}
 
-	Vector2 operator+(const Vector2& value);
+	Vector2 operator+(const Vector2& value) ;
 	Vector2& operator+=(const Vector2& value);
-	Vector2 operator-(const Vector2& value);
-	Vector2& operator-=(const Vector2& value);
-	Vector2 operator*(const float& value);
+	Vector2 operator-(const Vector2& value) ;
+	Vector2& operator-=(const Vector2& value) ;
+	Vector2 operator*(const float& value) ;
 
 	bool operator==(const Vector2 value);
 	bool operator!=(const Vector2 value);
@@ -20,6 +20,8 @@ public:
 
 	float Length() const;
 	float Distance(const Vector2& pos);
+	float Angle() const;
+	float Angle(const Vector2& value) const;
 
 	Vector2 NormalVector();
 	void Normallize();
@@ -34,5 +36,9 @@ public:
 
 	float _x = 0.0f;
 	float _y = 0.0f;
+
+	
+
+	
 };
 

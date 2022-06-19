@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>L:\2022_06_15\DX_2D_YJY\Debug\DX_2D_YJY.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>L:\2022_06_15\DX_2D_YJY\Debug\TexturePixelShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>L:\2022_06_15\DX_2D_YJY\Debug\TextureVertexShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>L:\2022_06_15\DX_2D_YJY\Debug\TutorialShader.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

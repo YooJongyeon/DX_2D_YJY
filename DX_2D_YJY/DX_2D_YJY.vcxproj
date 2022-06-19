@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\GameObject\Bullet.h" />
     <ClInclude Include="Scene\DungreedScene.h" />
     <ClInclude Include="Framework\Texture\BlendState.h" />
     <ClInclude Include="Framework\Math\Vector2.h" />
@@ -176,6 +177,7 @@
     <ClInclude Include="Framework\Render\VertexShader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\GameObject\Bullet.cpp" />
     <ClCompile Include="Scene\DungreedScene.cpp" />
     <ClCompile Include="Framework\Texture\BlendState.cpp" />
     <ClCompile Include="Framework\Math\Vector2.cpp" />
