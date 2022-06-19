@@ -8,6 +8,7 @@ public:
 	void Update();
 	void Render();
 
+	
 	void SetMovePostion(const Vector2& vector) { _movePosition = vector; }
 	void SetPosition(const Vector2& vector) { _redBullet->GetTransform()->m_pos = vector; }
 	bool _isActive = false;
@@ -19,5 +20,5 @@ private:
 	float _checkTime = 0.0f;
 
 
-};;
+};
 

@@ -9,6 +9,8 @@ public:
 
 	virtual void Render() override;
 
+	void FireBullet();
+
 private:
 	shared_ptr<Texture> _adventure;
 	shared_ptr<Texture> _revolver;

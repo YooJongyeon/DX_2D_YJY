@@ -53,9 +53,7 @@ bool Vector2::operator<(const Vector2 value)const
 	{
 		return _y < value._y;
 		return _x < value._x;
-
 	}
-	
 }
 
 float Vector2::Length() const
@@ -122,4 +120,9 @@ float Vector2::Angle(const Vector2& value) const
 	float cos = D / (this->Length() * value.Length());
 
 	return acos(cos);
+}
+
+Vector2 operator*(const Vector2& value, const Vector2& vectorValue)
+{
+	return vectorValue * value;
 }

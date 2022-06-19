@@ -1,6 +1,5 @@
 #pragma once
-
- class Vector2
+ class Vector2 : public Float2
 {
 public:
 	Vector2() {}
@@ -37,5 +36,7 @@ public:
 
 	float Angle() const;
 	float Angle(const Vector2& value) const;
+
+	friend Vector2 operator*(const Vector2& value, const Vector2& vectorValue);
 };
 

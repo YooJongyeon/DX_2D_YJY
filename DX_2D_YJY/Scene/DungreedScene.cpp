@@ -28,6 +28,7 @@ void DungreedScene::Update()
 
 	_anagle->GetTransform()->GetPos().x = MOUSE_POS._x;
 	_anagle->GetTransform()->GetPos().y = MOUSE_POS._y;
+
 	if (KEY_PRESS('A'))
 	{
 		_adventure->GetTransform()->GetPos().x -= 100 * DELTA_TIME;
@@ -38,21 +39,10 @@ void DungreedScene::Update()
 		_adventure->GetTransform()->GetPos().x += 100 * DELTA_TIME;
 
 	}
-	if (KEY_PRESS(VK_LBUTTON))
-	{
-		for (auto& bullet : _bulletPool)
-		{
-			if (bullet->_isActive == false)
-			{
-				bullet->_isActive = true;
-				Vector2 moveVec = mousePos - _revolver->GetTransform()->m_pos;
-				moveVec.Normallize();
-				bullet->SetPosition(_revolver->GetTransform()->m_pos);
-				bullet->SetMovePostion(moveVec);
 
-				break;
-			}
-		}
+	if (KEY_Down(VK_LBUTTON))
+	{
+		FireBullet();
 	}
 
 	float angle1 = (MOUSE_POS - _revolver->GetTransform()->m_pos).Angle();
@@ -79,6 +69,23 @@ void DungreedScene::Render()
 	for (auto& bullet : _bulletPool)
 	{
 		bullet->Render();
+	}
+}
+
+void DungreedScene::FireBullet()
+{
+	for (auto& bullet : _bulletPool)
+	{
+		if (bullet->_isActive == false)
+		{
+			Vector2 moveVec = MOUSE_POS - _revolver->GetTransform()->m_pos;
+			moveVec.Normallize();
+			bullet->SetPosition(_revolver->GetTransform()->m_pos);
+			bullet->SetMovePostion(moveVec);
+			bullet->_isActive = true;
+
+			break;
+		}
 	}
 }
 
