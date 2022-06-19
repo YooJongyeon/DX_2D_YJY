@@ -25,4 +25,3 @@ using Float2 = XMFLOAT2;
 using Float3 = XMFLOAT3;
 using Matrix = XMMATRIX;
 using Float4x4 = XMFLOAT4X4;
-

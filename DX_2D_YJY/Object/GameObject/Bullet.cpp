@@ -23,7 +23,7 @@ void Bullet::Update()
 		_isActive = false;
 		_checkTime = 0.0f;
 	}
-	_redBullet->GetTransform()->m_pos += _movePosition * DELTA_TIME  ;
+	_redBullet->GetTransform()->m_pos += _movePosition * DELTA_TIME;
 	_redBullet->Update();
 }
 
@@ -33,4 +33,3 @@ void Bullet::Render()
 		return;
 	_redBullet->Render();
 }
-

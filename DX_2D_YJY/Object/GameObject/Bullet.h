@@ -19,5 +19,5 @@ private:
 	float _checkTime = 0.0f;
 
 
-};
+};;
 

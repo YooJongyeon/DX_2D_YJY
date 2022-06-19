@@ -9,18 +9,12 @@ public:
 
 	virtual void Render() override;
 
-
-
 private:
 	shared_ptr<Texture> _adventure;
 	shared_ptr<Texture> _revolver;
 	shared_ptr<Texture> _anagle;
 
 	vector<shared_ptr<Bullet>> _bulletPool;
-	
-
-
-	
 
 };
 

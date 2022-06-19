@@ -7,8 +7,8 @@ DungreedScene::DungreedScene()
 	_revolver = make_shared <Texture>(L"Resource/revolver.png");
 	_anagle = make_shared <Texture>(L"Resource/purpleaiming.png");
 
-	_revolver->GetTransform()->GetPos().x = 50;
 	_revolver->GetTransform()->SetParent(_adventure->GetTransform()->GetMatrix());
+	_revolver->GetTransform()->GetPos().x = 50;
 
 	_anagle->GetTransform()->GetPos().x = 250;
 
@@ -17,17 +17,15 @@ DungreedScene::DungreedScene()
 		shared_ptr<Bullet> temp = make_shared<Bullet>();
 		_bulletPool.push_back(temp);
 	}
-
-	
 }
 
 DungreedScene::~DungreedScene()
 {
-
 }
 
 void DungreedScene::Update()
 {
+
 	_anagle->GetTransform()->GetPos().x = MOUSE_POS._x;
 	_anagle->GetTransform()->GetPos().y = MOUSE_POS._y;
 	if (KEY_PRESS('A'))
@@ -83,3 +81,4 @@ void DungreedScene::Render()
 		bullet->Render();
 	}
 }
+
