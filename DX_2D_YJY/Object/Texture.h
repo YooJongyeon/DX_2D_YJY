@@ -9,8 +9,7 @@ public:
     void Render();
 
     shared_ptr<Transform> GetTransform() { return _transform; }
-
-
+  
 private:
     void CreateVertices();
     

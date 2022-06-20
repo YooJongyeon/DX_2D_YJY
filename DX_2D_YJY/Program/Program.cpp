@@ -11,7 +11,7 @@ Program::Program()
 	_viewBuffer = make_shared<MatrixBuffer>();
 	_projectionBuffer = make_shared<MatrixBuffer>();
 
-	XMMATRIX projection = XMMatrixOrthographicOffCenterLH(0, WIN_WIDTH, 0, WIN_HEIGHT, - 0.0f, 1.0f);
+	XMMATRIX projection = XMMatrixOrthographicOffCenterLH(0, WIN_WIDTH, 0, WIN_HEIGHT, 0.0f, 1.0f);
 
 	_projectionBuffer->SetMatrix(projection);
 
@@ -27,16 +27,16 @@ void Program::Update()
 	_projectionBuffer->Update();
 	_viewBuffer->Update();
 
-	int temp = Time::GetInstance()->GetFPS();
+	int FPS = Time::GetInstance()->GetFPS();
 	_scene->Update();
 }
 
 void Program::Render()
 {
+	Device::GetInstance()->Clear();
 	ALPHA_STATE->SetState();
 	_viewBuffer->SetVSBuffer(1);
 	_projectionBuffer->SetVSBuffer(2);
-	Device::GetInstance()->Clear();
 
 	_scene->Render();
 

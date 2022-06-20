@@ -3,8 +3,8 @@
 
 Bullet::Bullet()
 {
-	_redBullet = make_shared<Texture>(L"Resource/redbullet.png");
-	_redBullet->GetTransform()->m_pos = { 150.0f, 0 };
+	_texture = make_shared<Texture>(L"Resource/redbullet.png");
+
 }
 
 Bullet::~Bullet()
@@ -15,18 +15,11 @@ void Bullet::Update()
 {
 	if (_isActive == false)
 		return;
+
+	_texture->GetTransform()->GetPos() += _direction * 300.0f * DELTA_TIME;
+	_texture->Update();
+
 	
-	_checkTime += DELTA_TIME;
-	if (_checkTime > 1.0f)
-	{
-		_isActive = false;
-		_checkTime = 0.0f;
-	}
-	
-	double t = DELTA_TIME;
-	float temp = t * 300.0f;
-	_redBullet->GetTransform()->m_pos += _movePosition * temp;
-	_redBullet->Update();
 }
 
 void Bullet::Render()
@@ -34,7 +27,19 @@ void Bullet::Render()
 	if (_isActive == false)
 		return;
 
-	_redBullet->Render();
+	_texture->Render();
 }
+
+void Bullet::SetDirection(Vector2 dir)
+{
+
+	Vector2 temp = _texture->GetTransform()->GetWorldPos();
+	temp._x += cos(_texture->GetTransform()->GetAnagle()) * 100 ;
+	temp._y += sin(_texture->GetTransform()->GetAnagle()) ;
+	_texture->GetTransform()->SetPos(temp);
+
+	_direction = dir;
+}
+
 
 

@@ -21,7 +21,4 @@
 #define BLEND_STATE     StateManager::GetInstance()->GetBlendState()
 #define CULL_MODE_STATE StateManager::GetInstance()->GetRastizerState()
 
-using Float2 = XMFLOAT2;
-using Float3 = XMFLOAT3;
-using Matrix = XMMATRIX;
-using Float4x4 = XMFLOAT4X4;
+

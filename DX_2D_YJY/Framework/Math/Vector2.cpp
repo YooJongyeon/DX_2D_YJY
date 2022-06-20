@@ -122,7 +122,4 @@ float Vector2::Angle(const Vector2& value) const
 	return acos(cos);
 }
 
-Vector2 operator*(const Vector2& value, const Vector2& vectorValue)
-{
-	return vectorValue * value;
-}
+

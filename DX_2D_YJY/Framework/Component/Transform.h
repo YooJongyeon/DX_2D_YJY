@@ -9,6 +9,7 @@ public:
     void SetWorldBuffer(int slot = 0);
 
     Vector2& GetPos() { return _pos; }
+    void SetPos(Vector2& pos) { _pos = pos; }
 
     XMMATRIX* GetMatrix() { return&_srt_matrix; }
     void SetParent(XMMATRIX* matrix) { _parentMatrix = matrix; }
@@ -20,11 +21,12 @@ public:
     Vector2 GetWorldPos()
     {
         Vector2 worldPos;
-        Float4x4 matrix;
+        XMFLOAT4X4 matrix;
         XMStoreFloat4x4(&matrix, _srt_matrix);
-        worldPos.x = matrix._41;
-        worldPos.y = matrix._42;
-            
+        worldPos._x = matrix._41;
+        worldPos._y = matrix._42;
+
+        return worldPos;
     }
 
     Vector2	m_pos = { 0.0f,0.0f };
