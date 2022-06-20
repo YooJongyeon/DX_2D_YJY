@@ -22,8 +22,10 @@ void Bullet::Update()
 		_isActive = false;
 		_checkTime = 0.0f;
 	}
-
-	_redBullet->GetTransform()->m_pos += _movePosition * DELTA_TIME;
+	
+	double t = DELTA_TIME;
+	float temp = t * 300.0f;
+	_redBullet->GetTransform()->m_pos += _movePosition * temp;
 	_redBullet->Update();
 }
 

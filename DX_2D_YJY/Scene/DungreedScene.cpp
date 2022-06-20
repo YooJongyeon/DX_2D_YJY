@@ -3,14 +3,13 @@
 
 DungreedScene::DungreedScene()
 {
-	_adventure = make_shared <Texture>(L"Resource/adventure.png");
+	/*_adventure = make_shared <Texture>(L"Resource/adventure.png");*/
+	_adventure = make_shared <Adventure>();
 	_revolver = make_shared <Texture>(L"Resource/revolver.png");
 	_anagle = make_shared <Texture>(L"Resource/purpleaiming.png");
 
-	_revolver->GetTransform()->SetParent(_adventure->GetTransform()->GetMatrix());
+	//_revolver->GetTransform()->SetParent(_adventure->GetTransform()->GetMatrix());
 	_revolver->GetTransform()->GetPos().x = 50;
-
-	_anagle->GetTransform()->GetPos().x = 250;
 
 	for (int i = 0; i < 30; i++)
 	{
@@ -25,20 +24,31 @@ DungreedScene::~DungreedScene()
 
 void DungreedScene::Update()
 {
+	_anagle->GetTransform()->GetPos() = MOUSE_POS;
+	
 
-	_anagle->GetTransform()->GetPos().x = MOUSE_POS._x;
-	_anagle->GetTransform()->GetPos().y = MOUSE_POS._y;
-
-	if (KEY_PRESS('A'))
+	/*if (KEY_PRESS('A'))
 	{
 		_adventure->GetTransform()->GetPos().x -= 100 * DELTA_TIME;
 	}
 
 	if (KEY_PRESS('D'))
 	{
-		_adventure->GetTransform()->GetPos().x += 100 * DELTA_TIME;
+		_adventure->GetTransform()->GetPos().x += 100 * DELTA_TIME ;
 
 	}
+
+	if (KEY_PRESS('W'))
+	{
+		_adventure->GetTransform()->GetPos().y += 100 * DELTA_TIME;
+
+	}
+
+	if (KEY_PRESS('S'))
+	{
+		_adventure->GetTransform()->GetPos().y -= 100 * DELTA_TIME;
+
+	}*/
 
 	if (KEY_Down(VK_LBUTTON))
 	{
@@ -46,9 +56,8 @@ void DungreedScene::Update()
 	}
 
 	float angle1 = (MOUSE_POS - _revolver->GetTransform()->m_pos).Angle();
-	_revolver->GetTransform()->GetAnagle() = angle1 - PI * 0.01f;
+	_revolver->GetTransform()->GetAnagle()= angle1 - PI * 0.25f;
 
-	int temp = Time::GetInstance()->GetFPS();
 	_adventure->Update();
 	_revolver->Update();
 	_anagle->Update();
@@ -61,7 +70,6 @@ void DungreedScene::Update()
 
 void DungreedScene::Render()
 {
-	ALPHA_STATE->SetState();
 	_adventure->Render();
 	_revolver->Render();
 	_anagle->Render();

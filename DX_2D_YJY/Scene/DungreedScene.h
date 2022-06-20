@@ -12,7 +12,8 @@ public:
 	void FireBullet();
 
 private:
-	shared_ptr<Texture> _adventure;
+	shared_ptr<Adventure>_adventure;
+	/*shared_ptr<Texture> _adventure;*/
 	shared_ptr<Texture> _revolver;
 	shared_ptr<Texture> _anagle;
 

@@ -70,6 +70,8 @@ using namespace std;
 
 // Obj
 #include "Object/Texture.h"
+#include "Object/GameObject/Adventure.h"
+#include"Object/GameObject/Revolver.h"
 #include "Object/GameObject/Bullet.h"
 
 // Scene
