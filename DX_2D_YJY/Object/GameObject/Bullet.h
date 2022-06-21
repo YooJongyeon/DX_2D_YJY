@@ -17,7 +17,10 @@ public:
 private:
 	shared_ptr<Texture> _texture;
 	Vector2 _direction;
-	float angle = { 0.0f };
+
+	float _runTime = 0.0f;
+	float _destroyTime = 3.0f;
+
 
 
 };

@@ -145,9 +145,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Framework\Collider\Collider.h" />
     <ClInclude Include="Object\GameObject\Adventure.h" />
     <ClInclude Include="Object\GameObject\Bullet.h" />
     <ClInclude Include="Object\GameObject\Revolver.h" />
+    <ClInclude Include="Framework\Collider\RectCollider.h" />
     <ClInclude Include="Scene\DungreedScene.h" />
     <ClInclude Include="Framework\Texture\BlendState.h" />
     <ClInclude Include="Framework\Math\Vector2.h" />
@@ -179,9 +181,11 @@
     <ClInclude Include="Framework\Render\VertexShader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\Collider\Collider.cpp" />
     <ClCompile Include="Object\GameObject\Adventure.cpp" />
     <ClCompile Include="Object\GameObject\Bullet.cpp" />
     <ClCompile Include="Object\GameObject\Revolver.cpp" />
+    <ClCompile Include="Framework\Collider\RectCollider.cpp" />
     <ClCompile Include="Scene\DungreedScene.cpp" />
     <ClCompile Include="Framework\Texture\BlendState.cpp" />
     <ClCompile Include="Framework\Math\Vector2.cpp" />
@@ -222,6 +226,9 @@
   <ItemGroup>
     <ProjectReference Include="..\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj">
       <Project>{371b9fa9-4c90-4ac6-a123-aced756d6c77}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ImGui\ImGui.vcxproj">
+      <Project>{f187e83b-7e9c-44e1-a26f-a680543c7008}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

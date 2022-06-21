@@ -19,6 +19,12 @@ void Bullet::Update()
 	_texture->GetTransform()->GetPos() += _direction * 300.0f * DELTA_TIME;
 	_texture->Update();
 
+	_runTime += DELTA_TIME;
+	if (_runTime > _destroyTime)
+	{
+		_isActive = false;
+		_runTime = 0.0f;
+	}
 	
 }
 
@@ -32,13 +38,8 @@ void Bullet::Render()
 
 void Bullet::SetDirection(Vector2 dir)
 {
-
-	Vector2 temp = _texture->GetTransform()->GetWorldPos();
-	temp._x += cos(_texture->GetTransform()->GetAnagle()) * 100 ;
-	temp._y += sin(_texture->GetTransform()->GetAnagle()) ;
-	_texture->GetTransform()->SetPos(temp);
-
 	_direction = dir;
+	_texture->GetTransform()->GetAnagle() = dir.Angle();
 }
 
 

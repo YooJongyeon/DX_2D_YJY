@@ -23,6 +23,7 @@ void DungreedScene::Update()
 
 void DungreedScene::Render()
 {
+
 	_adventure->Render();
 	_anagle->Render();
 }

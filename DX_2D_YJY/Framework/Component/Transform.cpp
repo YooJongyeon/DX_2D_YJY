@@ -17,10 +17,10 @@ void Transform::UpdateWorldBuffer()
     XMMATRIX t = XMMatrixTranslation(_pos._x, _pos._y, 0);
     _srt_matrix = s * r * t;
 
-    if (_parentMatrix != nullptr)
+    if (_parent != nullptr)
     {
-        _srt_matrix *= (*_parentMatrix);
-        _worldBuffer->SetMatrix(_srt_matrix * (*_parentMatrix));
+        _srt_matrix *= _parent->GetMatrix();
+        _worldBuffer->SetMatrix(_srt_matrix);
     }
     _worldBuffer->SetMatrix(_srt_matrix);
     _worldBuffer->Update();

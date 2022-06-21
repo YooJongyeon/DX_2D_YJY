@@ -21,5 +21,7 @@ private:
 	shared_ptr<Transform> _revolverTrans;
 
 	vector<shared_ptr<class Bullet>> _bullet;
+
+	int _poolCount = 30;
 };
 

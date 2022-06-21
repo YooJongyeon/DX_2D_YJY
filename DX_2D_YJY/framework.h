@@ -33,6 +33,11 @@ using namespace std;
 // DirectX Tex
 #include "../DirectXTex/DirectXTex.h";
 
+//ImGui
+#include "../ImGui/imgui.h"
+#include "../ImGui/imgui_impl_dx11.h"
+#include "../ImGui/imgui_impl_win32.h"
+
 // Types
 #include "TypeDef.h"
 
@@ -56,6 +61,9 @@ using namespace std;
 //Utillty
 #include "Framework/Utillty/Time.h"
 #include "Framework/Utillty/InputManger.h"
+
+#include "Framework/Collider/RectCollider.h"
+#include "Framework/Collider/Collider.h"
 
 // Texture
 #include "Framework/Texture/SRV.h"

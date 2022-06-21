@@ -11,8 +11,8 @@ public:
     Vector2& GetPos() { return _pos; }
     void SetPos(Vector2& pos) { _pos = pos; }
 
-    XMMATRIX* GetMatrix() { return&_srt_matrix; }
-    void SetParent(XMMATRIX* matrix) { _parentMatrix = matrix; }
+    const XMMATRIX& GetMatrix() { return _srt_matrix; }
+    void SetParent(shared_ptr<Transform> transform) { _parent = transform; }
 
     Vector2& GetScale() { return _scale; }
 
@@ -38,7 +38,7 @@ private:
     Vector2 _pos = { 0,0 };
 
     XMMATRIX _srt_matrix;
-    XMMATRIX* _parentMatrix = nullptr;
+    shared_ptr<Transform> _parent = nullptr;
     shared_ptr<MatrixBuffer> _worldBuffer;
 
 };

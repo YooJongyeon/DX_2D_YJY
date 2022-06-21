@@ -8,15 +8,18 @@ Adventure::Adventure()
 
 	
 	_revolverTrans = make_shared<Transform>();
-	_revolverTrans->SetParent(_texture->GetTransform()->GetMatrix());
+	_revolverTrans->SetParent(_texture->GetTransform());
 	_revolverTrans->GetPos()._x = 50;
 
 	_revolver = make_shared <Revolver>();
 	_revolver->SetPlayer(_revolverTrans);
 
-	for (int i = 0; i < 30; i++)
+
+	_bullet.reserve(30);
+	for (int i = 0; i < _poolCount; i++)
 	{
 		shared_ptr<Bullet> temp = make_shared<Bullet>();
+		temp->_isActive = false;
 		_bullet.push_back(temp);
 	}
 }
@@ -63,19 +66,16 @@ void Adventure::Move()
 	if (KEY_PRESS('D'))
 	{
 		_texture->GetTransform()->GetPos()._x += 100 * DELTA_TIME;
-
 	}
 
 	if (KEY_PRESS('W'))
 	{
 		_texture->GetTransform()->GetPos()._y += 100 * DELTA_TIME;
-
 	}
 
 	if (KEY_PRESS('S'))
 	{
 		_texture->GetTransform()->GetPos()._y -= 100 * DELTA_TIME;
-
 	}
 	
 }
@@ -95,15 +95,14 @@ void Adventure::Fire()
 		{
 			if (bullet ->_isActive == false)
 			{
-				bullet->_isActive = true;
 				Vector2 v = MOUSE_POS - _revolverTrans->GetWorldPos();
 				v.Normallize();
 				bullet->SetDirection(v);
 				bullet->SetPosition(_revolverTrans->GetWorldPos());
+				bullet->_isActive = true;
 
 				break;
 			}
-
 		}	
 	}
 

@@ -9,13 +9,12 @@ public:
 
 	virtual void Render() override;
 
-	void FireBullet();
 
 private:
 	shared_ptr<Adventure>_adventure;
 	shared_ptr<Texture> _anagle;
 
-	
+	float _guiTest;
 
 };
 

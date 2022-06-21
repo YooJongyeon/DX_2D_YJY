@@ -36,6 +36,8 @@ public:
 	int GetFPS() { return _frameRate; }
 	void SetFPS(double fps) { _lockFPS = fps; }
 
+	double GetRunTime() { return _runTime; }
+
 private:
 	static Time* _instacne;
 

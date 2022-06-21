@@ -10,12 +10,12 @@ SolarSystemScene::SolarSystemScene()
 	_sun->GetTransform()->GetScale()._x *= 1.3f;
 	_sun->GetTransform()->GetScale()._y *= 1.3f;
 
-	_earth->GetTransform()->SetParent(_sun->GetTransform()->GetMatrix());
+	_earth->GetTransform()->SetParent(_sun->GetTransform());
 	_earth->GetTransform()->GetPos()._x = 250;
 	_earth->GetTransform()->GetScale()._x *= 0.8f;
 	_earth->GetTransform()->GetScale()._y *= 0.8f;
 
-	_moon->GetTransform()->SetParent(_earth->GetTransform()->GetMatrix());
+	_moon->GetTransform()->SetParent(_earth->GetTransform());
 	_moon->GetTransform()->GetPos()._x = 150;
 	_moon->GetTransform()->GetScale()._x *= 0.8f;
 	_moon->GetTransform()->GetScale()._y *= 0.8f;
