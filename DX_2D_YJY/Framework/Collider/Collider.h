@@ -24,5 +24,6 @@ private:
 	shared_ptr<ColerBuffer> _colorBuffer;
 
 	shared_ptr<Transform> _parent;
+	shared_ptr<Transform> _transform;
 };
 
