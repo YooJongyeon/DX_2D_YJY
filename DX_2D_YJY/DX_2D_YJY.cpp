@@ -52,9 +52,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     ImGui::StyleColorsDark();
 
     ImGui_ImplWin32_Init(hWnd);
-    //ImGui_ImplDX11_Init();
+    ImGui_ImplDX11_Init(DEVICE.Get(), DEVICE_CONTEXT.Get());
 
-   
     Time::Create();
     InputManger::Create();
     StateManager::Create();
@@ -74,18 +73,21 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         {
             Time::GetInstance()->Update();
             InputManger::GetInstance()->Update();
-        
 
             program->Update();
             program->Render();
         }
     }
     StateManager::Delete();
+    InputManger::Delete();
     Time::Delete();
+
+    ImGui_ImplDX11_Shutdown();
+    ImGui_ImplWin32_Shutdown();
+    ImGui::DestroyContext();
+
     Device::Delete();
 
-    ImGui_ImplWin32_Shutdown();
-    ImGui_ImplDX11_Shutdown();
 
     return (int)msg.wParam;
 }

@@ -4,10 +4,7 @@
 DungreedScene::DungreedScene()
 {
 	_adventure = make_shared <Adventure>();
-	
 	_anagle = make_shared <Texture>(L"Resource/purpleaiming.png");
-
-	
 }
 
 DungreedScene::~DungreedScene()

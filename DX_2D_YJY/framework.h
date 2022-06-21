@@ -62,8 +62,9 @@ using namespace std;
 #include "Framework/Utillty/Time.h"
 #include "Framework/Utillty/InputManger.h"
 
-#include "Framework/Collider/RectCollider.h"
+// Collider
 #include "Framework/Collider/Collider.h"
+#include "Framework/Collider/RectCollider.h"
 
 // Texture
 #include "Framework/Texture/SRV.h"

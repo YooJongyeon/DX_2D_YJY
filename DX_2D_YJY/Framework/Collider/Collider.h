@@ -10,7 +10,7 @@ public:
 
 	virtual void CreateData();
 
-	void SetParent(shared_ptr<Transform> parent) { _parent = parent; }
+	void SetParent(shared_ptr<class Transform> parent) { _parent = parent; }
 
 
 private:
@@ -23,7 +23,7 @@ private:
 	shared_ptr<PixelShader> _pixelShader;
 	shared_ptr<ColerBuffer> _colorBuffer;
 
-	shared_ptr<Transform> _parent;
-	shared_ptr<Transform> _transform;
+	shared_ptr<class Transform> _parent;
+	shared_ptr<class Transform> _transform;
 };
 

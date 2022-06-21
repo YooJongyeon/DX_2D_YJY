@@ -1,10 +1,10 @@
 #include "framework.h"
 #include "RectCollider.h"
 
-void RectCollider::Update()
+RectCollider::RectCollider()
 {
 }
 
-void RectCollider::Render()
+RectCollider::~RectCollider()
 {
 }

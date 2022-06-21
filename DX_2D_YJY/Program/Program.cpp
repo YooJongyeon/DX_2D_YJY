@@ -15,7 +15,7 @@ Program::Program()
 
 	_projectionBuffer->SetMatrix(projection);
 
-	//Time::GetInstance()->SetFPS(60);
+	Time::GetInstance()->SetFPS(60);
 }
 
 Program::~Program()
@@ -38,7 +38,7 @@ void Program::Render()
 	ImGui_ImplWin32_NewFrame();
 	ImGui::NewFrame();
 
-	//ImGui::Text("FPS : %d", Time::GetInstance(),)
+	ImGui::Text("FPS : %d", Time::GetInstance()->GetFPS());
 
 	ALPHA_STATE->SetState();
 

@@ -14,7 +14,7 @@ private:
 	shared_ptr<Adventure>_adventure;
 	shared_ptr<Texture> _anagle;
 
-	float _guiTest;
+	float _guiTest = 0.0f; 
 
 };
 
