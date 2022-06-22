@@ -58,6 +58,9 @@ using namespace std;
 #include "Framework/Render/VertexShader.h"
 #include "Framework/Render/PixelShader.h"
 
+// Coomponent
+#include "Framework/Component/Transform.h"
+
 //Utillty
 #include "Framework/Utillty/Time.h"
 #include "Framework/Utillty/InputManger.h"
@@ -74,8 +77,6 @@ using namespace std;
 #include "Framework/Texture/StateManager.h"
 
 
-// Coomponent
-#include "Framework/Component/Transform.h"
 
 // Obj
 #include "Object/Texture.h"

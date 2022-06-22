@@ -22,22 +22,22 @@ Time::~Time()
 void Time::Update()
 {
 	QueryPerformanceCounter((LARGE_INTEGER*)&_curTime);
-	_timeTiclElased = (double)(_curTime - _lastTime) * _timeScale;
+	_timeTickElased = (double)(_curTime - _lastTime) * _timeScale;
 	if (_lockFPS != 0)
 	{
 		double temp = (1.0 / _lockFPS);
-		while (_timeTiclElased < temp)
+		while (_timeTickElased < temp)
 		{
 			QueryPerformanceCounter((LARGE_INTEGER*)&_curTime);
-			_timeTiclElased = (double)(_curTime - _lastTime) * _timeScale;
+			_timeTickElased = (double)(_curTime - _lastTime) * _timeScale;
 		}
 	}
 	// 이 업데이트를 거쳐가 전의 진동한 횟수
 	_lastTime = _curTime;
 
 	_frameCount++;
-	_oneSecCount += _timeTiclElased;
-	_runTime += _timeTiclElased;
+	_oneSecCount += _timeTickElased;
+	_runTime += _timeTickElased;
 
 	//1초마다 갱신해야 되는 정보
 	if (_oneSecCount >= 1.0)

@@ -32,7 +32,7 @@ public:
 
 	void Update();
 
-	double GetDeltamTime() { return _timeTiclElased; }
+	double GetDeltamTime() { return _timeTickElased; }
 	int GetFPS() { return _frameRate; }
 	void SetFPS(double fps) { _lockFPS = fps; }
 
@@ -41,19 +41,19 @@ public:
 private:
 	static Time* _instacne;
 
-	double _timeScale;
-	double _timeTiclElased;
+	double _timeScale = 0;
+	double _timeTickElased = 0;
 
-	__int64 _curTime;
-	__int64 _lastTime;
-	__int64 _periodFrequency;
+	__int64 _curTime = 0;
+	__int64 _lastTime = 0;
+	__int64 _periodFrequency = 0;
 
-	int _frameRate;
-	int _frameCount;
+	int _frameRate = 0;
+	int _frameCount = 0;
 
-	double _oneSecCount;
-	double _runTime;
+	double _oneSecCount = 0;
+	double _runTime = 0;
 
-	double _lockFPS;
+	double _lockFPS = 0;
 };
 

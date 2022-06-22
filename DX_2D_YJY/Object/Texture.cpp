@@ -28,9 +28,7 @@ Texture::~Texture()
 
 void Texture::CreateVertices()
 {
- 
     {
-        
         VertexUV v;
         v.pos = XMFLOAT3(-50, 50, 0.0f);
         v.uv = { 0.0f, 0.0f };

@@ -117,6 +117,9 @@
     <ClInclude Include="Framework\Collider\Collider.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\ColliderScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX_2D_YJY.cpp">
@@ -206,6 +209,9 @@
     <ClCompile Include="Framework\Collider\Collider.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\ColliderScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc">
@@ -224,5 +230,7 @@
     <FxCompile Include="Shaders\TexturePixelShader.hlsl" />
     <FxCompile Include="Shaders\TextureVertexShader.hlsl" />
     <FxCompile Include="Shaders\TutorialShader.hlsl" />
+    <FxCompile Include="Shaders\ColliderShader\ColliderVertexShaer.hlsl" />
+    <FxCompile Include="Shaders\ColliderShader\ColliderPixelShader.hlsl" />
   </ItemGroup>
 </Project>

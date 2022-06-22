@@ -5,9 +5,11 @@
 #include "../Scene/TextureWVPScene.h"
 #include "../Scene/SolarSystemScene.h"
 #include "../Scene/DungreedScene.h"
+#include "../Scene/ColliderScene.h"
 Program::Program()
 {
-	_scene = make_shared<DungreedScene>();
+	_scene = make_shared<ColliderScene>();
+
 	_viewBuffer = make_shared<MatrixBuffer>();
 	_projectionBuffer = make_shared<MatrixBuffer>();
 
@@ -15,7 +17,7 @@ Program::Program()
 
 	_projectionBuffer->SetMatrix(projection);
 
-	Time::GetInstance()->SetFPS(60);
+	//Time::GetInstance()->SetFPS(60);
 }
 
 Program::~Program()
@@ -38,14 +40,17 @@ void Program::Render()
 	ImGui_ImplWin32_NewFrame();
 	ImGui::NewFrame();
 
-	ImGui::Text("FPS : %d", Time::GetInstance()->GetFPS());
-
 	ALPHA_STATE->SetState();
 
 	_viewBuffer->SetVSBuffer(1);
 	_projectionBuffer->SetVSBuffer(2);
 
+	_scene->RreRender();
+
 	_scene->Render();
+
+	ImGui::Text("FPS : %d", Time::GetInstance()->GetFPS());
+	_scene->PostRender();
 
 	ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());

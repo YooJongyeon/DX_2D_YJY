@@ -22,7 +22,7 @@ private:
 	Data _data;
 };
 
-class ColerBuffer : public ConstantBuffer
+class ColorBuffer : public ConstantBuffer
 {
 public:
 
@@ -31,11 +31,13 @@ public:
 		XMFLOAT4 color;
 	};
 	
-	ColerBuffer()
+	ColorBuffer()
 		:ConstantBuffer(&_data, sizeof(Data) )
 	{
 		_data.color = { 1,1,1,1 };
 	}
+	void SetColor(const XMFLOAT4& color) { _data.color = color; }
+
 
 private:
 	Data _data;
