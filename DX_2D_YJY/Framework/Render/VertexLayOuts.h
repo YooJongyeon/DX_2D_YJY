@@ -3,6 +3,8 @@
 struct VertexPos
 {
 	XMFLOAT3 pos;
+
+	
 };
 
 struct VertexUV
