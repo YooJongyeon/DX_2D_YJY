@@ -11,6 +11,11 @@ RectCollider::~RectCollider()
 {
 }
 
+void RectCollider::Update()
+{
+	Collider::Update();
+}
+
 void RectCollider::CreateData()
 {
 	VertexPos vertex;
@@ -30,49 +35,8 @@ void RectCollider::CreateData()
 	vertex.pos = XMFLOAT3(-_halfSize._x, _halfSize._y, 0.0f);
 	_vertices.push_back(vertex);
 
-
-	_vertexShader = make_shared<VertexShader>(L"Shaders/ColliderShader/ColliderVertexShaer.hlsl");
-	_pixelShader = make_shared<PixelShader>(L"Shaders/ColliderShader/ColliderPixelShader.hlsl");
-	_vertexBuffer = make_shared<VertexBuffer>(_vertices.data(), sizeof(VertexPos), _vertices.size());
-
-	_colorBuffer = make_shared<ColorBuffer>();
-	_colorBuffer->SetColor(GREAN);
+	Collider::CreateData();
 	
-	_transform = make_shared<Transform>();
-	_parent = nullptr;
-}
-
-void RectCollider::Update()
-{
-	
-	_center = GetLocalPosition();
-
-	_transform->UpdateWorldBuffer();
-	_colorBuffer->Update();
-}
-
-void RectCollider::Render()
-{
-	_transform->SetWorldBuffer(0);
-	_colorBuffer->SetPSBuffer(0);
-
-	_vertexBuffer->IASet(0);
-	DEVICE_CONTEXT->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_LINESTRIP);
-
-	_vertexShader->Set();
-	_pixelShader->PSSet();
-	DEVICE_CONTEXT->Draw(_vertices.size(), 0);
-}
-
-bool RectCollider::IsCollision(const Vector2& pos)
-{
-	if (pos._x < Left() || pos._x > Right())
-		return false;
-
-	if (pos._y > Top() || pos._y < Bottom())
-		return false;
-
-	return true;
 }
 
 float RectCollider::SeoareatAxis(Vector2 separate, Vector2 e1, Vector2 e2)
@@ -168,18 +132,6 @@ bool RectCollider::OBB(shared_ptr<RectCollider> rect)
 	return true;
 }
 
-bool RectCollider::IsCollision(shared_ptr<RectCollider> rect, bool obb)
-{
-	if (obb)
-	{
-		return OBB(rect);
-	}
-	else
-	{
-		return AABB(rect);
-	}
-
-}
 
 bool RectCollider::AABB(shared_ptr<CircleCollider> circle)
 {
@@ -240,18 +192,27 @@ bool RectCollider::OBB(shared_ptr<CircleCollider> circle)
 	return true;
 }
 
-bool RectCollider::IsCollision(shared_ptr< CircleCollider> other, bool obb)
+bool RectCollider::IsCollision(const Vector2 pos)
 {
-	if (obb)
-	{
-		return OBB(other);
-	}
-	else
-	{
-		return AABB(other);
-	}
-
+	if (pos._x < Left() || pos._x > Right())
+		return false;
+	if (pos._y > Top() || pos._y < Bottom())
+		return false;
+	return true;
 }
+
+bool RectCollider::IsCollision(shared_ptr<RectCollider> rect)
+{
+	return OBB(rect);
+}
+
+bool RectCollider::IsCollision(shared_ptr<CircleCollider> circle)
+{
+	return OBB(circle);
+}
+
+
+
 
 
 

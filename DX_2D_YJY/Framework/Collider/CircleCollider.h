@@ -1,26 +1,16 @@
 #pragma once
-class CircleCollider
+class CircleCollider : public Collider
 {
 public:
 	CircleCollider(float radius );
 	~CircleCollider();
 
-	void CreateData();
-	void Update();
-	void Render();
+	virtual void Update() override;
+	virtual void CreateData() override;
 
-	bool IsCollision(shared_ptr<CircleCollider> circle);
-	bool IsCollision(const Vector2& pos) ;
-	bool isCollision(shared_ptr<class RectCollider> other, bool obb = false);
-
-	const Vector2& GetWorldPosition() { return _transform->GetWorldPos(); }
-	Vector2& GetLocalPosition() { return _transform->GetPos(); }
-	float& GetAngle() { return _transform->GetAnagle(); }
-
-	void SetRed() { _colorBuffer->SetColor(RED);}
-	void SetGrean() { _colorBuffer->SetColor(GREAN);}
-
-	bool _isCollision = false;
+	virtual bool IsCollision(const Vector2 pos) override;
+	virtual bool IsCollision(shared_ptr<RectCollider> rect) override;
+	virtual bool IsCollision(shared_ptr<CircleCollider> circle) override;
 
 	float GetRadius(){ return _radius * _transform ->GetScale()._x; }
 
@@ -28,17 +18,5 @@ public:
 private:
 	Vector2 _center;
 	float _radius ;
-
-	vector<VertexPos> _vertices;
-	shared_ptr<VertexBuffer> _vertexBuffer;
-
-	shared_ptr<VertexShader> _vertexShader;
-	shared_ptr<PixelShader> _pixelShader;
-
-	shared_ptr<ColorBuffer> _colorBuffer;
-
-	shared_ptr<Transform> _parent;
-	shared_ptr<Transform> _transform;
-
 };
 

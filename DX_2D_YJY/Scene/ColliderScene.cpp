@@ -18,7 +18,7 @@ ColliderScene::~ColliderScene()
 void ColliderScene::Update()
 {
 	
-	if (_circleCollider1->isCollision(_rectColldier1, true))
+	if (_circleCollider1->IsCollision(_rectColldier1))
 		_circleCollider1->SetRed();
 	else
 		_circleCollider1->SetGrean();

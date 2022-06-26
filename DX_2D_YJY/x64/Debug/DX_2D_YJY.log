@@ -1,7 +1,33 @@
-﻿  CircleCollider.cpp
-L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Framework\Collider\CircleCollider.cpp(19,11): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Framework\Collider\CircleCollider.cpp(20,11): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Framework\Collider\CircleCollider.cpp(53,42): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  framework.cpp
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\framework.h(34,10): warning C4067: 전처리기 지시문 다음에 예기치 않은 토큰이 있습니다. 줄 바꿈 문자가 필요합니다.
+  CircleCollider.cpp
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Framework\Collider\CircleCollider.cpp(23,11): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Framework\Collider\CircleCollider.cpp(24,11): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ColliderScene.cpp
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Scene\ColliderScene.cpp(52,72): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(158,77): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              _Ty=int
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2021): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::_Construct_in_place<_Ty,int>(_Ty &,int &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=CircleCollider
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2747): message : 컴파일되는 함수 템플릿 인스턴스화 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int>(int &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=CircleCollider
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : 컴파일되는 함수 템플릿 인스턴스화 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int>(int &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=CircleCollider
+          ]
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Scene\ColliderScene.cpp(6): message : 컴파일되는 함수 템플릿 인스턴스화 'std::shared_ptr<CircleCollider> std::make_shared<CircleCollider,int>(int &&)'에 대한 참조를 확인하세요.
+  Collider.cpp
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Framework\Collider\Collider.cpp(29,42): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(151,1): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2021): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::_Construct_in_place<_Ty,VertexPos*,unsigned __int64,unsigned __int64>(_Ty &,VertexPos *&&,unsigned __int64 &&,unsigned __int64 &&) noexcept(false)'에 대한 참조를 확인하세요.
           with
@@ -18,13 +44,76 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
           [
               _Ty=VertexBuffer
           ]
-L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Framework\Collider\CircleCollider.cpp(27): message : 컴파일되는 함수 템플릿 인스턴스화 'std::shared_ptr<VertexBuffer> std::make_shared<VertexBuffer,_Ty*,size_t,unsigned __int64>(_Ty *&&,size_t &&,unsigned __int64 &&)'에 대한 참조를 확인하세요.
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Framework\Collider\Collider.cpp(36): message : 컴파일되는 함수 템플릿 인스턴스화 'std::shared_ptr<VertexBuffer> std::make_shared<VertexBuffer,_Ty*,size_t,unsigned __int64>(_Ty *&&,size_t &&,unsigned __int64 &&)'에 대한 참조를 확인하세요.
           with
           [
               _Ty=VertexPos
           ]
+  Adventure.cpp
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\GameObject\Adventure.cpp(63,50): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\GameObject\Adventure.cpp(68,50): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\GameObject\Adventure.cpp(73,50): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\GameObject\Adventure.cpp(78,50): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Bullet.cpp
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\GameObject\Bullet.cpp(19,62): warning C4244: '인수': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\GameObject\Bullet.cpp(22,14): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Revolver.cpp
+  RectCollider.cpp
   DungreedScene.cpp
   BlendState.cpp
+  Vector2.cpp
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Framework\Math\Vector2.cpp(109,28): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Framework\Math\Vector2.cpp(114,14): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Framework\Math\Vector2.cpp(122,13): warning C4244: 'return': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ConstantBuffer.cpp
+  Device.cpp
+  DX_2D_YJY.cpp
+  IndexBuffer.cpp
+  PixelShader.cpp
+  VertexBuffer.cpp
+  VertexShader.cpp
+  SamplerState.cpp
+  SRV.cpp
   InputManger.cpp
+  코드를 생성하고 있습니다...
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Framework\Math\Vector2.cpp(57): warning C4715: 'Vector2::operator<': 모든 제어 경로에서 값을 반환하지는 않습니다.
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Framework\Collider\Collider.h(31): warning C4172: 지역 변수 또는 임시의 주소를 반환하고 있습니다.
+  컴파일하고 있습니다...
+  Texture.cpp
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\Texture.cpp(14,34): warning C4267: '초기화 중': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\Texture.cpp(87,55): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(151,1): warning C4267: '인수': 'size_t'에서 'UINT'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2021): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::_Construct_in_place<_Ty,unsigned int*,unsigned __int64>(_Ty &,unsigned int *&&,unsigned __int64 &&) noexcept(false)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=IndexBuffer
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2747): message : 컴파일되는 함수 템플릿 인스턴스화 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<unsigned int*,unsigned __int64>(unsigned int *&&,unsigned __int64 &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=IndexBuffer
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : 컴파일되는 함수 템플릿 인스턴스화 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<unsigned int*,unsigned __int64>(unsigned int *&&,unsigned __int64 &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=IndexBuffer
+          ]
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\Texture.cpp(16): message : 컴파일되는 함수 템플릿 인스턴스화 'std::shared_ptr<IndexBuffer> std::make_shared<IndexBuffer,_Ty*,unsigned __int64>(_Ty *&&,unsigned __int64 &&)'에 대한 참조를 확인하세요.
+          with
+          [
+              _Ty=UINT
+          ]
+  Program.cpp
+  RasterizerState.cpp
+  Scene.cpp
+  TextureScene.cpp
+  TextureWVPScene.cpp
+  SolarSystemScene.cpp
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Scene\SolarSystemScene.cpp(37,44): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Scene\SolarSystemScene.cpp(38,46): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Scene\SolarSystemScene.cpp(39,45): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Time.cpp
+  StateManager.cpp
+  Transform.cpp
   코드를 생성하고 있습니다...
   DX_2D_YJY.vcxproj -> L:\2022_06_15\DX_2D_YJY\x64\Debug\DX_2D_YJY.exe
