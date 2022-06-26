@@ -18,7 +18,7 @@ public:
 	virtual ~Collider();
 
 	virtual void Update() abstract;
-	virtual void Render() ;
+	virtual void Render();
 
 	virtual void CreateData()abstract;
 
