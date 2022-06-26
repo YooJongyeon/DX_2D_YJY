@@ -29,19 +29,25 @@ public:
 	 bool AABB(shared_ptr<RectCollider> rect);
 	 bool OBB(shared_ptr<RectCollider> rect);
 
-	 bool IsCollision(shared_ptr<RectCollider> rect , bool obb = false);
+	 bool AABB(shared_ptr<class CircleCollider> circle);
+	 bool OBB(shared_ptr< class CircleCollider> circle);
+
 	 bool IsCollision(const Vector2& pos);
+	 bool IsCollision(shared_ptr<RectCollider> rect , bool obb = false);
+	 bool IsCollision(shared_ptr<class CircleCollider> other, bool obb = false);
+
 
 	 float SeoareatAxis(Vector2 separate, Vector2 e1, Vector2 e2);
 
 
 	 const Vector2& GetWorldPosition() { return _transform->GetWorldPos(); }
-	 Vector2& GetPosition() { return _transform->GetPos(); }
+	 Vector2& GetLocalPosition() { return _transform->GetPos(); }
 	 float& GetAngle() { return _transform->GetAnagle(); }
 
-	 bool _isDebug;
-	 bool _isCollision = false;
+	 void SetRed() { _colorBuffer->SetColor(RED); }
+	 void SetGrean() { _colorBuffer->SetColor(GREAN); }
 
+	
 private:
 	Vector2 _halfSize = { 0,0 };
 	Vector2 _center;

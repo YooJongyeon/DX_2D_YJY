@@ -1,4 +1,4 @@
-#include "framework.h"
+ï»¿#include "framework.h"
 #include "RectCollider.h"
 
 RectCollider::RectCollider(const Vector2& halfSize)
@@ -14,19 +14,19 @@ RectCollider::~RectCollider()
 void RectCollider::CreateData()
 {
 	VertexPos vertex;
-	//ÁÂÃø»ó´Ü
+	//ì¢Œì¸¡ìƒë‹¨
 	vertex.pos = XMFLOAT3(-_halfSize._x, _halfSize._y, 0.0f);
 	_vertices.push_back(vertex);
-	// ¿ìÃø»ó´Ü
+	// ìš°ì¸¡ìƒë‹¨
 	vertex.pos = XMFLOAT3(+_halfSize._x, _halfSize._y, 0.0f);
 	_vertices.push_back(vertex);
-	//¿ìÃø ÇÏ´Ü
+	//ìš°ì¸¡ í•˜ë‹¨
 	vertex.pos = XMFLOAT3(+_halfSize._x, -_halfSize._y, 0.0f);
 	_vertices.push_back(vertex);
-	//ÁÂÃø ÇÏ´Ü
+	//ì¢Œì¸¡ í•˜ë‹¨
 	vertex.pos = XMFLOAT3(-_halfSize._x, -_halfSize._y, 0.0f);
 	_vertices.push_back(vertex);
-	//ÁÂÃø »ó´Ü
+	//ì¢Œì¸¡ ìƒë‹¨
 	vertex.pos = XMFLOAT3(-_halfSize._x, _halfSize._y, 0.0f);
 	_vertices.push_back(vertex);
 
@@ -36,7 +36,7 @@ void RectCollider::CreateData()
 	_vertexBuffer = make_shared<VertexBuffer>(_vertices.data(), sizeof(VertexPos), _vertices.size());
 
 	_colorBuffer = make_shared<ColorBuffer>();
-	_colorBuffer->SetColor(GREEN);
+	_colorBuffer->SetColor(GREAN);
 	
 	_transform = make_shared<Transform>();
 	_parent = nullptr;
@@ -44,12 +44,8 @@ void RectCollider::CreateData()
 
 void RectCollider::Update()
 {
-	if (_isCollision == true)
-		_colorBuffer->SetColor(RED);
-	else 
-		_colorBuffer->SetColor(GREEN);
 	
-	_center = GetPosition();
+	_center = GetLocalPosition();
 
 	_transform->UpdateWorldBuffer();
 	_colorBuffer->Update();
@@ -71,12 +67,12 @@ void RectCollider::Render()
 bool RectCollider::IsCollision(const Vector2& pos)
 {
 	if (pos._x < Left() || pos._x > Right())
-		return  _isCollision == false;
+		return false;
 
 	if (pos._y > Top() || pos._y < Bottom())
-		return  _isCollision == false;
+		return false;
 
-	return _isCollision == true;
+	return true;
 }
 
 float RectCollider::SeoareatAxis(Vector2 separate, Vector2 e1, Vector2 e2)
@@ -110,10 +106,10 @@ bool RectCollider::AABB(shared_ptr<RectCollider> rect)
 	if (rect->Left() < this->Right() && rect->Right() > this->Left() &&
 		rect->Bottom() < this->Top() && rect->Top() > this->Bottom())
 	{
-		return  _isCollision = true;
+		return true;
 	}
 
-	return  _isCollision = false;
+	return false;
 }
 
 bool RectCollider::OBB(shared_ptr<RectCollider> rect)
@@ -121,24 +117,24 @@ bool RectCollider::OBB(shared_ptr<RectCollider> rect)
 	ObbDesc obbA = GetObb();
 	ObbDesc obbB = rect->GetObb();
 
-	//AÀÇ °¡·Î¼¼·ÎÀÇ ´ÜÀ§¹éÅÍ , ¹éÅÍ
+	//Aì˜ ê°€ë¡œì„¸ë¡œì˜ ë‹¨ìœ„ë°±í„° , ë°±í„°
 	Vector2 nea1 = obbA._direction[0];
 	Vector2 ea1 = nea1 * obbA._lenght[0];
 	Vector2 nea2 = obbA._direction[1];
 	Vector2 ea2 = nea2 * obbA._lenght[1];
 
-	//BÀÇ °¡·Î¼¼·ÎÀÇ ´ÜÀ§¹éÅÍ , ¹éÅÍ
+	//Bì˜ ê°€ë¡œì„¸ë¡œì˜ ë‹¨ìœ„ë°±í„° , ë°±í„°
 	Vector2 neb1 = obbB._direction[0];
 	Vector2 eb1 = neb1 * obbB._lenght[0];
 	Vector2 neb2 = obbB._direction[1];
 	Vector2 eb2 = neb2 * obbB._lenght[1];
 
-	// AÀÇ ÁßÁ¡°ú BÀÇ ÁßÁ¡ »çÀÌÀÇ °Å¸®
+	// Aì˜ ì¤‘ì ê³¼ Bì˜ ì¤‘ì  ì‚¬ì´ì˜ ê±°ë¦¬
 	Vector2 distance = obbA._position - obbB._position;
 
 	float lengthA = ea1.Length();
 	float lengthB = SeoareatAxis(nea1, eb1, eb2);
-	float length = abs(distance.Dot(nea1));// µÎ Á¡ »çÀÌÀÇ °Å¸® Á÷±³È­
+	float length = abs(distance.Dot(nea1));// ë‘ ì  ì‚¬ì´ì˜ ê±°ë¦¬ ì§êµí™”
 	if (length > lengthA + lengthB)
 	{
 		return false;
@@ -146,15 +142,16 @@ bool RectCollider::OBB(shared_ptr<RectCollider> rect)
 		
 	lengthA = ea2.Length();
 	lengthB = SeoareatAxis(nea2, eb1, eb2);
-	length = abs(distance.Dot(nea2));// µÎ Á¡ »çÀÌÀÇ °Å¸® Á÷±³È­
+	length = abs(distance.Dot(nea2));// ë‘ ì  ì‚¬ì´ì˜ ê±°ë¦¬ ì§êµí™”
 	if (length > lengthA + lengthB)
 	{
 		return false;
 	}
 
+	// B ê°€ë¡œ ì„¸ë¡œ ê¸¸ì´
 	lengthA = SeoareatAxis(neb1, ea1, ea2);
 	lengthB = eb1.Length();
-	length = abs(distance.Dot(neb1));// µÎ Á¡ »çÀÌÀÇ °Å¸® Á÷±³È­
+	length = abs(distance.Dot(neb1));// ë‘ ì  ì‚¬ì´ì˜ ê±°ë¦¬ ì§êµí™”
 	if (length > lengthA + lengthB)
 	{
 		return false;
@@ -162,7 +159,7 @@ bool RectCollider::OBB(shared_ptr<RectCollider> rect)
 
 	lengthA = SeoareatAxis(neb2, ea1, ea2);
 	lengthB = eb2.Length();
-	length = abs(distance.Dot(neb2));// µÎ Á¡ »çÀÌÀÇ °Å¸® Á÷±³È­
+	length = abs(distance.Dot(neb2));// ë‘ ì  ì‚¬ì´ì˜ ê±°ë¦¬ ì§êµí™”
 	if (length > lengthA + lengthB)
 	{
 		return false;
@@ -175,11 +172,83 @@ bool RectCollider::IsCollision(shared_ptr<RectCollider> rect, bool obb)
 {
 	if (obb)
 	{
-		return _isCollision = OBB(rect);
+		return OBB(rect);
 	}
 	else
 	{
-		return  _isCollision = AABB(rect);
+		return AABB(rect);
+	}
+
+}
+
+bool RectCollider::AABB(shared_ptr<CircleCollider> circle)
+{
+	
+	if (IsCollision(circle->GetWorldPosition()))
+		return true;
+
+	if ((circle->GetWorldPosition()._x > Left() && circle->GetWorldPosition()._x < Right())
+		|| (circle->GetWorldPosition()._y > Top() && circle->GetWorldPosition()._y < Bottom()))
+	{
+		if (circle->GetWorldPosition()._x < Left() - circle->GetRadius() || circle->GetWorldPosition()._x > Right() + circle->GetRadius())
+			return false;
+		if (circle->GetWorldPosition()._y < Top() - circle->GetRadius() || circle->GetWorldPosition()._y > Bottom() + circle->GetRadius())
+			return false;
+
+		return true;
+	}
+
+	if (circle->IsCollision(Vector2(Right(), Top())))
+		return true;
+	if (circle->IsCollision(Vector2(Left(), Top())))
+		return true;
+	if (circle->IsCollision(Vector2(Right(), Bottom())))
+		return true;
+	if (circle->IsCollision(Vector2(Left(), Bottom())))
+		return true;
+
+	return false;
+}
+
+bool RectCollider::OBB(shared_ptr<CircleCollider> circle)
+{
+	ObbDesc obbA = GetObb();
+
+	Vector2 nea1 = obbA._direction[0];
+	Vector2 ea1 = nea1 * obbA._lenght[0];
+	Vector2 nea2 = obbA._direction[1];
+	Vector2 ea2 = nea2 * obbA._lenght[1];
+
+
+	Vector2 circleV = circle->GetWorldPosition();
+	Vector2 distanceV = circleV - obbA._position;
+	float lengthA = ea1.Length();
+	float lengthB = circle->GetRadius();
+	float lengthDistance = abs(distanceV.Dot(nea1));
+
+	if (lengthDistance > lengthA + lengthB)
+		return false;
+
+
+	lengthA = ea2.Length();
+	lengthB = circle->GetRadius();
+	lengthDistance = abs(distanceV.Dot(nea2));
+
+	if (lengthDistance > lengthA + lengthB)
+		return false;
+
+	return true;
+}
+
+bool RectCollider::IsCollision(shared_ptr< CircleCollider> other, bool obb)
+{
+	if (obb)
+	{
+		return OBB(other);
+	}
+	else
+	{
+		return AABB(other);
 	}
 
 }

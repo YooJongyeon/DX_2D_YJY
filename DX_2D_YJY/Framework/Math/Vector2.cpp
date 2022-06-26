@@ -1,12 +1,12 @@
 #include "framework.h"
 #include "Vector2.h"
 
-Vector2 Vector2::operator+(const Vector2& value)
+Vector2 Vector2::operator+(const Vector2& value) const
 {
 	return Vector2(_x + value._x, _y + value._y);
 }
 
-Vector2& Vector2::operator+=(const Vector2& value)
+Vector2& Vector2::operator+=(const Vector2& value) 
 {
 	this->_x += value._x;
 	this->_y += value._y;
@@ -14,12 +14,12 @@ Vector2& Vector2::operator+=(const Vector2& value)
 	return *this;
 }
 
-Vector2 Vector2::operator-(const Vector2& value)
+Vector2 Vector2::operator-(const Vector2& value) const
 {
 	return Vector2(_x - value._x, _y - value._y);
 }
 
-Vector2& Vector2::operator-=(const Vector2& value)
+Vector2& Vector2::operator-=(const Vector2& value) 
 {
 	this->_x -= value._x;
 	this->_y -= value._y;
@@ -27,12 +27,12 @@ Vector2& Vector2::operator-=(const Vector2& value)
 	return *this;
 }
 
-Vector2 Vector2::operator*(const float& value)
+Vector2 Vector2::operator*(const float& value) const
 {
 	return Vector2(_x * value, _y * value);
 }
 
-bool Vector2::operator==(const Vector2 value)
+bool Vector2::operator==(const Vector2 value) const
 {
 	if ((this->_x == value._x) &&
 		(this->_y == value._y))
@@ -42,12 +42,12 @@ bool Vector2::operator==(const Vector2 value)
 	return false;
 }
 
-bool Vector2::operator!=(const Vector2 value)
+bool Vector2::operator!=(const Vector2 value) const
 {
 	return !(this->operator==(value));
 }
 
-bool Vector2::operator<(const Vector2 value)const
+bool Vector2::operator<(const Vector2 value) const
 {
 	if (_y != value._y)
 	{

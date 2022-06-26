@@ -11,10 +11,9 @@ public:
 	virtual void PostRender()override;
 
 private:
-	shared_ptr<RectCollider> _rectCollider1;
-	shared_ptr<RectCollider> _rectCollider2;
-
-	shared_ptr<CircleCollider> _circleCollider;
+	shared_ptr<CircleCollider> _circleCollider1;
+	shared_ptr<CircleCollider> _circleCollider2;
+	shared_ptr<RectCollider> _rectColldier1;
 
 
 };

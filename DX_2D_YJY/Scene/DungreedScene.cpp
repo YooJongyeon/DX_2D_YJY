@@ -30,8 +30,8 @@ void DungreedScene::Render()
 	_anagle->Render();
 
 	//imgui
-	ImGui::SliderFloat("ColliderPosX", &_rectCollider->GetPosition()._x, 0, 1280);
-	ImGui::SliderFloat("ColliderPosX", &_rectCollider->GetPosition()._y, 0, 720);
+	ImGui::SliderFloat("ColliderPosX", &_rectCollider->GetLocalPosition()._x, 0, 1280);
+	ImGui::SliderFloat("ColliderPosX", &_rectCollider->GetLocalPosition()._y, 0, 720);
 }
 
 

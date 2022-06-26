@@ -1,9 +1,8 @@
 #include "framework.h"
 #include "CircleCollider.h"
 
-CircleCollider::CircleCollider(float radius, const Vector2& center)
+CircleCollider::CircleCollider(float radius)
 	:_radius(radius)
-	, _center(center)
 {
 	CreateData();
 }
@@ -14,9 +13,7 @@ CircleCollider::~CircleCollider()
 
 void CircleCollider::CreateData()
 {
-	
 	VertexPos vertex;
-
 	for (int i = 0; i < 37; i++)
 	{
 		float x = cos(PI * (static_cast<float>(i) / 18)) * _radius;
@@ -30,7 +27,7 @@ void CircleCollider::CreateData()
 	_vertexBuffer = make_shared<VertexBuffer>(_vertices.data(), sizeof(VertexPos), _vertices.size());
 
 	_colorBuffer = make_shared<ColorBuffer>();
-	_colorBuffer->SetColor(GREEN);
+	_colorBuffer->SetColor(GREAN);
 
 	_transform = make_shared<Transform>();
 	_parent = nullptr;
@@ -38,6 +35,7 @@ void CircleCollider::CreateData()
 
 void CircleCollider::Update()
 {
+	_center = GetLocalPosition();
 	_transform->UpdateWorldBuffer();
 	_colorBuffer->Update();
 }
@@ -53,4 +51,25 @@ void CircleCollider::Render()
 	_vertexShader->Set();
 	_pixelShader->PSSet();
 	DEVICE_CONTEXT->Draw(_vertices.size(), 0);
+}
+
+bool CircleCollider::IsCollision(const Vector2& pos)
+{
+	if (GetRadius() >= _center.Distance(pos))
+		return true;
+
+	return false;
+}
+
+bool CircleCollider::IsCollision(shared_ptr<CircleCollider> circle)
+{
+	float distance = (_center - circle->_center).Length();
+	float distance2 = GetRadius() + circle->GetRadius();
+
+	return distance2 > distance;
+}
+
+bool CircleCollider::isCollision(shared_ptr<RectCollider> other, bool obb)
+{
+	return other->IsCollision(make_shared<CircleCollider>(*this), obb);
 }
