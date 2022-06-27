@@ -236,7 +236,7 @@
     <FxCompile Include="Shaders\TexturePixelShader.hlsl" />
     <FxCompile Include="Shaders\TextureVertexShader.hlsl" />
     <FxCompile Include="Shaders\TutorialShader.hlsl" />
-    <FxCompile Include="Shaders\ColliderShader\ColliderVertexShaer.hlsl" />
+    <FxCompile Include="Shaders\ColliderShader\ColliderVertexShader.hlsl" />
     <FxCompile Include="Shaders\ColliderShader\ColliderPixelShader.hlsl" />
   </ItemGroup>
 </Project>

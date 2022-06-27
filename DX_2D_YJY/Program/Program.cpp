@@ -8,7 +8,7 @@
 #include "../Scene/ColliderScene.h"
 Program::Program()
 {
-	_scene = make_shared<ColliderScene>();
+	_scene = make_shared<DungreedScene>();
 
 	_viewBuffer = make_shared<MatrixBuffer>();
 	_projectionBuffer = make_shared<MatrixBuffer>();

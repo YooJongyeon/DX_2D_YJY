@@ -22,6 +22,8 @@ Adventure::Adventure()
 		temp->_isActive = false;
 		_bullet.push_back(temp);
 	}
+	_collider = make_shared<RectCollider>(Vector2{ 100,100 });
+	_collider->SetParent(_texture->GetTransform());
 }
 
 Adventure::~Adventure()
@@ -37,11 +39,13 @@ void Adventure::Update()
 	_texture->Update();
 	_revolver->Update();
 	_revolverTrans->UpdateWorldBuffer();
+	_collider->Update();
 
 	for (auto& bullet : _bullet)
 	{
 		bullet->Update();
 	}
+
 }
 
 void Adventure::Render()
@@ -49,6 +53,7 @@ void Adventure::Render()
 	
 	_texture->Render();
 	_revolver->Render();
+	_collider->Render();
 
 	for (auto& bullet : _bullet)
 	{

@@ -17,6 +17,8 @@ void CircleCollider::Update()
 }
 void CircleCollider::CreateData()
 {
+	_type = Collider::ColType::CIRCLE;
+
 	VertexPos vertex;
 	for (int i = 0; i < 37; i++)
 	{
@@ -28,24 +30,30 @@ void CircleCollider::CreateData()
 	Collider::CreateData();
 }
 
-bool CircleCollider::IsCollision(const Vector2 pos)
+bool CircleCollider::IsCollision(const Vector2& pos)
 {
-	if (GetRadius() >= _center.Distance(pos))
+	float distance = _transform->GetWorldPos().Distance(pos);
+	float radius = GetRadius();
+	if (distance < GetRadius())
 		return true;
 
 	return false;
 }
-bool CircleCollider::IsCollision(shared_ptr<CircleCollider> circle)
+bool CircleCollider::IsCollision(shared_ptr<CircleCollider> circle, bool isobb )
 {
-	float distance = (_center - circle->_center).Length();
-	float distance2 = GetRadius() + circle->GetRadius();
+	Vector2 t = circle->GetWorldPosition();
+	Vector2 t2 = this->GetWorldPosition();
+	Vector2 t3 = t2 - t;
+	float distance = (t3).Length();
+	if (distance < GetRadius() + circle->GetRadius())
+		return true;
 
-	return distance2 > distance;
+	return false;
 }
 
-bool CircleCollider::IsCollision(shared_ptr<RectCollider> rect)
+bool CircleCollider::IsCollision(shared_ptr<RectCollider> rect , bool isobb )
 {
-	return rect->IsCollision(make_shared<CircleCollider>(*this));
+	return rect->IsCollision(make_shared<CircleCollider>(*this), isobb);
 }
 
 

@@ -16,6 +16,7 @@ public:
 
 private:
 	shared_ptr<Texture> _texture;
+	shared_ptr<Collider> _collider;
 	Vector2 _direction;
 
 	float _runTime = 0.0f;

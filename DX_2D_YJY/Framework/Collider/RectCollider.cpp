@@ -13,11 +13,13 @@ RectCollider::~RectCollider()
 
 void RectCollider::Update()
 {
+
 	Collider::Update();
 }
 
 void RectCollider::CreateData()
 {
+	_type = Collider::ColType::RECT;
 	VertexPos vertex;
 	//좌측상단
 	vertex.pos = XMFLOAT3(-_halfSize._x, _halfSize._y, 0.0f);
@@ -52,8 +54,8 @@ RectCollider::ObbDesc RectCollider::GetObb()
 	ObbDesc obbDesc;
 
 	obbDesc._position = GetWorldPosition();
-	obbDesc._lenght[0] = _halfSize._x * _transform->GetScale()._x;
-	obbDesc._lenght[1] = _halfSize._y * _transform->GetScale()._y;
+	obbDesc._lenght[0] = GetWorldHalfX();
+	obbDesc._lenght[1] = GetWorldHalfY();
 
 	XMFLOAT4X4 world;
 	XMStoreFloat4x4(&world, _transform->GetMatrix());
@@ -140,11 +142,11 @@ bool RectCollider::AABB(shared_ptr<CircleCollider> circle)
 		return true;
 
 	if ((circle->GetWorldPosition()._x > Left() && circle->GetWorldPosition()._x < Right())
-		|| (circle->GetWorldPosition()._y > Top() && circle->GetWorldPosition()._y < Bottom()))
+		|| (circle->GetWorldPosition()._y < Top() && circle->GetWorldPosition()._y > Bottom()))
 	{
 		if (circle->GetWorldPosition()._x < Left() - circle->GetRadius() || circle->GetWorldPosition()._x > Right() + circle->GetRadius())
 			return false;
-		if (circle->GetWorldPosition()._y < Top() - circle->GetRadius() || circle->GetWorldPosition()._y > Bottom() + circle->GetRadius())
+		if (circle->GetWorldPosition()._y > Top() + circle->GetRadius() || circle->GetWorldPosition()._y < Bottom() - circle->GetRadius())
 			return false;
 
 		return true;
@@ -174,6 +176,14 @@ bool RectCollider::OBB(shared_ptr<CircleCollider> circle)
 
 	Vector2 circleV = circle->GetWorldPosition();
 	Vector2 distanceV = circleV - obbA._position;
+
+	//원이 대각에 위치할 때
+	float diagona = sqrtf(obbA._lenght[0] + obbA._lenght[0] + obbA._lenght[1] + obbA._lenght[1]);
+	if (distanceV.Length() > circle->GetRadius() + diagona)
+	{
+		return false;
+	}
+
 	float lengthA = ea1.Length();
 	float lengthB = circle->GetRadius();
 	float lengthDistance = abs(distanceV.Dot(nea1));
@@ -192,7 +202,7 @@ bool RectCollider::OBB(shared_ptr<CircleCollider> circle)
 	return true;
 }
 
-bool RectCollider::IsCollision(const Vector2 pos)
+bool RectCollider::IsCollision(const Vector2& pos)
 {
 	if (pos._x < Left() || pos._x > Right())
 		return false;
@@ -201,14 +211,29 @@ bool RectCollider::IsCollision(const Vector2 pos)
 	return true;
 }
 
-bool RectCollider::IsCollision(shared_ptr<RectCollider> rect)
+bool RectCollider::IsCollision(shared_ptr<RectCollider> rect, bool isobb)
 {
-	return OBB(rect);
+	if (isobb)
+	{
+		return OBB(rect);
+	}
+	else
+	{
+		return AABB(rect);
+	}
+
 }
 
-bool RectCollider::IsCollision(shared_ptr<CircleCollider> circle)
+bool RectCollider::IsCollision(shared_ptr<CircleCollider> circle , bool isobb)
 {
-	return OBB(circle);
+	if (isobb)
+	{
+		return OBB(circle);
+	}
+	else
+	{
+		return AABB(circle);
+	}
 }
 
 

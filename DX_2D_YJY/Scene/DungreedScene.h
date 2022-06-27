@@ -14,8 +14,6 @@ private:
 	shared_ptr<Adventure>_adventure;
 	shared_ptr<Texture> _anagle;
 
-	shared_ptr<RectCollider> _rectCollider;
-
 	float _guiTest = 0.0f; 
 
 };

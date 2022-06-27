@@ -17,11 +17,13 @@ public:
 	 virtual void Update() override;
 	 virtual void CreateData() override;
 
-	 float Left() { return _center._x - _halfSize._x; }
-	 float Right() { return _center._x + _halfSize._x; }
-	 float Top() { return _center._y + _halfSize._y; }
-	 float Bottom() { return _center._y - _halfSize._y; }
+	 float Left() { return GetWorldPosition()._x - GetWorldHalfX(); }
+	 float Right() { return GetWorldPosition()._x + GetWorldHalfX(); }
+	 float Top() { return GetWorldPosition()._y + GetWorldHalfY(); }
+	 float Bottom() { return GetWorldPosition()._y - GetWorldHalfY(); }
 
+	 const float& GetWorldHalfX() { return _halfSize._x * GetWorldScale()._x; }
+	 const float& GetWorldHalfY() { return _halfSize._y * GetWorldScale()._y; }
 
 	 ObbDesc GetObb();
 
@@ -31,15 +33,15 @@ public:
 	 bool AABB(shared_ptr<class CircleCollider> circle);
 	 bool OBB(shared_ptr<class CircleCollider> circle);
 
-	 virtual bool IsCollision(const Vector2 pos) override;
-	 virtual bool IsCollision(shared_ptr<RectCollider> rect) override;
-	 virtual bool IsCollision(shared_ptr<CircleCollider> circle) override;
+	 virtual bool IsCollision(const Vector2& pos) override;
+	 virtual bool IsCollision(shared_ptr<RectCollider> rect, bool isobb = false) override;
+	 virtual bool IsCollision(shared_ptr<CircleCollider> circle , bool isobb = false) override;
 	 
 	 float SeoareatAxis(Vector2 separate, Vector2 e1, Vector2 e2);
 
 private:
 	Vector2 _halfSize = { 0,0 };
-	Vector2 _center;
+
 
 };
 

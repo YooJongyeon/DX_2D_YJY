@@ -31,32 +31,30 @@ void Collider::Render()
 
 void Collider::CreateData()
 {
-	_vertexShader = make_shared<VertexShader>(L"Shaders/ColliderShader/ColliderVertexShaer.hlsl");
+	_vertexShader = make_shared<VertexShader>(L"Shaders/ColliderShader/ColliderVertexShader.hlsl");
 	_pixelShader = make_shared<PixelShader>(L"Shaders/ColliderShader/ColliderPixelShader.hlsl");
 	_vertexBuffer = make_shared<VertexBuffer>(_vertices.data(), sizeof(VertexPos), _vertices.size());
 
 	_colorBuffer = make_shared<ColorBuffer>();
-	_colorBuffer->SetColor(GREAN);
+	_colorBuffer->SetColor(GREEN);
 
 	_transform = make_shared<Transform>();
-	_parent = nullptr;
+	
 }
 
-bool Collider::IsCollision(shared_ptr<Collider> col)
+bool Collider::IsCollision(shared_ptr<Collider> col , bool isobb)
 {
 	switch (col->_type)
 	{
 	case ColType::CIRCLE :
 	{
-		if (this->IsCollision(dynamic_pointer_cast<CircleCollider>(col)))
-			return true;
+		return this->IsCollision(dynamic_pointer_cast<CircleCollider>(col), isobb);
 		break;
 	}
 
 	case ColType::RECT:
 	{
-		if (this->IsCollision(dynamic_pointer_cast<RectCollider>(col)))
-			return true;
+		return this->IsCollision(dynamic_pointer_cast<RectCollider>(col), isobb);
 		break;
 	}
 

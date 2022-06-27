@@ -13,12 +13,13 @@ public:
 
     const XMMATRIX& GetMatrix() { return _srtMatrix; }
     void SetParent(shared_ptr<Transform> transform) { _parent = transform; }
+    shared_ptr<Transform> GetPatent() { return _parent; }
 
     Vector2& GetScale() { return _scale; }
 
     float& GetAnagle() { return _angle; }
 
-    Vector2 GetWorldPos()
+   const Vector2& GetWorldPos()
     {
         Vector2 worldPos;
         XMFLOAT4X4 matrix;
@@ -28,6 +29,19 @@ public:
 
         return worldPos;
     }
+
+   const Vector2& GetWorldScale()
+   {
+       if (_parent)
+       {
+           return Vector2(_scale._x * _parent->GetScale()._x, _scale._y * _parent->GetScale()._y);
+           
+       }
+       return _scale;
+   }
+
+
+
 
     Vector2	m_pos = { 0.0f,0.0f };
     float m_angle;

@@ -18,10 +18,10 @@ ColliderScene::~ColliderScene()
 void ColliderScene::Update()
 {
 	
-	if (_circleCollider1->IsCollision(_rectColldier1))
+	if (_circleCollider1->IsCollision(_rectColldier1, true))
 		_circleCollider1->SetRed();
 	else
-		_circleCollider1->SetGrean();
+		_circleCollider1->SetGreen();
 
 	//if (_circleCollider1->IsCollision(MOUSE_POS))
 	//	_circleCollider1->SetRed();

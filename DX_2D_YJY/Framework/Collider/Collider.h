@@ -1,5 +1,4 @@
 #pragma once
-
 class CircleCollider;
 class RectCollider;
 
@@ -17,29 +16,30 @@ public:
 	Collider();
 	virtual ~Collider();
 
-	virtual void Update() abstract;
+	virtual void Update();
 	virtual void Render();
 
 	virtual void CreateData()abstract;
 
-	virtual bool IsCollision(const Vector2 pos) abstract;
-	virtual bool IsCollision(shared_ptr<RectCollider> rect) abstract;
-	virtual bool IsCollision(shared_ptr<CircleCollider> circle) abstract;
+	virtual bool IsCollision(const Vector2& pos) abstract;
+	virtual bool IsCollision(shared_ptr<RectCollider> rect , bool isobb = false) abstract;
+	virtual bool IsCollision(shared_ptr<CircleCollider> circle ,bool isobb = false) abstract;
 
-	bool IsCollision(shared_ptr<Collider> col);
+	bool IsCollision(shared_ptr<Collider> col,bool isobb = false);
 
 	const Vector2& GetWorldPosition() { return _transform->GetWorldPos(); }
+	const Vector2& GetWorldScale() { return _transform->GetWorldScale(); }
+	
 	Vector2& GetLocalPosition() { return _transform->GetPos(); }
 	float& GetAngle() { return _transform->GetAnagle(); }
 
 	void SetRed() { _colorBuffer->SetColor(RED); }
-	void SetGrean() { _colorBuffer->SetColor(GREAN); }
+	void SetGreen() { _colorBuffer->SetColor(GREEN); }
 
 
-	void SetParent(shared_ptr<Transform> parent) { _parent = parent; }
+	void SetParent(shared_ptr<Transform> parent) { _transform->SetParent(parent); }
+	shared_ptr<Transform> GetParent(){ return _transform->GetPatent(); }
 
-
-	
 protected:
 
 	Vector2 _center;
@@ -56,7 +56,6 @@ protected:
 	//Collider 초록색으로 보통 세팅이 되어있다
 	shared_ptr<ColorBuffer> _colorBuffer;
 
-	shared_ptr<Transform> _parent;
 	shared_ptr<Transform> _transform;
 };
 
