@@ -82,8 +82,9 @@ using namespace std;
 // Obj
 #include "Object/Texture.h"
 #include "Object/GameObject/Adventure.h"
-#include"Object/GameObject/Revolver.h"
+#include "Object/GameObject/Revolver.h"
 #include "Object/GameObject/Bullet.h"
+#include "Object/GameObject/Monster.h"
 
 // Scene
 #include "Scene/Scene.h"

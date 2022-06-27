@@ -22,7 +22,7 @@ Adventure::Adventure()
 		temp->_isActive = false;
 		_bullet.push_back(temp);
 	}
-	_collider = make_shared<RectCollider>(Vector2{ 100,100 });
+	_collider = make_shared<RectCollider>(Vector2{ 90,90 });
 	_collider->SetParent(_texture->GetTransform());
 }
 
@@ -45,7 +45,6 @@ void Adventure::Update()
 	{
 		bullet->Update();
 	}
-
 }
 
 void Adventure::Render()
@@ -112,3 +111,5 @@ void Adventure::Fire()
 	}
 
 }
+
+

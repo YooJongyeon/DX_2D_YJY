@@ -11,6 +11,8 @@ public:
 	shared_ptr<Transform> GetTransfom() { return _texture->GetTransform(); }
 	void SetDirection(Vector2 dir);
 	void SetPosition(const Vector2& pos) { _texture->GetTransform()->GetPos() = pos; }
+	
+	bool IsCollision(shared_ptr<class Monster> monster);
 
 	bool _isActive = false;
 

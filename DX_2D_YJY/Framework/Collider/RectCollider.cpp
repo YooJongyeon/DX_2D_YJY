@@ -173,7 +173,6 @@ bool RectCollider::OBB(shared_ptr<CircleCollider> circle)
 	Vector2 nea2 = obbA._direction[1];
 	Vector2 ea2 = nea2 * obbA._lenght[1];
 
-
 	Vector2 circleV = circle->GetWorldPosition();
 	Vector2 distanceV = circleV - obbA._position;
 

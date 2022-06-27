@@ -8,6 +8,8 @@ Bullet::Bullet()
 	_collider = make_shared<CircleCollider>(20);
 	_collider->SetParent(_texture->GetTransform());
 	_collider->GetLocalPosition()._x += 20;
+
+
 }
 
 Bullet::~Bullet()
@@ -46,6 +48,20 @@ void Bullet::SetDirection(Vector2 dir)
 	_direction = dir;
 	_texture->GetTransform()->GetAnagle() = dir.Angle();
 }
+
+bool Bullet::IsCollision(shared_ptr<class Monster> monster)
+{
+	if (monster->_isActive == false || _isActive == false)
+		return false;
+
+	if (_collider->IsCollision(monster->GetCollider()))
+	{
+		return true;
+	}
+
+	return false;
+}
+
 
 
 

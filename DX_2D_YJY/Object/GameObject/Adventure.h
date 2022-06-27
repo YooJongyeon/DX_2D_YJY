@@ -8,6 +8,15 @@ public:
 	void Update();
 	void Render();
 
+	shared_ptr<class Bullet> Getbullet()
+	{
+		shared_ptr<Bullet> temp = make_shared<Bullet>(); 
+		_bullet.push_back(temp); 
+		return temp;
+	}
+
+	
+
 private:
 	void Move();
 	void Aiming();

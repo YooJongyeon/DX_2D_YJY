@@ -146,6 +146,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Collider\CircleCollider.h" />
+    <ClInclude Include="Object\GameObject\Monster.h" />
     <ClInclude Include="Scene\ColliderScene.h" />
     <ClInclude Include="Framework\Collider\Collider.h" />
     <ClInclude Include="Object\GameObject\Adventure.h" />
@@ -184,6 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\Collider\CircleCollider.cpp" />
+    <ClCompile Include="Object\GameObject\Monster.cpp" />
     <ClCompile Include="Scene\ColliderScene.cpp" />
     <ClCompile Include="Framework\Collider\Collider.cpp" />
     <ClCompile Include="Object\GameObject\Adventure.cpp" />

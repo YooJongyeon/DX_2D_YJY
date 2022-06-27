@@ -13,6 +13,7 @@ public:
 private:
 	shared_ptr<Adventure>_adventure;
 	shared_ptr<Texture> _anagle;
+	shared_ptr<Monster> _monster;
 
 	float _guiTest = 0.0f; 
 
