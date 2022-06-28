@@ -1,21 +1,14 @@
 #pragma once
-class Adventure
+class Player
 {
 public:
-	Adventure();
-	~Adventure();
+	Player();
+	~Player();
 
 	void Update();
 	void Render();
 
-	shared_ptr<class Bullet> Getbullet()
-	{
-		shared_ptr<Bullet> temp = make_shared<Bullet>(); 
-		_bullet.push_back(temp); 
-		return temp;
-	}
-
-	
+	void AttackMonsters(vector<shared_ptr<class Monster>> _monster);
 
 private:
 	void Move();

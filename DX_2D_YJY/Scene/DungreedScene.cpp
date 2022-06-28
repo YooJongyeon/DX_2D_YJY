@@ -3,10 +3,18 @@
 
 DungreedScene::DungreedScene()
 {
-	_adventure = make_shared <Adventure>();
-	_anagle = make_shared <Texture>(L"Resource/purpleaiming.png");
-	_monster = make_shared <Monster>();
-	
+	_player = make_shared <Player>();
+	_angle = make_shared <Texture>(L"Resource/purpleaiming.png");
+
+	float x = 0.0f;
+	_monster.reserve(_monsterCount);
+	for (int i = 0; i < _monsterCount; i++)
+	{
+		shared_ptr<Monster> temp = make_shared<Monster>();
+		temp->GetTrasform()->GetPos()._x += x;
+		x = (i + 1) * 200;
+		_monster.push_back(temp);
+	}
 }
 
 DungreedScene::~DungreedScene()
@@ -15,28 +23,32 @@ DungreedScene::~DungreedScene()
 
 void DungreedScene::Update()
 {
-	_adventure->Update();
-	_anagle->Update();
-	_monster->Update();
-
-	if (_adventure->Getbullet()->IsCollision(_monster))
+	_player->Update();
+	_angle->Update();
+	for (auto& monster : _monster)
 	{
-		_adventure->Getbullet()->_isActive = false;
-		_monster->_hp -= 10.0f;
-		if (_monster->_hp <= 0)
-			_monster->_isActive = false;
+		monster->Update();
+		if (monster->_hp <= 0)
+			monster->_isActive = false;
 	}
 
-	_anagle->GetTransform()->GetPos() = MOUSE_POS;
+	_player->AttackMonsters(_monster);
+
+	_angle->GetTransform()->GetPos() = MOUSE_POS;
 }
 
 void DungreedScene::Render()
 {
 
-	_adventure->Render();
-	_monster->Render();
+	_player->Render();
+	for (auto& monster : _monster)
+	{
+		monster->Render();
+
+	}
+
 	
-	_anagle->Render();
+	_angle->Render();
 
 
 }

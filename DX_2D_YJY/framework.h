@@ -48,7 +48,6 @@ using namespace std;
 //Math
 #include "Framework/Math/Vector2.h"
 
-
 // Render
 #include "Framework/Render/VertexLayOuts.h"
 #include "Framework/Render/ConstantBuffer.h"
@@ -57,6 +56,8 @@ using namespace std;
 #include "Framework/Render/VertexBuffer.h"
 #include "Framework/Render/VertexShader.h"
 #include "Framework/Render/PixelShader.h"
+//#include "Framework/Render/Shader.h
+#include "Framework/Render/ShaderManger.h"
 
 // Coomponent
 #include "Framework/Component/Transform.h"
@@ -77,11 +78,9 @@ using namespace std;
 #include"Framework/Texture/RasterizerState.h"
 #include "Framework/Texture/StateManager.h"
 
-
-
 // Obj
 #include "Object/Texture.h"
-#include "Object/GameObject/Adventure.h"
+#include "Object/GameObject/Player.h"
 #include "Object/GameObject/Revolver.h"
 #include "Object/GameObject/Bullet.h"
 #include "Object/GameObject/Monster.h"

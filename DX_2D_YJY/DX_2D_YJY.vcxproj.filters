@@ -105,9 +105,6 @@
     <ClInclude Include="Object\GameObject\Bullet.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\GameObject\Adventure.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Object\GameObject\Revolver.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -124,6 +121,15 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Object\GameObject\Monster.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\GameObject\Player.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Render\ShaderManger.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Render\Shader.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -203,9 +209,6 @@
     <ClCompile Include="Object\GameObject\Bullet.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\GameObject\Adventure.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Object\GameObject\Revolver.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -222,6 +225,15 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Object\GameObject\Monster.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\GameObject\Player.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Render\ShaderManger.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Render\Shader.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

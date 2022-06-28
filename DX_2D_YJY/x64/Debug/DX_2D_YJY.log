@@ -1,25 +1,6 @@
-﻿  Bullet.cpp
-L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\GameObject\Bullet.cpp(24,62): warning C4244: '인수': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\GameObject\Bullet.cpp(27,14): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(158,77): warning C4244: '인수': '_Ty'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-          with
-          [
-              _Ty=int
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2021): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::_Construct_in_place<_Ty,int>(_Ty &,int &&) noexcept(false)'에 대한 참조를 확인하세요.
-          with
-          [
-              _Ty=CircleCollider
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2747): message : 컴파일되는 함수 템플릿 인스턴스화 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int>(int &&)'에 대한 참조를 확인하세요.
-          with
-          [
-              _Ty=CircleCollider
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : 컴파일되는 함수 템플릿 인스턴스화 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<int>(int &&)'에 대한 참조를 확인하세요.
-          with
-          [
-              _Ty=CircleCollider
-          ]
-L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\GameObject\Bullet.cpp(8): message : 컴파일되는 함수 템플릿 인스턴스화 'std::shared_ptr<CircleCollider> std::make_shared<CircleCollider,int>(int &&)'에 대한 참조를 확인하세요.
+﻿  Player.cpp
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\GameObject\Player.cpp(92,50): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\GameObject\Player.cpp(97,50): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\GameObject\Player.cpp(102,50): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+L:\2022_06_15\DX_2D_YJY\DX_2D_YJY\Object\GameObject\Player.cpp(107,50): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   DX_2D_YJY.vcxproj -> L:\2022_06_15\DX_2D_YJY\x64\Debug\DX_2D_YJY.exe

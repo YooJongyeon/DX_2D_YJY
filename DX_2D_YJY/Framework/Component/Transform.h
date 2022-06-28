@@ -20,7 +20,7 @@ public:
     float& GetHp() { return _hp; }
     float& GetAnagle() { return _angle; }
 
-   const Vector2& GetWorldPos()
+   Vector2 GetWorldPos()
     {
         Vector2 worldPos;
         XMFLOAT4X4 matrix;
@@ -30,8 +30,7 @@ public:
 
         return worldPos;
     }
-
-   const Vector2& GetWorldScale()
+   Vector2 GetWorldScale()
    {
        if (_parent)
        {
@@ -40,9 +39,6 @@ public:
        }
        return _scale;
    }
-
-
-
 
     Vector2	m_pos = { 0.0f,0.0f };
     float m_angle;

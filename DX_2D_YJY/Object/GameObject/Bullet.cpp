@@ -51,14 +51,12 @@ void Bullet::SetDirection(Vector2 dir)
 
 bool Bullet::IsCollision(shared_ptr<class Monster> monster)
 {
-	if (monster->_isActive == false || _isActive == false)
-		return false;
-
+	if (monster->_isActive == false && _isActive == false)
+			return false;
 	if (_collider->IsCollision(monster->GetCollider()))
 	{
 		return true;
 	}
-
 	return false;
 }
 

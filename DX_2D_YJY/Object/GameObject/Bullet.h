@@ -22,7 +22,7 @@ private:
 	Vector2 _direction;
 
 	float _runTime = 0.0f;
-	float _destroyTime = 3.0f;
+	float _destroyTime = 5.0f;
 
 
 

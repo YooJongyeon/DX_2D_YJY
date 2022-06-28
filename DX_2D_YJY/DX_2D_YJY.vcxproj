@@ -147,9 +147,9 @@
   <ItemGroup>
     <ClInclude Include="Framework\Collider\CircleCollider.h" />
     <ClInclude Include="Object\GameObject\Monster.h" />
+    <ClInclude Include="Object\GameObject\Player.h" />
     <ClInclude Include="Scene\ColliderScene.h" />
     <ClInclude Include="Framework\Collider\Collider.h" />
-    <ClInclude Include="Object\GameObject\Adventure.h" />
     <ClInclude Include="Object\GameObject\Bullet.h" />
     <ClInclude Include="Object\GameObject\Revolver.h" />
     <ClInclude Include="Framework\Collider\RectCollider.h" />
@@ -173,6 +173,8 @@
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\SolarSystemScene.h" />
     <ClInclude Include="Framework\Texture\StateManager.h" />
+    <ClInclude Include="Framework\Render\ShaderManger.h" />
+    <ClInclude Include="Framework\Render\Shader.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Object\Texture.h" />
     <ClInclude Include="Scene\TextureScene.h" />
@@ -186,9 +188,9 @@
   <ItemGroup>
     <ClCompile Include="Framework\Collider\CircleCollider.cpp" />
     <ClCompile Include="Object\GameObject\Monster.cpp" />
+    <ClCompile Include="Object\GameObject\Player.cpp" />
     <ClCompile Include="Scene\ColliderScene.cpp" />
     <ClCompile Include="Framework\Collider\Collider.cpp" />
-    <ClCompile Include="Object\GameObject\Adventure.cpp" />
     <ClCompile Include="Object\GameObject\Bullet.cpp" />
     <ClCompile Include="Object\GameObject\Revolver.cpp" />
     <ClCompile Include="Framework\Collider\RectCollider.cpp" />
@@ -221,6 +223,8 @@
     <ClCompile Include="Framework\Utillty\Time.cpp" />
     <ClCompile Include="Framework\Texture\StateManager.cpp" />
     <ClCompile Include="Framework\Component\Transform.cpp" />
+    <ClCompile Include="Framework\Render\ShaderManger.cpp" />
+    <ClCompile Include="Framework\Render\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc" />

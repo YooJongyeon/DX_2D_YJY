@@ -9,8 +9,9 @@ public:
 	void Update();
 	void Render();
 	shared_ptr<Collider> GetCollider() { return _collider; }
-
-	bool _isActive = false ;
+	shared_ptr<Transform> GetTrasform() { return _texture->GetTransform(); }
+	
+	bool _isActive = false;
 
 	float _hp = 100.0f;
 private:

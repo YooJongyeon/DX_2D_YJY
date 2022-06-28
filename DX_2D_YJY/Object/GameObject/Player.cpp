@@ -1,12 +1,12 @@
 #include "framework.h"
-#include "Adventure.h"
+#include "Player.h"
 
-Adventure::Adventure()
+Player::Player()
 {
 	_texture = make_shared <Texture>(L"Resource/adventure.png");
 	_texture->GetTransform()->GetScale() = { 0.5f, 0.5f };
 
-	
+
 	_revolverTrans = make_shared<Transform>();
 	_revolverTrans->SetParent(_texture->GetTransform());
 	_revolverTrans->GetPos()._x = 50;
@@ -26,11 +26,11 @@ Adventure::Adventure()
 	_collider->SetParent(_texture->GetTransform());
 }
 
-Adventure::~Adventure()
+Player::~Player()
 {
 }
 
-void Adventure::Update()
+void Player::Update()
 {
 	Move();
 	Aiming();
@@ -47,9 +47,8 @@ void Adventure::Update()
 	}
 }
 
-void Adventure::Render()
+void Player::Render()
 {
-	
 	_texture->Render();
 	_revolver->Render();
 	_collider->Render();
@@ -60,7 +59,33 @@ void Adventure::Render()
 	}
 }
 
-void Adventure::Move()
+void Player::AttackMonsters(vector<shared_ptr<class Monster>> _monster)
+{
+	for (auto& bullet : _bullet)
+	{
+		if (bullet->_isActive == false)
+		{
+			continue;
+		}
+		for (auto& monster : _monster)
+		{
+			if (bullet->IsCollision(monster))
+			{
+				monster->GetCollider()->SetRed();
+				monster->_hp -= 50;
+				bullet->_isActive = false;
+			}
+			else
+			{
+				monster->GetCollider()->SetGreen();
+			}
+		}
+	}
+	
+}
+
+
+void Player::Move()
 {
 	if (KEY_PRESS('A'))
 	{
@@ -81,23 +106,23 @@ void Adventure::Move()
 	{
 		_texture->GetTransform()->GetPos()._y -= 100 * DELTA_TIME;
 	}
-	
+
 }
 
-void Adventure::Aiming()
+void Player::Aiming()
 {
 	Vector2 v = MOUSE_POS - _revolverTrans->GetWorldPos();
 	float angle = v.Angle();
 	_revolverTrans->GetAnagle() = angle;
 }
 
-void Adventure::Fire()
+void Player::Fire()
 {
 	if (KEY_Down(VK_LBUTTON))
 	{
 		for (auto& bullet : _bullet)
 		{
-			if (bullet ->_isActive == false)
+			if (bullet->_isActive == false)
 			{
 				Vector2 v = MOUSE_POS - _revolverTrans->GetWorldPos();
 				v.Normallize();
@@ -107,9 +132,6 @@ void Adventure::Fire()
 
 				break;
 			}
-		}	
+		}
 	}
-
 }
-
-

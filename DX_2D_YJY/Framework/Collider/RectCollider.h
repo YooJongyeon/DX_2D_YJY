@@ -17,13 +17,29 @@ public:
 	 virtual void Update() override;
 	 virtual void CreateData() override;
 
-	 float Left() { return GetWorldPosition()._x - GetWorldHalfX(); }
-	 float Right() { return GetWorldPosition()._x + GetWorldHalfX(); }
-	 float Top() { return GetWorldPosition()._y + GetWorldHalfY(); }
-	 float Bottom() { return GetWorldPosition()._y - GetWorldHalfY(); }
+	 float Left()
+	 { 
+		 Vector2 temp = GetWorldPosition();
+		 return temp._x - GetWorldHalfX();
+	 }
+	 float Right() 
+	 {
+		 Vector2 temp = GetWorldPosition();
+		 return temp._x + GetWorldHalfX();
+	 }
+	 float Top() 
+	 { 
+		 Vector2 temp = GetWorldPosition();
+		 return temp._y + GetWorldHalfY();
+	 }
+	 float Bottom() 
+	 { 
+		 Vector2 temp = GetWorldPosition();
+		 return temp._y - GetWorldHalfY();
+	 }
 
-	 const float& GetWorldHalfX() { return _halfSize._x * GetWorldScale()._x; }
-	 const float& GetWorldHalfY() { return _halfSize._y * GetWorldScale()._y; }
+	 float GetWorldHalfX() { return _halfSize._x * GetWorldScale()._x; }
+	 float GetWorldHalfY() { return _halfSize._y * GetWorldScale()._y; }
 
 	 ObbDesc GetObb();
 
