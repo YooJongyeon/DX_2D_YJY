@@ -10,8 +10,8 @@ DungreedScene::DungreedScene()
 	for (int i = 0; i < _monsterCount; i++)
 	{
 		shared_ptr<Monster> temp = make_shared<Monster>();
-		temp->GetTrasform()->GetPos()._x += _x;
-		_x = (i + 1) * 200;
+		temp->GetTrasform()->GetPos()._x += _pos;
+		_pos = (i + 1) * 200;
 		_monster.push_back(temp);
 	}
 }
