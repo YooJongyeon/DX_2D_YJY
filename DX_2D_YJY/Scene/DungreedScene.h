@@ -16,6 +16,7 @@ private:
 	vector<shared_ptr<Monster>> _monster;
 
 	float _guiTest = 0.0f; 
+	float _x = 0.0f;
 
 	int _monsterCount = 5;
 

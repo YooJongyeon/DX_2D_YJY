@@ -6,13 +6,12 @@ DungreedScene::DungreedScene()
 	_player = make_shared <Player>();
 	_angle = make_shared <Texture>(L"Resource/purpleaiming.png");
 
-	float x = 0.0f;
 	_monster.reserve(_monsterCount);
 	for (int i = 0; i < _monsterCount; i++)
 	{
 		shared_ptr<Monster> temp = make_shared<Monster>();
-		temp->GetTrasform()->GetPos()._x += x;
-		x = (i + 1) * 200;
+		temp->GetTrasform()->GetPos()._x += _x;
+		_x = (i + 1) * 200;
 		_monster.push_back(temp);
 	}
 }

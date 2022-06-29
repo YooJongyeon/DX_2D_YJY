@@ -21,7 +21,6 @@ void Monster::Update()
 {
 	if (_isActive == false)
 		return;
-
 	_texture->Update();
 	_collider->Update();	
 }
@@ -31,7 +30,6 @@ void Monster::Render()
 
 	if (_isActive == false)
 		return;
-
 	ImGui::Text("Target hp: %d", (UINT)_hp);
 	_texture->Render();
 	_collider->Render();
