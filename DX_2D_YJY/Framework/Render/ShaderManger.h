@@ -31,9 +31,12 @@ public:
 		return nullptr;
 
 	}
+	shared_ptr<VertexShader> AddVS(wstring file);
+	shared_ptr<PixelShader> AddPS(wstring file);
 
 
 private:
 	static ShaderManger* _instance;
+	unordered_map<wstring, shared_ptr<Shader>> _shadersMap;
 };
 

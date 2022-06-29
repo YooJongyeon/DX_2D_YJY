@@ -1,11 +1,13 @@
 #pragma once
-class Shader
+class Shader 
 {
 public:
 	Shader();
 	~Shader();
 
-private:
+	virtual void Set() abstract;
+
+protected:
 	Microsoft::WRL::ComPtr<ID3DBlob> _blob;
 };
 

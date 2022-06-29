@@ -3,8 +3,8 @@
 
 Texture::Texture(wstring file)
 {
-    _vertexShader = make_shared<VertexShader>(L"Shaders/TextureVertexShader.hlsl");
-    _pixelShader = make_shared<PixelShader>(L"Shaders/TexturePixelShader.hlsl");
+    _vertexShader = ADD_VS(L"Shaders/TextureVertexShader.hlsl");
+    _pixelShader =  ADD_PS(L"Shaders/TexturePixelShader.hlsl");
 
     _srv = make_shared<SRV>(file);
   
@@ -82,7 +82,7 @@ void Texture::Render()
     _srv->PSSet(0);
    
     _vertexShader->Set();
-    _pixelShader->PSSet();
+    _pixelShader->Set();
 
     DEVICE_CONTEXT->DrawIndexed(_indicies.size(), 0, 0);
 }

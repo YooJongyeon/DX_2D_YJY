@@ -28,4 +28,6 @@
 #define BLEND_STATE     StateManager::GetInstance()->GetBlendState()
 #define CULL_MODE_STATE StateManager::GetInstance()->GetRastizerState()
 
-
+#define ADD_VS(k)       ShaderManger::Getinstance()->AddVS(k)
+#define ADD_PS(k)       ShaderManger::Getinstance()->AddPS(k)
+ 

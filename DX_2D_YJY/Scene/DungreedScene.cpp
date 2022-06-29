@@ -40,16 +40,12 @@ void DungreedScene::Render()
 {
 
 	_player->Render();
+	_angle->Render();
 	for (auto& monster : _monster)
 	{
 		monster->Render();
 
 	}
-
-	
-	_angle->Render();
-
-
 }
 
 

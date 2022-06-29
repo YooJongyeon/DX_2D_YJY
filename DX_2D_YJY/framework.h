@@ -14,6 +14,7 @@
 #include <memory.h>
 #include <tchar.h>
 #include <vector>
+#include <unordered_map>
 #include <map>
 #include <algorithm>
 #include <wrl/client.h>
@@ -26,6 +27,7 @@
 
 #pragma comment(lib,"d3d11.lib")
 #pragma comment(lib,"d3dcompiler.lib")
+#pragma comment(lib,"dxguid.lib")
 
 using namespace DirectX;
 using namespace std;
@@ -54,9 +56,9 @@ using namespace std;
 #include "Framework/Render/GlobalBuffer.h"
 #include "Framework/Render/IndexBuffer.h"
 #include "Framework/Render/VertexBuffer.h"
+#include "Framework/Render/Shader.h"
 #include "Framework/Render/VertexShader.h"
 #include "Framework/Render/PixelShader.h"
-//#include "Framework/Render/Shader.h
 #include "Framework/Render/ShaderManger.h"
 
 // Coomponent
