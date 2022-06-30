@@ -28,7 +28,7 @@ public:
         worldPos._x = matrix._41;
         worldPos._y = matrix._42;
 
-        return worldPos;
+        return (worldPos);
     }
    Vector2 GetWorldScale()
    {

@@ -24,7 +24,5 @@ private:
 	float _runTime = 0.0f;
 	float _destroyTime = 5.0f;
 
-
-
 };
 

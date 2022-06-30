@@ -1,8 +1,7 @@
 #pragma once
 class VertexShader : public Shader
 {
-	//friend class ShaderManger();
-	
+	friend class ShaderManager;
 public:
 	VertexShader(wstring file);
 	~VertexShader();

@@ -148,6 +148,7 @@
     <ClInclude Include="Framework\Collider\CircleCollider.h" />
     <ClInclude Include="Object\GameObject\Monster.h" />
     <ClInclude Include="Object\GameObject\Player.h" />
+    <ClInclude Include="Object\BagicObject\Quad.h" />
     <ClInclude Include="Scene\ColliderScene.h" />
     <ClInclude Include="Framework\Collider\Collider.h" />
     <ClInclude Include="Object\GameObject\Bullet.h" />
@@ -176,7 +177,7 @@
     <ClInclude Include="Framework\Render\ShaderManger.h" />
     <ClInclude Include="Framework\Render\Shader.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Object\Texture.h" />
+    <ClInclude Include="Framework\Texture\Texture.h" />
     <ClInclude Include="Scene\TextureScene.h" />
     <ClInclude Include="Scene\TextureWVPScene.h" />
     <ClInclude Include="Framework\Utillty\Time.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="Framework\Collider\CircleCollider.cpp" />
     <ClCompile Include="Object\GameObject\Monster.cpp" />
     <ClCompile Include="Object\GameObject\Player.cpp" />
+    <ClCompile Include="Object\BagicObject\Quad.cpp" />
     <ClCompile Include="Scene\ColliderScene.cpp" />
     <ClCompile Include="Framework\Collider\Collider.cpp" />
     <ClCompile Include="Object\GameObject\Bullet.cpp" />
@@ -213,7 +215,7 @@
     <ClCompile Include="Framework\Texture\SamplerState.cpp" />
     <ClCompile Include="Framework\Texture\SRV.cpp" />
     <ClCompile Include="Framework\Utillty\InputManger.cpp" />
-    <ClCompile Include="Object\Texture.cpp" />
+    <ClCompile Include="Framework\Texture\Texture.cpp" />
     <ClCompile Include="Program\Program.cpp" />
     <ClCompile Include="Framework\Texture\RasterizerState.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />

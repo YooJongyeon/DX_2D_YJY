@@ -22,7 +22,7 @@ void Collider::Render()
 	_colorBuffer->SetPSBuffer(0);
 
 	_vertexBuffer->IASet(0);
-	DEVICE_CONTEXT->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_LINESTRIP);
+	IASetPT(D3D_PRIMITIVE_TOPOLOGY_LINESTRIP);
 
 	_vertexShader->Set();
 	_pixelShader->Set();

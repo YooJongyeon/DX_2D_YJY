@@ -50,6 +50,8 @@ using namespace std;
 //Math
 #include "Framework/Math/Vector2.h"
 
+
+
 // Render
 #include "Framework/Render/VertexLayOuts.h"
 #include "Framework/Render/ConstantBuffer.h"
@@ -79,9 +81,12 @@ using namespace std;
 #include "Framework/Texture/BlendState.h"
 #include"Framework/Texture/RasterizerState.h"
 #include "Framework/Texture/StateManager.h"
+#include "Framework/Texture/Texture.h"
+
+// BagicObject
+#include "Object/BagicObject/Quad.h"
 
 // Obj
-#include "Object/Texture.h"
 #include "Object/GameObject/Player.h"
 #include "Object/GameObject/Revolver.h"
 #include "Object/GameObject/Bullet.h"
