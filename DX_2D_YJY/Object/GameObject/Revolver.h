@@ -9,15 +9,15 @@ public:
 	void Update();
 	void Render();
 
-	void SetPlayer(shared_ptr<Transform> transform)
+	void SetPlayer(shared_ptr<Transform> parent)
 	{
-		_texture->GetTransform()->SetParent(transform);
+		_quad->GetTransform()->SetParent(parent);
 	}
 
 
 private:
 
-	shared_ptr<Texture> _texture;
+	shared_ptr<Quad> _quad;
 
 };
 

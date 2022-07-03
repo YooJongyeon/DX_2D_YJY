@@ -51,3 +51,21 @@ private:
 
 
 };
+
+class FrameBuffer : public ConstantBuffer
+{
+public:
+	struct Data
+	{
+		XMFLOAT2 maxFrame;
+		XMFLOAT2 curFrame;
+	}data;
+
+	FrameBuffer()
+		:ConstantBuffer(&data,sizeof(Data))
+	{
+		data.maxFrame = { 1.0f,1.0f };
+		data.curFrame = { 1.0f,1.0f };
+	}
+
+};

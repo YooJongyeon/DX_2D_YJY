@@ -2,7 +2,7 @@
 #include "TextureWVPScene.h"
 TextureWVPScene::TextureWVPScene()
 {
-	_texture = make_shared<Texture>(L"Resource/Fatalis.png");
+	_quad = make_shared<Quad>(L"Resource/Fatalis.png");
 
 	_worldBuffer = make_shared<MatrixBuffer>();
 	
@@ -73,12 +73,12 @@ void TextureWVPScene::Update()
 	_worldBuffer->Update();
 	
 
-	_texture->Update();
+	_quad->Update();
 }
 
 void TextureWVPScene::Render()
 {
 	_worldBuffer->SetVSBuffer(0);
 	
-	_texture->Render();
+	_quad->Render();
 }

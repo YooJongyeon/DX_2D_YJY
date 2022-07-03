@@ -8,16 +8,16 @@ public:
 	void Update();
 	void Render();
 
-	shared_ptr<Transform> GetTransfom() { return _texture->GetTransform(); }
+	shared_ptr<Transform> GetTransfom() { return _quad->GetTransform(); }
 	void SetDirection(Vector2 dir);
-	void SetPosition(const Vector2& pos) { _texture->GetTransform()->GetPos() = pos; }
+	void SetPosition(const Vector2& pos) { _quad->GetTransform()->GetPos() = pos; }
 	
 	bool IsCollision(shared_ptr<class Monster> monster);
 
 	bool _isActive = false;
 
 private:
-	shared_ptr<Texture> _texture;
+	shared_ptr<Quad> _quad;
 	shared_ptr<Collider> _collider;
 	Vector2 _direction;
 

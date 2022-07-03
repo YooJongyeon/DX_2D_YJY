@@ -3,13 +3,13 @@
 
 Player::Player()
 {
-	_texture = make_shared <Texture>(L"Resource/adventure.png");
-	_texture->GetTransform()->GetScale() = { 0.5f, 0.5f };
+	_quad = make_shared <Quad>(L"Resource/adventure.png");
+	_quad->GetTransform()->GetScale() = { 0.5f, 0.5f };
 
 
 	_revolverTrans = make_shared<Transform>();
-	_revolverTrans->SetParent(_texture->GetTransform());
-	_revolverTrans->GetPos()._x = 50;
+	_revolverTrans->SetParent(_quad->GetTransform());
+	_revolverTrans->GetPos()._x = _quad->GetHalfSize()._x;
 
 	_revolver = make_shared <Revolver>();
 	_revolver->SetPlayer(_revolverTrans);
@@ -22,8 +22,8 @@ Player::Player()
 		temp->_isActive = false;
 		_bullet.push_back(temp);
 	}
-	_collider = make_shared<RectCollider>(Vector2{ 90,90 });
-	_collider->SetParent(_texture->GetTransform());
+	_collider = make_shared<RectCollider>(_quad->GetHalfSize());
+	_collider->SetParent(_quad->GetTransform());
 }
 
 Player::~Player()
@@ -36,7 +36,7 @@ void Player::Update()
 	Aiming();
 	Fire();
 
-	_texture->Update();
+	_quad->Update();
 	_revolver->Update();
 	_revolverTrans->UpdateWorldBuffer();
 	_collider->Update();
@@ -49,7 +49,7 @@ void Player::Update()
 
 void Player::Render()
 {
-	_texture->Render();
+	_quad->Render();
 	_revolver->Render();
 	_collider->Render();
 
@@ -89,22 +89,22 @@ void Player::Move()
 {
 	if (KEY_PRESS('A'))
 	{
-		_texture->GetTransform()->GetPos()._x -= 100 * DELTA_TIME;
+		_quad->GetTransform()->GetPos()._x -= 100 * DELTA_TIME;
 	}
 
 	if (KEY_PRESS('D'))
 	{
-		_texture->GetTransform()->GetPos()._x += 100 * DELTA_TIME;
+		_quad->GetTransform()->GetPos()._x += 100 * DELTA_TIME;
 	}
 
 	if (KEY_PRESS('W'))
 	{
-		_texture->GetTransform()->GetPos()._y += 100 * DELTA_TIME;
+		_quad->GetTransform()->GetPos()._y += 100 * DELTA_TIME;
 	}
 
 	if (KEY_PRESS('S'))
 	{
-		_texture->GetTransform()->GetPos()._y -= 100 * DELTA_TIME;
+		_quad->GetTransform()->GetPos()._y -= 100 * DELTA_TIME;
 	}
 
 }

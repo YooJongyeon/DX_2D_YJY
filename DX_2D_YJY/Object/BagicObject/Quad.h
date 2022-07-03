@@ -2,20 +2,21 @@
 class Quad
 {
 public:
-	
+
     Quad(wstring file);
-	~Quad();
+    ~Quad();
 
-	void Update();
-	void Render();
+    virtual void Update();
+    virtual void Render();
 
-    void CreateData();
+    virtual void CreateData() ;
 
     shared_ptr<Transform> GetTransform() { return _transform; }
     void SetParent(shared_ptr<Transform> parent) { _transform->SetParent(parent); }
-    const Vector2& GetSize() { return _haifSize; }
+    const Vector2& GetHalfSize() { return _halfSize; }
 
-private:
+protected:
+    Quad() {}
 
     shared_ptr<Transform> _transform;
 
@@ -32,7 +33,7 @@ private:
     shared_ptr<VertexShader>    _vertexShader;
     shared_ptr<PixelShader>     _pixelShader;
 
-    Vector2 _haifSize = { 1,1 };
+    Vector2 _halfSize = { 1,1 };
 
 };
 

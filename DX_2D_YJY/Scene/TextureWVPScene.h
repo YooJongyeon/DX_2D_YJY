@@ -10,7 +10,7 @@ public:
 	virtual void Render() override;
 
 private:
-	shared_ptr<Texture> _texture;
+	shared_ptr<Quad> _quad;
 
 	XMFLOAT2 _scale = { 1,1 };
 	XMFLOAT2 _pos = { 0,0 };

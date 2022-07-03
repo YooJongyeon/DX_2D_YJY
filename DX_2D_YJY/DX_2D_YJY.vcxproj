@@ -176,6 +176,7 @@
     <ClInclude Include="Framework\Texture\StateManager.h" />
     <ClInclude Include="Framework\Render\ShaderManger.h" />
     <ClInclude Include="Framework\Render\Shader.h" />
+    <ClInclude Include="Object\BagicObject\Sprite.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Framework\Texture\Texture.h" />
     <ClInclude Include="Scene\TextureScene.h" />
@@ -227,12 +228,24 @@
     <ClCompile Include="Framework\Component\Transform.cpp" />
     <ClCompile Include="Framework\Render\ShaderManger.cpp" />
     <ClCompile Include="Framework\Render\Shader.cpp" />
+    <ClCompile Include="Object\BagicObject\Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="DX_2D_YJY.ico" />
+    <Image Include="Resource\adventure.png" />
+    <Image Include="Resource\Angle.png" />
+    <Image Include="Resource\earth.PNG" />
+    <Image Include="Resource\Fatalis.png" />
+    <Image Include="Resource\monster.png" />
+    <Image Include="Resource\moon.PNG" />
+    <Image Include="Resource\purpleaiming.png" />
+    <Image Include="Resource\redbullet.png" />
+    <Image Include="Resource\revolver.png" />
+    <Image Include="Resource\sun.PNG" />
+    <Image Include="Resource\zelda.png" />
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +272,20 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
     </FxCompile>
     <FxCompile Include="Shaders\ColliderShader\ColliderPixelShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Shaders\SpriteShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>

@@ -3,9 +3,9 @@
 
 SolarSystemScene::SolarSystemScene()
 {
-	_sun = make_shared <Texture>(L"Resource/sun.PNG");
-	_earth = make_shared <Texture>(L"Resource/earth.PNG");
-	_moon = make_shared <Texture>(L"Resource/moon.PNG");
+	_sun = make_shared <Quad>(L"Resource/sun.PNG");
+	_earth = make_shared <Quad>(L"Resource/earth.PNG");
+	_moon = make_shared <Quad>(L"Resource/moon.PNG");
 
 	_sun->GetTransform()->GetScale()._x *= 1.3f;
 	_sun->GetTransform()->GetScale()._y *= 1.3f;

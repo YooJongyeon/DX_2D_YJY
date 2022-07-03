@@ -6,6 +6,9 @@ Quad::Quad(wstring file)
     _vertexShader = ADD_VS(L"Shaders/TextureVertexShader.hlsl");
     _pixelShader = ADD_PS(L"Shaders/TexturePixelShader.hlsl");
 
+    _texture = Texture::Add(file);
+    _halfSize = _texture->Getsize() * 0.5f;
+
     CreateData();
 
     UINT stride = sizeof(VertexUV);
@@ -14,9 +17,6 @@ Quad::Quad(wstring file)
     _indexBuffer = make_shared<IndexBuffer>(_indicies.data(), _indicies.size());
 
     _transform = make_shared<Transform>();
-
-    _texture = Texture::Add(file);
-    _haifSize = _texture->Getsize() * 0.5f;
 }
 
 Quad::~Quad()
@@ -53,10 +53,10 @@ void Quad::Render()
 void Quad::CreateData()
 {
     {
-        _vertices.emplace_back(- _haifSize._x, _haifSize._y,0,0);
-        _vertices.emplace_back(_haifSize._x, _haifSize._y, 0, 0);
-        _vertices.emplace_back(-_haifSize._x, -_haifSize._y, 0, 0);
-        _vertices.emplace_back(_haifSize._x, -_haifSize._y, 0, 0);
+        _vertices.emplace_back(-_halfSize._x, _halfSize._y,0,0);
+        _vertices.emplace_back(_halfSize._x, _halfSize._y, 1, 0);
+        _vertices.emplace_back(-_halfSize._x, -_halfSize._y, 0, 1);
+        _vertices.emplace_back(_halfSize._x, -_halfSize._y, 1, 1);
     }
 
     _indicies.push_back(0);

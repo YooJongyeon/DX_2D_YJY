@@ -3,7 +3,7 @@
 
 TextureScene::TextureScene()
 {
-	_texture = make_shared<Texture>(L"Resource/Fatalis.png");
+	_quad = make_shared<Quad>(L"Resource/Fatalis.png");
 }
 
 TextureScene::~TextureScene()
@@ -12,10 +12,10 @@ TextureScene::~TextureScene()
 
 void TextureScene::Update()
 {
-	_texture->Update();
+	_quad->Update();
 }
 
 void TextureScene::Render()
 {
-	_texture->Render();
+	_quad->Render();
 }

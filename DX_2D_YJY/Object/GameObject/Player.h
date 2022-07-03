@@ -17,7 +17,7 @@ private:
 
 private:
 
-	shared_ptr<Texture> _texture;
+	shared_ptr<Quad> _quad;
 	shared_ptr<Collider> _collider;
 
 	shared_ptr<class Revolver> _revolver;

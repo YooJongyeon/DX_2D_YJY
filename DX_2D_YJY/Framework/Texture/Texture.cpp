@@ -1,7 +1,7 @@
 #include "framework.h"
 #include "Texture.h"
 
-unordered_map<wstring, shared_ptr<Texture>> _texturesMap;
+unordered_map<wstring, shared_ptr<Texture>> Texture ::_texturesMap;
 
 Texture::Texture(Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> srv, ScratchImage& image)
 	:_srv(srv)

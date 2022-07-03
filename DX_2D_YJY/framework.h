@@ -85,6 +85,7 @@ using namespace std;
 
 // BagicObject
 #include "Object/BagicObject/Quad.h"
+#include "Object/BagicObject/Sprite.h"
 
 // Obj
 #include "Object/GameObject/Player.h"

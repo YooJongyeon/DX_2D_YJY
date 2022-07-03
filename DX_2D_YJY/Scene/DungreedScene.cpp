@@ -4,7 +4,11 @@
 DungreedScene::DungreedScene()
 {
 	_player = make_shared <Player>();
-	_angle = make_shared <Texture>(L"Resource/purpleaiming.png");
+	_angle = make_shared <Quad>(L"Resource/purpleaiming.png");
+	_angle->GetTransform()->GetScale() *= 0.2f;
+
+	_zelda = make_shared<Sprite>(L"Resource/zelda.png", Vector2(10, 8));
+	_zelda->GetTransform()->GetPos() = Vector2(WIN_WIDTH, WIN_HEIGHT) * 0.5f;
 
 	_monster.reserve(_monsterCount);
 	for (int i = 0; i < _monsterCount; i++)
@@ -24,6 +28,7 @@ void DungreedScene::Update()
 {
 	_player->Update();
 	_angle->Update();
+	_zelda->Update();
 	for (auto& monster : _monster)
 	{
 		monster->Update();
@@ -39,6 +44,7 @@ void DungreedScene::Update()
 void DungreedScene::Render()
 {
 	_player->Render();
+	_zelda->Render();
 	_angle->Render();
 	for (auto& monster : _monster)
 	{

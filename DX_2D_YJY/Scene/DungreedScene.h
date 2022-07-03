@@ -12,8 +12,10 @@ public:
 
 private:
 	shared_ptr<Player> _player;
-	shared_ptr<Texture> _angle;
+	shared_ptr<Quad> _angle;
 	vector<shared_ptr<Monster>> _monster;
+
+	shared_ptr<Sprite> _zelda;
 
 	float _guiTest = 0.0f; 
 	float _pos = 0.0f;

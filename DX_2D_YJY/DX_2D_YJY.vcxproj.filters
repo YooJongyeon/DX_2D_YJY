@@ -135,6 +135,9 @@
     <ClInclude Include="Object\BagicObject\Quad.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Object\BagicObject\Sprite.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX_2D_YJY.cpp">
@@ -242,6 +245,9 @@
     <ClCompile Include="Object\BagicObject\Quad.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Object\BagicObject\Sprite.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc">
@@ -255,6 +261,39 @@
     <Image Include="DX_2D_YJY.ico">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="Resource\zelda.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\adventure.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Angle.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\earth.PNG">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Fatalis.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\monster.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\moon.PNG">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\purpleaiming.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\redbullet.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\revolver.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\sun.PNG">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\TexturePixelShader.hlsl" />
@@ -262,5 +301,6 @@
     <FxCompile Include="Shaders\TutorialShader.hlsl" />
     <FxCompile Include="Shaders\ColliderShader\ColliderVertexShader.hlsl" />
     <FxCompile Include="Shaders\ColliderShader\ColliderPixelShader.hlsl" />
+    <FxCompile Include="Shaders\SpriteShader.hlsl" />
   </ItemGroup>
 </Project>

@@ -3,7 +3,8 @@
 
 Revolver::Revolver()
 {
-	_texture = make_shared <Texture>(L"Resource/revolver.png");
+	_quad = make_shared <Quad>(L"Resource/revolver.png");
+	_quad->GetTransform()->GetScale() *= 0.5f;
 }
 
 Revolver::~Revolver()
@@ -12,10 +13,10 @@ Revolver::~Revolver()
 
 void Revolver::Update()
 {
-	_texture->Update();
+	_quad->Update();
 }
 
 void Revolver::Render()
 {
-	_texture->Render();
+	_quad->Render();
 }
