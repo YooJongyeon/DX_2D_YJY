@@ -12,6 +12,8 @@ public:
 	virtual void CreateData() override;
 	
 	Vector2 GetHalfFrameSize();
+	shared_ptr<FrameBuffer> GetFrameBuffer() { return _frameBuffer; }
+	void SetFrameBuffer(int x, int y) { _frameBuffer->data.curFrame = { (float)x,(float)y }; }
 private:
 	Vector2 _maxFrame;
 	shared_ptr<FrameBuffer> _frameBuffer;

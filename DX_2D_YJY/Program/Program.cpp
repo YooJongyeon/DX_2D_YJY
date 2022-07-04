@@ -26,8 +26,7 @@ Program::~Program()
 
 void Program::Update()
 {
-	_projectionBuffer->Update();
-	_viewBuffer->Update();
+
 
 	_scene->Update();
 }

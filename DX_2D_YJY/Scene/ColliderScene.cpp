@@ -43,11 +43,11 @@ void ColliderScene::Render()
 
 void ColliderScene::PostRender()
 {
-	ImGui::SliderFloat("Rect1 PosX", &_rectColldier1->GetLocalPosition()._x, 0, WIN_WIDTH);
-	ImGui::SliderFloat("Rect1 PosY", &_rectColldier1->GetLocalPosition()._y, 0, WIN_HEIGHT);
+	ImGui::SliderFloat("Rect1 PosX", &_rectColldier1->GetLocalPosition().x, 0, WIN_WIDTH);
+	ImGui::SliderFloat("Rect1 PosY", &_rectColldier1->GetLocalPosition().y, 0, WIN_HEIGHT);
 
-	ImGui::SliderFloat("Circle PosX", &_circleCollider1->GetLocalPosition()._x, 0, WIN_WIDTH);
-	ImGui::SliderFloat("Circle PosY", &_circleCollider1->GetLocalPosition()._y, 0, WIN_HEIGHT);
+	ImGui::SliderFloat("Circle PosX", &_circleCollider1->GetLocalPosition().x, 0, WIN_WIDTH);
+	ImGui::SliderFloat("Circle PosY", &_circleCollider1->GetLocalPosition().y, 0, WIN_HEIGHT);
 
 	ImGui::SliderFloat("Rect1 Angle", &_rectColldier1->GetAngle(),0, 2 *PI);
 }

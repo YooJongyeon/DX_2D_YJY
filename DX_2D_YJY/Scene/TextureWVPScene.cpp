@@ -70,7 +70,7 @@ void TextureWVPScene::Update()
 		_texture->GetPos().y -= 0.1f;
 	}*/
 
-	_worldBuffer->Update();
+
 	
 
 	_quad->Update();

@@ -6,9 +6,9 @@ Bullet::Bullet()
 	_quad = make_shared<Quad>(L"Resource/redbullet.png");
 	_quad->GetTransform()->GetScale() = { 0.1f, 0.1f };
 
-	_collider = make_shared<CircleCollider>(_quad->GetHalfSize()._x);
+	_collider = make_shared<CircleCollider>(_quad->GetHalfSize().x);
 	_collider->SetParent(_quad->GetTransform());
-	_collider->GetLocalPosition()._x += 20;
+	_collider->GetLocalPosition().x += 20;
 
 
 }

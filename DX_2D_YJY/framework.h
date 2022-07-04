@@ -20,6 +20,7 @@
 #include <wrl/client.h>
 #include <string>
 #include <memory>
+#include <functional>
 
 #include <d3d11.h>
 #include <d3dcompiler.h>
@@ -63,6 +64,7 @@ using namespace std;
 #include "Framework/Render/PixelShader.h"
 #include "Framework/Render/ShaderManger.h"
 
+
 // Coomponent
 #include "Framework/Component/Transform.h"
 
@@ -82,6 +84,9 @@ using namespace std;
 #include"Framework/Texture/RasterizerState.h"
 #include "Framework/Texture/StateManager.h"
 #include "Framework/Texture/Texture.h"
+
+//Animation
+#include "Framework/Animation/Action.h"
 
 // BagicObject
 #include "Object/BagicObject/Quad.h"

@@ -20,26 +20,26 @@ public:
 	 float Left()
 	 { 
 		 Vector2 temp = GetWorldPosition();
-		 return temp._x - GetWorldHalfX();
+		 return temp.x - GetWorldHalfX();
 	 }
 	 float Right() 
 	 {
 		 Vector2 temp = GetWorldPosition();
-		 return temp._x + GetWorldHalfX();
+		 return temp.x + GetWorldHalfX();
 	 }
 	 float Top() 
 	 { 
 		 Vector2 temp = GetWorldPosition();
-		 return temp._y + GetWorldHalfY();
+		 return temp.y + GetWorldHalfY();
 	 }
 	 float Bottom() 
 	 { 
 		 Vector2 temp = GetWorldPosition();
-		 return temp._y - GetWorldHalfY();
+		 return temp.y - GetWorldHalfY();
 	 }
 
-	 float GetWorldHalfX() { return _halfSize._x * GetWorldScale()._x; }
-	 float GetWorldHalfY() { return _halfSize._y * GetWorldScale()._y; }
+	 float GetWorldHalfX() { return _halfSize.x * GetWorldScale().x; }
+	 float GetWorldHalfY() { return _halfSize.y * GetWorldScale().y; }
 
 	 ObbDesc GetObb();
 

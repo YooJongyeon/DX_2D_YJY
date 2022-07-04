@@ -193,8 +193,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
     case WM_MOUSEMOVE:
     {
-        MOUSE_POS._x = (float)LOWORD(lParam);
-        MOUSE_POS._y = -((float)HIWORD(lParam) - WIN_HEIGHT * 0.5f) + WIN_HEIGHT * 0.5f;
+        MOUSE_POS.x = (float)LOWORD(lParam);
+        MOUSE_POS.y = -((float)HIWORD(lParam) - WIN_HEIGHT * 0.5f) + WIN_HEIGHT * 0.5f;
     }
 
 

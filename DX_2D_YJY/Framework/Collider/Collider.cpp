@@ -13,7 +13,7 @@ void Collider::Update()
 {
 	_center = GetLocalPosition();
 	_transform->UpdateWorldBuffer();
-	_colorBuffer->Update();
+
 }
 
 void Collider::Render()

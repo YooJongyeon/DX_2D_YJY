@@ -6,8 +6,9 @@ public:
 	~DungreedScene();
 	
 	virtual void Update() override;
-
 	virtual void Render() override;
+	virtual void PostRender();
+
 
 
 private:
@@ -20,7 +21,12 @@ private:
 	float _guiTest = 0.0f; 
 	float _pos = 0.0f;
 
-	int _monsterCount = 5;
+	shared_ptr<Action> _action;
+
+
+	int _monsterCount = 1;
+	int curFrameX = 0;
+	int curFrameY = 0;
 
 };
 

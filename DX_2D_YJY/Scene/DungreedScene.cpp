@@ -10,14 +10,21 @@ DungreedScene::DungreedScene()
 	_zelda = make_shared<Sprite>(L"Resource/zelda.png", Vector2(10, 8));
 	_zelda->GetTransform()->GetPos() = Vector2(WIN_WIDTH, WIN_HEIGHT) * 0.5f;
 
+
 	_monster.reserve(_monsterCount);
 	for (int i = 0; i < _monsterCount; i++)
 	{
 		shared_ptr<Monster> temp = make_shared<Monster>();
-		temp->GetTrasform()->GetPos()._x += _pos;
+		temp->GetTrasform()->GetPos().x += _pos;
 		_pos = (i + 1) * 200;
 		_monster.push_back(temp);
 	}
+
+	//action
+	vector<Action::Clip> clips;
+	clips.emplace_back(0,1040 / 2,1200 / 10,1040 / 8,Texture::Add(L"Resource/zelda.png"));
+
+	_action = make_shared<Action>(clips);
 }
 
 DungreedScene::~DungreedScene()
@@ -51,6 +58,12 @@ void DungreedScene::Render()
 		monster->Render();
 
 	}
+}
+
+void DungreedScene::PostRender()
+{
+	
+
 }
 
 

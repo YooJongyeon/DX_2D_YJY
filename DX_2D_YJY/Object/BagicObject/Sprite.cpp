@@ -8,13 +8,16 @@ Sprite::Sprite(wstring file, Vector2 maxFrame)
     _pixelShader = ADD_PS(L"Shaders/SpriteShader.hlsl");
 
     _texture = Texture::Add(file);
-    _maxFrame = _texture->Getsize() * 0.5f;
+    _halfSize = _texture->Getsize() * 0.5f;
+    _halfSize.x *= (1 / _maxFrame.x);
+    _halfSize.y *= (1 / _maxFrame.y);
+
 
     _transform = make_shared<Transform>();
 
     _frameBuffer = make_shared<FrameBuffer>();
-    _frameBuffer->data.maxFrame.x = _maxFrame._x;
-    _frameBuffer->data.maxFrame.y = _maxFrame._x;
+    _frameBuffer->data.maxFrame.x = _maxFrame.x;
+    _frameBuffer->data.maxFrame.y = _maxFrame.x;
 
     CreateData();
 
@@ -35,20 +38,21 @@ void Sprite::Update()
 
 void Sprite::Render()
 {
+    _frameBuffer->SetPSBuffer(0);
     Quad::Render();
 }
 
 void Sprite::CreateData()
 {
     Vector2 haifSize = _texture->Getsize() * 0.5f;
-    haifSize._x /= _frameBuffer->data.maxFrame.x;
-    haifSize._y /= _frameBuffer->data.maxFrame.y;
+    haifSize.x /= _frameBuffer->data.maxFrame.x;
+    haifSize.y /= _frameBuffer->data.maxFrame.y;
 
     {
-        _vertices.emplace_back(-_halfSize._x, _halfSize._y, 0, 0);
-        _vertices.emplace_back(_halfSize._x, _halfSize._y, 1, 0);
-        _vertices.emplace_back(-_halfSize._x, -_halfSize._y, 0, 1);
-        _vertices.emplace_back(_halfSize._x, -_halfSize._y, 1, 1);
+        _vertices.emplace_back(-_halfSize.x, _halfSize.y, 0, 0);
+        _vertices.emplace_back(_halfSize.x, _halfSize.y, 1, 0);
+        _vertices.emplace_back(-_halfSize.x, -_halfSize.y, 0, 1);
+        _vertices.emplace_back(_halfSize.x, -_halfSize.y, 1, 1);
     }
 
     _indicies.push_back(0);
@@ -63,11 +67,11 @@ void Sprite::CreateData()
 Vector2 Sprite::GetHalfFrameSize()
 {
     Vector2 v;
-    v._x = _halfSize._x / _maxFrame._x;
-    v._y = _halfSize._y / _maxFrame._y;
+    v.x = _halfSize.x / _maxFrame.x;
+    v.y = _halfSize.y / _maxFrame.y;
 
 
-	return Vector2();
+	return v;
 }
 
 

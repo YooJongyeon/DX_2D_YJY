@@ -1,9 +1,9 @@
 #pragma once
- class Vector2 
+ class Vector2 : public XMFLOAT2
 {
 public:
 	Vector2() {}
-	Vector2(float x, float y) : _x(x), _y(y) {}
+	Vector2(float x, float y) :XMFLOAT2(x,y){}
 	~Vector2() {}
 
 	Vector2 operator+(const Vector2& value) const;
@@ -31,9 +31,6 @@ public:
 
 	void YAxisSymmetry();
 	int Manhattan(const Vector2& value) const;
-
-	float _x = 0.0f;
-	float _y = 0.0f;
 
 	float Angle() const;
 	float Angle(const Vector2& value) const;

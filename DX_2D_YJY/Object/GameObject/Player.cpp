@@ -9,7 +9,7 @@ Player::Player()
 
 	_revolverTrans = make_shared<Transform>();
 	_revolverTrans->SetParent(_quad->GetTransform());
-	_revolverTrans->GetPos()._x = _quad->GetHalfSize()._x;
+	_revolverTrans->GetPos().x = _quad->GetHalfSize().x;
 
 	_revolver = make_shared <Revolver>();
 	_revolver->SetPlayer(_revolverTrans);
@@ -89,22 +89,22 @@ void Player::Move()
 {
 	if (KEY_PRESS('A'))
 	{
-		_quad->GetTransform()->GetPos()._x -= 100 * DELTA_TIME;
+		_quad->GetTransform()->GetPos().x -= 100 * DELTA_TIME;
 	}
 
 	if (KEY_PRESS('D'))
 	{
-		_quad->GetTransform()->GetPos()._x += 100 * DELTA_TIME;
+		_quad->GetTransform()->GetPos().x += 100 * DELTA_TIME;
 	}
 
 	if (KEY_PRESS('W'))
 	{
-		_quad->GetTransform()->GetPos()._y += 100 * DELTA_TIME;
+		_quad->GetTransform()->GetPos().y += 100 * DELTA_TIME;
 	}
 
 	if (KEY_PRESS('S'))
 	{
-		_quad->GetTransform()->GetPos()._y -= 100 * DELTA_TIME;
+		_quad->GetTransform()->GetPos().y -= 100 * DELTA_TIME;
 	}
 
 }
