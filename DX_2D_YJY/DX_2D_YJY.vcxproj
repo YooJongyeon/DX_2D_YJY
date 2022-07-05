@@ -187,6 +187,8 @@
     <ClInclude Include="TypeDef.h" />
     <ClInclude Include="Framework\Render\VertexBuffer.h" />
     <ClInclude Include="Framework\Render\VertexShader.h" />
+    <ClInclude Include="Object\Zelda\Zelda.h" />
+    <ClInclude Include="Scene\ZeldaScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\Animation\Action.cpp" />
@@ -231,6 +233,8 @@
     <ClCompile Include="Framework\Render\ShaderManger.cpp" />
     <ClCompile Include="Framework\Render\Shader.cpp" />
     <ClCompile Include="Object\BagicObject\Sprite.cpp" />
+    <ClCompile Include="Object\Zelda\Zelda.cpp" />
+    <ClCompile Include="Scene\ZeldaScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc" />

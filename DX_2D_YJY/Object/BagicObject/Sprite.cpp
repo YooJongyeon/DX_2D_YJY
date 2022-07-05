@@ -17,7 +17,7 @@ Sprite::Sprite(wstring file, Vector2 maxFrame)
 
     _frameBuffer = make_shared<FrameBuffer>();
     _frameBuffer->data.maxFrame.x = _maxFrame.x;
-    _frameBuffer->data.maxFrame.y = _maxFrame.x;
+    _frameBuffer->data.maxFrame.y = _maxFrame.y;
 
     CreateData();
 
@@ -72,6 +72,24 @@ Vector2 Sprite::GetHalfFrameSize()
 
 
 	return v;
+}
+
+void Sprite::SetClip(Action::Clip clip)
+{
+   // clip
+   // - startPos {0, 520}
+   // - size     {w, h}
+   // clips.emplace_back(0		, y, w, h, Texture::Add(L"Resource/zelda.png"));
+
+
+   // frameBuffer
+   // - maxFrame
+   // - curFrame.x : 0 ~ maxFrame.x
+   // - curFrame.y : 0 ~ maxFrame.y
+   //                                0 , w, w * 2 , w * 3
+   //                                0   1   2    ,   3
+    _frameBuffer->data.curFrame.x = clip._startPos.x / clip._size.x;
+    _frameBuffer->data.curFrame.y = clip._startPos.y / clip._size.y;
 }
 
 

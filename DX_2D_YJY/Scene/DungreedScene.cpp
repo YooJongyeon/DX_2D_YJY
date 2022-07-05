@@ -20,11 +20,11 @@ DungreedScene::DungreedScene()
 		_monster.push_back(temp);
 	}
 
-	//action
-	vector<Action::Clip> clips;
-	clips.emplace_back(0,1040 / 2,1200 / 10,1040 / 8,Texture::Add(L"Resource/zelda.png"));
+	////action
+	//vector<Action::Clip> clips;
+	//clips.emplace_back(0,1040 / 2,1200 / 10,1040 / 8,Texture::Add(L"Resource/zelda.png"));
 
-	_action = make_shared<Action>(clips);
+	//_action = make_shared<Action>(clips);
 }
 
 DungreedScene::~DungreedScene()

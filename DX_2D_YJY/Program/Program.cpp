@@ -6,9 +6,10 @@
 #include "../Scene/SolarSystemScene.h"
 #include "../Scene/DungreedScene.h"
 #include "../Scene/ColliderScene.h"
+#include "../Scene/ZeldaScene.h"
 Program::Program()
 {
-	_scene = make_shared<DungreedScene>();
+	_scene = make_shared<ZeldaScene>();
 
 	_viewBuffer = make_shared<MatrixBuffer>();
 	_projectionBuffer = make_shared<MatrixBuffer>();

@@ -1,10 +1,11 @@
 #include "framework.h"
 #include "Action.h"
 
-Action::Action(vector<Clip> clips, Type type, float speed)
+Action::Action(vector<Clip> clips, string name, Type type, float speed)
 	:_clips(clips)
 	,_repeatType(type)
 	, _speed(speed)
+	, _actionName(name)
 {
 }
 
