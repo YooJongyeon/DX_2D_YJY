@@ -27,11 +27,16 @@ public:
 	void Play();
 	void Pause();
 	void Stop();
+	void Reset();
 
 	void SetEndEvent(CallBack event) { _endEvent = event; }
 
 	Clip GetCurClip() { return _clips[_curClipNum]; }
 	bool IsPlay() { return _isPlay; }
+	Action::Type GetAnimType() { return _repeatType; }
+
+	string _actionName = "";
+
 private:
 	vector<Clip> _clips;
 	Type _repeatType;
@@ -44,7 +49,6 @@ private:
 
 	bool _isReverse = false;
 
-	string _actionName = "";
 
 
 	CallBack _endEvent = nullptr;

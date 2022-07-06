@@ -18,7 +18,6 @@ Zelda::~Zelda()
 void Zelda::CreateActions()
 {
 	_actions.reserve(8);
-
 	// Action 세팅
 	{
 		vector<Action::Clip> clips;
@@ -32,8 +31,7 @@ void Zelda::CreateActions()
 			clips.emplace_back(0 + w, y, w, h, Texture::Add(L"Resource/zelda.png"));
 			clips.emplace_back(0 + w * 2, y, w, h, Texture::Add(L"Resource/zelda.png"));
 		}
-		shared_ptr<Action> frontIDLE = make_shared<Action>(clips, "F_IDLE");
-		_actions.push_back(frontIDLE);
+		_actions.push_back(make_shared<Action>(clips, "F_IDLE"));
 		clips.clear();
 
 		// 왼 가만히
@@ -43,8 +41,7 @@ void Zelda::CreateActions()
 			clips.emplace_back(0 + w, y, w, h, Texture::Add(L"Resource/zelda.png"));
 			clips.emplace_back(0 + w * 2, y, w, h, Texture::Add(L"Resource/zelda.png"));
 		}
-		shared_ptr<Action> leftIDLE = make_shared<Action>(clips, "L_IDLE");
-		_actions.push_back(leftIDLE);
+		_actions.push_back(make_shared<Action>(clips, "L_IDLE"));
 		clips.clear();
 
 		// 뒤 가만히
@@ -52,8 +49,7 @@ void Zelda::CreateActions()
 		{
 			clips.emplace_back(0, y, w, h, Texture::Add(L"Resource/zelda.png"));
 		}
-		shared_ptr<Action> backIDLE = make_shared<Action>(clips, "B_IDLE");
-		_actions.push_back(backIDLE);
+		_actions.push_back(make_shared<Action>(clips, "B_IDLE"));
 		clips.clear();
 
 		// 오 가만히
@@ -63,10 +59,10 @@ void Zelda::CreateActions()
 			clips.emplace_back(0 + w, y, w, h, Texture::Add(L"Resource/zelda.png"));
 			clips.emplace_back(0 + w * 2, y, w, h, Texture::Add(L"Resource/zelda.png"));
 		}
-		shared_ptr<Action> rightIDLE = make_shared<Action>(clips, "R_IDLE" );
+		shared_ptr<Action> rightIDLE = make_shared<Action>(clips, "R_IDLE");
 		_actions.push_back(rightIDLE);
 		clips.clear();
-		
+
 		y = 1040 * 0.5f;
 		// 앞으로 달리기
 		{
@@ -81,10 +77,7 @@ void Zelda::CreateActions()
 			clips.emplace_back(0 + w * 8, y, w, h, Texture::Add(L"Resource/zelda.png"));
 			clips.emplace_back(0 + w * 9, y, w, h, Texture::Add(L"Resource/zelda.png"));
 		}
-		shared_ptr<Action> frontRUN = make_shared<Action>(clips, "F_RUN", Action::END);
-		// 진짜 중요
-		frontRUN->SetEndEvent(std::bind(&Zelda::SetFrontMessage, this));
-		_actions.push_back(frontRUN);
+		_actions.push_back(make_shared<Action>(clips, "F_RUN"));
 		clips.clear();
 
 		y = 1040 * (5.0f / 8.0f);
@@ -101,10 +94,7 @@ void Zelda::CreateActions()
 			clips.emplace_back(0 + w * 8, y, w, h, Texture::Add(L"Resource/zelda.png"));
 			clips.emplace_back(0 + w * 9, y, w, h, Texture::Add(L"Resource/zelda.png"));
 		}
-		shared_ptr<Action> leftRUN = make_shared<Action>(clips, "L_RUN", Action::END);
-		// 진짜 중요
-		leftRUN->SetEndEvent(std::bind(&Zelda::SetLeftMessage, this));
-		_actions.push_back(leftRUN);
+		_actions.push_back(make_shared<Action>(clips, "L_RUN"));
 		clips.clear();
 
 		y = 1040 * (6.0f / 8.0f);
@@ -121,10 +111,7 @@ void Zelda::CreateActions()
 			clips.emplace_back(0 + w * 8, y, w, h, Texture::Add(L"Resource/zelda.png"));
 			clips.emplace_back(0 + w * 9, y, w, h, Texture::Add(L"Resource/zelda.png"));
 		}
-		shared_ptr<Action> backRUN = make_shared<Action>(clips, "B_RUN", Action::END);
-		// 진짜 중요
-		backRUN->SetEndEvent(std::bind(&Zelda::SetBackMessage, this));
-		_actions.push_back(backRUN);
+		_actions.push_back(make_shared<Action>(clips, "B_RUN"));
 		clips.clear();
 
 		y = 1040 * (7.0f / 8.0f);
@@ -141,9 +128,9 @@ void Zelda::CreateActions()
 			clips.emplace_back(0 + w * 8, y, w, h, Texture::Add(L"Resource/zelda.png"));
 			clips.emplace_back(0 + w * 9, y, w, h, Texture::Add(L"Resource/zelda.png"));
 		}
-		shared_ptr<Action> rightRUN = make_shared<Action>(clips, "R_RUN", Action::END);
+		shared_ptr<Action> rightRUN = make_shared<Action>(clips, "R_RUN");
 		// 진짜 중요
-		rightRUN->SetEndEvent(std::bind(&Zelda::SetRightMessage, this));
+		//rightRUN->SetEndEvent(std::bind(&Zelda::SetMessage, this));
 		_actions.push_back(rightRUN);
 		clips.clear();
 
@@ -152,20 +139,20 @@ void Zelda::CreateActions()
 	for (auto& action : _actions)
 		action->Pause();
 
-	
+	_actions[_aniState]->Play();
 }
 
 void Zelda::Update()
 {
 	_sprite->Update();
-	Move();
+	_collider->Update();
 
 	for (auto& action : _actions)
 	{
 		action->Update();
 		if (!action->IsPlay())
 			continue;
-		_sprite->SetClip(action->GetCurClip());
+		_sprite->SetClipToActionBuffer(action->GetCurClip());
 	}
 }
 
@@ -177,46 +164,28 @@ void Zelda::Render()
 void Zelda::PostRender()
 {
 	ImGui::Text(_message.data());
+	_collider->Render();
 }
 
 void Zelda::SetPostion(float x, float y)
 {
-	// 과제
-	// 멤버변수 만들고 
-	//ImGui::SliderInt("ZeldaAction", &int, 0, 7);
-
+	_sprite->GetTransform()->GetPos() = { x,y };
 }
 
 void Zelda::SetAnimation(State aniState)
 {
+	if (_actions[aniState]->IsPlay() && _actions[aniState]->GetAnimType() == Action::LOOP)
+		return;
+
 	for (auto& action : _actions)
 	{
-		action->Stop();
+		if (action->IsPlay() && _aniState == aniState)
+			continue;
+
+		action->Reset();
 	}
+
 	_actions[aniState]->Play();
+	_aniState = aniState;
 }
-
-void Zelda::Move()
-{
-	if (KEY_PRESS('A'))
-	{
-		_sprite->GetTransform()->GetPos().x -= 100 * DELTA_TIME;
-	}
-
-	if (KEY_PRESS('D'))
-	{
-		_sprite->GetTransform()->GetPos().x += 100 * DELTA_TIME;
-	}
-
-	if (KEY_PRESS('W'))
-	{
-		_sprite->GetTransform()->GetPos().y += 100 * DELTA_TIME;
-	}
-
-	if (KEY_PRESS('S'))
-	{
-		_sprite->GetTransform()->GetPos().y -= 100 * DELTA_TIME;
-	}
-}
-
 

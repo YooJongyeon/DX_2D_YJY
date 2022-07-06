@@ -7,9 +7,10 @@
 #include "../Scene/DungreedScene.h"
 #include "../Scene/ColliderScene.h"
 #include "../Scene/ZeldaScene.h"
+#include "../Scene//FillterScene.h"
 Program::Program()
 {
-	_scene = make_shared<ZeldaScene>();
+	_scene = make_shared<FillterScene>();
 
 	_viewBuffer = make_shared<MatrixBuffer>();
 	_projectionBuffer = make_shared<MatrixBuffer>();

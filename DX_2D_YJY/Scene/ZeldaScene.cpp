@@ -4,6 +4,8 @@
 ZeldaScene::ZeldaScene()
 {
 	_zelda = make_shared<Zelda>();
+	_zeldaPos = { WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.5f };
+	_zelda->SetPostion(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.5f);
 }
 
 ZeldaScene::~ZeldaScene()
@@ -12,30 +14,10 @@ ZeldaScene::~ZeldaScene()
 
 void ZeldaScene::Update()
 {
+	ZeldaMove();
 	_zelda->Update();
-	
-	if (KEY_Down('W'))
-	{
-		_zelda->SetB_RUN();
-		_zelda->SetB_IDLE();
-	} 
-	if (KEY_Down('D'))
-	{
-		_zelda->SetR_RUN();
-		_zelda->SetR_IDLE();
-	} 
-	if (KEY_Down('A'))
-	{
-		_zelda->SetL_RUN();
-		_zelda->SetL_IDLE();
-	} 
-	if (KEY_Down('S'))
-	{
-		_zelda->SetF_RUN();
-		_zelda->SetF_IDLE();
-	}
-	
 
+	_zelda->SetPostion(_zeldaPos.x, _zeldaPos.y);
 }
 
 void ZeldaScene::Render()
@@ -46,5 +28,40 @@ void ZeldaScene::Render()
 void ZeldaScene::PostRender()
 {
 	_zelda->PostRender();
+}
+
+void ZeldaScene::ZeldaMove()
+{
+	if (KEY_PRESS('W'))
+	{
+		_zeldaPos.y += 50 * DELTA_TIME;
+		_zelda->SetAnimation(Zelda::State::B_RUN);
+
+		return;
+	}
+
+	if (KEY_PRESS('A'))
+	{
+		_zeldaPos.x -= 50 * DELTA_TIME;
+		_zelda->SetAnimation(Zelda::State::L_RUN);
+
+		return;
+	}
+
+	if (KEY_PRESS('S'))
+	{
+		_zeldaPos.y -= 50 * DELTA_TIME;
+		_zelda->SetAnimation(Zelda::State::F_RUN);
+
+		return;
+	}
+
+	if (KEY_PRESS('D'))
+	{
+		_zeldaPos.x += 50 * DELTA_TIME;
+		_zelda->SetAnimation(Zelda::State::R_RUN);
+
+		return;
+	}
 }
 

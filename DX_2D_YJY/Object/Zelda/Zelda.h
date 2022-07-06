@@ -32,19 +32,6 @@ public:
 	void SetLeftMessage() { _message = "Left RUN!!!"; };
 	void SetFrontMessage() { _message = "Front RUN!!!"; };
 
-	void Move();
-
-	void SetF_RUN() { _actions[State::F_RUN]->Play(); }
-	void SetL_RUN() { _actions[State::L_RUN]->Play(); }
-	void SetB_RUN() { _actions[State::B_RUN]->Play(); }
-	void SetR_RUN() { _actions[State::R_RUN]->Play(); }
-
-	void SetF_IDLE() { _actions[State::F_IDLE]->Play(); }
-	void SetL_IDLE() { _actions[State::L_IDLE]->Play(); }
-	void SetB_IDLE() { _actions[State::B_IDLE]->Play(); }
-	void SetR_IDLE() { _actions[State::R_IDLE]->Play(); }
-
-
 
 
 

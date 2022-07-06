@@ -9,7 +9,10 @@ public:
 	virtual void Render() override;
 	virtual void PostRender() override;
 
+	void ZeldaMove();
+
 private:
 	shared_ptr<Zelda> _zelda;
+	Vector2 _zeldaPos = { 0,0 };
 };
 

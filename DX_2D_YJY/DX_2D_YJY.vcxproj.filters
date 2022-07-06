@@ -147,6 +147,9 @@
     <ClInclude Include="Scene\ZeldaScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\FillterScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX_2D_YJY.cpp">
@@ -266,6 +269,9 @@
     <ClCompile Include="Scene\ZeldaScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\FillterScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc">
@@ -312,6 +318,9 @@
     <Image Include="Resource\sun.PNG">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="Resource\LostArk.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\TexturePixelShader.hlsl" />
@@ -320,5 +329,7 @@
     <FxCompile Include="Shaders\ColliderShader\ColliderVertexShader.hlsl" />
     <FxCompile Include="Shaders\ColliderShader\ColliderPixelShader.hlsl" />
     <FxCompile Include="Shaders\SpriteShader.hlsl" />
+    <FxCompile Include="Shaders\ActionShader.hlsl" />
+    <FxCompile Include="Shaders\FillterShader\FillterShader.hlsl" />
   </ItemGroup>
 </Project>

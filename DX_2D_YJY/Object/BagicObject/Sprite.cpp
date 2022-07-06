@@ -5,19 +5,19 @@ Sprite::Sprite(wstring file, Vector2 maxFrame)
     :_maxFrame(maxFrame)
 {
     _vertexShader = ADD_VS(L"Shaders/TextureVertexShader.hlsl");
-    _pixelShader = ADD_PS(L"Shaders/SpriteShader.hlsl");
+    _pixelShader = ADD_PS(L"Shaders/ActionShader.hlsl");
 
     _texture = Texture::Add(file);
     _halfSize = _texture->Getsize() * 0.5f;
-    _halfSize.x *= (1 / _maxFrame.x);
-    _halfSize.y *= (1 / _maxFrame.y);
-
-
+  
     _transform = make_shared<Transform>();
 
     _frameBuffer = make_shared<FrameBuffer>();
     _frameBuffer->data.maxFrame.x = _maxFrame.x;
     _frameBuffer->data.maxFrame.y = _maxFrame.y;
+
+    _actionBuffer = make_shared<ActionBuffer>();
+    _actionBuffer->data.maxSize = _texture->Getsize();
 
     CreateData();
 
@@ -39,20 +39,21 @@ void Sprite::Update()
 void Sprite::Render()
 {
     _frameBuffer->SetPSBuffer(0);
+    _actionBuffer->SetPSBuffer(0);
     Quad::Render();
 }
 
 void Sprite::CreateData()
 {
-    Vector2 haifSize = _texture->Getsize() * 0.5f;
-    haifSize.x /= _frameBuffer->data.maxFrame.x;
-    haifSize.y /= _frameBuffer->data.maxFrame.y;
+    Vector2 halfSize = _texture->Getsize() * 0.5f;
+    halfSize.x /= _frameBuffer->data.maxFrame.x;
+    halfSize.y /= _frameBuffer->data.maxFrame.y;
 
     {
-        _vertices.emplace_back(-_halfSize.x, _halfSize.y, 0, 0);
-        _vertices.emplace_back(_halfSize.x, _halfSize.y, 1, 0);
-        _vertices.emplace_back(-_halfSize.x, -_halfSize.y, 0, 1);
-        _vertices.emplace_back(_halfSize.x, -_halfSize.y, 1, 1);
+        _vertices.emplace_back(-halfSize.x, halfSize.y, 0, 0); // 왼쪽위
+        _vertices.emplace_back(halfSize.x, halfSize.y, 1, 0); // 오른쪽 위
+        _vertices.emplace_back(-halfSize.x, -halfSize.y, 0, 1); // 왼쪽 아래
+        _vertices.emplace_back(halfSize.x, -halfSize.y, 1, 1); // 오른쪽 아래
     }
 
     _indicies.push_back(0);
@@ -73,6 +74,13 @@ Vector2 Sprite::GetHalfFrameSize()
 
 	return v;
 }
+
+void Sprite::SetClipToActionBuffer(Action::Clip clip)
+{
+    _actionBuffer->data.size = clip._size;
+    _actionBuffer->data.startPos = clip._startPos;
+}
+
 
 void Sprite::SetClip(Action::Clip clip)
 {

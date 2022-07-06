@@ -83,3 +83,9 @@ void Action::Stop()
 		_endEvent();
 	
 }
+
+void Action::Reset()
+{
+	_isPlay = false;
+	_curClipNum = 0;
+}
