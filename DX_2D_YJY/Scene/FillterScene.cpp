@@ -3,11 +3,11 @@
 
 FillterScene::FillterScene()
 {
-	_quad = make_shared<Quad>(L"Resource/LostArk.png"
-		,L"Shaders/TextureVertexShader.hlsl"
+	_quad = make_shared<Quad>(L"Resource/LostArk.png",
+		L"Shaders/TextureVertexShader.hlsl"
 		, L"Shaders/FillterShader/FillterShader.hlsl");
 	_quad->GetTransform()->GetPos() = { WIN_WIDTH * 0.5f , WIN_HEIGHT * 0.5f };
-	_quad->GetTransform()->GetScale() *=1.5f;
+	_quad->GetTransform()->GetScale() *= 0.5f;
 
 	_filterBuffer = make_shared<FilterBuffer>();
 	_filterBuffer->data.value1 = 60;
@@ -15,7 +15,7 @@ FillterScene::FillterScene()
 	_imageSizeBuffer = make_shared<ImageSizeBuffer>();
 	_imageSizeBuffer->data.size = _quad->GetHalfSize() * 2.0f;
 
-	_sun = make_shared<Quad>(L"Resource/sun.PNG",
+	_sun = make_shared<Quad>(L"Resource/sun.png",
 		L"Shaders/TextureVertexShader.hlsl"
 		, L"Shaders/FillterShader/FillterShader.hlsl");
 	_sun->GetTransform()->GetPos() = { WIN_WIDTH * 0.5f , WIN_HEIGHT * 0.5f };
@@ -39,7 +39,7 @@ void FillterScene::Update()
 void FillterScene::Render()
 {
 	_filterBuffer->SetPSBuffer(0);
-	_imgaeSizeBuffer->SetPSBuffer(1);
+	_imageSizeBuffer->SetPSBuffer(1);
 	_quad->Render();
 
 	_sunFilterBuffer->SetPSBuffer(0);

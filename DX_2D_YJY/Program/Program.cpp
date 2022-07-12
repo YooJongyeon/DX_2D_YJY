@@ -11,7 +11,7 @@
 #include "../Scene/EffectScene.h"
 Program::Program()
 {
-	_scene = make_shared<FillterScene>();
+	_scene = make_shared<EffectScene>();
 
 	
 }
