@@ -116,7 +116,6 @@ public:
 		XMFLOAT2 size = { 0.0f,0.0f };
 		XMFLOAT2 padding = { 0.0f,0.0f };
 	}data;
-
 	ImageSizeBuffer()
 		: ConstantBuffer(&data, sizeof(Data))
 	{
