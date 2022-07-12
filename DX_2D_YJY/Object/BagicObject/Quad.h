@@ -8,7 +8,7 @@ public:
 
     virtual void Update();
     virtual void Render();
-
+    
     virtual void CreateData() ;
 
     shared_ptr<Transform> GetTransform() { return _transform; }
