@@ -26,7 +26,7 @@ void Transform::UpdateWorldBuffer()
  
 }
 
-void Transform::SetWorldBuffer(int slot)
+void Transform::SetMatrixBuffer(int slot)
 {
     _worldBuffer->SetVSBuffer(slot);
 }

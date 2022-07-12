@@ -6,7 +6,7 @@ public:
     ~Transform();
 
     void UpdateWorldBuffer();
-    void SetWorldBuffer(int slot = 0);
+    void SetMatrixBuffer(int slot = 0);
 
     Vector2& GetPos() { return _pos; }
     Vector2& GetScale() { return _scale; }

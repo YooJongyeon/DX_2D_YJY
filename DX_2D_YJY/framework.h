@@ -21,6 +21,7 @@
 #include <string>
 #include <memory>
 #include <functional>
+#include <time.h>
 
 #include <d3d11.h>
 #include <d3dcompiler.h>
@@ -51,8 +52,6 @@ using namespace std;
 //Math
 #include "Framework/Math/Vector2.h"
 
-
-
 // Render
 #include "Framework/Render/VertexLayOuts.h"
 #include "Framework/Render/ConstantBuffer.h"
@@ -64,13 +63,16 @@ using namespace std;
 #include "Framework/Render/PixelShader.h"
 #include "Framework/Render/ShaderManger.h"
 
-
 // Coomponent
 #include "Framework/Component/Transform.h"
 
 //Utillty
+#include "Framework/Utillty/Utillity.h"
 #include "Framework/Utillty/Time.h"
 #include "Framework/Utillty/InputManger.h"
+
+// Camera
+#include "Framework/Camera/Camera.h"
 
 // Collider
 #include "Framework/Collider/Collider.h"
@@ -91,8 +93,10 @@ using namespace std;
 // BagicObject
 #include "Object/BagicObject/Quad.h"
 #include "Object/BagicObject/Sprite.h"
+#include "Object/BagicObject/Effect.h"
+#include "Object/BagicObject/EffectManager.h"
 
-// Obj
+//Obj
 #include "Object/GameObject/Player.h"
 #include "Object/GameObject/Revolver.h"
 #include "Object/GameObject/Bullet.h"
@@ -105,5 +109,5 @@ using namespace std;
 // Program
 #include "Program/Program.h"
 
-extern Vector2 mousePos;
+
 

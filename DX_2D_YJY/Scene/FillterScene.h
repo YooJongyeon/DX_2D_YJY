@@ -11,6 +11,13 @@ public:
 private:
 	shared_ptr<Quad> _quad;
 	shared_ptr<FilterBuffer> _filterBuffer;
+	shared_ptr<ImageSizeBuffer> _imageSizeBuffer;
 
+	shared_ptr<Quad> _sun;
+	shared_ptr<FilterBuffer> _sunFilterBuffer;
+
+	shared_ptr<Effect> _effect;
 };
+
+
 

@@ -150,6 +150,21 @@
     <ClInclude Include="Scene\FillterScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Object\BagicObject\Effect.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utillty\Utillity.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BagicObject\EffectManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Camera\Camera.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\EffectScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX_2D_YJY.cpp">
@@ -272,6 +287,18 @@
     <ClCompile Include="Scene\FillterScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Object\BagicObject\Effect.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BagicObject\EffectManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Camera\Camera.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\EffectScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc">
@@ -321,6 +348,36 @@
     <Image Include="Resource\LostArk.png">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="Resource\Effects\BlueExplosion.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Effects\explosion.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Effects\fire_8x2.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Effects\GreenExplosion.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Effects\hit_4x2.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Effects\hit2_4x4.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Effects\skill_6x2.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Effects\skill_core_4x4.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Effects\smoke_4x4.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Effects\thunder_core_4x4.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\TexturePixelShader.hlsl" />
@@ -331,5 +388,6 @@
     <FxCompile Include="Shaders\SpriteShader.hlsl" />
     <FxCompile Include="Shaders\ActionShader.hlsl" />
     <FxCompile Include="Shaders\FillterShader\FillterShader.hlsl" />
+    <FxCompile Include="Shaders\LeftRightPixelShader.hlsl" />
   </ItemGroup>
 </Project>

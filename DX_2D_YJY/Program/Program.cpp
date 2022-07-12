@@ -8,18 +8,12 @@
 #include "../Scene/ColliderScene.h"
 #include "../Scene/ZeldaScene.h"
 #include "../Scene//FillterScene.h"
+#include "../Scene/EffectScene.h"
 Program::Program()
 {
-	_scene = make_shared<FillterScene>();
+	_scene = make_shared<EffectScene>();
 
-	_viewBuffer = make_shared<MatrixBuffer>();
-	_projectionBuffer = make_shared<MatrixBuffer>();
-
-	XMMATRIX projection = XMMatrixOrthographicOffCenterLH(0, WIN_WIDTH, 0, WIN_HEIGHT, 0.0f, 1.0f);
-
-	_projectionBuffer->SetMatrix(projection);
-
-	//Time::GetInstance()->SetFPS(60);
+	
 }
 
 Program::~Program()
@@ -28,7 +22,8 @@ Program::~Program()
 
 void Program::Update()
 {
-
+	EffectManager::GetInstance()->Update();
+	Camera::GetInstance()->Update();
 
 	_scene->Update();
 }
@@ -43,14 +38,17 @@ void Program::Render()
 
 	ALPHA_STATE->SetState();
 
-	_viewBuffer->SetVSBuffer(1);
-	_projectionBuffer->SetVSBuffer(2);
+	Camera::GetInstance()->SetViewPort();
+	Camera::GetInstance()->SetProjectionBuffer();
+
 
 	_scene->RreRender();
 
 	_scene->Render();
+	EffectManager::GetInstance()->Render();
 
 	ImGui::Text("FPS : %d", Time::GetInstance()->GetFPS());
+	Camera::GetInstance()->PostRender();
 	_scene->PostRender();
 
 	ImGui::Render();

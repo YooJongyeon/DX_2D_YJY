@@ -49,8 +49,6 @@ private:
 
 	bool _isReverse = false;
 
-
-
 	CallBack _endEvent = nullptr;
 };
 
