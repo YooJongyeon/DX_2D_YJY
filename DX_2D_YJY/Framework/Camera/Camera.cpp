@@ -129,7 +129,7 @@ void Camera::Shake()
 	// float f
 	// 0.0f ~ 1.0f
 	// - magnitude ~ magnitude
-	// mathada
+	// matha
 	float minT = -_magnitude * ((float)rand() / (float)RAND_MAX);
 	float maxT = +_magnitude * ((float)rand() / (float)RAND_MAX);
 	_transform->GetPos() = _originPos + Vector2(minT, maxT);
