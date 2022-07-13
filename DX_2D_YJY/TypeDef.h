@@ -17,7 +17,7 @@
 #define DEVICE Device::GetInstance()->GetDevice()
 #define DEVICE_CONTEXT Device::GetInstance()->GetDeviceContext()
 
-#define DELTA_TIME Time::GetInstance()->GetDeltamTime();
+#define DELTA_TIME Time::GetInstance()->GetDeltamTime()
 
 #define KEY_PRESS(k) InputManger::GetInstance()->Press(k)
 #define KEY_Down(k)  InputManger::GetInstance()->Down(k)
@@ -33,6 +33,6 @@
 #define ADD_VS(k)       ShaderManger::Getinstance()->AddVS(k)
 #define ADD_PS(k)       ShaderManger::Getinstance()->AddPS(k)
 
-#define LERP(s,e,t) (e + (s - e) * t)
+#define LERP(s,e,t) e + (s - e) * t
  
 typedef function<void()> CallBack;

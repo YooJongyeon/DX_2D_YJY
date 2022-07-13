@@ -103,8 +103,8 @@ void Camera::FollowMode()
 
 	if (targetPos.y > _rightTop.y)
 		targetPos.y = _rightTop.y;
-
-	//_transform->GetPos() = LERP(_transform->GetPos(), targetPos, DELTA_TIME * _speed);
+	
+	_transform->GetPos() = LERP(_transform->GetPos(), targetPos, DELTA_TIME * _speed );
 }
 
 void Camera::Shake()
@@ -117,7 +117,7 @@ void Camera::Shake()
 
 
 	_duration -= DELTA_TIME;
-	//_magnitude -= DELTA_TIME * _reduceDamping;
+	_magnitude -=  DELTA_TIME * _reduceDamping;
 
 	if (_magnitude < 0.0f)
 	{
