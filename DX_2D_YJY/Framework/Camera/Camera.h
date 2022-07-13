@@ -47,12 +47,11 @@ private:
 	float _zoomSpeed = 1.0f;
 
 	shared_ptr<Transform> _target;
-	Vector2 _offSet = CENTER;
+	Vector2 _offSet;
 
 	Vector2 _leftBottom;
 	Vector2 _rightTop;
-
-	float _duration = 0.0f;
+	float _duration = 1.0f;
 	float _reduceDamping = 1.0f;
 	float _magnitude = 0.0f;
 

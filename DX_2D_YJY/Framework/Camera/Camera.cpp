@@ -7,6 +7,7 @@ Camera::Camera()
 	_transform = make_shared<Transform>();
 	_transform->SetMatrixBuffer(1);
 	_projectionBuffer = make_shared<MatrixBuffer>();
+	_offSet = { CENTER.x, CENTER.y };
 }
 
 Camera::~Camera()
@@ -81,6 +82,7 @@ void Camera::FreeMode()
 		{
 			_transform->GetPos().x += _speed * DELTA_TIME;
 		}
+
 		if (KEY_PRESS('D'))
 		{
 			_transform->GetPos().x -= _speed * DELTA_TIME;
@@ -95,23 +97,25 @@ void Camera::FollowMode()
 	if (targetPos.x < _leftBottom.x)
 		targetPos.x = _leftBottom.x;
 
-	if (targetPos.x > _rightTop.x)
-		targetPos.x = _rightTop.x;
+	if (targetPos.x > _rightTop.x + WIN_WIDTH)
+		targetPos.x = _rightTop.x + WIN_WIDTH;
 
 	if (targetPos.y < _leftBottom.y)
 		targetPos.y = _leftBottom.y;
 
-	if (targetPos.y > _rightTop.y)
-		targetPos.y = _rightTop.y;
+	if (targetPos.y > _rightTop.y + WIN_HEIGHT)
+		targetPos.y = _rightTop.y + WIN_HEIGHT;
+
 	
-	_transform->GetPos() = LERP(_transform->GetPos(), targetPos, DELTA_TIME * _speed );
+	_transform->GetPos() = LERP(_transform->GetPos(), targetPos * -1, DELTA_TIME * _speed);
+	
+	
 }
 
 void Camera::Shake()
 {
 	if (_duration <= 0.0f)
 	{
-		_transform->GetPos() = _originPos;
 		return;
 	}
 
@@ -126,10 +130,7 @@ void Camera::Shake()
 	}
 
 	Vector2 temp;
-	// float f
-	// 0.0f ~ 1.0f
-	// - magnitude ~ magnitude
-	// matha
+	
 	float minT = -_magnitude * ((float)rand() / (float)RAND_MAX);
 	float maxT = +_magnitude * ((float)rand() / (float)RAND_MAX);
 	_transform->GetPos() = _originPos + Vector2(minT, maxT);

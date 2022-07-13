@@ -32,6 +32,7 @@ public:
 	void SetLeftMessage() { _message = "Left RUN!!!"; };
 	void SetFrontMessage() { _message = "Front RUN!!!"; };
 
+	shared_ptr<Transform> GetTransform() { return _sprite->GetTransform(); }
 
 
 

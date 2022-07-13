@@ -33,6 +33,6 @@
 #define ADD_VS(k)       ShaderManger::Getinstance()->AddVS(k)
 #define ADD_PS(k)       ShaderManger::Getinstance()->AddPS(k)
 
-#define LERP(s,e,t) e + (s - e) * t
+#define LERP(s,e,t) (s + (e - s) * t)
  
 typedef function<void()> CallBack;

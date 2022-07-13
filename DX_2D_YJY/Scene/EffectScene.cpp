@@ -18,7 +18,7 @@ void EffectScene::Update()
 	if (KEY_Down('W'))
 	{
 		EffectManager::GetInstance()->Play("skill_core_4x4", CENTER);
-		Camera::GetInstance()->ShakeStart(10.0f, 1.0f);
+		//Camera::GetInstance()->ShakeStart(10.0f, 1.0f);
 	}
 
 	_quad->Update();
