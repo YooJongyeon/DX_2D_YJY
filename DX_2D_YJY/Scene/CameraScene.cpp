@@ -8,6 +8,8 @@ CameraScene::CameraScene()
 	_zelda = make_shared<Zelda>();
 
 	_zeldaFollowTrans = make_shared<Transform>();
+	_zelda->SetPostion(CENTER.x, CENTER.y);
+	_zeldaFollowTrans->GetPos() = _zelda->GetTransform()->GetPos();
 
 	Camera::GetInstance()->SetTarget(_zeldaFollowTrans);
 	Vector2 leftBottom = { -_backGround->GetHalfSize().x, -_backGround->GetHalfSize().y };
@@ -22,8 +24,6 @@ CameraScene::~CameraScene()
 
 void CameraScene::Update()
 {
-	ZeldaMove();
-
 	_backGround->Update();
 	_zelda->Update();
 
@@ -43,44 +43,50 @@ void CameraScene::Render()
 
 void CameraScene::PostRender()
 {
+	if (ImGui::Button("Save", {100,100}))
+		SavePos();
 }
 
-void CameraScene::ZeldaMove()
+void CameraScene::SavePos()
 {
+	BinaryWriter writer(L"Save/ZeldaInfo.zelda");
 
-	_zelda->SetPostion(_zeldaPos.x, _zeldaPos.y);
+	vector<float> dataes;
+	dataes.push_back(_zelda->GetTransform()->GetPos().x);
+	dataes.push_back(_zelda->GetTransform()->GetPos().y);
 
-	if (KEY_PRESS('W'))
-	{
-		_zeldaPos.y += 150 * DELTA_TIME;
-		_zelda->SetAnimation(Zelda::State::B_RUN);
-
-		return;
-	}
-
-	if (KEY_PRESS('A'))
-	{
-		_zeldaPos.x -= 150 * DELTA_TIME;
-		_zelda->SetAnimation(Zelda::State::L_RUN);
-
-		return;
-	}
-
-	if (KEY_PRESS('S'))
-	{
-		_zeldaPos.y -= 150 * DELTA_TIME;
-		_zelda->SetAnimation(Zelda::State::F_RUN);
-
-		return;
-	}
-
-	if (KEY_PRESS('D'))
-	{
-		_zeldaPos.x += 150 * DELTA_TIME;
-		_zelda->SetAnimation(Zelda::State::R_RUN);
-
-		return;
-	}
-
+	writer.Uint(dataes.size());
+	writer.Byte(dataes.data(), sizeof(float) * dataes.size());
 
 }
+
+Vector2 CameraScene::LoadPos()
+{
+	
+	BinaryReader reader(L"Save/ZeldaInfo.zelda");
+
+	UINT size = reader.Uint();
+
+	vector<float> dataes;
+	dataes.resize(size);
+
+	void* ptr = (void*)dataes.data();
+
+	reader.Byte(ptr, sizeof(float) * dataes.size());
+
+	Vector2 tempPos;
+
+	if (dataes.size() == 0)
+	{
+		tempPos = { 0.0f,0.0f }; 
+		return tempPos;
+	}
+
+	tempPos.x = dataes[0];
+	tempPos.y = dataes[1];
+
+	return tempPos;
+}
+
+
+

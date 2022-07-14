@@ -147,6 +147,8 @@ void Zelda::Update()
 	_sprite->Update();
 	_collider->Update();
 
+	ZeldMoveByKeyBoard();
+
 	for (auto& action : _actions)
 	{
 		action->Update();
@@ -170,6 +172,7 @@ void Zelda::PostRender()
 void Zelda::SetPostion(float x, float y)
 {
 	_sprite->GetTransform()->GetPos() = { x,y };
+	_zeldaPos = { x,y };
 }
 
 void Zelda::SetAnimation(State aniState)
@@ -187,5 +190,72 @@ void Zelda::SetAnimation(State aniState)
 
 	_actions[aniState]->Play();
 	_aniState = aniState;
+}
+
+void Zelda::ZeldMoveByKeyBoard()
+{
+
+	if (KEY_PRESS('W'))
+	{
+		_zeldaPos.y += 150 * DELTA_TIME;
+		this->SetAnimation(Zelda::State::B_RUN);
+		return;
+	}
+	
+	if (KEY_PRESS('A'))
+	{
+		_zeldaPos.x -= 150 * DELTA_TIME;
+		this->SetAnimation(Zelda::State::L_RUN);
+
+		return;
+	}
+
+	if (KEY_PRESS('S'))
+	{
+		_zeldaPos.y -= 150 * DELTA_TIME;
+		this->SetAnimation(Zelda::State::F_RUN);
+
+		return;
+	}
+
+	if (KEY_PRESS('D'))
+	{
+		_zeldaPos.x += 150 * DELTA_TIME;
+		this->SetAnimation(Zelda::State::R_RUN);
+
+		return;
+	}
+
+	SEltDLE();
+}
+
+void Zelda::SEltDLE()
+{
+	switch (_aniState)
+	{
+	case Zelda::F_RUN:
+	{
+		SetAnimation(State::F_IDLE);
+	}
+		break;
+	case Zelda::L_RUN:
+	{
+		SetAnimation(State::L_IDLE);
+	}
+		break;
+	case Zelda::B_RUN:
+	{
+		SetAnimation(State::B_IDLE);
+	}
+		break;
+	case Zelda::R_RUN:
+	{
+		SetAnimation(State::R_IDLE);
+	}
+		break;
+	default:
+		break;
+	}
+
 }
 

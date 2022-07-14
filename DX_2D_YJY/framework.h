@@ -70,6 +70,9 @@ using namespace std;
 #include "Framework/Utillty/Utillity.h"
 #include "Framework/Utillty/Time.h"
 #include "Framework/Utillty/InputManger.h"
+#include "Framework/Utillty/BinaryWriter.h"
+#include "Framework/Utillty/BinaryReader.h"
+
 
 // Camera
 #include "Framework/Camera/Camera.h"

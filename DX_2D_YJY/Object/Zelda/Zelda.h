@@ -26,6 +26,9 @@ public:
 
 	void SetPostion(float x, float y);
 	void SetAnimation(State aniState);
+	void ZeldMoveByKeyBoard();
+	void SEltDLE();
+	
 
 	void SetRightMessage() { _message = "Right RUN!!!"; };
 	void SetBackMessage() { _message = "Back RUN!!!"; };
@@ -36,12 +39,16 @@ public:
 
 
 
+
+
 private:
 	State _aniState = F_IDLE;
 
 	shared_ptr<Sprite> _sprite;
 	vector<shared_ptr<Action>> _actions;
 	shared_ptr<Collider> _collider;
+
+	Vector2 _zeldaPos = { 0,0 };
 
 	string _message = "Hello";
 };
