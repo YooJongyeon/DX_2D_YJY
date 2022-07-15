@@ -33,7 +33,6 @@ void CameraScene::Update()
 	{
 		_zeldaFollowTrans->GetPos() = LERP(_zeldaFollowTrans->GetPos(), _zelda->GetTransform()->GetPos(), 0.001f);
 	}
-
 }
 
 void CameraScene::Render()
@@ -51,12 +50,14 @@ void CameraScene::PostRender()
 void CameraScene::SavePos()
 {
 	BinaryWriter writer(L"Save/ZeldaInfo.zelda");
-
+	
 	vector<float> dataes;
+
 	dataes.push_back(_zelda->GetTransform()->GetPos().x);
 	dataes.push_back(_zelda->GetTransform()->GetPos().y);
 
 	writer.Uint(dataes.size());
+	writer.Uint(dataes.size() * sizeof(float));
 	writer.Byte(dataes.data(), sizeof(float) * dataes.size());
 
 }
@@ -67,13 +68,14 @@ Vector2 CameraScene::LoadPos()
 	BinaryReader reader(L"Save/ZeldaInfo.zelda");
 
 	UINT size = reader.Uint();
+	UINT byteSize = reader.Uint();
 
 	vector<float> dataes;
 	dataes.resize(size);
 
 	void* ptr = (void*)dataes.data();
 
-	reader.Byte(&ptr, sizeof(float) * dataes.size());
+	reader.Byte(&ptr, byteSize);
 
 	Vector2 tempPos;
 

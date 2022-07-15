@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Framework\Utillty\DirectWrite.h" />
     <ClInclude Include="Framework\Utillty\BinaryReader.h" />
     <ClInclude Include="Framework\Utillty\BinaryWriter.h" />
     <ClInclude Include="Scene\CameraScene.h" />
@@ -200,6 +201,7 @@
     <ClInclude Include="Scene\ZeldaScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\Utillty\DirectWrite.cpp" />
     <ClCompile Include="Framework\Utillty\BinaryReader.cpp" />
     <ClCompile Include="Framework\Utillty\BinaryWriter.cpp" />
     <ClCompile Include="Scene\CameraScene.cpp" />

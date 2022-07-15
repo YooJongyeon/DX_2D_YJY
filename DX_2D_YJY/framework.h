@@ -37,6 +37,13 @@ using namespace std;
 // DirectX Tex
 #include "../DirectXTex/DirectXTex.h";
 
+// DirectWrite
+#include <d2d1_2.h>
+#include <dwrite.h>
+
+#pragma comment(lib,"d2d1.lib")
+#pragma comment(lib,"dwrite.lib")
+
 //ImGui
 #include "../ImGui/imgui.h"
 #include "../ImGui/imgui_impl_dx11.h"
@@ -44,7 +51,6 @@ using namespace std;
 
 // Types
 #include "TypeDef.h"
-
 
 // Device
 #include "Framework/Device/Device.h"
@@ -72,7 +78,7 @@ using namespace std;
 #include "Framework/Utillty/InputManger.h"
 #include "Framework/Utillty/BinaryWriter.h"
 #include "Framework/Utillty/BinaryReader.h"
-
+#include"Framework/Utillty/DirectWrite.h"
 
 // Camera
 #include "Framework/Camera/Camera.h"

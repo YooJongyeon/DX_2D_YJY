@@ -45,6 +45,8 @@ public:
 		return _renderTargetView;
 	}
 
+	
+
 	void Clear();
 	void Present();
 

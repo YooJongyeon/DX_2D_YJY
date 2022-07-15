@@ -48,7 +48,7 @@ void Program::Render()
 	_scene->Render();
 	EffectManager::GetInstance()->Render();
 
-	ImGui::Text("FPS : %d", Time::GetInstance()->GetFPS());
+	//ImGui::Text("FPS : %d", Time::GetInstance()->GetFPS());
 	Camera::GetInstance()->PostRender();
 	_scene->PostRender();
 

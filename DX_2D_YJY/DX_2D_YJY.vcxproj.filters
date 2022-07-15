@@ -174,6 +174,9 @@
     <ClInclude Include="Framework\Utillty\BinaryReader.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Utillty\DirectWrite.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX_2D_YJY.cpp">
@@ -315,6 +318,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Utillty\BinaryReader.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utillty\DirectWrite.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -57,6 +57,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     InputManger::Create();
     StateManager::Create();
     ShaderManger::Create();
+    DirectWrite::Create();
     EffectManager::Create();
     Camera::Create();
 
@@ -86,6 +87,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     EffectManager::Delete();
     StateManager::Delete();
     InputManger::Delete();
+    DirectWrite::Delete();
     ShaderManger::Delete();
     Time::Delete();
 
