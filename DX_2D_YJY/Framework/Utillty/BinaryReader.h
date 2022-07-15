@@ -9,7 +9,7 @@ public:
 	UINT Uint();
 	float Float();
 	string String();
-	void Byte(void* data, UINT dataSize);
+	void Byte(void** data, UINT dataSize);
 
 private:
 	HANDLE _file;

@@ -47,7 +47,7 @@ string BinaryReader::String()
 }
 
 
-void BinaryReader::Byte(void* data, UINT dataSize)
+void BinaryReader::Byte(void** data, UINT dataSize)
 {
-	//assert(ReadFile(_file, *data, dataSize, OUT & _size, nullptr));
+	assert(ReadFile(_file, *data, dataSize, OUT & _size, nullptr));
 }

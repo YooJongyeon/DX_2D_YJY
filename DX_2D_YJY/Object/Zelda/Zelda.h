@@ -44,11 +44,11 @@ public:
 private:
 	State _aniState = F_IDLE;
 
+	Vector2 _zeldaPos = { 0,0 };
 	shared_ptr<Sprite> _sprite;
 	vector<shared_ptr<Action>> _actions;
 	shared_ptr<Collider> _collider;
 
-	Vector2 _zeldaPos = { 0,0 };
 
 	string _message = "Hello";
 };

@@ -195,13 +195,16 @@ void Zelda::SetAnimation(State aniState)
 void Zelda::ZeldMoveByKeyBoard()
 {
 
+	this->SetPostion(_zeldaPos.x, _zeldaPos.y);
+
 	if (KEY_PRESS('W'))
 	{
 		_zeldaPos.y += 150 * DELTA_TIME;
 		this->SetAnimation(Zelda::State::B_RUN);
+
 		return;
 	}
-	
+
 	if (KEY_PRESS('A'))
 	{
 		_zeldaPos.x -= 150 * DELTA_TIME;
@@ -234,24 +237,16 @@ void Zelda::SEltDLE()
 	switch (_aniState)
 	{
 	case Zelda::F_RUN:
-	{
 		SetAnimation(State::F_IDLE);
-	}
 		break;
 	case Zelda::L_RUN:
-	{
 		SetAnimation(State::L_IDLE);
-	}
 		break;
 	case Zelda::B_RUN:
-	{
 		SetAnimation(State::B_IDLE);
-	}
 		break;
 	case Zelda::R_RUN:
-	{
 		SetAnimation(State::R_IDLE);
-	}
 		break;
 	default:
 		break;

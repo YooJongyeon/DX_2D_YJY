@@ -8,7 +8,8 @@ CameraScene::CameraScene()
 	_zelda = make_shared<Zelda>();
 
 	_zeldaFollowTrans = make_shared<Transform>();
-	_zelda->SetPostion(CENTER.x, CENTER.y);
+	Vector2 temp = this->LoadPos();
+	_zelda->SetPostion(temp.x, temp.y);
 	_zeldaFollowTrans->GetPos() = _zelda->GetTransform()->GetPos();
 
 	Camera::GetInstance()->SetTarget(_zeldaFollowTrans);
@@ -72,7 +73,7 @@ Vector2 CameraScene::LoadPos()
 
 	void* ptr = (void*)dataes.data();
 
-	reader.Byte(ptr, sizeof(float) * dataes.size());
+	reader.Byte(&ptr, sizeof(float) * dataes.size());
 
 	Vector2 tempPos;
 
