@@ -53,10 +53,10 @@ public:
 			delete _instance;
 	}
 
-	static Camera* GetInstance()
+	static DirectWrite* GetInstance()
 	{
 		if (_instance != nullptr)
-			_instance =  new DirectWrite();
+			return _instance;
 	}
 	void RenderText(wstring text, RECT rect, float fontSize = 20.0f,
 		wstring font = L"»ﬁ∏Èµ’±Ÿ«ÏµÂ∂Û¿Œ ∫∏≈Î",
@@ -74,7 +74,7 @@ private:
 	ComPtr<ID2D1Factory1>		 _factory;
 	ComPtr<IDWriteFactory>		 _writeFactory;
 
-	ComPtr<ID2D1Device>			 _device;
+	Microsoft::WRL::ComPtr<ID2D1Device>			 _device;
 	ComPtr<ID2D1DeviceContext>	 _deviceContext;
 
 	ComPtr<ID2D1Bitmap1>		 _targetBitMap;

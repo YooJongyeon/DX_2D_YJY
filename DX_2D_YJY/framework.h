@@ -38,11 +38,11 @@ using namespace std;
 #include "../DirectXTex/DirectXTex.h";
 
 // DirectWrite
-#include <d2d1_2.h>
+#include <d2d1_1.h>
 #include <dwrite.h>
 
 #pragma comment(lib,"d2d1.lib")
-#pragma comment(lib,"dwrite.lib")
+#pragma comment(lib, "dwrite.lib")
 
 //ImGui
 #include "../ImGui/imgui.h"

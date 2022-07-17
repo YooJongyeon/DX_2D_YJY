@@ -14,10 +14,10 @@
 #define BLACK XMFLOAT4(0,0,0,1)
 
 
-#define DEVICE Device::GetInstance()->GetDevice()
+#define DEVICE         Device::GetInstance()->GetDevice()
 #define DEVICE_CONTEXT Device::GetInstance()->GetDeviceContext()
 
-#define DELTA_TIME Time::GetInstance()->GetDeltamTime()
+#define DELTA_TIME     Time::GetInstance()->GetDeltamTime()
 
 #define KEY_PRESS(k) InputManger::GetInstance()->Press(k)
 #define KEY_Down(k)  InputManger::GetInstance()->Down(k)

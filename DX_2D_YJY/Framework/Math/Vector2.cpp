@@ -6,7 +6,7 @@ Vector2 Vector2::operator+(const Vector2& value) const
 	return Vector2(x + value.x, y + value.y);
 }
 
-Vector2& Vector2::operator+=(const Vector2& value) 
+Vector2& Vector2::operator+=(const Vector2& value)
 {
 	this->x += value.x;
 	this->y += value.y;
@@ -19,7 +19,7 @@ Vector2 Vector2::operator-(const Vector2& value) const
 	return Vector2(x - value.x, y - value.y);
 }
 
-Vector2& Vector2::operator-=(const Vector2& value) 
+Vector2& Vector2::operator-=(const Vector2& value)
 {
 	this->x -= value.x;
 	this->y -= value.y;
@@ -55,20 +55,18 @@ bool Vector2::operator!=(const Vector2 value) const
 	return !(this->operator==(value));
 }
 
-bool Vector2::operator<(const Vector2 value) const
+bool Vector2::operator<(const Vector2& value) const
 {
 	if (y != value.y)
-	{
 		return y < value.y;
-		return x < value.x;
-	}
+	return x < value.x;
 }
 
 float Vector2::Length() const
 {
-	return sqrtf(x*x + y*y);
+	return sqrtf(x * x + y * y);
 }
- 
+
 float Vector2::Distance(const Vector2& pos) const
 {
 	float w = pos.x - x;
@@ -80,7 +78,7 @@ float Vector2::Distance(const Vector2& pos) const
 Vector2 Vector2::NormalVector()
 {
 	float length = Length();
-	return Vector2(x/length, y/length);
+	return Vector2(x / length, y / length);
 }
 
 void Vector2::Normallize()
@@ -104,7 +102,7 @@ float Vector2::Shadow(const Vector2& floor)
 
 float Vector2::Cross(const Vector2& value)
 {
-	return x*value.y - value.x * y;
+	return x * value.y - value.x * y;
 }
 
 void Vector2::YAxisSymmetry()
@@ -117,17 +115,5 @@ int Vector2::Manhattan(const Vector2& value) const
 	return abs(value.x - x) + abs(value.y - y);
 }
 
-float Vector2::Angle() const
-{
-	return atan2(y, x);
-}
-
-float Vector2::Angle(const Vector2& value) const
-{
-	float D = this->Angle();
-	float cos = D / (this->Length() * value.Length());
-
-	return acos(cos);
-}
 
 

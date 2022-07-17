@@ -83,12 +83,13 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             program->Render();
         }
     }
+
     Camera::Delete();
     EffectManager::Delete();
-    StateManager::Delete();
-    InputManger::Delete();
     DirectWrite::Delete();
+    StateManager::Delete();
     ShaderManger::Delete();
+    InputManger::Delete();
     Time::Delete();
 
     ImGui_ImplDX11_Shutdown();
