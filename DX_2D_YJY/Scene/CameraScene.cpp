@@ -17,6 +17,11 @@ CameraScene::CameraScene()
 	Vector2 rightTop = { _backGround->GetHalfSize().x, _backGround->GetHalfSize().y };
 	Camera::GetInstance()->SetLeftBottom(leftBottom);
 	Camera::GetInstance()->SetRightTop(rightTop);
+
+	_bulton = make_shared<Bulton>();
+	_bulton->SetScale(Vector2(0.1f, 0.1f));
+	_bulton->SetPosition(CENTER);
+	_bulton->SeText("Button");
 }
 
 CameraScene::~CameraScene()
@@ -33,18 +38,32 @@ void CameraScene::Update()
 	{
 		_zeldaFollowTrans->GetPos() = LERP(_zeldaFollowTrans->GetPos(), _zelda->GetTransform()->GetPos(), 0.001f);
 	}
+	_bulton->Update();
+
+	Vector2 mP = Camera::GetInstance()->GetMouseWorldPos();
+
+	if (_bulton->GetRectCollider()->IsCollision(mP))
+	{
+		_bulton->GetRectCollider()->SetRed();
+	}
+	else
+	{
+		_bulton->GetRectCollider()->SetGreen();
+	}
 }
 
 void CameraScene::Render()
 {
 	_backGround->Render();
 	_zelda->Render();
+	
 }
 
 void CameraScene::PostRender()
 {
 	if (ImGui::Button("Save", {100,100}))
 		SavePos();
+	_bulton->PostRender();
 }
 
 void CameraScene::SavePos()

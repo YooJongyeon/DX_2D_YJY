@@ -177,6 +177,9 @@
     <ClInclude Include="Framework\Utillty\DirectWrite.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Object\UI\Bulton.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX_2D_YJY.cpp">
@@ -323,6 +326,9 @@
     <ClCompile Include="Framework\Utillty\DirectWrite.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Object\UI\Bulton.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc">
@@ -400,6 +406,9 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="Resource\Effects\thunder_core_4x4.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Button.png">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

@@ -104,6 +104,7 @@ using namespace std;
 #include "Object/BagicObject/Sprite.h"
 #include "Object/BagicObject/Effect.h"
 #include "Object/BagicObject/EffectManager.h"
+#include "Object/UI/Bulton.h"
 
 //Obj
 #include "Object/GameObject/Player.h"

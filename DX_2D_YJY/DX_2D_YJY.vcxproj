@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\UI\Bulton.h" />
     <ClInclude Include="Framework\Utillty\DirectWrite.h" />
     <ClInclude Include="Framework\Utillty\BinaryReader.h" />
     <ClInclude Include="Framework\Utillty\BinaryWriter.h" />
@@ -201,6 +202,7 @@
     <ClInclude Include="Scene\ZeldaScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\UI\Bulton.cpp" />
     <ClCompile Include="Framework\Utillty\DirectWrite.cpp" />
     <ClCompile Include="Framework\Utillty\BinaryReader.cpp" />
     <ClCompile Include="Framework\Utillty\BinaryWriter.cpp" />
@@ -262,6 +264,7 @@
     <Image Include="DX_2D_YJY.ico" />
     <Image Include="Resource\adventure.png" />
     <Image Include="Resource\Angle.png" />
+    <Image Include="Resource\Button.png" />
     <Image Include="Resource\earth.PNG" />
     <Image Include="Resource\Effects\BlueExplosion.png" />
     <Image Include="Resource\Effects\explosion.png" />

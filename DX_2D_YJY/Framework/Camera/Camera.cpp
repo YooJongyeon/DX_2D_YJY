@@ -2,9 +2,11 @@
 #include "Camera.h"
 Camera* Camera::_instance = nullptr;
 
+
 Camera::Camera()
 {
 	_transform = make_shared<Transform>();
+	_moveTransform = make_shared<Transform>();
 	_transform->SetMatrixBuffer(1);
 	_projectionBuffer = make_shared<MatrixBuffer>();
 	_offSet = { CENTER.x, CENTER.y };
@@ -25,12 +27,16 @@ void Camera::Update()
 
 	_transform->UpdateWorldBuffer();
 	_transform->SetMatrixBuffer(1);
+
+	_moveTransform->UpdateWorldBuffer();
+	_moveTransform->GetPos().x = _transform->GetPos().x * (-1.0f);
+	_moveTransform->GetPos().y = _transform->GetPos().y * (-1.0f);
 }
 
 void Camera::PostRender()
 {
 	ImGui::Text("CameraInfo");
-	ImGui::Text("CamX : %.1f, CamY : %.1f", _transform->GetPos().x * (-1.0f), _transform->GetPos().y * (-1.0f));
+	ImGui::Text("CamX : %.1f, CamY : %.1f", _moveTransform->GetPos().x, _moveTransform->GetPos().y);
 }
 
 void Camera::ShakeStart(float magnitude, float duration, float reduceDamping)
@@ -135,4 +141,11 @@ void Camera::Shake()
 
 	if (_duration <= 0.0f)
 		_transform->GetPos() = _originPos;
+}
+
+Vector2 Camera::GetMouseWorldPos()
+{
+	XMMATRIX inverseView = XMMatrixInverse(nullptr, _transform->GetMatrix());
+	
+	return Vector2::TransformCoord(MOUSE_POS,inverseView);
 }

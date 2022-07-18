@@ -9,8 +9,6 @@ Bullet::Bullet()
 	_collider = make_shared<CircleCollider>(_quad->GetHalfSize().x);
 	_collider->SetParent(_quad->GetTransform());
 	_collider->GetLocalPosition().x += 20;
-
-
 }
 
 Bullet::~Bullet()

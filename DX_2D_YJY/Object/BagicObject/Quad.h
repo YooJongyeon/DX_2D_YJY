@@ -8,12 +8,14 @@ public:
 
     virtual void Update();
     virtual void Render();
-    
-    virtual void CreateData() ;
+
+    virtual void CreateData();
 
     shared_ptr<Transform> GetTransform() { return _transform; }
     void SetParent(shared_ptr<Transform> parent) { _transform->SetParent(parent); }
     const Vector2& GetHalfSize() { return _halfSize; }
+
+    
 
 protected:
     Quad() {}
