@@ -47,7 +47,7 @@ void Character::Update()
 	_collider->Update();
 
 	ZeldMoveByKeyBoard();
-	acter
+	
 	for (auto& action : _actions)
 	{
 		action->Update();
