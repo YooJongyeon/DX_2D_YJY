@@ -200,6 +200,7 @@
     <ClInclude Include="Framework\Render\VertexShader.h" />
     <ClInclude Include="Object\Zelda\Zelda.h" />
     <ClInclude Include="Scene\ZeldaScene.h" />
+    <ClInclude Include="Scene\TestScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Object\Dungreed\Character.cpp" />
@@ -257,6 +258,7 @@
     <ClCompile Include="Object\BagicObject\Sprite.cpp" />
     <ClCompile Include="Object\Zelda\Zelda.cpp" />
     <ClCompile Include="Scene\ZeldaScene.cpp" />
+    <ClCompile Include="Scene\TestScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc" />
@@ -282,7 +284,7 @@
     <Image Include="Resource\monster.png" />
     <Image Include="Resource\moon.PNG" />
     <Image Include="Resource\Player\player_die.png" />
-    <Image Include="Resource\Player\player_idle.png" />
+    <Image Include="Resource\player_idle.png" />
     <Image Include="Resource\Player\player_jump.png" />
     <Image Include="Resource\Player\player_run.png" />
     <Image Include="Resource\purpleaiming.png" />

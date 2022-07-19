@@ -4,14 +4,10 @@ class Character
 public:
 	enum State
 	{
-		F_IDLE,
-		L_IDLE,
-		B_IDLE,
 		R_IDLE,
+		L_IDLE,
 
-		F_RUN,
 		L_RUN,
-		B_RUN,
 		R_RUN,
 	};
 
@@ -38,7 +34,7 @@ public:
 
 
 private:
-	State _aniState = F_IDLE;
+	State _aniState = R_IDLE;
 
 	Vector2 _CharacterPos = { 0,0 };
 	shared_ptr<Sprite> _sprite;

@@ -10,9 +10,10 @@
 #include "../Scene//FillterScene.h"
 #include "../Scene/EffectScene.h"
 #include "../Scene/CameraScene.h"
+#include "../Scene/TestScene.h"
 Program::Program()
 {
-	_scene = make_shared<EffectScene>();
+	_scene = make_shared<TestScene>();
 }
 
 Program::~Program()
