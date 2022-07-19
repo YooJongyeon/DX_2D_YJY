@@ -20,7 +20,7 @@ CameraScene::CameraScene()
 
 	_bulton = make_shared<Bulton>();
 	_bulton->SetScale(Vector2(0.1f, 0.1f));
-	_bulton->SetPosition(CENTER);
+	_bulton->SetPosition(Vector2(100, WIN_HEIGHT - 100));
 	_bulton->SeText("Button");
 }
 

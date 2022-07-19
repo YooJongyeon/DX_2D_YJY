@@ -4,7 +4,7 @@ class Bulton
 public:
 	enum BultonState
 	{
-		NOME,
+		NONE,
 		HOVER,
 		CLICK
 	};
@@ -22,14 +22,19 @@ public:
 
 	shared_ptr<RectCollider> GetRectCollider() { return _col; }
 
+	void SetState();
+
+	
 private:
 	BultonState _stae;
 
 	shared_ptr<Quad> _quad;
 	shared_ptr<RectCollider> _col;
-	string _text;
 
-	Vector2 _textPos;
+	string _text;
+	Vector2 _textPos = {0,0};
+
+	shared_ptr<ButtonBuffer> _buttonBuffer;
 	
 };
 

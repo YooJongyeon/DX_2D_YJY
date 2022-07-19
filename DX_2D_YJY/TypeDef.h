@@ -23,6 +23,7 @@
 #define KEY_Down(k)  InputManger::GetInstance()->Down(k)
 #define KEY_Up(k)    InputManger::GetInstance()->Up(k)
 #define MOUSE_POS    InputManger::GetInstance()->GetMousePos()
+#define MOUSE_WORLDPOS  Camera::GetInstance()->GetMouseWorldPos()
 
 #define SMAPLER_STATE   StateManager::GetInstance()->GetSamplerState()
 #define ALPHA_STATE     StateManager::GetInstance()->GetAlphaState()

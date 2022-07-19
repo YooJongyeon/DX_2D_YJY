@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\Dungreed\Character.h" />
     <ClInclude Include="Object\UI\Bulton.h" />
     <ClInclude Include="Framework\Utillty\DirectWrite.h" />
     <ClInclude Include="Framework\Utillty\BinaryReader.h" />
@@ -195,13 +196,13 @@
     <ClInclude Include="Scene\TextureWVPScene.h" />
     <ClInclude Include="Framework\Utillty\Time.h" />
     <ClInclude Include="Framework\Component\Transform.h" />
-    <ClInclude Include="TypeDef.h" />
     <ClInclude Include="Framework\Render\VertexBuffer.h" />
     <ClInclude Include="Framework\Render\VertexShader.h" />
     <ClInclude Include="Object\Zelda\Zelda.h" />
     <ClInclude Include="Scene\ZeldaScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\Dungreed\Character.cpp" />
     <ClCompile Include="Object\UI\Bulton.cpp" />
     <ClCompile Include="Framework\Utillty\DirectWrite.cpp" />
     <ClCompile Include="Framework\Utillty\BinaryReader.cpp" />
@@ -280,6 +281,10 @@
     <Image Include="Resource\LostArk.png" />
     <Image Include="Resource\monster.png" />
     <Image Include="Resource\moon.PNG" />
+    <Image Include="Resource\Player\player_die.png" />
+    <Image Include="Resource\Player\player_idle.png" />
+    <Image Include="Resource\Player\player_jump.png" />
+    <Image Include="Resource\Player\player_run.png" />
     <Image Include="Resource\purpleaiming.png" />
     <Image Include="Resource\redbullet.png" />
     <Image Include="Resource\revolver.png" />
@@ -297,6 +302,20 @@
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\ActionShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Shaders\ButtonPixelShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>

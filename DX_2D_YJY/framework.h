@@ -112,6 +112,7 @@ using namespace std;
 #include "Object/GameObject/Bullet.h"
 #include "Object/GameObject/Monster.h"
 #include "Object/Zelda/Zelda.h"
+#include "Object/Dungreed/Character.h"
 
 // Scene
 #include "Scene/Scene.h"

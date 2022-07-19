@@ -12,7 +12,7 @@
 #include "../Scene/CameraScene.h"
 Program::Program()
 {
-	_scene = make_shared<CameraScene>();
+	_scene = make_shared<EffectScene>();
 }
 
 Program::~Program()
