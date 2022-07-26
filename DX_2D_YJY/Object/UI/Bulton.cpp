@@ -34,7 +34,7 @@ void Bulton::PostRender()
 
 	{
 		wstring text = StringToWsttring(_text);
-		float offSetX = _quad->GetHalfSize().x * _quad->GetTransform()->GetScale().x *0.5f;
+		float offSetX = _quad->GetHalfSize().x * _quad->GetTransform()->GetScale().x *0.5f +15.0f;
 		float offSetY = _quad->GetHalfSize().y * _quad->GetTransform()->GetScale().y *0.5f;
 		float sizeX = _quad->GetHalfSize().x * _quad->GetTransform()->GetScale().x;
 		float sizeY = _quad->GetHalfSize().y * _quad->GetTransform()->GetScale().y;
@@ -70,10 +70,23 @@ void Bulton::SetState()
 	if (_col->IsCollision(MOUSE_WORLDPOS))
 	{
 		_stae = HOVER;
+
 		if (KEY_PRESS(VK_LBUTTON))
 		{
 			_stae = CLICK;
 		}
+		if (KEY_PRESS(VK_LBUTTON))
+		{
+			if (_callBack != nullptr)
+			{
+				_callBack();
+			}
+			if (_callBackParam != nullptr)
+			{
+				_callBackParam(10);
+			}
+		}
+
 	}
 	else
 	{
@@ -95,3 +108,5 @@ void Bulton::SetState()
 		break;
 	}
 }
+
+

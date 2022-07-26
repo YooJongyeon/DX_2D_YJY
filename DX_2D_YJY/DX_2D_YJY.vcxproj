@@ -145,6 +145,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Framework\Utillty\tinyxml2.h" />
+    <ClInclude Include="Object\Zelda\ItemDataes.h" />
     <ClInclude Include="Object\Dungreed\Character.h" />
     <ClInclude Include="Object\UI\Bulton.h" />
     <ClInclude Include="Framework\Utillty\DirectWrite.h" />
@@ -201,8 +203,17 @@
     <ClInclude Include="Object\Zelda\Zelda.h" />
     <ClInclude Include="Scene\ZeldaScene.h" />
     <ClInclude Include="Scene\TestScene.h" />
+    <ClInclude Include="TypeDef.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Scene\XmlLoadScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\Utillty\tinyxml2.cpp" />
+    <ClCompile Include="Object\Zelda\ItemDataes.cpp" />
     <ClCompile Include="Object\Dungreed\Character.cpp" />
     <ClCompile Include="Object\UI\Bulton.cpp" />
     <ClCompile Include="Framework\Utillty\DirectWrite.cpp" />
@@ -259,6 +270,7 @@
     <ClCompile Include="Object\Zelda\Zelda.cpp" />
     <ClCompile Include="Scene\ZeldaScene.cpp" />
     <ClCompile Include="Scene\TestScene.cpp" />
+    <ClCompile Include="Scene\XmlLoadScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc" />
@@ -268,6 +280,7 @@
     <Image Include="Resource\adventure.png" />
     <Image Include="Resource\Angle.png" />
     <Image Include="Resource\Button.png" />
+    <Image Include="Resource\css_sprites.png" />
     <Image Include="Resource\earth.PNG" />
     <Image Include="Resource\Effects\BlueExplosion.png" />
     <Image Include="Resource\Effects\explosion.png" />
@@ -283,8 +296,9 @@
     <Image Include="Resource\LostArk.png" />
     <Image Include="Resource\monster.png" />
     <Image Include="Resource\moon.PNG" />
+    <Image Include="Resource\Player\Player.png" />
     <Image Include="Resource\Player\player_die.png" />
-    <Image Include="Resource\player_idle.png" />
+    <Image Include="Resource\Player\player_idle.png" />
     <Image Include="Resource\Player\player_jump.png" />
     <Image Include="Resource\Player\player_run.png" />
     <Image Include="Resource\purpleaiming.png" />
@@ -439,6 +453,9 @@
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">VS</EntryPointName>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Resource\Xml\ItemData.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,11 +4,11 @@ class Character
 public:
 	enum State
 	{
-		R_IDLE,
-		L_IDLE,
+		F_IDLE,
 
-		L_RUN,
-		R_RUN,
+		F_RUN,
+		B_RUN,
+		
 	};
 
 	Character();
@@ -25,16 +25,10 @@ public:
 	void ZeldMoveByKeyBoard();
 	void SEltDLE();
 
-
-	
 	shared_ptr<Transform> GetTransform() { return _sprite->GetTransform(); }
 
-
-
-
-
 private:
-	State _aniState = R_IDLE;
+	State _aniState = F_IDLE;
 
 	Vector2 _CharacterPos = { 0,0 };
 	shared_ptr<Sprite> _sprite;

@@ -11,6 +11,10 @@ public:
 
 	void SavePos();
 	Vector2 LoadPos();
+	void Test(int test);
+
+
+
 
 private:
 	shared_ptr<Quad> _backGround;

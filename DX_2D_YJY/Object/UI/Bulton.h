@@ -22,8 +22,15 @@ public:
 
 	shared_ptr<RectCollider> GetRectCollider() { return _col; }
 
-	void SetState();
 
+	void SetState();
+	void SetEvent(CallBack callBack) { _callBack = callBack; }
+
+	void SetEventParaam(CallBackParam callBackParam, int param) 
+	{ 
+		_callBackParam = callBackParam;
+		_param = param; 
+	}
 	
 private:
 	BultonState _stae;
@@ -35,6 +42,10 @@ private:
 	Vector2 _textPos = {0,0};
 
 	shared_ptr<ButtonBuffer> _buttonBuffer;
-	
+
+	CallBack _callBack = nullptr;
+	CallBackParam _callBackParam = nullptr;
+
+	int _param = 0;
 };
 

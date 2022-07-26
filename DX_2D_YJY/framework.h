@@ -79,6 +79,8 @@ using namespace std;
 #include "Framework/Utillty/BinaryWriter.h"
 #include "Framework/Utillty/BinaryReader.h"
 #include"Framework/Utillty/DirectWrite.h"
+#include"Framework/Utillty/tinyxml2.h"
+
 
 // Camera
 #include "Framework/Camera/Camera.h"
@@ -112,6 +114,7 @@ using namespace std;
 #include "Object/GameObject/Bullet.h"
 #include "Object/GameObject/Monster.h"
 #include "Object/Zelda/Zelda.h"
+#include "Object/Zelda/ItemDataes.h"
 #include "Object/Dungreed/Character.h"
 
 // Scene

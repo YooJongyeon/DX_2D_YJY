@@ -21,7 +21,10 @@ CameraScene::CameraScene()
 	_bulton = make_shared<Bulton>();
 	_bulton->SetScale(Vector2(0.1f, 0.1f));
 	_bulton->SetPosition(Vector2(100, WIN_HEIGHT - 100));
-	_bulton->SeText("Button");
+	_bulton->SeText("Save");
+
+	_bulton->SetEvent(std::bind(&CameraScene::SavePos,this));
+	//_bulton->SetEventParaam(std::bind(&CameraScene::Test(15),this,5));
 }
 
 CameraScene::~CameraScene()
@@ -61,8 +64,6 @@ void CameraScene::Render()
 
 void CameraScene::PostRender()
 {
-	if (ImGui::Button("Save", {100,100}))
-		SavePos();
 	_bulton->PostRender();
 }
 
@@ -109,6 +110,13 @@ Vector2 CameraScene::LoadPos()
 
 	return tempPos;
 }
+
+void CameraScene::Test(int test)
+{
+	int a = test;
+}
+
+
 
 
 
