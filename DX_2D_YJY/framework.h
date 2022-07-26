@@ -68,6 +68,7 @@ using namespace std;
 #include "Framework/Render/VertexShader.h"
 #include "Framework/Render/PixelShader.h"
 #include "Framework/Render/ShaderManger.h"
+#include "Framework/Render/RenderTarget.h"
 
 // Coomponent
 #include "Framework/Component/Transform.h"

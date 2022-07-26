@@ -14,7 +14,7 @@
 #include "../Scene//XmlLoadScene.h"
 Program::Program()
 {
-	_scene = make_shared<TestScene>();
+	_scene = make_shared<CameraScene>();
 }
 
 Program::~Program()
@@ -31,6 +31,9 @@ void Program::Update()
 
 void Program::Render()
 {
+	_scene->PreRender();
+
+	Device::GetInstance()->SetRenderTarget();
 	Device::GetInstance()->Clear();
 
 	ImGui_ImplDX11_NewFrame();
@@ -41,9 +44,6 @@ void Program::Render()
 
 	Camera::GetInstance()->SetViewPort();
 	Camera::GetInstance()->SetProjectionBuffer();
-
-
-	_scene->RreRender();
 
 	_scene->Render();
 	EffectManager::GetInstance()->Render();

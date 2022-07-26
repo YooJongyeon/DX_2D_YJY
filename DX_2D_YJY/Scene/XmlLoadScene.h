@@ -12,5 +12,7 @@ public:
 
 private:
 	shared_ptr<ItemDataes> _data;
+	string _itemName;
+	int _price = 0;
 };
 

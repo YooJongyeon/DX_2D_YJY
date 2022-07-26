@@ -3,11 +3,20 @@
 
 ItemDataes::ItemDataes()
 {
-	_items.reserve(10);
+	InitData();
 }
 
 ItemDataes::~ItemDataes()
 {
+}
+
+
+ItemData* ItemDataes::FindItem(string name)
+{
+	if (_items.count(name) == 0)
+		return nullptr;
+
+	return &_items[name];
 }
 
 void ItemDataes::InitData()
@@ -31,13 +40,30 @@ void ItemDataes::InitData()
 
 		ItemData itemData;
 		itemData.name = data->GetText();
-		//int value = 0;
-		//int prive = 0;
-		//int type = 0;
-		//int attack = 0;
-		//int defence = 0;
 
-		//itemData.value = atoi(data->NextSiblingElement()->GetText());
+		cell = cell->NextSiblingElement();
+		data = cell->FirstChildElement();
+		itemData.price = data->IntText();
+
+		cell = cell->NextSiblingElement();
+		data = cell->FirstChildElement();
+		itemData.value = data->IntText();
+
+		cell = cell->NextSiblingElement();
+		data = cell->FirstChildElement();
+		itemData.type = data->IntText();
+
+		cell = cell->NextSiblingElement();
+		data = cell->FirstChildElement();
+		itemData.attack = data->IntText();
+
+		cell = cell->NextSiblingElement();
+		data = cell->FirstChildElement();
+		itemData.defence = data->IntText();
+
+		_items[itemData.name] = itemData;
+		row = row->NextSiblingElement();
+
 	}
 
 

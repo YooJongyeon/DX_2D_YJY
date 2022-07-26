@@ -152,6 +152,7 @@
     <ClInclude Include="Framework\Utillty\DirectWrite.h" />
     <ClInclude Include="Framework\Utillty\BinaryReader.h" />
     <ClInclude Include="Framework\Utillty\BinaryWriter.h" />
+    <ClInclude Include="Framework\Render\RenderTarget.h" />
     <ClInclude Include="Scene\CameraScene.h" />
     <ClInclude Include="Scene\EffectScene.h" />
     <ClInclude Include="Framework\Camera\Camera.h" />
@@ -219,6 +220,7 @@
     <ClCompile Include="Framework\Utillty\DirectWrite.cpp" />
     <ClCompile Include="Framework\Utillty\BinaryReader.cpp" />
     <ClCompile Include="Framework\Utillty\BinaryWriter.cpp" />
+    <ClCompile Include="Framework\Render\RenderTarget.cpp" />
     <ClCompile Include="Scene\CameraScene.cpp" />
     <ClCompile Include="Scene\EffectScene.cpp" />
     <ClCompile Include="Framework\Camera\Camera.cpp" />
@@ -280,7 +282,6 @@
     <Image Include="Resource\adventure.png" />
     <Image Include="Resource\Angle.png" />
     <Image Include="Resource\Button.png" />
-    <Image Include="Resource\css_sprites.png" />
     <Image Include="Resource\earth.PNG" />
     <Image Include="Resource\Effects\BlueExplosion.png" />
     <Image Include="Resource\Effects\explosion.png" />
@@ -296,7 +297,7 @@
     <Image Include="Resource\LostArk.png" />
     <Image Include="Resource\monster.png" />
     <Image Include="Resource\moon.PNG" />
-    <Image Include="Resource\Player\Player.png" />
+    <Image Include="Resource\Player.png" />
     <Image Include="Resource\Player\player_die.png" />
     <Image Include="Resource\Player\player_idle.png" />
     <Image Include="Resource\Player\player_jump.png" />

@@ -38,14 +38,14 @@
    x:FullRows="1" ss:DefaultColumnWidth="54" ss:DefaultRowHeight="16.5">
    <Row>
     <Cell><Data ss:Type="String">ItemName</Data></Cell>
-    <Cell><Data ss:Type="String">ItemPlce</Data></Cell>
+    <Cell><Data ss:Type="String">ItemPrice</Data></Cell>
     <Cell><Data ss:Type="String">ItemValue</Data></Cell>
     <Cell><Data ss:Type="String">ItemType</Data></Cell>
     <Cell><Data ss:Type="String">Attack</Data></Cell>
     <Cell><Data ss:Type="String">Defence</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">재배의 활</Data></Cell>
+    <Cell><Data ss:Type="String">bow of cultivation</Data></Cell>
     <Cell><Data ss:Type="Number">1000</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -53,7 +53,7 @@
     <Cell><Data ss:Type="Number">0</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">강철의 방패</Data></Cell>
+    <Cell><Data ss:Type="String">iron shield</Data></Cell>
     <Cell><Data ss:Type="Number">900</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>

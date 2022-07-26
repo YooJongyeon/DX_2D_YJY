@@ -24,7 +24,15 @@ CameraScene::CameraScene()
 	_bulton->SeText("Save");
 
 	_bulton->SetEvent(std::bind(&CameraScene::SavePos,this));
-	//_bulton->SetEventParaam(std::bind(&CameraScene::Test(15),this,5));
+	_bulton->SetEventParaam(std::bind(&CameraScene::Test, this, placeholders::_1), 13);
+
+	_rtv = make_shared<RenderTarget>(500, 500);
+	_targetTexture = make_shared<Quad>(L"RenderTarget");
+	shared_ptr<Texture> texture = Texture::Add(L"Target", _rtv->GetSRV());
+	_targetTexture->SetTexture(texture);
+	_targetTexture->GetTransform()->GetPos() = { 0,0 };
+	_targetTexture->GetTransform()->GetScale() = { 300 , 200 };
+
 }
 
 CameraScene::~CameraScene()
@@ -43,16 +51,7 @@ void CameraScene::Update()
 	}
 	_bulton->Update();
 
-	Vector2 mP = Camera::GetInstance()->GetMouseWorldPos();
-
-	if (_bulton->GetRectCollider()->IsCollision(mP))
-	{
-		_bulton->GetRectCollider()->SetRed();
-	}
-	else
-	{
-		_bulton->GetRectCollider()->SetGreen();
-	}
+	_targetTexture->Update();
 }
 
 void CameraScene::Render()
@@ -60,6 +59,16 @@ void CameraScene::Render()
 	_backGround->Render();
 	_zelda->Render();
 	
+}
+
+void CameraScene::PreRender()
+{
+	_rtv->Set();
+
+	ALPHA_STATE->SetState();
+
+	_zelda->Render();
+	_backGround->Render();
 }
 
 void CameraScene::PostRender()

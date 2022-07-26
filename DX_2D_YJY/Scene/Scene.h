@@ -7,7 +7,7 @@ public:
 
 	virtual void Update() abstract;
 	virtual void Render() abstract;
-	virtual void RreRender() {}
+	virtual void PreRender() {}
 	virtual void PostRender() {}
 
 private:

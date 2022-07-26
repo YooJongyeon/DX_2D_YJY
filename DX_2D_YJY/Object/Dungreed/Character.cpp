@@ -3,9 +3,9 @@
 
 Character::Character()
 {
-	_sprite = make_shared<Sprite>(L"Resource/Player/Player.png", Vector2(10,8));
+	_sprite = make_shared<Sprite>(L"Resource/Player.png", Vector2(10,3));
 	_sprite->GetTransform()->GetPos() = Vector2(WIN_WIDTH, WIN_HEIGHT) * 0.5f;
-	_sprite->GetTransform()->GetScale() = Vector2(10.0f, 10.0f);
+	_sprite->GetTransform()->GetScale() = Vector2(5.0f, 5.0f);
 
 	_collider = make_shared<RectCollider>(_sprite->GetHalfFrameSize());
 	_collider->SetParent(_sprite->GetTransform());
@@ -19,20 +19,21 @@ Character::~Character()
 
 void Character::CreateActions()
 {
-	_actions.reserve(8);
+	_actions.reserve(4);
 
 	{
 		vector<Action::Clip> clips;
-		float w = 156.0f / 8.0f;
-		float h = 121.0f / 3.0f;
+		float w = 136.0f / 10.3f;
+		float h = 77.0f / 4.0f;
 		
-		float y = 121.0f * (1.0f/3.0f);
+		float y = 0;
 		{
-			clips.emplace_back(0, y, w, h, Texture::Add(L"Resource/Player/Player.png"));
-			clips.emplace_back(0 + w, y, w, h, Texture::Add(L"Resource/Player/Player.png"));
-			clips.emplace_back(0 + w * 2, y, w, h, Texture::Add(L"Resource/Player/Player.png"));
-			clips.emplace_back(0 + w * 3, y, w, h, Texture::Add(L"Resource/Player/Player.png"));
-			clips.emplace_back(0 + w * 4, y, w, h, Texture::Add(L"Resource/Player/Player.png"));
+			clips.emplace_back(0, y, w, h, Texture::Add(L"Resource/Player.png"));
+			clips.emplace_back(0 + w, y, w, h, Texture::Add(L"Resource/Player.png"));
+			clips.emplace_back(0 + w * 2, y, w, h, Texture::Add(L"Resource/Player.png"));
+			clips.emplace_back(0 + w * 3, y, w, h, Texture::Add(L"Resource/Player.png"));
+			clips.emplace_back(0 + w * 4, y, w, h, Texture::Add(L"Resource/Player.png"));
+			
 		}
 		_actions.push_back(make_shared<Action>(clips, "F_IDLE"));
 		clips.clear();
@@ -51,7 +52,7 @@ void Character::Update()
 	_sprite->Update();
 	_collider->Update();
 
-	//ZeldMoveByKeyBoard();
+	ZeldMoveByKeyBoard();
 	
 	for (auto& action : _actions)
 	{

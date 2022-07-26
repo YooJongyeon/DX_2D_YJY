@@ -28,12 +28,7 @@ public:
 	void SetAnimation(State aniState);
 	void ZeldMoveByKeyBoard();
 	void SEltDLE();
-	
 
-	void SetRightMessage() { _message = "Right RUN!!!"; }
-	void SetBackMessage() { _message = "Back RUN!!!"; }
-	void SetLeftMessage() { _message = "Left RUN!!!"; }
-	void SetFrontMessage() { _message = "Front RUN!!!"; }
 
 	shared_ptr<Transform> GetTransform() { return _sprite->GetTransform(); }
 
