@@ -18,7 +18,7 @@ public:
 
 	void SetPosition(Vector2 pos);
 	void SetScale(Vector2 scale);
-	void SeText(string text);
+	void SetText(string text);
 
 	shared_ptr<RectCollider> GetRectCollider() { return _col; }
 
@@ -26,7 +26,7 @@ public:
 	void SetState();
 	void SetEvent(CallBack callBack) { _callBack = callBack; }
 
-	void SetEventParaam(CallBackParam callBackParam, int param) 
+	void SetEventParam(CallBackParam callBackParam, int param) 
 	{ 
 		_callBackParam = callBackParam;
 		_param = param; 
@@ -43,8 +43,8 @@ private:
 
 	shared_ptr<ButtonBuffer> _buttonBuffer;
 
-	CallBack _callBack = nullptr;
-	CallBackParam _callBackParam = nullptr;
+	CallBack _callBack;
+	CallBackParam _callBackParam;
 
 	int _param = 0;
 };

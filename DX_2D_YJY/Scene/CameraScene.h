@@ -12,7 +12,6 @@ public:
 
 	void SavePos();
 	Vector2 LoadPos();
-	void Test(int test);
 
 
 
@@ -26,5 +25,6 @@ private:
 
 	shared_ptr<RenderTarget> _rtv;
 	shared_ptr<Quad> _targetTexture;
+	shared_ptr<Quad> _miniPlayer;
 };
 

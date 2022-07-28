@@ -199,7 +199,7 @@ void Zelda::ZeldMoveByKeyBoard()
 
 	if (KEY_PRESS('W'))
 	{
-		_zeldaPos.y += 150 * DELTA_TIME;
+		_zeldaPos.y += _speed * DELTA_TIME;
 		this->SetAnimation(Zelda::State::B_RUN);
 
 		return;
@@ -207,7 +207,7 @@ void Zelda::ZeldMoveByKeyBoard()
 
 	if (KEY_PRESS('A'))
 	{
-		_zeldaPos.x -= 150 * DELTA_TIME;
+		_zeldaPos.x -= _speed * DELTA_TIME;
 		this->SetAnimation(Zelda::State::L_RUN);
 
 		return;
@@ -215,7 +215,7 @@ void Zelda::ZeldMoveByKeyBoard()
 
 	if (KEY_PRESS('S'))
 	{
-		_zeldaPos.y -= 150 * DELTA_TIME;
+		_zeldaPos.y -= _speed * DELTA_TIME;
 		this->SetAnimation(Zelda::State::F_RUN);
 
 		return;
@@ -223,7 +223,7 @@ void Zelda::ZeldMoveByKeyBoard()
 
 	if (KEY_PRESS('D'))
 	{
-		_zeldaPos.x += 150 * DELTA_TIME;
+		_zeldaPos.x += _speed * DELTA_TIME;
 		this->SetAnimation(Zelda::State::R_RUN);
 
 		return;

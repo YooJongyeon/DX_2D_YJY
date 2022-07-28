@@ -46,5 +46,7 @@ private:
 
 
 	string _message = "Hello";
+
+	float _speed = 300.0f;
 };
 

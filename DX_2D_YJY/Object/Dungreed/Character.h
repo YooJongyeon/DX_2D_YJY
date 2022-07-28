@@ -7,7 +7,7 @@ public:
 		F_IDLE,
 
 		F_RUN,
-		B_RUN,
+	
 		
 	};
 
@@ -30,8 +30,9 @@ public:
 private:
 	State _aniState = F_IDLE;
 
-	Vector2 _CharacterPos = { 0,0 };
+	Vector2 _CharacterPos =  CENTER ;
 	shared_ptr<Sprite> _sprite;
+	shared_ptr<Sprite> _sprite2;
 	vector<shared_ptr<Action>> _actions;
 	shared_ptr<Collider> _collider;
 

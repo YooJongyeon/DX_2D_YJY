@@ -28,9 +28,9 @@ void Camera::Update()
 	_transform->UpdateWorldBuffer();
 	_transform->SetMatrixBuffer(1);
 
-	_moveTransform->UpdateWorldBuffer();
 	_moveTransform->GetPos().x = _transform->GetPos().x * (-1.0f);
 	_moveTransform->GetPos().y = _transform->GetPos().y * (-1.0f);
+	_moveTransform->UpdateWorldBuffer();
 }
 
 void Camera::PostRender()

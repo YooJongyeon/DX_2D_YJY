@@ -20,18 +20,20 @@ CameraScene::CameraScene()
 
 	_bulton = make_shared<Bulton>();
 	_bulton->SetScale(Vector2(0.1f, 0.1f));
-	_bulton->SetPosition(Vector2(100, WIN_HEIGHT - 100));
-	_bulton->SeText("Save");
+	_bulton->SetPosition({ 100,WIN_HEIGHT - 100 });
+	_bulton->SetText("Save");
 
-	_bulton->SetEvent(std::bind(&CameraScene::SavePos,this));
-	_bulton->SetEventParaam(std::bind(&CameraScene::Test, this, placeholders::_1), 13);
+	_bulton->SetEvent(std::bind(&CameraScene::SavePos, this));
+	_bulton->SetEventParam(std::bind(&CameraScene::Test, this, placeholders::_1), 13);
 
+	// RenderTarget
 	_rtv = make_shared<RenderTarget>(500, 500);
-	_targetTexture = make_shared<Quad>(L"RenderTarget");
+	_targetTexture = make_shared<Quad>(L"RenderTarget", _backGround->GetHalfSize());
 	shared_ptr<Texture> texture = Texture::Add(L"Target", _rtv->GetSRV());
 	_targetTexture->SetTexture(texture);
 	_targetTexture->GetTransform()->GetPos() = { 0,0 };
-	_targetTexture->GetTransform()->GetScale() = { 300 , 200 };
+	_targetTexture->GetTransform()->GetScale() *= 0.1f;
+	_miniPlayer = make_shared<Quad>(L"Resource/monster.png");
 
 }
 
@@ -52,23 +54,34 @@ void CameraScene::Update()
 	_bulton->Update();
 
 	_targetTexture->Update();
+	_targetTexture->GetTransform()->GetPos() = 
+		Camera::GetInstance()->GetTransform()->GetPos() + 
+		Vector2(WIN_WIDTH - _targetTexture->GetHalfSize().x, WIN_HEIGHT - _targetTexture->GetHalfSize().y);
+
+	Vector2 ratio;
+	{
+		//ratio.x = 
+	}
+	_miniPlayer->GetTransform()->GetPos();
+	_miniPlayer->Update();
 }
 
 void CameraScene::Render()
 {
 	_backGround->Render();
 	_zelda->Render();
+	_miniPlayer->Render();
 	
 }
 
 void CameraScene::PreRender()
 {
 	_rtv->Set();
-
+	_miniPlayer->Render();
 	ALPHA_STATE->SetState();
 
-	_zelda->Render();
-	_backGround->Render();
+	//_zelda->Render();
+	//_backGround->Render();
 }
 
 void CameraScene::PostRender()
@@ -120,10 +133,6 @@ Vector2 CameraScene::LoadPos()
 	return tempPos;
 }
 
-void CameraScene::Test(int test)
-{
-	int a = test;
-}
 
 
 
