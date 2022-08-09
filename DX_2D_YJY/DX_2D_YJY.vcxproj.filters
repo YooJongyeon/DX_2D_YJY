@@ -198,6 +198,21 @@
     <ClInclude Include="Framework\Render\RenderTarget.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Object\UI\MinMap.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Dungreed\Weapon.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Dungreed\TownMap.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\InstancingScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Utillty\MathUtillty.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX_2D_YJY.cpp">
@@ -365,6 +380,21 @@
     <ClCompile Include="Framework\Render\RenderTarget.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Object\UI\MinMap.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Dungreed\Weapon.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Dungreed\TownMap.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\InstancingScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Utillty\MathUtillty.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc">
@@ -459,6 +489,72 @@
     <Image Include="Resource\Player\player_run.png">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="Resource\playe.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Player\Bullet_Big.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Player\GatlingGun.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Player\player_idle_left.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Player\player_run_left.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Weapon\Sword.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Weapon\ShortSword.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\torch.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\Town_BGL.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\townAtlas.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\townAtlas1.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\TownBG_Day.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\TownFloor.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\TownLayer_Day.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\Tree0.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\Tree1.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\Well.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\wall.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\townAtlas2.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\townAtlas3.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\townAtlas4.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\townAtlas5.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\TexturePixelShader.hlsl" />
@@ -471,6 +567,8 @@
     <FxCompile Include="Shaders\FillterShader\FillterShader.hlsl" />
     <FxCompile Include="Shaders\LeftRightPixelShader.hlsl" />
     <FxCompile Include="Shaders\ButtonPixelShader.hlsl" />
+    <FxCompile Include="Shaders\InstancingVertexShader.hlsl" />
+    <FxCompile Include="Shaders\InstancingPixelShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resource\Xml\ItemData.xml" />

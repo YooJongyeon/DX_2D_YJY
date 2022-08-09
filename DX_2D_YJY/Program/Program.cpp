@@ -12,9 +12,11 @@
 #include "../Scene/CameraScene.h"
 #include "../Scene/TestScene.h"
 #include "../Scene//XmlLoadScene.h"
+#include "../Scene/InstancingScene.h"
 Program::Program()
 {
-	_scene = make_shared<CameraScene>();
+	srand(static_cast<unsigned int>(time(nullptr)));
+	_scene = make_shared<TestScene>();
 }
 
 Program::~Program()
@@ -57,6 +59,7 @@ void Program::Render()
 
 
 	Camera::GetInstance()->PostRender();
+	Camera::GetInstance()->SetUiBuffer();
 	_scene->PostRender();
 
 	ImGui::Render();

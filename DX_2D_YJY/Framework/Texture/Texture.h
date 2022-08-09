@@ -10,8 +10,6 @@ public:
     void Set(UINT slot);
     class Vector2 Getsize();
 
- 
-  
 private:
     wstring _file;
     ScratchImage _image;

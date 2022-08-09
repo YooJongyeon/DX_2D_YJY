@@ -19,13 +19,13 @@ Quad::Quad(wstring file, wstring vs, wstring ps)
     _transform = make_shared<Transform>();
 }
 
-Quad::Quad(wstring file, Vector2 halfSize, wstring vs, wstring ps)
+Quad::Quad(wstring file, Vector2 Size, wstring vs, wstring ps)
 {
     _vertexShader = ADD_VS(vs);
     _pixelShader = ADD_PS(ps);
 
     _texture = Texture::Add(file);
-    _halfSize = halfSize;
+    _halfSize = Size;
 
     CreateData();
 
@@ -43,17 +43,19 @@ Quad::~Quad()
 
 void Quad::Update()
 {
+    if (_isActive == false)
+        return;
     _transform->UpdateWorldBuffer();
 }
 
 void Quad::Render()
 {
+    if (_isActive == false)
+        return;
     _transform->SetMatrixBuffer(0);
 
     _vertexBuffer->IASet(0);
     _indexBuffer->IASet();
-
-    DEVICE_CONTEXT->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
     IASetPT();
 
@@ -65,7 +67,21 @@ void Quad::Render()
     _pixelShader->Set();
 
     DEVICE_CONTEXT->DrawIndexed(_indicies.size(), 0, 0);
+}
 
+void Quad::SetRender()
+{
+    _vertexBuffer->IASet(0);
+    _indexBuffer->IASet();
+
+    IASetPT();
+
+   
+    _texture->Set(0);
+    SMAPLER_STATE->PSSet(0);
+
+    _vertexShader->Set();
+    _pixelShader->Set();
 }
 
 void Quad::CreateData()
@@ -90,9 +106,24 @@ const Vector2& Quad::GetHalfSize()
 {
    
     Vector2 temp;
-    temp.x *= _halfSize.x * _transform->GetScale().x;
-    temp.y *= _halfSize.y * _transform->GetScale().y;
+    temp.x = _halfSize.x * _transform->GetScale().x;
+    temp.y = _halfSize.y * _transform->GetScale().y;
 
     return temp;
 
+}
+
+Vector2 Quad::LeftBottom()
+{
+    Vector2 result = _transform->GetPos() - GetHalfSize();
+
+    return result;
+}
+
+Vector2 Quad::RightTop()
+{
+    Vector2 result = _transform->GetPos() + GetHalfSize();
+
+    return result;
+    
 }

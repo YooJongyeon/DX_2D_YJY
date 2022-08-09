@@ -51,7 +51,6 @@ public:
 	void Clear();
 	void Present();
 
-private:
 	static Device* _instance;
 
 	HWND _hWnd;

@@ -33,11 +33,15 @@ Sprite::~Sprite()
 
 void Sprite::Update()
 {
+    if (_isActive == false)
+        return;
     Quad::Update();
 }
 
 void Sprite::Render()
 {
+    if (_isActive == false)
+        return;
     _frameBuffer->SetPSBuffer(0);
     _actionBuffer->SetPSBuffer(0);
     Quad::Render();

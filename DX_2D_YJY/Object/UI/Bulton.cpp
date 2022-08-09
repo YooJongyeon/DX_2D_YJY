@@ -6,8 +6,7 @@ Bulton::Bulton()
 	_stae = Bulton::BultonState::NONE;
 
 	_quad = make_shared<Quad>(L"Resource/Button.png", L"Shaders/TextureVertexShader.hlsl", L"Shaders/ButtonPixelShader.hlsl");
-	_quad->SetParent(Camera::GetInstance()->GetTransform());
-
+	
 	_col = make_shared<RectCollider>(_quad->GetHalfSize());
 	_col->SetParent(_quad->GetTransform());
 
@@ -20,7 +19,7 @@ Bulton::Bulton()
 	//1. 버튼
 	//	- quad : 이미지
 	//	- col : 마우스가 버튼 위에 올라와있는지
-	//	- text : 버튼에 이미지만 있으면 심심하니까
+	//	- text : 버튼에 이미지만 있으면 심심하니까dw
 
 	//	2. Quad를 생성하고 그릴 때 픽셀셰이더를 건드려서 색깔을 바꿔야함
 	//	- 어떤 식으로 바꿀거냐 ?
@@ -47,6 +46,7 @@ void Bulton::PostRender()
 {
 	_buttonBuffer->SetPSBuffer(0);
 	_quad->Render();
+	_col->Render();
 
 	{
 		wstring text = StringToWsttring(_text);
@@ -86,7 +86,7 @@ void Bulton::SetText(string text)
 
 void Bulton::SetState()
 {
-	if (_col->IsCollision(MOUSE_WORLDPOS))
+	if (_col->IsCollision(MOUSE_POS))
 	{
 		_stae = HOVER;
 
@@ -94,6 +94,7 @@ void Bulton::SetState()
 		{
 			_stae = CLICK;
 		}
+
 		if (KEY_Up(VK_LBUTTON))
 		{
 			if (_callBack != nullptr)
@@ -102,7 +103,6 @@ void Bulton::SetState()
 			if (_callBackParam != nullptr)
 				_callBackParam(_param);
 		}
-
 	}
 	else
 	{

@@ -11,6 +11,7 @@ public:
 	virtual void PostRender() override;
 
 	void SavePos();
+	void Test(int test);
 	Vector2 LoadPos();
 
 
@@ -22,9 +23,6 @@ private:
 	shared_ptr<Transform> _zeldaFollowTrans;
 
 	shared_ptr<Bulton> _bulton;
-
-	shared_ptr<RenderTarget> _rtv;
-	shared_ptr<Quad> _targetTexture;
-	shared_ptr<Quad> _miniPlayer;
+	shared_ptr<MinMap> _miniMap;
 };
 

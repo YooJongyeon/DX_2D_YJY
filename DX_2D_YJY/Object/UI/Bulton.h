@@ -20,18 +20,15 @@ public:
 	void SetScale(Vector2 scale);
 	void SetText(string text);
 
-	shared_ptr<RectCollider> GetRectCollider() { return _col; }
-
-
 	void SetState();
 	void SetEvent(CallBack callBack) { _callBack = callBack; }
-
 	void SetEventParam(CallBackParam callBackParam, int param) 
 	{ 
 		_callBackParam = callBackParam;
 		_param = param; 
 	}
 	
+	shared_ptr<RectCollider> GetRectCollider() { return _col; }
 private:
 	BultonState _stae;
 

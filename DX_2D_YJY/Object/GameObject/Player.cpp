@@ -22,7 +22,7 @@ Player::Player()
 		temp->_isActive = false;
 		_bullet.push_back(temp);
 	}
-	_collider = make_shared<RectCollider>(_quad->GetHalfSize());
+	_collider = make_shared<RectCollider>(_quad->GetHalfSize()* 2.0f);
 	_collider->SetParent(_quad->GetTransform());
 }
 
@@ -35,6 +35,7 @@ void Player::Update()
 	Move();
 	Aiming();
 	Fire();
+	Jump();
 
 	_quad->Update();
 	_revolver->Update();
@@ -106,6 +107,10 @@ void Player::Move()
 	{
 		_quad->GetTransform()->GetPos().y -= 100 * DELTA_TIME;
 	}
+	if (KEY_PRESS(VK_SPACE))
+	{
+		_state = JUMPLNG;
+	}
 
 }
 
@@ -133,5 +138,24 @@ void Player::Fire()
 				break;
 			}
 		}
+	}
+}
+
+void Player::Jump()
+{
+	if (_state != JUMPLNG)
+		return;
+
+	Vector2 temp;
+	_jumpPower -= _gravity * DELTA_TIME;
+	
+	temp.y = _jumpPower;
+	_quad->GetTransform()->GetPos() += temp * DELTA_TIME;
+
+	if (_quad->GetTransform()->GetPos().y < 0 )
+	{
+		_jumpPower = 300.0f;
+		_state = GROUND;
+
 	}
 }

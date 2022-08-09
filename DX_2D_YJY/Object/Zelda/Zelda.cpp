@@ -97,6 +97,7 @@ void Zelda::CreateActions()
 		_actions.push_back(make_shared<Action>(clips, "L_RUN"));
 		clips.clear();
 
+
 		y = 1040 * (6.0f / 8.0f);
 		// 뒤로 달리기
 		{
@@ -113,7 +114,7 @@ void Zelda::CreateActions()
 		}
 		_actions.push_back(make_shared<Action>(clips, "B_RUN"));
 		clips.clear();
-
+	
 		y = 1040 * (7.0f / 8.0f);
 		// 오른 달리기
 		{

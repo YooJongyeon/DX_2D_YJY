@@ -40,9 +40,10 @@ public:
 	void SetParent(shared_ptr<Transform> parent) { _transform->SetParent(parent); }
 	shared_ptr<Transform> GetParent(){ return _transform->GetPatent(); }
 
+	Vector2 _center = { 0,0 };
+
 protected:
 
-	Vector2 _center;
 
 	ColType _type = ColType::DEFAULT;
 

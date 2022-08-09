@@ -27,6 +27,7 @@ public:
 
 	void SetViewPort(UINT width = WIN_WIDTH, UINT height = WIN_HEIGHT);
 	void SetProjectionBuffer(UINT width = WIN_WIDTH, UINT height = WIN_HEIGHT);
+	void SetUiBuffer() { _uiViewBuffer->SetVSBuffer(1); }
 
 	void SetTarget(shared_ptr<Transform> transform) { _target = transform; }
 	void SetLeftBottom(Vector2 value) { _leftBottom = value; }
@@ -63,5 +64,7 @@ private:
 	Vector2 _originPos;
 
 	shared_ptr<MatrixBuffer> _projectionBuffer; // Program에서 세팅 => 여기서 세팅
+	shared_ptr<MatrixBuffer> _uiViewBuffer;
+
 };
 

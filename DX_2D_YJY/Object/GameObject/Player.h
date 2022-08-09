@@ -2,6 +2,12 @@
 class Player
 {
 public:
+	enum State
+	{
+		GROUND,
+		JUMPLNG,
+	};
+
 	Player();
 	~Player();
 
@@ -14,6 +20,7 @@ private:
 	void Move();
 	void Aiming();
 	void Fire();
+	void Jump();
 
 private:
 
@@ -26,5 +33,11 @@ private:
 	vector<shared_ptr<class Bullet>> _bullet;
 
 	int _poolCount = 30;
+	
+	float _jumpPower = 300.0f;
+	float _gravity = 100.0f;
+	bool _isJumping = false;
+
+	State _state = GROUND;
 };
 

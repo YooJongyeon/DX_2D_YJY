@@ -2,6 +2,8 @@
 #include "RenderTarget.h"
 
 RenderTarget::RenderTarget(float width, float height)
+	: _width(width)
+	, _height(height)
 {
 	// Create RTV Texture
 	{

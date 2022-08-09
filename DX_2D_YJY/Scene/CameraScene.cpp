@@ -4,6 +4,9 @@
 CameraScene::CameraScene()
 {
 	_backGround = make_shared<Quad>(L"Resource/LostArk.png");
+	_backGround->GetTransform()->GetPos().x *= _backGround->GetHalfSize().x;
+	_backGround->GetTransform()->GetPos().y *= _backGround->GetHalfSize().y;
+
 
 	_zelda = make_shared<Zelda>();
 
@@ -13,8 +16,8 @@ CameraScene::CameraScene()
 	_zeldaFollowTrans->GetPos() = _zelda->GetTransform()->GetPos();
 
 	Camera::GetInstance()->SetTarget(_zeldaFollowTrans);
-	Vector2 leftBottom = { -_backGround->GetHalfSize().x, -_backGround->GetHalfSize().y };
-	Vector2 rightTop = { _backGround->GetHalfSize().x, _backGround->GetHalfSize().y };
+	Vector2 leftBottom = {0,0};
+	Vector2 rightTop = { _backGround->GetHalfSize().x  , _backGround->GetHalfSize().y};
 	Camera::GetInstance()->SetLeftBottom(leftBottom);
 	Camera::GetInstance()->SetRightTop(rightTop);
 
@@ -26,14 +29,11 @@ CameraScene::CameraScene()
 	_bulton->SetEvent(std::bind(&CameraScene::SavePos, this));
 	_bulton->SetEventParam(std::bind(&CameraScene::Test, this, placeholders::_1), 13);
 
-	// RenderTarget
-	_rtv = make_shared<RenderTarget>(500, 500);
-	_targetTexture = make_shared<Quad>(L"RenderTarget", _backGround->GetHalfSize());
-	shared_ptr<Texture> texture = Texture::Add(L"Target", _rtv->GetSRV());
-	_targetTexture->SetTexture(texture);
-	_targetTexture->GetTransform()->GetPos() = { 0,0 };
-	_targetTexture->GetTransform()->GetScale() *= 0.1f;
-	_miniPlayer = make_shared<Quad>(L"Resource/monster.png");
+
+	_miniMap = make_shared<MinMap>(_backGround->GetHalfSize() * 0.2);
+	_miniMap->SetBackGround(leftBottom, rightTop);
+	_miniMap->SetPlayerPos(&_zelda->GetTransform()->GetPos());
+	
 
 }
 
@@ -52,41 +52,30 @@ void CameraScene::Update()
 		_zeldaFollowTrans->GetPos() = LERP(_zeldaFollowTrans->GetPos(), _zelda->GetTransform()->GetPos(), 0.001f);
 	}
 	_bulton->Update();
-
-	_targetTexture->Update();
-	_targetTexture->GetTransform()->GetPos() = 
-		Camera::GetInstance()->GetTransform()->GetPos() + 
-		Vector2(WIN_WIDTH - _targetTexture->GetHalfSize().x, WIN_HEIGHT - _targetTexture->GetHalfSize().y);
-
-	Vector2 ratio;
-	{
-		//ratio.x = 
-	}
-	_miniPlayer->GetTransform()->GetPos();
-	_miniPlayer->Update();
+	_miniMap->Update();
 }
 
 void CameraScene::Render()
 {
 	_backGround->Render();
 	_zelda->Render();
-	_miniPlayer->Render();
+	
 	
 }
 
 void CameraScene::PreRender()
 {
-	_rtv->Set();
-	_miniPlayer->Render();
-	ALPHA_STATE->SetState();
 
-	//_zelda->Render();
-	//_backGround->Render();
+	ALPHA_STATE->SetState();
+	_miniMap->SetRTV();
+	
 }
 
 void CameraScene::PostRender()
 {
 	_bulton->PostRender();
+	_miniMap->PostRender();
+
 }
 
 void CameraScene::SavePos()
@@ -133,7 +122,10 @@ Vector2 CameraScene::LoadPos()
 	return tempPos;
 }
 
-
+void CameraScene::Test(int test)
+{
+	int a = test;
+}
 
 
 

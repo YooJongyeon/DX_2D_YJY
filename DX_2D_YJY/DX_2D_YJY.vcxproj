@@ -146,6 +146,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Utillty\tinyxml2.h" />
+    <ClInclude Include="Framework\Utillty\MathUtillty.h" />
+    <ClInclude Include="Scene\InstancingScene.h" />
+    <ClInclude Include="Object\UI\MinMap.h" />
     <ClInclude Include="Object\Zelda\ItemDataes.h" />
     <ClInclude Include="Object\Dungreed\Character.h" />
     <ClInclude Include="Object\UI\Bulton.h" />
@@ -204,6 +207,7 @@
     <ClInclude Include="Object\Zelda\Zelda.h" />
     <ClInclude Include="Scene\ZeldaScene.h" />
     <ClInclude Include="Scene\TestScene.h" />
+    <ClInclude Include="Object\Dungreed\TownMap.h" />
     <ClInclude Include="TypeDef.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -211,9 +215,13 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Scene\XmlLoadScene.h" />
+    <ClInclude Include="Object\Dungreed\Weapon.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\Utillty\tinyxml2.cpp" />
+    <ClCompile Include="Framework\Utillty\MathUtillty.cpp" />
+    <ClCompile Include="Scene\InstancingScene.cpp" />
+    <ClCompile Include="Object\UI\MinMap.cpp" />
     <ClCompile Include="Object\Zelda\ItemDataes.cpp" />
     <ClCompile Include="Object\Dungreed\Character.cpp" />
     <ClCompile Include="Object\UI\Bulton.cpp" />
@@ -273,6 +281,8 @@
     <ClCompile Include="Scene\ZeldaScene.cpp" />
     <ClCompile Include="Scene\TestScene.cpp" />
     <ClCompile Include="Scene\XmlLoadScene.cpp" />
+    <ClCompile Include="Object\Dungreed\Weapon.cpp" />
+    <ClCompile Include="Object\Dungreed\TownMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc" />
@@ -295,16 +305,38 @@
     <Image Include="Resource\Effects\thunder_core_4x4.png" />
     <Image Include="Resource\Fatalis.png" />
     <Image Include="Resource\LostArk.png" />
+    <Image Include="Resource\Map\torch.png" />
+    <Image Include="Resource\Map\townAtlas.png" />
+    <Image Include="Resource\Map\townAtlas1.png" />
+    <Image Include="Resource\Map\townAtlas2.png" />
+    <Image Include="Resource\Map\townAtlas3.png" />
+    <Image Include="Resource\Map\townAtlas4.png" />
+    <Image Include="Resource\Map\townAtlas5.png" />
+    <Image Include="Resource\Map\TownBG_Day.png" />
+    <Image Include="Resource\Map\TownFloor.png" />
+    <Image Include="Resource\Map\TownLayer_Day.png" />
+    <Image Include="Resource\Map\Town_BGL.png" />
+    <Image Include="Resource\Map\Tree0.png" />
+    <Image Include="Resource\Map\Tree1.png" />
+    <Image Include="Resource\Map\wall.png" />
+    <Image Include="Resource\Map\Well.png" />
     <Image Include="Resource\monster.png" />
     <Image Include="Resource\moon.PNG" />
+    <Image Include="Resource\playe.png" />
+    <Image Include="Resource\Player\Bullet_Big.png" />
+    <Image Include="Resource\Player\GatlingGun.png" />
     <Image Include="Resource\Player\player_die.png" />
     <Image Include="Resource\Player\player_idle.png" />
+    <Image Include="Resource\Player\player_idle_left.png" />
     <Image Include="Resource\Player\player_jump.png" />
     <Image Include="Resource\Player\player_run.png" />
+    <Image Include="Resource\Player\player_run_left.png" />
     <Image Include="Resource\purpleaiming.png" />
     <Image Include="Resource\redbullet.png" />
     <Image Include="Resource\revolver.png" />
     <Image Include="Resource\sun.PNG" />
+    <Image Include="Resource\Weapon\ShortSword.png" />
+    <Image Include="Resource\Weapon\Sword.png" />
     <Image Include="Resource\zelda.png" />
     <Image Include="small.ico" />
   </ItemGroup>
@@ -385,6 +417,34 @@
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PS</EntryPointName>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Shaders\InstancingPixelShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Shaders\InstancingVertexShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">VS</EntryPointName>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VS</EntryPointName>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VS</EntryPointName>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">VS</EntryPointName>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
     </FxCompile>
     <FxCompile Include="Shaders\LeftRightPixelShader.hlsl">

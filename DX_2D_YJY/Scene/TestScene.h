@@ -10,5 +10,9 @@ public:
 	virtual void PostRender()override;
 private:
 	shared_ptr<Character> _character;
+	shared_ptr<TownMap> _townMap;
+
+	shared_ptr<Transform> _FollowTrans;
+
 };
 

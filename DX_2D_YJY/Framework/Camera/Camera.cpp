@@ -8,8 +8,10 @@ Camera::Camera()
 	_transform = make_shared<Transform>();
 	_moveTransform = make_shared<Transform>();
 	_transform->SetMatrixBuffer(1);
-	_projectionBuffer = make_shared<MatrixBuffer>();
 	_offSet = { CENTER.x, CENTER.y };
+
+	_projectionBuffer = make_shared<MatrixBuffer>();
+	_uiViewBuffer = make_shared<MatrixBuffer>();
 }
 
 Camera::~Camera()
@@ -103,14 +105,14 @@ void Camera::FollowMode()
 	if (targetPos.x < _leftBottom.x)
 		targetPos.x = _leftBottom.x;
 
-	if (targetPos.x > _rightTop.x + WIN_WIDTH)
-		targetPos.x = _rightTop.x + WIN_WIDTH;
+	if (targetPos.x > _rightTop.x - WIN_WIDTH)
+		targetPos.x = _rightTop.x - WIN_WIDTH;
 
 	if (targetPos.y < _leftBottom.y)
 		targetPos.y = _leftBottom.y;
 
-	if (targetPos.y > _rightTop.y + WIN_HEIGHT)
-		targetPos.y = _rightTop.y + WIN_HEIGHT;
+	if (targetPos.y > _rightTop.y - WIN_HEIGHT)
+		targetPos.y = _rightTop.y - WIN_HEIGHT;
 
 	_transform->GetPos() = LERP(_transform->GetPos(), targetPos * -1, DELTA_TIME * _speed);
 	

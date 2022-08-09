@@ -19,7 +19,7 @@ shared_ptr<VertexShader> ShaderManger::AddVS(wstring file)
 	}
 
 	shared_ptr<VertexShader> vs = make_shared<VertexShader>(file);
-		_shadersMap[file] = vs;
+	_shadersMap[file] = vs;
 
 	return vs;
 }

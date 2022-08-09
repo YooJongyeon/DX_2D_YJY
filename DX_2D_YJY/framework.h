@@ -81,6 +81,7 @@ using namespace std;
 #include "Framework/Utillty/BinaryReader.h"
 #include"Framework/Utillty/DirectWrite.h"
 #include"Framework/Utillty/tinyxml2.h"
+#include "Framework/Utillty/MathUtillty.h"
 
 
 // Camera
@@ -107,7 +108,9 @@ using namespace std;
 #include "Object/BagicObject/Sprite.h"
 #include "Object/BagicObject/Effect.h"
 #include "Object/BagicObject/EffectManager.h"
+
 #include "Object/UI/Bulton.h"
+#include "Object/UI/MinMap.h"
 
 //Obj
 #include "Object/GameObject/Player.h"
@@ -116,7 +119,11 @@ using namespace std;
 #include "Object/GameObject/Monster.h"
 #include "Object/Zelda/Zelda.h"
 #include "Object/Zelda/ItemDataes.h"
+
+//Durngreed
+#include "Object/Dungreed/TownMap.h"
 #include "Object/Dungreed/Character.h"
+#include "Object/Dungreed/Weapon.h"
 
 // Scene
 #include "Scene/Scene.h"

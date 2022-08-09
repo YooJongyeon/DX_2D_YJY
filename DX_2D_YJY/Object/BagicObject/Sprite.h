@@ -17,6 +17,8 @@ public:
 	void SetClip(Action::Clip clip);
 
 
+	bool _isActive = true;
+
 private:
 	Vector2 _maxFrame;
 	shared_ptr<FrameBuffer> _frameBuffer;
