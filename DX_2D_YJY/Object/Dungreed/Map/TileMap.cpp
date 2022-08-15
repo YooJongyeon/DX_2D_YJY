@@ -75,6 +75,7 @@ void TileMap::TileCollision(shared_ptr<class Character> character)
 			character->_CharacterPos.y = tile->GetColl()->Top() + character->GetSprite2()->GetHalfFrameSize().y - 5.0f;
 			character->_CharacterPos.y = tile->GetColl()->Top() + character->GetSprite3()->GetHalfFrameSize().y - 5.0f;
 			character->_CharacterPos.y = tile->GetColl()->Top() + character->GetSprite4()->GetHalfFrameSize().y - 5.0f;
+			character->_CharacterPos.y = tile->GetColl()->Top() + character->GetSprite5()->GetHalfFrameSize().y - 5.0f;
 			
 			
 		}
