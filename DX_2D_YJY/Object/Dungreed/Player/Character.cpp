@@ -211,6 +211,7 @@ void Character::Update()
 	}
 
 	ZeldMoveByKeyBoard();
+	_jumpPower -= _gravity * DELTA_TIME;
 	Jumping();
 
 	_weaponTrans->UpdateWorldBuffer();
@@ -307,7 +308,7 @@ void Character::ZeldMoveByKeyBoard()
 
 	if (KEY_PRESS('A'))
 	{
-		_CharacterPos.x -= 150 * DELTA_TIME;
+		_CharacterPos.x -= 300 * DELTA_TIME;
 		this->SetAnimation(Character::State::B_RUN);
 		return;
 	}
@@ -315,17 +316,21 @@ void Character::ZeldMoveByKeyBoard()
 
 	if (KEY_PRESS('D'))
 	{
-		_CharacterPos.x += 150 * DELTA_TIME;
+		_CharacterPos.x += 300 * DELTA_TIME;
 		this->SetAnimation(Character::State::F_RUN);
 		return;
 	}
 
-	if (KEY_PRESS(VK_SPACE))
+	if (_isJumping == false)
 	{
-		_aniState = F_JUMP;
-		_jumpPower = 100.0f;
-		return;
+		if (KEY_PRESS(VK_SPACE))
+		{
+			_isJumping = true;
+			_jumpPower = 200.0f;
+			return;
+		}
 	}
+	
  
 	SEltDLE();
 }
@@ -340,6 +345,7 @@ void Character::SEltDLE()
 	case Character::B_RUN:
 		SetAnimation(State::B_IDLE);
 		break;
+	
 	default:
 		break;
 	}
@@ -349,21 +355,24 @@ void Character::SEltDLE()
 void Character::Jumping()
 {      
 
-	if (_aniState != F_JUMP)
+	if (_isJumping == false)
 		return;
 
-	_jumpPower -= _gravity * DELTA_TIME;
 	_CharacterPos.y += _jumpPower * DELTA_TIME;
-
 	this->SetAnimation(Character::State::F_JUMP);
 
-	if (_CharacterPos.y < 100)
+	for (auto& tile :_tile)
 	{
-		_jumpPower = 0.0f;
-	
-		this->SetAnimation(Character::State::F_IDLE);
-
+		
+		if (_CharacterPos.y == tile->GetColl()->Top() + _spriteJump->GetHalfFrameSize().y + 30.0f)
+		{
+			_jumpPower = 0.0f;
+			_isJumping = false;
+			this->SetAnimation(Character::State::F_IDLE);
+		}
+		
 	}
+	
 	
 }
 

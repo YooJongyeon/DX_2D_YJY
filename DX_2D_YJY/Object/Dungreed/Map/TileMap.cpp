@@ -11,44 +11,68 @@ TileMap::TileMap()
 		{
 		case 0:
 			temp->GetTransform()->GetScale() *= 2.0f;
-			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.1f , WIN_HEIGHT * 0.05f };
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.1f , WIN_HEIGHT * 0.055f };
 			temp->_isActive = true;
 			break;
 		case 1:
 			temp->GetTransform()->GetScale() *= 2.0f;
-			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.26f , WIN_HEIGHT * 0.055f };
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.3f , WIN_HEIGHT * 0.055f };
 			temp->_isActive = true;
 			break;
 		case 2:
 			temp->GetTransform()->GetScale() *= 2.0f;
-			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.42f , WIN_HEIGHT * 0.05f };
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.5f , WIN_HEIGHT * 0.055f };
 			temp->_isActive = true;
 			break;
 		case 3:
 			temp->GetTransform()->GetScale() *= 2.0f;
-			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.57f , WIN_HEIGHT * 0.055f };
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.7f , WIN_HEIGHT * 0.055f };
 			temp->_isActive = true;
 			break;
 		case 4:
 			temp->GetTransform()->GetScale() *= 2.0f;
-			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.68f , WIN_HEIGHT * 0.05f };
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.9f , WIN_HEIGHT * 0.055f };
 			temp->_isActive = true;
 			break;
 		case 5:
 			temp->GetTransform()->GetScale() *= 2.0f;
-			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.77f , WIN_HEIGHT * 0.055f };
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 1.1f , WIN_HEIGHT * 0.055f };
 			temp->_isActive = true;
 			break;
 		case 6:
 			temp->GetTransform()->GetScale() *= 2.0f;
-			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.88f , WIN_HEIGHT * 0.05f };
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 1.3f , WIN_HEIGHT * 0.055f };
 			temp->_isActive = true;
 			break;
 		case 7:
 			temp->GetTransform()->GetScale() *= 2.0f;
-			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.97f , WIN_HEIGHT * 0.055f };
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 1.5f , WIN_HEIGHT * 0.055f };
 			temp->_isActive = true;
 			break;
+		case 8:
+			temp->GetTransform()->GetScale() *= 2.0f;
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 1.7f , WIN_HEIGHT * 0.055f };
+			temp->_isActive = true;
+			break;
+
+		case 9:
+			temp->GetTransform()->GetScale() *= 2.0f;
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 1.8f , WIN_HEIGHT * 0.055f };
+			temp->_isActive = true;
+			break;
+
+		case 10:
+			temp->GetTransform()->GetScale() *= 2.0f;
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 2.0f , WIN_HEIGHT * 0.055f };
+			temp->_isActive = true;
+			break;
+
+		case 11:
+			temp->GetTransform()->GetScale() *= 2.0f;
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 2.2f , WIN_HEIGHT * 0.055f };
+			temp->_isActive = true;
+			break;
+
 		default:
 			break;
 		}
@@ -71,11 +95,8 @@ void TileMap::TileCollision(shared_ptr<class Character> character)
 		if (tile->TileCollision(character))
 		{
 			tile->GetColl()->SetRed();
-			character->_CharacterPos.y = tile->GetColl()->Top() + character->GetSprite()->GetHalfFrameSize().y - 5.0f;
-			character->_CharacterPos.y = tile->GetColl()->Top() + character->GetSprite2()->GetHalfFrameSize().y - 5.0f;
-			character->_CharacterPos.y = tile->GetColl()->Top() + character->GetSprite3()->GetHalfFrameSize().y - 5.0f;
-			character->_CharacterPos.y = tile->GetColl()->Top() + character->GetSprite4()->GetHalfFrameSize().y - 5.0f;
-			character->_CharacterPos.y = tile->GetColl()->Top() + character->GetSprite5()->GetHalfFrameSize().y - 5.0f;
+			character->_CharacterPos.y = tile->GetColl()->Top() + character->GetSprite()->GetHalfFrameSize().y + 10.0f;
+			
 			
 			
 		}

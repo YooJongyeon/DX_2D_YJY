@@ -35,6 +35,8 @@ public:
 	void ZeldMoveByKeyBoard();
 	void SEltDLE();
 	void Jumping();
+	
+
 
 
 	bool TileCollision(shared_ptr<Tile> tile);
@@ -55,7 +57,7 @@ public:
 	ssWslash Get_sswSlash();
 	
 	bool _isActive = false;
-	Vector2 _CharacterPos = { 0.0f, 0.0f };
+	Vector2 _CharacterPos = { 100.0f, 500.0f };
 
 
 
@@ -94,7 +96,7 @@ private:
 	shared_ptr<Transform> _weaponTrans4;
 	shared_ptr<Transform> _weaponTrans5;
 
-	shared_ptr<Tile> _tile;
+	vector<shared_ptr<Tile>> _tile;
 
 	float slashDigree;
 	float ssWx;
@@ -103,8 +105,12 @@ private:
 	float _jumpPower = 200.0f;
 	float _jumpTime = 0.0f;
 	float _gravity = 150.0f;
-	bool _isJumping = false;
 
+	
+
+	bool _isJumping = false;
+	bool _isFrontMove = false;
+	bool _isBackMove = false;
 
 
 
