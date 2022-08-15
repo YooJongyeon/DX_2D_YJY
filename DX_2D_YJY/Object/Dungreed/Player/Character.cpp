@@ -51,6 +51,20 @@ Character::Character()
 	_weaponTrans3->GetPos().x = _spriteJump->GetHalfFrameSize().x + 5;
 	_weaponTrans3->GetPos().y = _spriteJump->GetHalfFrameSize().y - 10;
 
+
+	_weaponTrans4 = make_shared<Transform>();
+	_weaponTrans4->SetParent(_spriteFrontIdle->GetTransform());
+
+	_weaponTrans4->GetPos().x = _spriteFrontIdle->GetHalfFrameSize().x + 5;
+	_weaponTrans4->GetPos().y = _spriteFrontIdle->GetHalfFrameSize().y - 10;
+
+
+	_weaponTrans5 = make_shared<Transform>();
+	_weaponTrans5->SetParent(_spriteBackIdle->GetTransform());
+
+	_weaponTrans5->GetPos().x = _spriteBackIdle->GetHalfFrameSize().x + 5;
+	_weaponTrans5->GetPos().y = _spriteBackIdle->GetHalfFrameSize().y - 10;
+
 	_weapon = make_shared<Weapon>();
 	_weapon->SetPlayer(_weaponTrans);
 
@@ -59,6 +73,12 @@ Character::Character()
 
 	_weapon3 = make_shared<Weapon>();
 	_weapon3->SetPlayer(_weaponTrans3);
+
+	_weapon4 = make_shared<Weapon>();
+	_weapon4->SetPlayer(_weaponTrans4);
+
+	_weapon5 = make_shared<Weapon>();
+	_weapon5->SetPlayer(_weaponTrans5);
 
 	CreateActions();
 }
@@ -162,12 +182,12 @@ void Character::Update()
 	{
 	case Character::F_IDLE:
 		_spriteFrontIdle->Update();
-		_weapon3->Update();
+		_weapon4->Update();
 		_collider1->Update();
 		break;
 	case Character::B_IDLE:
 		_spriteBackIdle->Update();
-		_weapon2->Update();
+		_weapon5->Update();
 		_collider3->Update();
 		break;
 	case Character::F_RUN:
@@ -191,12 +211,13 @@ void Character::Update()
 	}
 
 	ZeldMoveByKeyBoard();
-	Attack();
 	Jumping();
 
 	_weaponTrans->UpdateWorldBuffer();
 	_weaponTrans2->UpdateWorldBuffer();
 	_weaponTrans3->UpdateWorldBuffer();
+	_weaponTrans4->UpdateWorldBuffer();
+	_weaponTrans5->UpdateWorldBuffer();
 
 	for (auto& action : _actions)
 	{
@@ -219,12 +240,12 @@ void Character::Render()
 	{
 	case Character::F_IDLE:
 		_spriteFrontIdle->Render();
-		_weapon->Render();
+		_weapon4->Render();
 		_collider1->Render();
 		break;
 	case Character::B_IDLE:
 		_spriteBackIdle->Render();
-		_weapon2->Render();
+		_weapon5->Render();
 		_collider3->Render();
 		break;
 	case Character::F_RUN:
@@ -321,36 +342,15 @@ void Character::SEltDLE()
 		SetAnimation(State::B_IDLE);
 		break;
 	case Character::F_JUMP:
+		if (_CharacterPos.y < 0)
+			_jumpPower = 0.0f;
 		SetAnimation(State::F_IDLE);
+	
 		break;
 	default:
 		break;
 	}
 
-}
-
-void Character::Set_ssWslah(bool up, bool down)
-{
-	slashstate.Up = up;
-	slashstate.Down = down;
-}
-
-void Character::Attack()
-{
-	if (KEY_PRESS('R'))
-	{
-		if (slashstate.Up)
-		{
-			slashDigree = 180 * PI / 180;
-			ssWx = 20;
-			Set_ssWslah(false, true);
-		}else if (slashstate.Down)
-		{
-			slashDigree = 0;
-			ssWx = 0;
-			Set_ssWslah(true, false);
-		}
-	}
 }
 
 void Character::Jumping()
@@ -362,12 +362,36 @@ void Character::Jumping()
 	_jumpPower -= _gravity * DELTA_TIME;
 	_CharacterPos.y += _jumpPower * DELTA_TIME;
 
-	if (_CharacterPos.x < 100 || _CharacterPos.y < 100)
-	{
-		_jumpPower = 0.0f;
-		
-	}
+
 }
+
+bool Character::TileCollision(shared_ptr<Tile> tile)
+{
+	if (tile->_isActive == false && _isActive == false)
+		return false;
+	if (_collider1->IsCollision(tile->GetColl()))
+	{
+		return true;
+	}
+	if (_collider2->IsCollision(tile->GetColl()))
+	{
+		return true;
+	}
+	if (_collider3->IsCollision(tile->GetColl()))
+	{
+		return true;
+	}
+	if (_collider4->IsCollision(tile->GetColl()))
+	{
+		return true;
+	}
+	if (_collider5->IsCollision(tile->GetColl()))
+	{
+		return true;
+	}
+	return false;
+}
+
 
 ssWslash Character::Get_sswSlash()
 {

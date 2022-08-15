@@ -60,6 +60,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     DirectWrite::Create();
     EffectManager::Create();
     Camera::Create();
+    Audio::Create();
 
     srand(static_cast<UINT>(time(nullptr)));
     shared_ptr<Program> program = make_shared<Program>();
@@ -78,12 +79,13 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         {
             Time::GetInstance()->Update();
             InputManger::GetInstance()->Update();
+            Audio::GetInstance()->Update();
 
             program->Update();
             program->Render();
         }
     }
-
+    Audio::Delete();
     Camera::Delete();
     EffectManager::Delete();
     DirectWrite::Delete();

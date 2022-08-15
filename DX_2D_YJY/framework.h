@@ -49,6 +49,10 @@ using namespace std;
 #include "../ImGui/imgui_impl_dx11.h"
 #include "../ImGui/imgui_impl_win32.h"
 
+//FMOD
+#include "Library/FMOD/Inc/fmod.hpp"
+#pragma comment(lib,"Library/FMOD/fmod_vc.lib")
+
 // Types
 #include "TypeDef.h"
 
@@ -67,6 +71,7 @@ using namespace std;
 #include "Framework/Render/Shader.h"
 #include "Framework/Render/VertexShader.h"
 #include "Framework/Render/PixelShader.h"
+
 #include "Framework/Render/ShaderManger.h"
 #include "Framework/Render/RenderTarget.h"
 
@@ -82,6 +87,7 @@ using namespace std;
 #include"Framework/Utillty/DirectWrite.h"
 #include"Framework/Utillty/tinyxml2.h"
 #include "Framework/Utillty/MathUtillty.h"
+#include "Framework/Utillty/Audio.h"
 
 
 // Camera
@@ -108,7 +114,6 @@ using namespace std;
 #include "Object/BagicObject/Sprite.h"
 #include "Object/BagicObject/Effect.h"
 #include "Object/BagicObject/EffectManager.h"
-
 #include "Object/UI/Bulton.h"
 #include "Object/UI/MinMap.h"
 
@@ -121,9 +126,11 @@ using namespace std;
 #include "Object/Zelda/ItemDataes.h"
 
 //Durngreed
-#include "Object/Dungreed/TownMap.h"
-#include "Object/Dungreed/Character.h"
-#include "Object/Dungreed/Weapon.h"
+#include "Object/Dungreed/Map/Tile.h"
+#include "Object/Dungreed/Map/TileMap.h"
+#include "Object/Dungreed/Map/TownMap.h"
+#include "Object/Dungreed/Player/Character.h"
+#include "Object/Dungreed/Player/Weapon.h"
 
 // Scene
 #include "Scene/Scene.h"

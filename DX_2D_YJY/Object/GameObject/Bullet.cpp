@@ -30,7 +30,7 @@ void Bullet::Update()
 		_runTime = 0.0f;
 	}
 	_collider->Update();
-	
+
 }
 
 void Bullet::Render()
@@ -51,14 +51,10 @@ void Bullet::SetDirection(Vector2 dir)
 bool Bullet::IsCollision(shared_ptr<class Monster> monster)
 {
 	if (monster->_isActive == false && _isActive == false)
-			return false;
+		return false;
 	if (_collider->IsCollision(monster->GetCollider()))
 	{
 		return true;
 	}
 	return false;
 }
-
-
-
-

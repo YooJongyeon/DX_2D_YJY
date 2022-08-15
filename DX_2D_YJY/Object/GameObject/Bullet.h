@@ -11,7 +11,7 @@ public:
 	shared_ptr<Transform> GetTransfom() { return _quad->GetTransform(); }
 	void SetDirection(Vector2 dir);
 	void SetPosition(const Vector2& pos) { _quad->GetTransform()->GetPos() = pos; }
-	
+
 	bool IsCollision(shared_ptr<class Monster> monster);
 
 	bool _isActive = false;
@@ -23,6 +23,5 @@ private:
 
 	float _runTime = 0.0f;
 	float _destroyTime = 5.0f;
-
 };
 

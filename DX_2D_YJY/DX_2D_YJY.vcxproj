@@ -145,12 +145,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\GameObject\Bullet.h" />
+    <ClInclude Include="Framework\Utillty\Audio.h" />
     <ClInclude Include="Framework\Utillty\tinyxml2.h" />
     <ClInclude Include="Framework\Utillty\MathUtillty.h" />
+    <ClInclude Include="Library\FMOD\Inc\fmod.h" />
+    <ClInclude Include="Library\FMOD\Inc\fmod.hpp" />
+    <ClInclude Include="Library\FMOD\Inc\fmod_codec.h" />
+    <ClInclude Include="Library\FMOD\Inc\fmod_common.h" />
+    <ClInclude Include="Library\FMOD\Inc\fmod_dsp.h" />
+    <ClInclude Include="Library\FMOD\Inc\fmod_dsp_effects.h" />
+    <ClInclude Include="Library\FMOD\Inc\fmod_errors.h" />
+    <ClInclude Include="Library\FMOD\Inc\fmod_output.h" />
+    <ClInclude Include="Object\GameObject\Monster.h" />
+    <ClInclude Include="Object\GameObject\Player.h" />
+    <ClInclude Include="Object\GameObject\Revolver.h" />
     <ClInclude Include="Scene\InstancingScene.h" />
     <ClInclude Include="Object\UI\MinMap.h" />
     <ClInclude Include="Object\Zelda\ItemDataes.h" />
-    <ClInclude Include="Object\Dungreed\Character.h" />
+    <ClInclude Include="Object\Dungreed\Player\Character.h" />
     <ClInclude Include="Object\UI\Bulton.h" />
     <ClInclude Include="Framework\Utillty\DirectWrite.h" />
     <ClInclude Include="Framework\Utillty\BinaryReader.h" />
@@ -165,13 +178,12 @@
     <ClInclude Include="Scene\FillterScene.h" />
     <ClInclude Include="Framework\Animation\Action.h" />
     <ClInclude Include="Framework\Collider\CircleCollider.h" />
-    <ClInclude Include="Object\GameObject\Monster.h" />
-    <ClInclude Include="Object\GameObject\Player.h" />
+    <ClInclude Include="Object\Dungreed\GameObject\Monster.h" />
     <ClInclude Include="Object\BagicObject\Quad.h" />
     <ClInclude Include="Scene\ColliderScene.h" />
     <ClInclude Include="Framework\Collider\Collider.h" />
-    <ClInclude Include="Object\GameObject\Bullet.h" />
-    <ClInclude Include="Object\GameObject\Revolver.h" />
+    <ClInclude Include="Object\Dungreed\GameObject\Bullet.h" />
+    <ClInclude Include="Object\Dungreed\GameObject\Revolver.h" />
     <ClInclude Include="Framework\Collider\RectCollider.h" />
     <ClInclude Include="Scene\DungreedScene.h" />
     <ClInclude Include="Framework\Texture\BlendState.h" />
@@ -207,7 +219,10 @@
     <ClInclude Include="Object\Zelda\Zelda.h" />
     <ClInclude Include="Scene\ZeldaScene.h" />
     <ClInclude Include="Scene\TestScene.h" />
-    <ClInclude Include="Object\Dungreed\TownMap.h" />
+    <ClInclude Include="Object\Dungreed\Map\TownMap.h" />
+    <ClInclude Include="Object\Dungreed\Map\Tile.h" />
+    <ClInclude Include="Object\Dungreed\Map\TileMap.h" />
+    <ClInclude Include="Object\GameObject\Temp.h" />
     <ClInclude Include="TypeDef.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -215,15 +230,20 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Scene\XmlLoadScene.h" />
-    <ClInclude Include="Object\Dungreed\Weapon.h" />
+    <ClInclude Include="Object\Dungreed\Player\Weapon.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\GameObject\Bullet.cpp" />
+    <ClCompile Include="Framework\Utillty\Audio.cpp" />
     <ClCompile Include="Framework\Utillty\tinyxml2.cpp" />
     <ClCompile Include="Framework\Utillty\MathUtillty.cpp" />
+    <ClCompile Include="Object\GameObject\Monster.cpp" />
+    <ClCompile Include="Object\GameObject\Player.cpp" />
+    <ClCompile Include="Object\GameObject\Revolver.cpp" />
     <ClCompile Include="Scene\InstancingScene.cpp" />
     <ClCompile Include="Object\UI\MinMap.cpp" />
     <ClCompile Include="Object\Zelda\ItemDataes.cpp" />
-    <ClCompile Include="Object\Dungreed\Character.cpp" />
+    <ClCompile Include="Object\Dungreed\Player\Character.cpp" />
     <ClCompile Include="Object\UI\Bulton.cpp" />
     <ClCompile Include="Framework\Utillty\DirectWrite.cpp" />
     <ClCompile Include="Framework\Utillty\BinaryReader.cpp" />
@@ -237,13 +257,9 @@
     <ClCompile Include="Scene\FillterScene.cpp" />
     <ClCompile Include="Framework\Animation\Action.cpp" />
     <ClCompile Include="Framework\Collider\CircleCollider.cpp" />
-    <ClCompile Include="Object\GameObject\Monster.cpp" />
-    <ClCompile Include="Object\GameObject\Player.cpp" />
     <ClCompile Include="Object\BagicObject\Quad.cpp" />
     <ClCompile Include="Scene\ColliderScene.cpp" />
     <ClCompile Include="Framework\Collider\Collider.cpp" />
-    <ClCompile Include="Object\GameObject\Bullet.cpp" />
-    <ClCompile Include="Object\GameObject\Revolver.cpp" />
     <ClCompile Include="Framework\Collider\RectCollider.cpp" />
     <ClCompile Include="Scene\DungreedScene.cpp" />
     <ClCompile Include="Framework\Texture\BlendState.cpp" />
@@ -281,8 +297,11 @@
     <ClCompile Include="Scene\ZeldaScene.cpp" />
     <ClCompile Include="Scene\TestScene.cpp" />
     <ClCompile Include="Scene\XmlLoadScene.cpp" />
-    <ClCompile Include="Object\Dungreed\Weapon.cpp" />
-    <ClCompile Include="Object\Dungreed\TownMap.cpp" />
+    <ClCompile Include="Object\Dungreed\Player\Weapon.cpp" />
+    <ClCompile Include="Object\Dungreed\Map\TownMap.cpp" />
+    <ClCompile Include="Object\Dungreed\Map\Tile.cpp" />
+    <ClCompile Include="Object\Dungreed\Map\TileMap.cpp" />
+    <ClCompile Include="Object\GameObject\Temp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc" />
@@ -516,6 +535,20 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resource\Xml\ItemData.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resource\Sound\DungeonClose.wav" />
+    <Media Include="Resource\Sound\DungeonOpen.wav" />
+    <Media Include="Resource\Sound\generalAttack.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fmod.dll" />
+    <None Include="Library\FMOD\Inc\fmod.cs" />
+    <None Include="Library\FMOD\Inc\fmod_dsp.cs" />
+    <None Include="Library\FMOD\Inc\fmod_errors.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Library\FMOD\fmod_vc.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

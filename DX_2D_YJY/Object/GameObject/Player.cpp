@@ -22,7 +22,7 @@ Player::Player()
 		temp->_isActive = false;
 		_bullet.push_back(temp);
 	}
-	_collider = make_shared<RectCollider>(_quad->GetHalfSize()* 2.0f);
+	_collider = make_shared<RectCollider>(_quad->GetHalfSize() * 2.0f);
 	_collider->SetParent(_quad->GetTransform());
 }
 
@@ -82,7 +82,7 @@ void Player::AttackMonsters(vector<shared_ptr<class Monster>> _monster)
 			}
 		}
 	}
-	
+
 }
 
 
@@ -148,11 +148,11 @@ void Player::Jump()
 
 	Vector2 temp;
 	_jumpPower -= _gravity * DELTA_TIME;
-	
+
 	temp.y = _jumpPower;
 	_quad->GetTransform()->GetPos() += temp * DELTA_TIME;
 
-	if (_quad->GetTransform()->GetPos().y < 0 )
+	if (_quad->GetTransform()->GetPos().y < 0)
 	{
 		_jumpPower = 300.0f;
 		_state = GROUND;

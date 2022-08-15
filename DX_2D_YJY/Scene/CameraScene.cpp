@@ -12,6 +12,7 @@ CameraScene::CameraScene()
 
 	_zeldaFollowTrans = make_shared<Transform>();
 	Vector2 temp = this->LoadPos();
+
 	_zelda->SetPostion(temp.x, temp.y);
 	_zeldaFollowTrans->GetPos() = _zelda->GetTransform()->GetPos();
 

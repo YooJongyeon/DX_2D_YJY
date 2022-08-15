@@ -112,7 +112,7 @@ void Camera::FollowMode()
 		targetPos.y = _leftBottom.y;
 
 	if (targetPos.y > _rightTop.y - WIN_HEIGHT)
-		targetPos.y = _rightTop.y - WIN_HEIGHT;
+		targetPos.y = _rightTop.y - WIN_HEIGHT ;
 
 	_transform->GetPos() = LERP(_transform->GetPos(), targetPos * -1, DELTA_TIME * _speed);
 	

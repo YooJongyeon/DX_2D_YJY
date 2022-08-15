@@ -33,7 +33,7 @@ private:
 	vector<shared_ptr<class Bullet>> _bullet;
 
 	int _poolCount = 30;
-	
+
 	float _jumpPower = 300.0f;
 	float _gravity = 100.0f;
 	bool _isJumping = false;

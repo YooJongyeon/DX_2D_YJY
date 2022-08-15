@@ -36,6 +36,8 @@ public:
 	Vector2 GetMouseWorldPos();
 
 	shared_ptr<Transform> GetTransform() { return _moveTransform; }
+
+	
 private:
 	Camera();
 	~Camera();
