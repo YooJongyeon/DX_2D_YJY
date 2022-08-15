@@ -39,6 +39,26 @@ bool Tile::TileCollision(shared_ptr<class Character> character)
 	{
 		return true;
 	}
+
+	if (_collider->IsCollision(character->GetCollider2()))
+	{
+		return true;
+	}
+
+	if (_collider->IsCollision(character->GetCollider3()))
+	{
+		return true;
+	}
+
+	if (_collider->IsCollision(character->GetCollider4()))
+	{
+		return true;
+	}
+
+	if (_collider->IsCollision(character->GetCollider5()))
+	{
+		return true;
+	}
 	return false;
 }
 

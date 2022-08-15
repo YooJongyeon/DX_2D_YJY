@@ -18,20 +18,20 @@ Character::Character()
 	_spriteJump = make_shared<Sprite>(L"Resource/Player/player_jump.png", Vector2(1, 1));
 	_spriteJump->GetTransform()->GetScale() = { 3.0f, 3.0f };
 
-	_collider1 = make_shared<RectCollider>(_spriteFrontIdle->GetHalfFrameSize());
-	_collider1->SetParent(_spriteFrontIdle->GetTransform());
+	_frontIdleCollider = make_shared<RectCollider>(_spriteFrontIdle->GetHalfFrameSize());
+	_frontIdleCollider->SetParent(_spriteFrontIdle->GetTransform());
 
-	_collider2 = make_shared<RectCollider>(_spriteFrontRun->GetHalfFrameSize());
-	_collider2->SetParent(_spriteFrontRun->GetTransform());
+	_frontRunCollider = make_shared<RectCollider>(_spriteFrontRun->GetHalfFrameSize());
+	_frontRunCollider->SetParent(_spriteFrontRun->GetTransform());
 
-	_collider3 = make_shared<RectCollider>(_spriteBackIdle->GetHalfFrameSize());
-	_collider3->SetParent(_spriteBackIdle->GetTransform());
+	_backIdleCollider = make_shared<RectCollider>(_spriteBackIdle->GetHalfFrameSize());
+	_backIdleCollider->SetParent(_spriteBackIdle->GetTransform());
 
-	_collider4 = make_shared<RectCollider>(_spriteBackRun->GetHalfFrameSize());
-	_collider4->SetParent(_spriteBackRun->GetTransform());
+	_backRunCollider = make_shared<RectCollider>(_spriteBackRun->GetHalfFrameSize());
+	_backRunCollider->SetParent(_spriteBackRun->GetTransform());
 
-	_collider5 = make_shared<RectCollider>(_spriteJump->GetHalfFrameSize());
-	_collider5->SetParent(_spriteJump->GetTransform());
+	_jumpCollider = make_shared<RectCollider>(_spriteJump->GetHalfFrameSize());
+	_jumpCollider->SetParent(_spriteJump->GetTransform());
 
 	_weaponTrans = make_shared<Transform>();
 	_weaponTrans->SetParent(_spriteFrontRun->GetTransform());
@@ -183,27 +183,27 @@ void Character::Update()
 	case Character::F_IDLE:
 		_spriteFrontIdle->Update();
 		_weapon4->Update();
-		_collider1->Update();
+		_frontIdleCollider->Update();
 		break;
 	case Character::B_IDLE:
 		_spriteBackIdle->Update();
 		_weapon5->Update();
-		_collider3->Update();
+		_backIdleCollider->Update();
 		break;
 	case Character::F_RUN:
 		_spriteFrontRun->Update();
 		_weapon->Update();
-		_collider2->Update();
+		_frontRunCollider->Update();
 		break;
 	case Character::B_RUN:
 		_spriteBackRun->Update();
 		_weapon2->Update();
-		_collider4->Update();
+		_backRunCollider->Update();
 		break;
 	case Character::F_JUMP:
 		_spriteJump->Update();
 		_weapon3->Update();
-		_collider5->Update();
+		_jumpCollider->Update();
 		break;
 
 	default:
@@ -241,27 +241,27 @@ void Character::Render()
 	case Character::F_IDLE:
 		_spriteFrontIdle->Render();
 		_weapon4->Render();
-		_collider1->Render();
+		_frontIdleCollider->Render();
 		break;
 	case Character::B_IDLE:
 		_spriteBackIdle->Render();
 		_weapon5->Render();
-		_collider3->Render();
+		_backIdleCollider->Render();
 		break;
 	case Character::F_RUN:
 		_spriteFrontRun->Render();
 		_weapon->Render();
-		_collider2->Render();
+		_frontRunCollider->Render();
 		break;
 	case Character::B_RUN:
 		_spriteBackRun->Render();
 		_weapon2->Render();
-		_collider4->Render();
+		_backRunCollider->Render();
 		break;
 	case Character::F_JUMP:
 		_spriteJump->Render();
 		_weapon3->Render();
-		_collider5->Render();
+		_jumpCollider->Render();
 		break;
 	default:
 		break;
@@ -324,7 +324,6 @@ void Character::ZeldMoveByKeyBoard()
 	{
 		_aniState = F_JUMP;
 		_jumpPower = 100.0f;
-		this->SetAnimation(Character::State::F_JUMP);
 		return;
 	}
  
@@ -341,12 +340,6 @@ void Character::SEltDLE()
 	case Character::B_RUN:
 		SetAnimation(State::B_IDLE);
 		break;
-	case Character::F_JUMP:
-		if (_CharacterPos.y < 0)
-			_jumpPower = 0.0f;
-		SetAnimation(State::F_IDLE);
-	
-		break;
 	default:
 		break;
 	}
@@ -362,30 +355,39 @@ void Character::Jumping()
 	_jumpPower -= _gravity * DELTA_TIME;
 	_CharacterPos.y += _jumpPower * DELTA_TIME;
 
+	this->SetAnimation(Character::State::F_JUMP);
 
+	if (_CharacterPos.y < 100)
+	{
+		_jumpPower = 0.0f;
+	
+		this->SetAnimation(Character::State::F_IDLE);
+
+	}
+	
 }
 
 bool Character::TileCollision(shared_ptr<Tile> tile)
 {
 	if (tile->_isActive == false && _isActive == false)
 		return false;
-	if (_collider1->IsCollision(tile->GetColl()))
+	if (_frontIdleCollider->IsCollision(tile->GetColl()))
 	{
 		return true;
 	}
-	if (_collider2->IsCollision(tile->GetColl()))
+	if (_frontRunCollider->IsCollision(tile->GetColl()))
 	{
 		return true;
 	}
-	if (_collider3->IsCollision(tile->GetColl()))
+	if (_backIdleCollider->IsCollision(tile->GetColl()))
 	{
 		return true;
 	}
-	if (_collider4->IsCollision(tile->GetColl()))
+	if (_backRunCollider->IsCollision(tile->GetColl()))
 	{
 		return true;
 	}
-	if (_collider5->IsCollision(tile->GetColl()))
+	if (_jumpCollider->IsCollision(tile->GetColl()))
 	{
 		return true;
 	}

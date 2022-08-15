@@ -10,7 +10,8 @@ TileMap::TileMap()
 		switch (i)
 		{
 		case 0:
-			temp->GetTransform()->GetPos() = { WIN_WIDTH* 0.5f, WIN_HEIGHT *0.5f};
+			temp->GetTransform()->GetScale() *= 2.0f;
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.1f , WIN_HEIGHT * 0.05f };
 			temp->_isActive = true;
 			break;
 		case 1:
@@ -67,13 +68,19 @@ void TileMap::TileCollision(shared_ptr<class Character> character)
 		{
 			continue;
 		}
-		if (character->TileCollision(tile))
+		if (tile->TileCollision(character))
 		{
-			if (tile->GetColl()->IsCollision(character->GetCollider()))
-			{
-				//Vector2 temp = tile->GetColl()->Top();
-				//character->GetTransform()->GetPos() = temp;
-			}
+			tile->GetColl()->SetRed();
+			character->_CharacterPos.y = tile->GetColl()->Top() + character->GetSprite()->GetHalfFrameSize().y - 5.0f;
+			character->_CharacterPos.y = tile->GetColl()->Top() + character->GetSprite2()->GetHalfFrameSize().y - 5.0f;
+			character->_CharacterPos.y = tile->GetColl()->Top() + character->GetSprite3()->GetHalfFrameSize().y - 5.0f;
+			character->_CharacterPos.y = tile->GetColl()->Top() + character->GetSprite4()->GetHalfFrameSize().y - 5.0f;
+			
+			
+		}
+		else
+		{
+			tile->GetColl()->SetGreen();
 		}
 	
 	}
