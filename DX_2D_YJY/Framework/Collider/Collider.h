@@ -36,6 +36,14 @@ public:
 	void SetRed() { _colorBuffer->SetColor(RED); }
 	void SetGreen() { _colorBuffer->SetColor(GREEN); }
 
+	float GetWorldHalfX() { return _halfSize.x * GetWorldScale().x; }
+	float GetWorldHalfY() { return _halfSize.y * GetWorldScale().y; }
+
+	float Top()
+	{
+		Vector2 temp = GetWorldPosition();
+		return temp.y + GetWorldHalfY();
+	}
 
 	void SetParent(shared_ptr<Transform> parent) { _transform->SetParent(parent); }
 	shared_ptr<Transform> GetParent(){ return _transform->GetPatent(); }
@@ -58,5 +66,6 @@ protected:
 	shared_ptr<ColorBuffer> _colorBuffer;
 
 	shared_ptr<Transform> _transform;
+	Vector2 _halfSize = { 0,0 };
 };
 

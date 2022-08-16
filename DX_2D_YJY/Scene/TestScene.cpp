@@ -7,6 +7,8 @@ TestScene::TestScene()
 	_tileMap = make_shared<TileMap>();
 	_character = make_shared<Character>();
 
+	_character->SetTile(_tileMap->GetTile());
+
 	_FollowTrans = make_shared<Transform>();
 	_FollowTrans->GetPos() = _character->GetTransform()->GetPos();
 	
@@ -38,7 +40,7 @@ void TestScene::Update()
 	{
 		_FollowTrans->GetPos() = LERP(_FollowTrans->GetPos(), _character->GetTransform()->GetPos(), 0.001f);
 	}
-	_tileMap->TileCollision(_character);
+	//_tileMap->TileCollision(_character);
 
 
 	/*if (KEY_Down(VK_F2))

@@ -4,19 +4,19 @@
 Character::Character()
 {
 	_spriteFrontIdle = make_shared<Sprite>(L"Resource/Player/player_idle.png",Vector2(5,1));
-	_spriteFrontIdle->GetTransform()->GetScale() = { 3.0f, 3.0f };
+	_spriteFrontIdle->GetTransform()->GetScale() = { 2.0f, 2.0f };
 
 	_spriteFrontRun = make_shared<Sprite>(L"Resource/Player/player_run.png", Vector2(8, 1));
-	_spriteFrontRun->GetTransform()->GetScale() = { 3.0f, 3.0f };
+	_spriteFrontRun->GetTransform()->GetScale() = { 2.0f, 2.0f };
 
 	_spriteBackIdle = make_shared<Sprite>(L"Resource/Player/player_idle_left.png", Vector2(5, 1));
-	_spriteBackIdle->GetTransform()->GetScale() = { 3.0f, 3.0f };
+	_spriteBackIdle->GetTransform()->GetScale() = { 2.0f, 2.0f };
 
 	_spriteBackRun = make_shared<Sprite>(L"Resource/Player/player_run_left.png", Vector2(8, 1));
-	_spriteBackRun->GetTransform()->GetScale() = { 3.0f, 3.0f };
+	_spriteBackRun->GetTransform()->GetScale() = { 2.0f, 2.0f };
 
 	_spriteJump = make_shared<Sprite>(L"Resource/Player/player_jump.png", Vector2(1, 1));
-	_spriteJump->GetTransform()->GetScale() = { 3.0f, 3.0f };
+	_spriteJump->GetTransform()->GetScale() = { 2.0f, 2.0f };
 
 	_frontIdleCollider = make_shared<RectCollider>(_spriteFrontIdle->GetHalfFrameSize());
 	_frontIdleCollider->SetParent(_spriteFrontIdle->GetTransform());
@@ -80,6 +80,7 @@ Character::Character()
 	_weapon5 = make_shared<Weapon>();
 	_weapon5->SetPlayer(_weaponTrans5);
 
+	
 	CreateActions();
 }
 
@@ -210,8 +211,8 @@ void Character::Update()
 		break;
 	}
 
-	ZeldMoveByKeyBoard();
 	_jumpPower -= _gravity * DELTA_TIME;
+	ZeldMoveByKeyBoard();
 	Jumping();
 
 	_weaponTrans->UpdateWorldBuffer();
@@ -306,27 +307,39 @@ void Character::ZeldMoveByKeyBoard()
 {
 	this->SetPostion(_CharacterPos.x, _CharacterPos.y);
 
+
+
 	if (KEY_PRESS('A'))
 	{
 		_CharacterPos.x -= 300 * DELTA_TIME;
+		if (KEY_PRESS(VK_SPACE))
+		{
+			_isJumping = true;
+			return;
+		}
 		this->SetAnimation(Character::State::B_RUN);
 		return;
 	}
-
-
 	if (KEY_PRESS('D'))
 	{
 		_CharacterPos.x += 300 * DELTA_TIME;
+		if (KEY_PRESS(VK_SPACE))
+		{
+			_isJumping = true;
+			
+			return;
+		}
 		this->SetAnimation(Character::State::F_RUN);
 		return;
 	}
+	
+
 
 	if (_isJumping == false)
 	{
 		if (KEY_PRESS(VK_SPACE))
 		{
 			_isJumping = true;
-			_jumpPower = 200.0f;
 			return;
 		}
 	}
@@ -357,20 +370,36 @@ void Character::Jumping()
 
 	if (_isJumping == false)
 		return;
+	Vector2 temp;
+	_jumpPower -= (float)pow(_gravity, 2) * DELTA_TIME;
 
-	_CharacterPos.y += _jumpPower * DELTA_TIME;
+	temp.y = _jumpPower;
+	_CharacterPos += temp * DELTA_TIME;
 	this->SetAnimation(Character::State::F_JUMP);
 
 	for (auto& tile :_tile)
 	{
-		
-		if (_CharacterPos.y == tile->GetColl()->Top() + _spriteJump->GetHalfFrameSize().y + 30.0f)
+		if (tile->_isActive == false)
 		{
-			_jumpPower = 0.0f;
-			_isJumping = false;
-			this->SetAnimation(Character::State::F_IDLE);
+			continue;
+		}
+		if (tile->GetColl()->IsCollision(_jumpCollider, false))
+		{
+			tile->GetColl()->SetRed();
+			if (_CharacterPos.y <= tile->GetColl()->Top() + _spriteJump->GetHalfFrameSize().y + 20.0f)
+			{
+				this->SetAnimation(Character::State::F_IDLE);
+				_jumpPower = 150.0f;
+				_isJumping = false;
+			}
+
+		}
+		else
+		{
+			tile->GetColl()->SetGreen();
 		}
 		
+ 		
 	}
 	
 	

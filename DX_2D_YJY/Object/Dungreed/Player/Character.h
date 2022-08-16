@@ -35,10 +35,8 @@ public:
 	void ZeldMoveByKeyBoard();
 	void SEltDLE();
 	void Jumping();
-	
 
-
-
+	void SetTile(vector<shared_ptr<Tile>>tiles) { _tile = tiles; }
 	bool TileCollision(shared_ptr<Tile> tile);
 	shared_ptr<Transform> GetTransform() { return _spriteFrontIdle->GetTransform(); }
 
@@ -48,16 +46,16 @@ public:
 	shared_ptr<Sprite> GetSprite4() { return _spriteBackRun; }
 	shared_ptr<Sprite> GetSprite5() { return _spriteJump; }
 
-	shared_ptr<RectCollider> GetCollider() { return _frontIdleCollider; }
-	shared_ptr<RectCollider> GetCollider2() { return _frontRunCollider; }
-	shared_ptr<RectCollider> GetCollider3() { return _backIdleCollider; }
-	shared_ptr<RectCollider> GetCollider4() { return _backRunCollider; }
-	shared_ptr<RectCollider> GetCollider5() { return _jumpCollider; }
+	shared_ptr<Collider> GetCollider() { return _frontIdleCollider; }
+	shared_ptr<Collider> GetCollider2() { return _frontRunCollider; }
+	shared_ptr<Collider> GetCollider3() { return _backIdleCollider; }
+	shared_ptr<Collider> GetCollider4() { return _backRunCollider; }
+	shared_ptr<Collider> GetCollider5() { return _jumpCollider; }
 
 	ssWslash Get_sswSlash();
 	
 	bool _isActive = false;
-	Vector2 _CharacterPos = { 100.0f, 500.0f };
+	Vector2 _CharacterPos = { 0.0f, 100.0f };
 
 
 
@@ -78,11 +76,11 @@ private:
 
 	vector<shared_ptr<Action>> _actions;
 
-	shared_ptr<RectCollider> _frontIdleCollider;
-	shared_ptr<RectCollider> _frontRunCollider;
-	shared_ptr<RectCollider> _backIdleCollider;
-	shared_ptr<RectCollider> _backRunCollider;
-	shared_ptr<RectCollider> _jumpCollider;
+	shared_ptr<Collider> _frontIdleCollider;
+	shared_ptr<Collider> _frontRunCollider;
+	shared_ptr<Collider> _backIdleCollider;
+	shared_ptr<Collider> _backRunCollider;
+	shared_ptr<Collider> _jumpCollider;
 
 	shared_ptr<class Weapon> _weapon;
 	shared_ptr<class Weapon> _weapon2;
@@ -102,9 +100,9 @@ private:
 	float ssWx;
 	ssWslash slashstate;
 
-	float _jumpPower = 200.0f;
+	float _jumpPower = 150.0f;
 	float _jumpTime = 0.0f;
-	float _gravity = 150.0f;
+	float _gravity = 9.8f;
 
 	
 
