@@ -6,6 +6,7 @@ TestScene::TestScene()
 	_townMap = make_shared<TownMap>();
 	_tileMap = make_shared<TileMap>();
 	_character = make_shared<Character>();
+	_creature = make_shared <Creature>();
 
 	_character->SetTile(_tileMap->GetTile());
 
@@ -35,14 +36,14 @@ void TestScene::Update()
 	_townMap->Update();
 	_tileMap->Update();
 	_character->Update();
+	_creature->Update();
+
 	float distance = _character->GetTransform()->GetPos().Distance(_FollowTrans->GetPos());
 	if (distance >= 30.0f)
 	{
 		_FollowTrans->GetPos() = LERP(_FollowTrans->GetPos(), _character->GetTransform()->GetPos(), 0.001f);
 	}
-	//_tileMap->TileCollision(_character);
-
-
+	
 	/*if (KEY_Down(VK_F2))
 	{
 		SOUND->Play("Slash01", 0.5f);
@@ -54,6 +55,7 @@ void TestScene::Render()
 	_townMap->Render();
 	_tileMap->Render();
 	_character->Render();
+	_creature->Render();
 }
 
 void TestScene::PostRender()

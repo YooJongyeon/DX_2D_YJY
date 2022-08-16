@@ -211,8 +211,8 @@ void Character::Update()
 		break;
 	}
 
-	_jumpPower -= _gravity * DELTA_TIME;
 	ZeldMoveByKeyBoard();
+	_jumpPower -= (float)pow(_gravity, 2) * DELTA_TIME;
 	Jumping();
 
 	_weaponTrans->UpdateWorldBuffer();
@@ -307,8 +307,6 @@ void Character::ZeldMoveByKeyBoard()
 {
 	this->SetPostion(_CharacterPos.x, _CharacterPos.y);
 
-
-
 	if (KEY_PRESS('A'))
 	{
 		_CharacterPos.x -= 300 * DELTA_TIME;
@@ -333,8 +331,6 @@ void Character::ZeldMoveByKeyBoard()
 		return;
 	}
 	
-
-
 	if (_isJumping == false)
 	{
 		if (KEY_PRESS(VK_SPACE))
@@ -370,8 +366,8 @@ void Character::Jumping()
 
 	if (_isJumping == false)
 		return;
+
 	Vector2 temp;
-	_jumpPower -= (float)pow(_gravity, 2) * DELTA_TIME;
 
 	temp.y = _jumpPower;
 	_CharacterPos += temp * DELTA_TIME;
@@ -386,51 +382,24 @@ void Character::Jumping()
 		if (tile->GetColl()->IsCollision(_jumpCollider, false))
 		{
 			tile->GetColl()->SetRed();
-			if (_CharacterPos.y <= tile->GetColl()->Top() + _spriteJump->GetHalfFrameSize().y + 20.0f)
+			if (_CharacterPos.y <= tile->GetColl()->Top() + _jumpCollider->GetWorldHalfY() + 30.0f)
 			{
 				this->SetAnimation(Character::State::F_IDLE);
-				_jumpPower = 150.0f;
+				_jumpPower = 200.0f;
 				_isJumping = false;
 			}
-
 		}
 		else
 		{
 			tile->GetColl()->SetGreen();
 		}
-		
- 		
 	}
+
+
 	
 	
 }
 
-bool Character::TileCollision(shared_ptr<Tile> tile)
-{
-	if (tile->_isActive == false && _isActive == false)
-		return false;
-	if (_frontIdleCollider->IsCollision(tile->GetColl()))
-	{
-		return true;
-	}
-	if (_frontRunCollider->IsCollision(tile->GetColl()))
-	{
-		return true;
-	}
-	if (_backIdleCollider->IsCollision(tile->GetColl()))
-	{
-		return true;
-	}
-	if (_backRunCollider->IsCollision(tile->GetColl()))
-	{
-		return true;
-	}
-	if (_jumpCollider->IsCollision(tile->GetColl()))
-	{
-		return true;
-	}
-	return false;
-}
 
 
 ssWslash Character::Get_sswSlash()

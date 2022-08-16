@@ -13,12 +13,6 @@ public:
 		F_JUMP,
 	};
 
-	enum JumpState
-	{
-		NONE,
-		UP,
-		DOWN
-	};
 
 
 	Character();
@@ -37,7 +31,7 @@ public:
 	void Jumping();
 
 	void SetTile(vector<shared_ptr<Tile>>tiles) { _tile = tiles; }
-	bool TileCollision(shared_ptr<Tile> tile);
+	
 	shared_ptr<Transform> GetTransform() { return _spriteFrontIdle->GetTransform(); }
 
 	shared_ptr<Sprite> GetSprite() { return _spriteFrontIdle; }
@@ -55,14 +49,13 @@ public:
 	ssWslash Get_sswSlash();
 	
 	bool _isActive = false;
+	bool _onTile = false;
 	Vector2 _CharacterPos = { 0.0f, 100.0f };
 
 
 
 private:
 	State _aniState = F_IDLE;
-	JumpState _jumpState = NONE;
-
 	// ¾Õ
 	shared_ptr<Sprite> _spriteFrontIdle;
 	shared_ptr<Sprite> _spriteFrontRun;
@@ -100,7 +93,7 @@ private:
 	float ssWx;
 	ssWslash slashstate;
 
-	float _jumpPower = 150.0f;
+	float _jumpPower = 200.0f;
 	float _jumpTime = 0.0f;
 	float _gravity = 9.8f;
 

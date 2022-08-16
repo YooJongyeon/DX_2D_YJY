@@ -12,6 +12,7 @@ private:
 	shared_ptr<Character> _character;
 	shared_ptr<TownMap> _townMap;
 	shared_ptr<TileMap> _tileMap;
+	shared_ptr<Creature> _creature;
 
 	shared_ptr<Transform> _FollowTrans;
 

@@ -126,6 +126,7 @@ using namespace std;
 #include "Object/Zelda/ItemDataes.h"
 
 //Durngreed
+#include "Object/Dungreed/Enemy/Creature.h"
 #include "Object/Dungreed/Map/Tile.h"
 #include "Object/Dungreed/Map/TileMap.h"
 #include "Object/Dungreed/Map/TownMap.h"

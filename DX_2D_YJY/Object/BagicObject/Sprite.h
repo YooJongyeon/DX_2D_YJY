@@ -16,6 +16,10 @@ public:
 	void SetClipToActionBuffer(Action::Clip clip);
 	void SetClip(Action::Clip clip);
 
+	float Top() { return _transform->GetWorldPos().y + (GetHalfFrameSize().y * _transform->GetWorldScale().y); }
+	float Bottom() { return _transform->GetWorldPos().y - (GetHalfFrameSize().y * _transform->GetWorldScale().y); }
+	float Right() { return _transform->GetWorldPos().x + (GetHalfFrameSize().x * _transform->GetWorldScale().x); }
+	float Left() { return _transform->GetWorldPos().x - (GetHalfFrameSize().x * _transform->GetWorldScale().x); }
 
 	bool _isActive = true;
 
@@ -24,6 +28,6 @@ private:
 	shared_ptr<FrameBuffer> _frameBuffer;
 	shared_ptr<ActionBuffer> _actionBuffer;
 
-		
+	
 };
 

@@ -39,10 +39,25 @@ public:
 	float GetWorldHalfX() { return _halfSize.x * GetWorldScale().x; }
 	float GetWorldHalfY() { return _halfSize.y * GetWorldScale().y; }
 
+	float Left()
+	{
+		Vector2 temp = GetWorldPosition();
+		return temp.x - GetWorldHalfX();
+	}
+	float Right()
+	{
+		Vector2 temp = GetWorldPosition();
+		return temp.x + GetWorldHalfX();
+	}
 	float Top()
 	{
 		Vector2 temp = GetWorldPosition();
 		return temp.y + GetWorldHalfY();
+	}
+	float Bottom()
+	{
+		Vector2 temp = GetWorldPosition();
+		return temp.y - GetWorldHalfY();
 	}
 
 	void SetParent(shared_ptr<Transform> parent) { _transform->SetParent(parent); }

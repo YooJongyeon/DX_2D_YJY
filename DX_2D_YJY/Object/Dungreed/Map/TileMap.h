@@ -5,7 +5,6 @@ public:
 	TileMap();
 	~TileMap();
 
-	void TileCollision(shared_ptr<class Character> character);
 	void Update();
 	void Render();
 

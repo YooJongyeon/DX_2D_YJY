@@ -62,7 +62,7 @@ TileMap::TileMap()
 			break;
 
 		case 12:
-			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.1f , WIN_HEIGHT * 0.17f };
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.1f , WIN_HEIGHT * 0.155f };
 			temp->_isActive = true;
 			break;
 
@@ -77,29 +77,6 @@ TileMap::~TileMap()
 {
 }
 
-void TileMap::TileCollision(shared_ptr<class Character> character)
-{
-	for (auto & tile : _tile)
-	{
-		if (tile->_isActive == false)
-		{
-			continue; 
-		}
-		if (tile->TileCollision(character))
-		{
-			tile->GetColl()->SetRed();
-			character->_CharacterPos.y = tile->GetColl()->Top() + character->GetSprite5()->GetHalfFrameSize().y + 10.0f;
-			
-			
-			
-		}
-		else
-		{
-			tile->GetColl()->SetGreen();
-		}
-	
-	}
-}
 
 void TileMap::Update()
 {
