@@ -18,7 +18,7 @@ void EffectManager::Add(wstring effectFile, Vector2 maxFrame, float speed, UINT 
 
 	if (_effectMap.count(temp) > 0)
 		return;
-
+	
 	vector<shared_ptr<Effect>> v;
 	v.reserve(poolCount);
 
