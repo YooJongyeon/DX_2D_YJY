@@ -9,7 +9,7 @@ public:
 	void Render();
 
 private:
-	shared_ptr<Scene> _scene;
+
 
 };
 

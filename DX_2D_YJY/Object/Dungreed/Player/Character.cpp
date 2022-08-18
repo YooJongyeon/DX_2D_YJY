@@ -309,7 +309,7 @@ void Character::ZeldMoveByKeyBoard()
 
 	if (KEY_PRESS('A'))
 	{
-		_CharacterPos.x -= 300 * DELTA_TIME;
+		_CharacterPos.x -= 150 * DELTA_TIME;
 		if (KEY_PRESS(VK_SPACE))
 		{
 			_isJumping = true;
@@ -320,7 +320,7 @@ void Character::ZeldMoveByKeyBoard()
 	}
 	if (KEY_PRESS('D'))
 	{
-		_CharacterPos.x += 300 * DELTA_TIME;
+		_CharacterPos.x += 150 * DELTA_TIME;
 		if (KEY_PRESS(VK_SPACE))
 		{
 			_isJumping = true;

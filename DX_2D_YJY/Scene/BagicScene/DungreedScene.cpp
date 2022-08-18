@@ -16,14 +16,27 @@ DungreedScene::DungreedScene()
 		_monster.push_back(temp);
 	}
 
+
+	_button = make_shared<Bulton>();
+	_button->SetScale(Vector2(0.1f, 0.1f));
+	_button->SetText("Next");
+	_button->SetPosition({ 100, WIN_HEIGHT - 100 });
+	_button->SetEvent(std::bind(&DungreedScene::PrevScene, this));
 }
 
 DungreedScene::~DungreedScene()
 {
 }
 
+void DungreedScene::Inif()
+{
+	_player->Inif();
+}
+
 void DungreedScene::Update()
 {
+	
+
 	_player->Update();
 	_angle->Update();
 	
@@ -57,4 +70,8 @@ void DungreedScene::PostRender()
 }
 
 
+void DungreedScene::PrevScene()
+{
+	SCENE->SetScene("Test");
+}
 

@@ -90,6 +90,7 @@ using namespace std;
 #include "Framework/Utillty/Audio.h"
 
 
+
 // Camera
 #include "Framework/Camera/Camera.h"
 
@@ -126,6 +127,8 @@ using namespace std;
 #include "Object/Zelda/ItemDataes.h"
 
 //Durngreed
+#include "Object/Dungreed/ObjectManger/Object.h"
+#include "Object//Dungreed/ObjectManger/ObjectMananger.h"
 #include "Object/Dungreed/Enemy/Creature.h"
 #include "Object/Dungreed/Map/Tile.h"
 #include "Object/Dungreed/Map/TileMap.h"
@@ -135,6 +138,7 @@ using namespace std;
 
 // Scene
 #include "Scene/Scene.h"
+#include "Scene/SceneManager.h"
 
 // Program
 #include "Program/Program.h"

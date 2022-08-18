@@ -66,13 +66,13 @@
     <ClInclude Include="Scene\Scene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\TextureScene.h">
+    <ClInclude Include="Scene\BagicScene\TextureScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\TextureWVPScene.h">
+    <ClInclude Include="Scene\BagicScene\TextureWVPScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\SolarSystemScene.h">
+    <ClInclude Include="Scene\BagicScene\SolarSystemScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Utillty\Time.h">
@@ -96,7 +96,7 @@
     <ClInclude Include="Framework\Component\Transform.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\DungreedScene.h">
+    <ClInclude Include="Scene\BagicScene\DungreedScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Collider\RectCollider.h">
@@ -105,7 +105,7 @@
     <ClInclude Include="Framework\Collider\Collider.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\ColliderScene.h">
+    <ClInclude Include="Scene\BagicScene\ColliderScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Collider\CircleCollider.h">
@@ -129,10 +129,10 @@
     <ClInclude Include="Object\Zelda\Zelda.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\ZeldaScene.h">
+    <ClInclude Include="Scene\BagicScene\ZeldaScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\FillterScene.h">
+    <ClInclude Include="Scene\BagicScene\FillterScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Object\BagicObject\Effect.h">
@@ -147,10 +147,10 @@
     <ClInclude Include="Framework\Camera\Camera.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\EffectScene.h">
+    <ClInclude Include="Scene\BagicScene\EffectScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\CameraScene.h">
+    <ClInclude Include="Scene\BagicScene\CameraScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Utillty\BinaryWriter.h">
@@ -180,7 +180,7 @@
     <ClInclude Include="Framework\Utillty\tinyxml2.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\XmlLoadScene.h">
+    <ClInclude Include="Scene\BagicScene\XmlLoadScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Render\RenderTarget.h">
@@ -195,7 +195,7 @@
     <ClInclude Include="Object\Dungreed\Map\TownMap.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\InstancingScene.h">
+    <ClInclude Include="Scene\BagicScene\InstancingScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Utillty\MathUtillty.h">
@@ -261,6 +261,15 @@
     <ClInclude Include="Object\Dungreed\Enemy\Creature.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\SceneManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Dungreed\ObjectManger\Object.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Dungreed\ObjectManger\ObjectMananger.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX_2D_YJY.cpp">
@@ -302,13 +311,13 @@
     <ClCompile Include="Scene\Scene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\TextureScene.cpp">
+    <ClCompile Include="Scene\BagicScene\TextureScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\TextureWVPScene.cpp">
+    <ClCompile Include="Scene\BagicScene\TextureWVPScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\SolarSystemScene.cpp">
+    <ClCompile Include="Scene\BagicScene\SolarSystemScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Utillty\Time.cpp">
@@ -332,7 +341,7 @@
     <ClCompile Include="Framework\Component\Transform.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\DungreedScene.cpp">
+    <ClCompile Include="Scene\BagicScene\DungreedScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Collider\RectCollider.cpp">
@@ -341,7 +350,7 @@
     <ClCompile Include="Framework\Collider\Collider.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\ColliderScene.cpp">
+    <ClCompile Include="Scene\BagicScene\ColliderScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Collider\CircleCollider.cpp">
@@ -365,10 +374,10 @@
     <ClCompile Include="Object\Zelda\Zelda.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\ZeldaScene.cpp">
+    <ClCompile Include="Scene\BagicScene\ZeldaScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\FillterScene.cpp">
+    <ClCompile Include="Scene\BagicScene\FillterScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Object\BagicObject\Effect.cpp">
@@ -380,10 +389,10 @@
     <ClCompile Include="Framework\Camera\Camera.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\EffectScene.cpp">
+    <ClCompile Include="Scene\BagicScene\EffectScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\CameraScene.cpp">
+    <ClCompile Include="Scene\BagicScene\CameraScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Utillty\BinaryWriter.cpp">
@@ -410,7 +419,7 @@
     <ClCompile Include="Framework\Utillty\tinyxml2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\XmlLoadScene.cpp">
+    <ClCompile Include="Scene\BagicScene\XmlLoadScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Render\RenderTarget.cpp">
@@ -425,7 +434,7 @@
     <ClCompile Include="Object\Dungreed\Map\TownMap.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\InstancingScene.cpp">
+    <ClCompile Include="Scene\BagicScene\InstancingScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Utillty\MathUtillty.cpp">
@@ -456,6 +465,15 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Object\Dungreed\Enemy\Creature.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\SceneManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Dungreed\ObjectManger\Object.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Dungreed\ObjectManger\ObjectMananger.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

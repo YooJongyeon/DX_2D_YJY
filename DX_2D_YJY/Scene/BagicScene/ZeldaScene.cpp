@@ -6,6 +6,13 @@ ZeldaScene::ZeldaScene()
 	_zelda = make_shared<Zelda>();
 	_zeldaPos = { WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.5f };
 	_zelda->SetPostion(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.5f);
+
+
+	_button = make_shared <Bulton>();
+	_button->SetScale(Vector2(0.1f, 0.1f));
+	_button->SetText("Next");
+	_button->SetPosition(CENTER);
+	_button->SetEvent(std::bind(&ZeldaScene::NextScene, this));
 }
 
 ZeldaScene::~ZeldaScene()
@@ -63,5 +70,11 @@ void ZeldaScene::ZeldaMove()
 
 		return;
 	}
+
+}
+
+void ZeldaScene::NextScene()
+{
+	SCENE->SetScene("Dungreed");
 }
 

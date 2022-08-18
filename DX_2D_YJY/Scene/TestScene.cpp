@@ -8,6 +8,13 @@ TestScene::TestScene()
 	_character = make_shared<Character>();
 	_creature = make_shared <Creature>();
 
+	_button = make_shared<Bulton>();
+	_button->SetScale(Vector2(0.1f, 0.1f));
+	_button->SetText("Next");
+	_button->SetPosition(CENTER);
+	_button->SetEvent(std::bind(&TestScene::NextScene, this));
+	
+
 	_character->SetTile(_tileMap->GetTile());
 
 	_FollowTrans = make_shared<Transform>();
@@ -33,10 +40,15 @@ TestScene::~TestScene()
 
 void TestScene::Update()
 {
+
+
 	_townMap->Update();
 	_tileMap->Update();
 	_character->Update();
 	_creature->Update();
+
+	_button->Update();
+
 
 	float distance = _character->GetTransform()->GetPos().Distance(_FollowTrans->GetPos());
 	if (distance >= 30.0f)
@@ -56,9 +68,16 @@ void TestScene::Render()
 	_tileMap->Render();
 	_character->Render();
 	_creature->Render();
+
 }
 
 void TestScene::PostRender()
 {
-	
+	//_button->PostRender();
+
+}
+
+void TestScene::NextScene()
+{
+	SCENE->SetScene("Dungreed");
 }

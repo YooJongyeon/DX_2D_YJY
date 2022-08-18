@@ -28,7 +28,6 @@ public:
 		_param = param; 
 	}
 	
-	shared_ptr<RectCollider> GetRectCollider() { return _col; }
 private:
 	BultonState _stae;
 

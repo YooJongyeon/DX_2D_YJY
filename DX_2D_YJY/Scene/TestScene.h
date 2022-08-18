@@ -8,6 +8,8 @@ public:
 	virtual void Update() override;
 	virtual void Render() override;
 	virtual void PostRender()override;
+
+	void NextScene();
 private:
 	shared_ptr<Character> _character;
 	shared_ptr<TownMap> _townMap;
@@ -16,5 +18,6 @@ private:
 
 	shared_ptr<Transform> _FollowTrans;
 
+	shared_ptr<Bulton> _button;
 };
 

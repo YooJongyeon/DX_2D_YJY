@@ -5,11 +5,12 @@ public:
 	DungreedScene();
 	~DungreedScene();
 	
+	virtual void Inif();
 	virtual void Update() override;
 	virtual void Render() override;
 	virtual void PostRender();
 
-
+	void PrevScene();
 
 private:
 	shared_ptr<Player> _player;
@@ -23,6 +24,7 @@ private:
 
 	shared_ptr<Action> _action;
 
+	shared_ptr<Bulton> _button;
 
 	int _monsterCount = 1;
 	int curFrameX = 0;

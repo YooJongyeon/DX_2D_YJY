@@ -10,7 +10,7 @@ public:
 
 	Player();
 	~Player();
-
+	void Inif();
 	void Update();
 	void Render();
 

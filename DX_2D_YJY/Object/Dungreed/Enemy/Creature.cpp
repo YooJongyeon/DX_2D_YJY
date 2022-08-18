@@ -7,9 +7,7 @@ Creature::Creature()
 	_Idle->GetTransform()->GetScale() = { 2.0f, 2.0f };
 	_Idle->GetTransform()->GetPos() = Vector2(WIN_WIDTH * 0.3f, WIN_HEIGHT * 0.5f);
 
-	_Attack = make_shared<Sprite>(L"Resource/Boss/Belial/Head/attack.png", Vector2(9, 1));
-	_Attack->GetTransform()->GetScale() = { 2.0f, 2.0f };
-	_Attack->GetTransform()->GetPos() = Vector2(WIN_WIDTH * 0.3f, WIN_HEIGHT * 0.5f);
+	ObjectMananger::GetInstance()->Add(L"Resource/Boss/Belial/Head/attack.png", Vector2(10, 1), 0.07f);
 
 	CreateActions();
 }
@@ -41,22 +39,6 @@ void Creature::CreateActions()
 		_actions.push_back(make_shared<Action>(clips, "IDLE"));
 		clips.clear();
 
-		w = 700.0f / 10.0f;
-		h = 128.0f;
-		y = 0;
-		{
-			clips.emplace_back(0, y, w, h, Texture::Add(L"Resource/Boss/Belial/Head/attack.png"));
-			clips.emplace_back(0 + w, y, w, h, Texture::Add(L"Resource/Boss/Belial/Head/attack.png"));
-			clips.emplace_back(0 + w * 2, y, w, h, Texture::Add(L"Resource/Boss/Belial/Head/attack.png"));
-			clips.emplace_back(0 + w * 3, y, w, h, Texture::Add(L"Resource/Boss/Belial/Head/attack.png"));
-			clips.emplace_back(0 + w * 4, y, w, h, Texture::Add(L"Resource/Boss/Belial/Head/attack.png"));
-			clips.emplace_back(0 + w * 5, y, w, h, Texture::Add(L"Resource/Boss/Belial/Head/attack.png"));
-			clips.emplace_back(0 + w * 6, y, w, h, Texture::Add(L"Resource/Boss/Belial/Head/attack.png"));
-			clips.emplace_back(0 + w * 7, y, w, h, Texture::Add(L"Resource/Boss/Belial/Head/attack.png"));
-			clips.emplace_back(0 + w * 8, y, w, h, Texture::Add(L"Resource/Boss/Belial/Head/attack.png"));
-		}
-		_actions.push_back(make_shared<Action>(clips, "IDLE"));
-		clips.clear();
 	}
 
 	for (auto& action : _actions)
@@ -80,6 +62,13 @@ void Creature::Update()
 	default:
 		break;
 	}
+
+	if (KEY_Down(VK_F2))
+	{
+		ObjectMananger::GetInstance()->Play("attack", CENTER);
+		//Camera::GetInstance()->ShakeStart(10.0f, 1.0f);
+	}
+
 ;
 	
 	for (auto& action :_actions)

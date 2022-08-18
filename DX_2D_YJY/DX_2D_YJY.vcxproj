@@ -145,6 +145,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\Dungreed\ObjectManger\ObjectMananger.h" />
+    <ClInclude Include="Object\Dungreed\ObjectManger\Object.h" />
     <ClInclude Include="Object\Dungreed\Enemy\Creature.h" />
     <ClInclude Include="Object\GameObject\Bullet.h" />
     <ClInclude Include="Framework\Utillty\Audio.h" />
@@ -161,7 +163,8 @@
     <ClInclude Include="Object\GameObject\Monster.h" />
     <ClInclude Include="Object\GameObject\Player.h" />
     <ClInclude Include="Object\GameObject\Revolver.h" />
-    <ClInclude Include="Scene\InstancingScene.h" />
+    <ClInclude Include="Scene\SceneManager.h" />
+    <ClInclude Include="Scene\BagicScene\InstancingScene.h" />
     <ClInclude Include="Object\UI\MinMap.h" />
     <ClInclude Include="Object\Zelda\ItemDataes.h" />
     <ClInclude Include="Object\Dungreed\Player\Character.h" />
@@ -170,23 +173,23 @@
     <ClInclude Include="Framework\Utillty\BinaryReader.h" />
     <ClInclude Include="Framework\Utillty\BinaryWriter.h" />
     <ClInclude Include="Framework\Render\RenderTarget.h" />
-    <ClInclude Include="Scene\CameraScene.h" />
-    <ClInclude Include="Scene\EffectScene.h" />
+    <ClInclude Include="Scene\BagicScene\CameraScene.h" />
+    <ClInclude Include="Scene\BagicScene\EffectScene.h" />
     <ClInclude Include="Framework\Camera\Camera.h" />
     <ClInclude Include="Object\BagicObject\EffectManager.h" />
     <ClInclude Include="Framework\Utillty\Utillity.h" />
     <ClInclude Include="Object\BagicObject\Effect.h" />
-    <ClInclude Include="Scene\FillterScene.h" />
+    <ClInclude Include="Scene\BagicScene\FillterScene.h" />
     <ClInclude Include="Framework\Animation\Action.h" />
     <ClInclude Include="Framework\Collider\CircleCollider.h" />
     <ClInclude Include="Object\Dungreed\GameObject\Monster.h" />
     <ClInclude Include="Object\BagicObject\Quad.h" />
-    <ClInclude Include="Scene\ColliderScene.h" />
+    <ClInclude Include="Scene\BagicScene\ColliderScene.h" />
     <ClInclude Include="Framework\Collider\Collider.h" />
     <ClInclude Include="Object\Dungreed\GameObject\Bullet.h" />
     <ClInclude Include="Object\Dungreed\GameObject\Revolver.h" />
     <ClInclude Include="Framework\Collider\RectCollider.h" />
-    <ClInclude Include="Scene\DungreedScene.h" />
+    <ClInclude Include="Scene\BagicScene\DungreedScene.h" />
     <ClInclude Include="Framework\Texture\BlendState.h" />
     <ClInclude Include="Framework\Math\Vector2.h" />
     <ClInclude Include="Framework\Render\ConstantBuffer.h" />
@@ -204,21 +207,21 @@
     <ClInclude Include="Framework\Texture\SamplerState.h" />
     <ClInclude Include="Framework\Texture\SRV.h" />
     <ClInclude Include="Scene\Scene.h" />
-    <ClInclude Include="Scene\SolarSystemScene.h" />
+    <ClInclude Include="Scene\BagicScene\SolarSystemScene.h" />
     <ClInclude Include="Framework\Texture\StateManager.h" />
     <ClInclude Include="Framework\Render\ShaderManger.h" />
     <ClInclude Include="Framework\Render\Shader.h" />
     <ClInclude Include="Object\BagicObject\Sprite.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Framework\Texture\Texture.h" />
-    <ClInclude Include="Scene\TextureScene.h" />
-    <ClInclude Include="Scene\TextureWVPScene.h" />
+    <ClInclude Include="Scene\BagicScene\TextureScene.h" />
+    <ClInclude Include="Scene\BagicScene\TextureWVPScene.h" />
     <ClInclude Include="Framework\Utillty\Time.h" />
     <ClInclude Include="Framework\Component\Transform.h" />
     <ClInclude Include="Framework\Render\VertexBuffer.h" />
     <ClInclude Include="Framework\Render\VertexShader.h" />
     <ClInclude Include="Object\Zelda\Zelda.h" />
-    <ClInclude Include="Scene\ZeldaScene.h" />
+    <ClInclude Include="Scene\BagicScene\ZeldaScene.h" />
     <ClInclude Include="Scene\TestScene.h" />
     <ClInclude Include="Object\Dungreed\Map\TownMap.h" />
     <ClInclude Include="Object\Dungreed\Map\Tile.h" />
@@ -230,10 +233,12 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClInclude>
-    <ClInclude Include="Scene\XmlLoadScene.h" />
+    <ClInclude Include="Scene\BagicScene\XmlLoadScene.h" />
     <ClInclude Include="Object\Dungreed\Player\Weapon.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\Dungreed\ObjectManger\ObjectMananger.cpp" />
+    <ClCompile Include="Object\Dungreed\ObjectManger\Object.cpp" />
     <ClCompile Include="Object\Dungreed\Enemy\Creature.cpp" />
     <ClCompile Include="Object\GameObject\Bullet.cpp" />
     <ClCompile Include="Framework\Utillty\Audio.cpp" />
@@ -242,7 +247,8 @@
     <ClCompile Include="Object\GameObject\Monster.cpp" />
     <ClCompile Include="Object\GameObject\Player.cpp" />
     <ClCompile Include="Object\GameObject\Revolver.cpp" />
-    <ClCompile Include="Scene\InstancingScene.cpp" />
+    <ClCompile Include="Scene\SceneManager.cpp" />
+    <ClCompile Include="Scene\BagicScene\InstancingScene.cpp" />
     <ClCompile Include="Object\UI\MinMap.cpp" />
     <ClCompile Include="Object\Zelda\ItemDataes.cpp" />
     <ClCompile Include="Object\Dungreed\Player\Character.cpp" />
@@ -251,19 +257,19 @@
     <ClCompile Include="Framework\Utillty\BinaryReader.cpp" />
     <ClCompile Include="Framework\Utillty\BinaryWriter.cpp" />
     <ClCompile Include="Framework\Render\RenderTarget.cpp" />
-    <ClCompile Include="Scene\CameraScene.cpp" />
-    <ClCompile Include="Scene\EffectScene.cpp" />
+    <ClCompile Include="Scene\BagicScene\CameraScene.cpp" />
+    <ClCompile Include="Scene\BagicScene\EffectScene.cpp" />
     <ClCompile Include="Framework\Camera\Camera.cpp" />
     <ClCompile Include="Object\BagicObject\EffectManager.cpp" />
     <ClCompile Include="Object\BagicObject\Effect.cpp" />
-    <ClCompile Include="Scene\FillterScene.cpp" />
+    <ClCompile Include="Scene\BagicScene\FillterScene.cpp" />
     <ClCompile Include="Framework\Animation\Action.cpp" />
     <ClCompile Include="Framework\Collider\CircleCollider.cpp" />
     <ClCompile Include="Object\BagicObject\Quad.cpp" />
-    <ClCompile Include="Scene\ColliderScene.cpp" />
+    <ClCompile Include="Scene\BagicScene\ColliderScene.cpp" />
     <ClCompile Include="Framework\Collider\Collider.cpp" />
     <ClCompile Include="Framework\Collider\RectCollider.cpp" />
-    <ClCompile Include="Scene\DungreedScene.cpp" />
+    <ClCompile Include="Scene\BagicScene\DungreedScene.cpp" />
     <ClCompile Include="Framework\Texture\BlendState.cpp" />
     <ClCompile Include="Framework\Math\Vector2.cpp" />
     <ClCompile Include="Framework\Render\ConstantBuffer.cpp" />
@@ -286,9 +292,9 @@
     <ClCompile Include="Program\Program.cpp" />
     <ClCompile Include="Framework\Texture\RasterizerState.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
-    <ClCompile Include="Scene\TextureScene.cpp" />
-    <ClCompile Include="Scene\TextureWVPScene.cpp" />
-    <ClCompile Include="Scene\SolarSystemScene.cpp" />
+    <ClCompile Include="Scene\BagicScene\TextureScene.cpp" />
+    <ClCompile Include="Scene\BagicScene\TextureWVPScene.cpp" />
+    <ClCompile Include="Scene\BagicScene\SolarSystemScene.cpp" />
     <ClCompile Include="Framework\Utillty\Time.cpp" />
     <ClCompile Include="Framework\Texture\StateManager.cpp" />
     <ClCompile Include="Framework\Component\Transform.cpp" />
@@ -296,9 +302,9 @@
     <ClCompile Include="Framework\Render\Shader.cpp" />
     <ClCompile Include="Object\BagicObject\Sprite.cpp" />
     <ClCompile Include="Object\Zelda\Zelda.cpp" />
-    <ClCompile Include="Scene\ZeldaScene.cpp" />
+    <ClCompile Include="Scene\BagicScene\ZeldaScene.cpp" />
     <ClCompile Include="Scene\TestScene.cpp" />
-    <ClCompile Include="Scene\XmlLoadScene.cpp" />
+    <ClCompile Include="Scene\BagicScene\XmlLoadScene.cpp" />
     <ClCompile Include="Object\Dungreed\Player\Weapon.cpp" />
     <ClCompile Include="Object\Dungreed\Map\TownMap.cpp" />
     <ClCompile Include="Object\Dungreed\Map\Tile.cpp" />

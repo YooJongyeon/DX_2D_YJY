@@ -1,22 +1,11 @@
 #include "framework.h"
 #include "Program.h"
 
-#include "../Scene/TextureScene.h"
-#include "../Scene/TextureWVPScene.h"
-#include "../Scene/SolarSystemScene.h"
-#include "../Scene/DungreedScene.h"
-#include "../Scene/ColliderScene.h"
-#include "../Scene/ZeldaScene.h"
-#include "../Scene//FillterScene.h"
-#include "../Scene/EffectScene.h"
-#include "../Scene/CameraScene.h"
-#include "../Scene/TestScene.h"
-#include "../Scene//XmlLoadScene.h"
-#include "../Scene/InstancingScene.h"
+
 Program::Program()
 {
 	srand(static_cast<unsigned int>(time(nullptr)));
-	_scene = make_shared<TestScene>();
+
 }
 
 Program::~Program()
@@ -28,12 +17,13 @@ void Program::Update()
 	EffectManager::GetInstance()->Update();
 	Camera::GetInstance()->Update();
 
-	_scene->Update();
+	SCENE->Update();
+
 }
 
 void Program::Render()
 {
-	_scene->PreRender();
+	SCENE->PreRender();
 
 	Device::GetInstance()->SetRenderTarget();
 	Device::GetInstance()->Clear();
@@ -47,7 +37,7 @@ void Program::Render()
 	Camera::GetInstance()->SetViewPort();
 	Camera::GetInstance()->SetProjectionBuffer();
 
-	_scene->Render();
+	SCENE->Render();
 	EffectManager::GetInstance()->Render();
 
 	//ImGui::Text("FPS : %d", Time::GetInstance()->GetFPS());
@@ -60,7 +50,7 @@ void Program::Render()
 
 	Camera::GetInstance()->PostRender();
 	Camera::GetInstance()->SetUiBuffer();
-	_scene->PostRender();
+	SCENE->PostRender();
 
 	ImGui::Render();
 	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
