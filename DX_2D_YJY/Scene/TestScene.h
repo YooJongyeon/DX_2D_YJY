@@ -19,5 +19,7 @@ private:
 	shared_ptr<Transform> _FollowTrans;
 
 	shared_ptr<Bulton> _button;
+
+	bool _timeStop = false;
 };
 

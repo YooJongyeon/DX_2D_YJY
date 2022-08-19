@@ -270,6 +270,18 @@
     <ClInclude Include="Object\Dungreed\ObjectManger\ObjectMananger.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\BagicScene\ItemScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Dungreed\Item\Item.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Dungreed\Item\Inventery.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Dungreed\Item\ItemIcon.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX_2D_YJY.cpp">
@@ -476,6 +488,18 @@
     <ClCompile Include="Object\Dungreed\ObjectManger\ObjectMananger.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\BagicScene\ItemScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Dungreed\Item\Item.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Dungreed\Item\Inventery.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Dungreed\Item\ItemIcon.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc">
@@ -636,64 +660,25 @@
     <Image Include="Resource\Map\townAtlas5.png">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="Resource\Enemy\create.png">
+    <Image Include="Resource\Item\Item_11x5.png">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="Resource\Enemy\destroy.png">
+    <Image Include="Resource\Creature\attack.png">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="Resource\Enemy\Banshee\attack.png">
+    <Image Include="Resource\Creature\attack_shot.png">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="Resource\Enemy\Banshee\attack_shot.png">
+    <Image Include="Resource\Creature\idle.png">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="Resource\Enemy\Banshee\idle.png">
+    <Image Include="Resource\Creature\idle_shot.png">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="Resource\Enemy\Banshee\idle_shot.png">
+    <Image Include="Resource\Creature\move.png">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="Resource\Enemy\Bat\Bomb\attack_begin.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Resource\Enemy\Bat\Bomb\explosion.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Resource\Enemy\Bat\Bomb\move.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Resource\Enemy\Bat\Bomb\move_shot.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Resource\Enemy\Bat\Giant_Normal\idle.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Resource\Enemy\Bat\Giant_Normal\idle_shot.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Resource\Enemy\Bat\Giant_Normal\attack.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Resource\Enemy\Bat\Giant_Normal\attack_shot.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Resource\Boss\Belial\bullet.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Resource\Boss\Belial\bullet_Fx.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Resource\Boss\Belial\Head\attack.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Resource\Boss\Belial\Head\attack_shot.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Resource\Boss\Belial\Head\idle.png">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="Resource\Boss\Belial\Head\idle_shot.png">
+    <Image Include="Resource\Creature\move_shot.png">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

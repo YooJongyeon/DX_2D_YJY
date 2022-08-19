@@ -22,6 +22,8 @@ DungreedScene::DungreedScene()
 	_button->SetText("Next");
 	_button->SetPosition({ 100, WIN_HEIGHT - 100 });
 	_button->SetEvent(std::bind(&DungreedScene::PrevScene, this));
+
+	Inif();
 }
 
 DungreedScene::~DungreedScene()
@@ -35,7 +37,6 @@ void DungreedScene::Inif()
 
 void DungreedScene::Update()
 {
-	
 
 	_player->Update();
 	_angle->Update();
@@ -66,6 +67,8 @@ void DungreedScene::Render()
 void DungreedScene::PostRender()
 {
 	
+	_button->Update();
+	_button->PostRender();
 
 }
 

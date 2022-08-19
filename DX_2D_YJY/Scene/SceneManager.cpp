@@ -13,16 +13,18 @@
 #include "../Scene/TestScene.h"
 #include "../Scene/BagicScene/XmlLoadScene.h"
 #include "../Scene/BagicScene/InstancingScene.h"
+#include "../Scene/BagicScene/ItemScene.h"
 
 SceneManager* SceneManager::_instance = nullptr;
 
 SceneManager::SceneManager()
 {
+	_sceneTable["ItemScene"] = make_shared<ItemScene>();
 	_sceneTable["Test"] = make_shared<TestScene>();
 	_sceneTable["Dungreed"] = make_shared<DungreedScene>();
 	_sceneTable["Texture"] = make_shared<TextureScene>();
 
-	_curScene = _sceneTable["Test"];
+	_curScene = _sceneTable["ItemScene"];
 }
 
 SceneManager::~SceneManager()

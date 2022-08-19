@@ -11,7 +11,7 @@ TestScene::TestScene()
 	_button = make_shared<Bulton>();
 	_button->SetScale(Vector2(0.1f, 0.1f));
 	_button->SetText("Next");
-	_button->SetPosition(CENTER);
+	_button->SetPosition({ 100,WIN_HEIGHT - 100 });
 	_button->SetEvent(std::bind(&TestScene::NextScene, this));
 	
 
@@ -40,6 +40,11 @@ TestScene::~TestScene()
 
 void TestScene::Update()
 {
+	if (KEY_Down(VK_ESCAPE))
+		_timeStop = !_timeStop;
+
+	if (_timeStop == true)
+		return;
 
 
 	_townMap->Update();
@@ -47,7 +52,7 @@ void TestScene::Update()
 	_character->Update();
 	_creature->Update();
 
-	_button->Update();
+	
 
 
 	float distance = _character->GetTransform()->GetPos().Distance(_FollowTrans->GetPos());
@@ -73,7 +78,12 @@ void TestScene::Render()
 
 void TestScene::PostRender()
 {
-	//_button->PostRender();
+	if (_timeStop == true)
+	{
+		_button->Update();
+		_button->PostRender();
+	}
+	
 
 }
 

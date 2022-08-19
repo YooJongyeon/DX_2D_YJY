@@ -145,6 +145,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Object\Dungreed\Item\ItemIcon.h" />
+    <ClInclude Include="Object\Dungreed\Item\Inventery.h" />
+    <ClInclude Include="Object\Dungreed\Item\Item.h" />
+    <ClInclude Include="Scene\BagicScene\ItemScene.h" />
     <ClInclude Include="Object\Dungreed\ObjectManger\ObjectMananger.h" />
     <ClInclude Include="Object\Dungreed\ObjectManger\Object.h" />
     <ClInclude Include="Object\Dungreed\Enemy\Creature.h" />
@@ -237,6 +241,10 @@
     <ClInclude Include="Object\Dungreed\Player\Weapon.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Object\Dungreed\Item\ItemIcon.cpp" />
+    <ClCompile Include="Object\Dungreed\Item\Inventery.cpp" />
+    <ClCompile Include="Object\Dungreed\Item\Item.cpp" />
+    <ClCompile Include="Scene\BagicScene\ItemScene.cpp" />
     <ClCompile Include="Object\Dungreed\ObjectManger\ObjectMananger.cpp" />
     <ClCompile Include="Object\Dungreed\ObjectManger\Object.cpp" />
     <ClCompile Include="Object\Dungreed\Enemy\Creature.cpp" />
@@ -318,13 +326,13 @@
     <Image Include="DX_2D_YJY.ico" />
     <Image Include="Resource\adventure.png" />
     <Image Include="Resource\Angle.png" />
-    <Image Include="Resource\Boss\Belial\bullet.png" />
-    <Image Include="Resource\Boss\Belial\bullet_Fx.png" />
-    <Image Include="Resource\Boss\Belial\Head\attack.png" />
-    <Image Include="Resource\Boss\Belial\Head\attack_shot.png" />
-    <Image Include="Resource\Boss\Belial\Head\idle.png" />
-    <Image Include="Resource\Boss\Belial\Head\idle_shot.png" />
     <Image Include="Resource\Button.png" />
+    <Image Include="Resource\Creature\attack.png" />
+    <Image Include="Resource\Creature\attack_shot.png" />
+    <Image Include="Resource\Creature\idle.png" />
+    <Image Include="Resource\Creature\idle_shot.png" />
+    <Image Include="Resource\Creature\move.png" />
+    <Image Include="Resource\Creature\move_shot.png" />
     <Image Include="Resource\earth.PNG" />
     <Image Include="Resource\Effects\BlueExplosion.png" />
     <Image Include="Resource\Effects\explosion.png" />
@@ -336,21 +344,8 @@
     <Image Include="Resource\Effects\skill_core_4x4.png" />
     <Image Include="Resource\Effects\smoke_4x4.png" />
     <Image Include="Resource\Effects\thunder_core_4x4.png" />
-    <Image Include="Resource\Enemy\Banshee\attack.png" />
-    <Image Include="Resource\Enemy\Banshee\attack_shot.png" />
-    <Image Include="Resource\Enemy\Banshee\idle.png" />
-    <Image Include="Resource\Enemy\Banshee\idle_shot.png" />
-    <Image Include="Resource\Enemy\Bat\Bomb\attack_begin.png" />
-    <Image Include="Resource\Enemy\Bat\Bomb\explosion.png" />
-    <Image Include="Resource\Enemy\Bat\Bomb\move.png" />
-    <Image Include="Resource\Enemy\Bat\Bomb\move_shot.png" />
-    <Image Include="Resource\Enemy\Bat\Giant_Normal\attack.png" />
-    <Image Include="Resource\Enemy\Bat\Giant_Normal\attack_shot.png" />
-    <Image Include="Resource\Enemy\Bat\Giant_Normal\idle.png" />
-    <Image Include="Resource\Enemy\Bat\Giant_Normal\idle_shot.png" />
-    <Image Include="Resource\Enemy\create.png" />
-    <Image Include="Resource\Enemy\destroy.png" />
     <Image Include="Resource\Fatalis.png" />
+    <Image Include="Resource\Item\Item_11x5.png" />
     <Image Include="Resource\LostArk.png" />
     <Image Include="Resource\Map\torch.png" />
     <Image Include="Resource\Map\townAtlas.png" />

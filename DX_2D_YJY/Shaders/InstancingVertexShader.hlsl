@@ -14,12 +14,16 @@ struct VertexInput
 	float2 uv : UV;
 
 	matrix transform : INSTANCE_TRANSFORM;
+	float2 curFrame : INSTANCE_CURFRAME;
+	float2 maxFrame : INSTANCE_MAXFRAME;
 };
 
 struct VertexOutput
 {
 	float4 pos : SV_POSITION;
 	float2 uv : UV;
+	float2 curFrame : CURFRAME;
+	float2 maxFrame : MAXFRAME;
 };
 
 // VertexShader
@@ -32,6 +36,9 @@ VertexOutput VS(VertexInput input)
 	VertexOutput output;
 	output.pos = mul(input.pos, wvp);
 	output.uv = input.uv;
+
+	output.curFrame = input.curFrame;
+	output.maxFrame = input.maxFrame;
 
 	return output;
 }

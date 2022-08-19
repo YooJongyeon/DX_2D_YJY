@@ -28,7 +28,7 @@ void Object::CreateAction(wstring file, float speed)
 		}
 	}
 
-	size_t t = file.find(L"Boss/", 0);
+	size_t t = file.find(L"Creature/", 0);
 	string temp = WstringToString(file.substr(t + 8, file.length()));
 
 	_action = make_shared<Action>(clips, temp.substr(0, temp.length() - 4), Action::LOOP, speed);

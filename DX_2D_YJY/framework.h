@@ -127,6 +127,10 @@ using namespace std;
 #include "Object/Zelda/ItemDataes.h"
 
 //Durngreed
+
+#include "Object/Dungreed/Item/Item.h"
+#include "Object/Dungreed/Item/ItemIcon.h"
+#include "Object/Dungreed/Item/Inventery.h"
 #include "Object/Dungreed/ObjectManger/Object.h"
 #include "Object//Dungreed/ObjectManger/ObjectMananger.h"
 #include "Object/Dungreed/Enemy/Creature.h"

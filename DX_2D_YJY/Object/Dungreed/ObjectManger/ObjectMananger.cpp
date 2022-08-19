@@ -13,7 +13,7 @@ ObjectMananger::~ObjectMananger()
 
 void ObjectMananger::Add(wstring bossFile, Vector2 maxFrame, float speed, UINT poolCount)
 {
-	size_t t = bossFile.find(L"Boss/", 0);
+	size_t t = bossFile.find(L"Creature/",0);
 	string temp = WstringToString(bossFile.substr(t + 8, bossFile.length()));
 	temp = temp.substr(0, temp.size() - 4);
 
