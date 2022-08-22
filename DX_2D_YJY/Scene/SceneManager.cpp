@@ -23,8 +23,11 @@ SceneManager::SceneManager()
 	_sceneTable["Test"] = make_shared<TestScene>();
 	_sceneTable["Dungreed"] = make_shared<DungreedScene>();
 	_sceneTable["Texture"] = make_shared<TextureScene>();
+	_sceneTable["Effect"] = make_shared<EffectScene>();
+	_sceneTable["Instancing"] = make_shared<InstancingScene>();
 
-	_curScene = _sceneTable["ItemScene"];
+	_curScene = _sceneTable["Test"];
+	
 }
 
 SceneManager::~SceneManager()

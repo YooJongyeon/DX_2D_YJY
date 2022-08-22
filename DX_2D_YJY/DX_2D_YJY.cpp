@@ -59,10 +59,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     ShaderManger::Create();
     DirectWrite::Create();
     EffectManager::Create();
+    EnemyManager::Create();
     Camera::Create();
     Audio::Create();
     SceneManager::Create();
-    ObjectMananger::Create();
 
     srand(static_cast<UINT>(time(nullptr)));
     shared_ptr<Program> program = make_shared<Program>();
@@ -88,10 +88,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
     }
 
-    ObjectMananger::Delete();
     SceneManager::Delete();
     Audio::Delete();
     Camera::Delete();
+    EnemyManager::Delete();
     EffectManager::Delete();
     DirectWrite::Delete();
     StateManager::Delete();

@@ -6,7 +6,7 @@ public:
 	~VertexBuffer();
 
 	void IASet(int slot);
-
+	void Update(); 
 
 
 private:

@@ -31,7 +31,7 @@ void Effect::CreateAction(wstring file, float speed)
 	size_t t = file.find(L"Effects/", 0);
 	string temp = WstringToString(file.substr(t + 8, file.length()));
 
-	_action = make_shared<Action>(clips, temp.substr(0, temp.length() - 4), Action::END, speed);
+	_action = make_shared<Action>(clips, temp.substr(0, temp.length() - 4), Action::LOOP, speed);
 }
 
 void Effect::Update()

@@ -15,6 +15,9 @@ Program::~Program()
 void Program::Update()
 {
 	EffectManager::GetInstance()->Update();
+	EnemyManager::GetInstance()->Update();
+
+
 	Camera::GetInstance()->Update();
 
 	SCENE->Update();
@@ -39,6 +42,7 @@ void Program::Render()
 
 	SCENE->Render();
 	EffectManager::GetInstance()->Render();
+	EnemyManager::GetInstance()->Render();
 
 	//ImGui::Text("FPS : %d", Time::GetInstance()->GetFPS());
 	wstring fps = L"FPS : " + to_wstring((int)Time::GetInstance()->GetFPS());

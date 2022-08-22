@@ -3,7 +3,7 @@
 
 EffectScene::EffectScene()
 {
-	EffectManager::GetInstance()->Add(L"Resource/Effects/skill_core_4x4.png", Vector2(4, 4), 0.07f);
+	//EffectManager::GetInstance()->Add(L"Resource/Effects/skill_core_4x4.png", Vector2(4, 4), 0.07f);
 
 	_quad = make_shared<Quad>(L"Resource/LostArk.png");
 	_quad->GetTransform()->GetPos() = CENTER;
@@ -17,7 +17,7 @@ void EffectScene::Update()
 {
 	if (KEY_Down('W'))
 	{
-		EffectManager::GetInstance()->Play("skill_core_4x4", CENTER);
+		//EffectManager::GetInstance()->Play("skill_core_4x4", CENTER);
 	   //Camera::GetInstance()->ShakeStart(10.0f, 1.0f);
 	}
 	

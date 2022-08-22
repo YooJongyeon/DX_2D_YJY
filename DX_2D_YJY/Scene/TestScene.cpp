@@ -19,6 +19,7 @@ TestScene::TestScene()
 
 	_FollowTrans = make_shared<Transform>();
 	_FollowTrans->GetPos() = _character->GetTransform()->GetPos();
+
 	
 	Camera::GetInstance()->SetTarget(_FollowTrans);
 	Vector2 leftBottom = {0,0};

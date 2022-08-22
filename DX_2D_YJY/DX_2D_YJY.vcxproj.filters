@@ -264,12 +264,6 @@
     <ClInclude Include="Scene\SceneManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\Dungreed\ObjectManger\Object.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Object\Dungreed\ObjectManger\ObjectMananger.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Scene\BagicScene\ItemScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -280,6 +274,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Object\Dungreed\Item\ItemIcon.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BagicObject\Enemy.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BagicObject\EnemyManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -482,12 +482,6 @@
     <ClCompile Include="Scene\SceneManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\Dungreed\ObjectManger\Object.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Object\Dungreed\ObjectManger\ObjectMananger.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Scene\BagicScene\ItemScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -498,6 +492,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Object\Dungreed\Item\ItemIcon.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BagicObject\Enemy.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BagicObject\EnemyManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

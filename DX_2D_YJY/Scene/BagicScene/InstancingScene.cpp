@@ -37,6 +37,7 @@ InstancingScene::~InstancingScene()
 void InstancingScene::Update()
 {
 	
+	_quads->Update();
 
 }
 

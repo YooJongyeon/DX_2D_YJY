@@ -28,6 +28,8 @@ public:
 	void Update(); // _effectMap Update
 	void Render(); // _effectMap Render
 
+	
+
 private:
 	EffectManager();
 	~EffectManager();

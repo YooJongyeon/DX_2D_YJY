@@ -115,6 +115,8 @@ using namespace std;
 #include "Object/BagicObject/Sprite.h"
 #include "Object/BagicObject/Effect.h"
 #include "Object/BagicObject/EffectManager.h"
+#include "Object/BagicObject/Enemy.h"
+#include "Object/BagicObject/EnemyManager.h"
 #include "Object/UI/Bulton.h"
 #include "Object/UI/MinMap.h"
 
@@ -131,8 +133,6 @@ using namespace std;
 #include "Object/Dungreed/Item/Item.h"
 #include "Object/Dungreed/Item/ItemIcon.h"
 #include "Object/Dungreed/Item/Inventery.h"
-#include "Object/Dungreed/ObjectManger/Object.h"
-#include "Object//Dungreed/ObjectManger/ObjectMananger.h"
 #include "Object/Dungreed/Enemy/Creature.h"
 #include "Object/Dungreed/Map/Tile.h"
 #include "Object/Dungreed/Map/TileMap.h"

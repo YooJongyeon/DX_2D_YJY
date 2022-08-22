@@ -32,3 +32,7 @@ void VertexBuffer::IASet(int slot)
 {
     DEVICE_CONTEXT->IASetVertexBuffers(slot, 1, _vertexBuffer.GetAddressOf(), &_stride, &_offset);
 }
+
+void VertexBuffer::Update()
+{
+}

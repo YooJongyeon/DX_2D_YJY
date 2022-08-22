@@ -2,7 +2,7 @@
 class ConstantBuffer
 {
 public:
-	ConstantBuffer(void* data, UINT count);
+	ConstantBuffer(void* data, UINT dataSizse);
 	~ConstantBuffer();
 
 
@@ -15,6 +15,6 @@ private:
 	D3D11_MAPPED_SUBRESOURCE _subResource;
 
 	void* _data;
-	UINT _count;
+	UINT _dataSize;
 };
 

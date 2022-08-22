@@ -23,6 +23,7 @@ public:
 	void SetPostion(float x, float y);
 	void SetAnimation(HeadState aniState);
 	void Attack(shared_ptr<class Character> character);
+	void Move();
 
 private:
 	HeadState _aniState = IDLE;
@@ -37,7 +38,7 @@ private:
 	vector<shared_ptr<Action>> _actionsAttack;
 
 	Vector2 _maxFrame;
-
+	Vector2 _creaturePos = { 0.0f, 100.0f };
 
 	float _runTime = 0.0f;
 	float _destroyTime = 5.0f;
