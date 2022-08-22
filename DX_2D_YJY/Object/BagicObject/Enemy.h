@@ -13,14 +13,17 @@ public:
 	void Play(Vector2 pos);
 	void End() { _isActive = false; }
 	void Move();
-
+	shared_ptr<Transform> GetTransform() { return _sprite->GetTransform(); }
+	shared_ptr<Collider> GetColl() { return _col; }
+	
+	Vector2 _enemyPos = { 0.0f, 0.0f };
 	bool _isActive = false;
 private:
 	shared_ptr<Sprite> _sprite;
 	shared_ptr<Action> _action;
 	shared_ptr<Collider> _col;
 
-	Vector2 _enemyPos = { 0.0f, 100.0f };
+
 	Vector2 _maxFrame;
 };
 
