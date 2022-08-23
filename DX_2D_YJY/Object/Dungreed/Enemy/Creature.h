@@ -26,6 +26,7 @@ public:
 	void SetPlay(State stay);
 	void Attack(shared_ptr<class Character> character);
 	void Move();
+	void SEltDLE();
 
 private:
 	State _aniState = IDLE;

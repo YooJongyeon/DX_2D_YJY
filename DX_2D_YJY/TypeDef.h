@@ -48,5 +48,14 @@ typedef struct _ssWsalsh
 	bool Down;
 }ssWslash;
 
+struct ItemData
+{
+	string name = "NOME";
+	int value = 0;
+	int price = 0;
+	int type = 0;
+	int attack = 0;
+	int defence = 0;
 
+};
 

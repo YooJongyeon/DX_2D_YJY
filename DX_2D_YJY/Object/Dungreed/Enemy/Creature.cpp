@@ -93,10 +93,40 @@ void Creature::Move()
 
 	if (KEY_PRESS('L'))
 	{
-		_creaturePos.x -= 150 * DELTA_TIME;
+		_creaturePos.x += 150 * DELTA_TIME;
 		this->SetPlay(Creature::State::MOVE);
 
 		return;
 	}
 
+	if (KEY_PRESS('K'))
+	{
+		_creaturePos.x -= 150 * DELTA_TIME;
+		this->SetPlay(Creature::State::MOVE);
+
+		return;
+	}
+	SEltDLE();
+
+}
+
+void Creature::SEltDLE()
+{
+
+	switch (_aniState)
+	{
+	case Creature::IDLE_SHOT:
+		break;
+	case Creature::ATTACK:
+		break;
+	case Creature::ATTACK_SHOT:
+		break;
+	case Creature::MOVE:
+		SetPlay(State::IDLE);
+		break;
+	case Creature::MOVE_SHDT:
+		break;
+	default:
+		break;
+	}
 }

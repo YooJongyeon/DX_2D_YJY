@@ -1,30 +1,108 @@
 #include "framework.h"
 #include "ItemIcon.h"
 
-ItemIcon::ItemIcon(wstring file, Vector2 maxFrame)
+ItemIcon::ItemIcon()
 {
-	_quad = make_shared<Quad>(L"Resource/Item/Item_11x5.png", L"Shaders/InstancingVertexShader.hlsl", L"Shaders/InstancingPixelShader.hlsl");
+	_itemAtlas = make_shared<Quad>(L"Resource/Item/Item_11x5.png",
+		L"Shaders/InstancingVertexShader.hlsl",
+		L"Shaders/InstancingPixelShader.hlsl");
+
 	_instancingDataes.resize(_poolCount);
 
-	for (auto& data : _instancingDataes)
-	{
-		Transform transform;
-		transform.GetPos() = { (float)MathUtillty::RandomInt(0,WIN_WIDTH), (float)MathUtillty::RandomInt(0,WIN_HEIGHT) };
-		transform.GetScale() *= MathUtillty::RandomFloat(0.0f, 0.2f);
+	SetItemIconTable();
 
-		transform.UpdateWorldBuffer();
-
-		data.matrix = XMMatrixTranspose(transform.GetMatrix());
-
-		data.maxFrame = { 10,8 };
-		data.curFrame = { MathUtillty::RandomInt(0,10), MathUtillty::RandomInt(0,8) };
-		
-	}
-
-	_instancingBuffer = make_shared<VertexBuffer>(_instancingDataes.data(), sizeof(InstancingDataes), _poolCount);
-
+	_instanceBuffer = make_shared<VertexBuffer>(_instancingDataes.data(), sizeof(InstanceData), _poolCount);
 }
 
 ItemIcon::~ItemIcon()
 {
+}
+
+void ItemIcon::Render()
+{
+	_instanceBuffer->IASet(1);
+
+	_itemAtlas->SetRender();
+
+	DEVICE_CONTEXT->DrawIndexedInstanced(6, _poolCount, 0, 0, 0);
+}
+
+void ItemIcon::SetIcon(string name, Vector2 pos)
+{
+	for (auto& data : _iconTable[name])
+	{
+		if (data.isActive == false)
+		{
+			data.isActive = true;
+			data.transform->GetPos() = pos;
+			data.transform->UpdateWorldBuffer();
+			data.data->matrix = XMMatrixTranspose(data.transform->GetMatrix());
+
+			break;
+		}
+	}
+}
+
+void ItemIcon::SetItemIconTable()
+{
+	for (int i = 0; i < _poolCount; i++)
+	{
+		int temp = i / 11;
+		IconData data;
+
+		shared_ptr<Transform> t = make_shared<Transform>();
+		t->GetPos().x = -3000.0f;
+		t->GetScale().x /= 11.0f;
+		t->GetScale().y /= 5.0f;
+		t->UpdateWorldBuffer();
+		_instancingDataes[i].matrix = XMMatrixTranspose(t->GetMatrix());
+
+		data.isActive = false;
+		data.data = make_shared<InstanceData>(_instancingDataes[i]);
+		data.transform = t;
+
+		switch (temp)
+		{
+		case 0:
+		{
+			_instancingDataes[i].curFrame = { 0,0 };
+			data.name = "Sword";
+			_iconTable["Sword"].push_back(data);
+			break;
+		}
+
+		case 1:
+			_instancingDataes[i].curFrame = { 1,0 };
+			data.name = "Armor";
+			_iconTable["Armor"].push_back(data);
+			break;
+
+		case 2:
+			_instancingDataes[i].curFrame = { 2,0 };
+			data.name = "Shoes";
+			_iconTable["Shoes"].push_back(data);
+			break;
+
+		case 3:
+			_instancingDataes[i].curFrame = { 3,0 };
+			data.name = "Lamp";
+			_iconTable["Lamp"].push_back(data);
+			break;
+
+		case 4:
+			_instancingDataes[i].curFrame = { 4,0 };
+			data.name = "Potion";
+			_iconTable["Potion"].push_back(data);
+			break;
+		case 5:
+			_instancingDataes[i].curFrame = { 10,4 };
+			data.name = "NOME";
+			_iconTable["NOME"].push_back(data);
+			break;
+
+		default:
+			break;
+		}
+		_instancingDataes[i].maxFrame = { 11,5 };
+	}
 }

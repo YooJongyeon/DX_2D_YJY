@@ -695,6 +695,7 @@
     <FxCompile Include="Shaders\ButtonPixelShader.hlsl" />
     <FxCompile Include="Shaders\InstancingVertexShader.hlsl" />
     <FxCompile Include="Shaders\InstancingPixelShader.hlsl" />
+    <FxCompile Include="Shaders\SlotPixelShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Resource\Xml\ItemData.xml" />

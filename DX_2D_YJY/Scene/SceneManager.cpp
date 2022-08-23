@@ -25,8 +25,11 @@ SceneManager::SceneManager()
 	_sceneTable["Texture"] = make_shared<TextureScene>();
 	_sceneTable["Effect"] = make_shared<EffectScene>();
 	_sceneTable["Instancing"] = make_shared<InstancingScene>();
+	_sceneTable["Camera"] = make_shared<CameraScene>();
+	_sceneTable["Item"] = make_shared<ItemScene>();
 
-	_curScene = _sceneTable["Test"];
+
+	_curScene = _sceneTable["Item"];
 	
 }
 

@@ -34,9 +34,9 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Sheet1">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="54" ss:DefaultRowHeight="16.5">
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ItemName</Data></Cell>
     <Cell><Data ss:Type="String">ItemPrice</Data></Cell>
     <Cell><Data ss:Type="String">ItemValue</Data></Cell>
@@ -44,21 +44,69 @@
     <Cell><Data ss:Type="String">Attack</Data></Cell>
     <Cell><Data ss:Type="String">Defence</Data></Cell>
    </Row>
-   <Row>
-    <Cell><Data ss:Type="String">bow of cultivation</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Sword_1</Data></Cell>
     <Cell><Data ss:Type="Number">1000</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
    </Row>
-   <Row>
-    <Cell><Data ss:Type="String">iron shield</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Sword_2</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Armor_1</Data></Cell>
     <Cell><Data ss:Type="Number">900</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">0</Data></Cell>
     <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Armor_2</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Portion_1</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Portion_2</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Lamp_1</Data></Cell>
+    <Cell><Data ss:Type="Number">2000</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Lamp_2</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
+    <Cell><Data ss:Type="Number">900</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -67,12 +115,19 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
