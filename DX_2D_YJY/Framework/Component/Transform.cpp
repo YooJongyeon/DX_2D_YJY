@@ -15,13 +15,12 @@ void Transform::UpdateWorldBuffer()
     XMMATRIX s = XMMatrixScaling(_scale.x, _scale.y, 1);
     XMMATRIX r = XMMatrixRotationZ(_angle);
     XMMATRIX t = XMMatrixTranslation(_pos.x, _pos.y, 0);
-   
+
     _srtMatrix = s * r * t;
 
     if (_parent != nullptr)
-    {
         _srtMatrix *= _parent->GetMatrix();
-    }
+
     _worldBuffer->SetMatrix(_srtMatrix);
  
 }

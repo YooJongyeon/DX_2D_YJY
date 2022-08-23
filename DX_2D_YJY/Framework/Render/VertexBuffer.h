@@ -7,8 +7,6 @@ public:
 
 	void IASet(int slot);
 	
-
-
 private:
 	void Update();
 	void CreateVertexBuffer(void* data);

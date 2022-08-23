@@ -128,4 +128,3 @@ Vector2 Vector2::TransformCoord(const Vector2& v, const XMMATRIX& matrix)
 }
 
 
-

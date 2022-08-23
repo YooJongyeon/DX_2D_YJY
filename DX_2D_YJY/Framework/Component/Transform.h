@@ -10,9 +10,9 @@ public:
 
     Vector2& GetPos() { return _pos; }
     Vector2& GetScale() { return _scale; }
-    float& GetAnagle() { return _angle; }
+    float& GetAngle() { return _angle; }
 
-   Vector2 GetWorldPos()
+    Vector2 GetWorldPos()
     {
         Vector2 worldPos;
         XMFLOAT4X4 matrix;
@@ -22,28 +22,24 @@ public:
 
         return (worldPos);
     }
-   Vector2 GetWorldScale()
-   {
-       if (_parent)
-       {
-           return Vector2(_scale.x * _parent->GetScale().x, _scale.y * _parent->GetScale().y);
-           
-       }
-       return _scale;
-   }
+
+    Vector2 GetWorldScale()
+    {
+        if (_parent)
+            return Vector2(_scale.x * _parent->GetScale().x, _scale.y * _parent->GetScale().y);
+        return _scale;
+    }
 
     const XMMATRIX& GetMatrix() { return _srtMatrix; }
 
     void SetParent(shared_ptr<Transform> transform) { _parent = transform; }
-    shared_ptr<Transform> GetPatent() { return _parent; }
-
-    void SetPos(Vector2& pos) { _pos = pos; }
+    shared_ptr<Transform> GetParent() { return _parent; }
 
 private:
     Vector2 _scale = { 1,1 };
     float _angle = { 0.0f };
     Vector2 _pos = { 0,0 };
-    
+
     XMMATRIX _srtMatrix;
     shared_ptr<Transform> _parent = nullptr;
     shared_ptr<MatrixBuffer> _worldBuffer;

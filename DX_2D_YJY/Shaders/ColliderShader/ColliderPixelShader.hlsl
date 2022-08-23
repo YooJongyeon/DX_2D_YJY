@@ -1,4 +1,4 @@
-cbuffer Color :register(b0)
+cbuffer Color : register(b0)
 {
 	float4 color;
 }
@@ -6,7 +6,6 @@ cbuffer Color :register(b0)
 struct PixelInput
 {
 	float4 pos : SV_POSITION;
-	
 };
 
 // SV_TARGET : 그릴 곳... 우리한테는 후면버퍼

@@ -36,7 +36,6 @@ VertexOutput VS(VertexInput input)
 	VertexOutput output;
 	output.pos = mul(input.pos, wvp);
 	output.uv = input.uv;
-
 	output.curFrame = input.curFrame;
 	output.maxFrame = input.maxFrame;
 

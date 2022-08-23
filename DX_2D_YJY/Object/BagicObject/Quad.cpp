@@ -115,15 +115,10 @@ const Vector2& Quad::GetHalfSize()
 
 Vector2 Quad::LeftBottom()
 {
-    Vector2 result = _transform->GetPos() - GetHalfSize();
-
-    return result;
+    return _transform->GetPos() - GetHalfSize();
 }
 
 Vector2 Quad::RightTop()
 {
-    Vector2 result = _transform->GetPos() + GetHalfSize();
-
-    return result;
-    
+    return _transform->GetPos() + GetHalfSize();
 }

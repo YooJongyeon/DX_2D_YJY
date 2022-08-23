@@ -16,8 +16,7 @@ RasterizerState::~RasterizerState()
 void RasterizerState::Changed()
 {
 	if (_state != nullptr)
-	{
 		_state->Release();
-	}
+
 	DEVICE->CreateRasterizerState(&_desc, _state.GetAddressOf());
 }

@@ -34,9 +34,9 @@ void SolarSystemScene::Update()
 	_sun->GetTransform()->GetPos().y = MOUSE_POS.y;
 	if (KEY_PRESS(VK_SPACE))
 	{
-		_sun->GetTransform()->GetAnagle() += 1 * DELTA_TIME; // DELTA_TIME : 1Tick당 걸리는 시간
-		_earth->GetTransform()->GetAnagle() += 1 * DELTA_TIME;
-		_moon->GetTransform()->GetAnagle() += 1 * DELTA_TIME;
+		_sun->GetTransform()->GetAngle() += 1 * DELTA_TIME; // DELTA_TIME : 1Tick당 걸리는 시간
+		_earth->GetTransform()->GetAngle() += 1 * DELTA_TIME;
+		_moon->GetTransform()->GetAngle() += 1 * DELTA_TIME;
 	}
 
 	int temp = Time::GetInstance()->GetFPS();

@@ -1,7 +1,7 @@
 #include "framework.h"
 #include "Camera.h"
-Camera* Camera::_instance = nullptr;
 
+Camera* Camera::_instance = nullptr;
 
 Camera::Camera()
 {
@@ -112,7 +112,7 @@ void Camera::FollowMode()
 		targetPos.y = _leftBottom.y;
 
 	if (targetPos.y > _rightTop.y - WIN_HEIGHT)
-		targetPos.y = _rightTop.y - WIN_HEIGHT ;
+		targetPos.y = _rightTop.y - WIN_HEIGHT;
 
 	_transform->GetPos() = LERP(_transform->GetPos(), targetPos * -1, DELTA_TIME * _speed);
 	
@@ -125,9 +125,8 @@ void Camera::Shake()
 		return;
 	}
 
-
 	_duration -= DELTA_TIME;
-	_magnitude -=  DELTA_TIME * _reduceDamping;
+	_magnitude -= DELTA_TIME * _reduceDamping;
 
 	if (_magnitude < 0.0f)
 	{
@@ -136,7 +135,6 @@ void Camera::Shake()
 	}
 
 	Vector2 temp;
-	
 	float minT = -_magnitude * ((float)rand() / (float)RAND_MAX);
 	float maxT = +_magnitude * ((float)rand() / (float)RAND_MAX);
 	_transform->GetPos() = _originPos + Vector2(minT, maxT);
@@ -148,6 +146,6 @@ void Camera::Shake()
 Vector2 Camera::GetMouseWorldPos()
 {
 	XMMATRIX inverseView = XMMatrixInverse(nullptr, _transform->GetMatrix());
-	
-	return Vector2::TransformCoord(MOUSE_POS,inverseView);
+
+	return Vector2::TransformCoord(MOUSE_POS, inverseView);
 }

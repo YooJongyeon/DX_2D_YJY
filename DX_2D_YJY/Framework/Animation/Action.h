@@ -9,7 +9,7 @@ public:
 		shared_ptr<Texture> _texture;
 
 		Clip(float x, float y, float w, float h, shared_ptr<Texture> texture)
-			:_startPos({ x,y }), _size({w,h}), _texture(texture)
+			: _startPos({ x,y }), _size({ w,h }), _texture(texture)
 		{}
 	};
 
@@ -18,12 +18,13 @@ public:
 		END,
 		LOOP,
 		PINPONG
-
 	};
-	Action(vector<Clip>clips, string name = "", Type type = LOOP, float speed = 0.1f);
+
+	Action(vector<Clip> clips, string name = "", Type type = LOOP, float speed = 0.1f);
 	~Action();
 
 	void Update();
+
 	void Play();
 	void Pause();
 	void Stop();

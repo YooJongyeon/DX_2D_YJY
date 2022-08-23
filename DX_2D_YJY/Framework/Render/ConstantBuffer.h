@@ -2,7 +2,7 @@
 class ConstantBuffer
 {
 public:
-	ConstantBuffer(void* data, UINT dataSizse);
+	ConstantBuffer(void* data, UINT dataSize);
 	~ConstantBuffer();
 
 

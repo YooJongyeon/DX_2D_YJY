@@ -1,17 +1,17 @@
 #include "framework.h"
 #include "ConstantBuffer.h"
 
-ConstantBuffer::ConstantBuffer(void* data, UINT dataSizse)
+ConstantBuffer::ConstantBuffer(void* data, UINT dataSize)
 	: _data(data)
-	, _dataSize(dataSizse)
+	, _dataSize(dataSize)
 {
 	D3D11_BUFFER_DESC bd = {};
 	bd.Usage = D3D11_USAGE_DYNAMIC;
-	// D3D11_USAGE_DEFAULT : GPU에서 일고 쓰기 가능
-	// D3D11_USAGE_IMMUTABLE :GPU에서 읽기만 가능
-	// D3D11_USAGE_DYNAMIC :CPU 에서 쓰기 가능 , GPU읽기 가능
-	// D3D11-USAGE- STAGING : GPU에서  GPU로 이동 (읽기만 가능)
-	bd.ByteWidth = dataSizse;
+	// D3D11_USAGE_DEFAULT : GPU에서 읽고 쓰기 가능
+	// D3D11_USAGE_IMMUTABLE : GPU에서 읽기만 가능
+	// D3D11_USAGE_DYNAMIC : CPU에서 쓰기 가능, GPU 읽기 가능 (Map, UnMap 가능)
+	// D3D11_USAGE_STAGING : GPU에서 CPU로 이동 (읽기만 가능)
+	bd.ByteWidth = dataSize;
 	bd.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 	bd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 

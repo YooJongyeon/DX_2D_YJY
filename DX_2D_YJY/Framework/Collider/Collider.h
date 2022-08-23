@@ -31,7 +31,7 @@ public:
 	const Vector2& GetWorldScale() { return _transform->GetWorldScale(); }
 	
 	Vector2& GetLocalPosition() { return _transform->GetPos(); }
-	float& GetAngle() { return _transform->GetAnagle(); }
+	float& GetAngle() { return _transform->GetAngle(); }
 
 	void SetRed() { _colorBuffer->SetColor(RED); }
 	void SetGreen() { _colorBuffer->SetColor(GREEN); }
@@ -61,7 +61,7 @@ public:
 	}
 
 	void SetParent(shared_ptr<Transform> parent) { _transform->SetParent(parent); }
-	shared_ptr<Transform> GetParent(){ return _transform->GetPatent(); }
+	shared_ptr<Transform> GetParent(){ return _transform->GetParent(); }
 
 	Vector2 _center = { 0,0 };
 

@@ -19,8 +19,8 @@ struct PixelInput
 float4 PS(PixelInput input) : SV_TARGET
 {
 	float4 result;
-    result = map.Sample(samp, input.uv);
-	
+	result = map.Sample(samp, input.uv);
+
 	[branch]
 	if (state == 0)
 	{
@@ -28,16 +28,17 @@ float4 PS(PixelInput input) : SV_TARGET
 	}
 	else if (state == 1)
 	{
-		float4 hoveredColor = { hovered,hovered ,hovered ,0.0f };
+		float4 hoveredColor = { hovered, hovered, hovered, 0.0f };
 		result -= hoveredColor;
 		return result;
 	}
 	else if (state == 2)
 	{
-		float4 clickedColor = { clicked,clicked ,clicked ,0.0f };
+		float4 clickedColor = { clicked, clicked, clicked, 0.0f };
 		result -= clickedColor;
 		return result;
 	}
+
 
 	return result;
 }

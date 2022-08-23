@@ -29,7 +29,7 @@ SceneManager::SceneManager()
 	_sceneTable["Item"] = make_shared<ItemScene>();
 
 
-	_curScene = _sceneTable["Item"];
+	_curScene = _sceneTable["Camera"];
 	
 }
 

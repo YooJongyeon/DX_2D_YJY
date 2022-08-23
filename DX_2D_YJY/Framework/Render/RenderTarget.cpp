@@ -47,6 +47,7 @@ RenderTarget::~RenderTarget()
 
 void RenderTarget::Set()
 {
+
 	DEVICE_CONTEXT->OMSetRenderTargets(1, _rtv.GetAddressOf(), nullptr);
 
 	float clearColor[4] = { 1,1,1,0.5f };

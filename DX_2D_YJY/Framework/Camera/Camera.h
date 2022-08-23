@@ -27,7 +27,7 @@ public:
 
 	void SetViewPort(UINT width = WIN_WIDTH, UINT height = WIN_HEIGHT);
 	void SetProjectionBuffer(UINT width = WIN_WIDTH, UINT height = WIN_HEIGHT);
-	void SetUiBuffer() { _uiViewBuffer->SetVSBuffer(1); }
+	void SetUIBuffer() { _uiViewBuffer->SetVSBuffer(1); }
 
 	void SetTarget(shared_ptr<Transform> transform) { _target = transform; }
 	void SetLeftBottom(Vector2 value) { _leftBottom = value; }
@@ -48,6 +48,7 @@ private:
 
 	shared_ptr<Transform> _transform;
 	shared_ptr<Transform> _moveTransform;
+
 	static Camera* _instance;
 
 	float _speed = 200.0f;

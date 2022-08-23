@@ -6,6 +6,7 @@ public:
 	~CircleCollider();
 
 	virtual void Update() override;
+	virtual void Render() override;
 	virtual void CreateData() override;
 
 	virtual bool IsCollision(const Vector2& pos) override;

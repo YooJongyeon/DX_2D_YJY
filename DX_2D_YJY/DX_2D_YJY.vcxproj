@@ -145,11 +145,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Object\BagicObject\EnemyManager.h" />
     <ClInclude Include="Object\BagicObject\Enemy.h" />
     <ClInclude Include="Object\Dungreed\Item\ItemIcon.h" />
     <ClInclude Include="Object\Dungreed\Item\Inventery.h" />
     <ClInclude Include="Object\Dungreed\Item\Item.h" />
+    <ClInclude Include="Object\BagicObject\Players.h" />
     <ClInclude Include="Scene\BagicScene\ItemScene.h" />
     <ClInclude Include="Object\Dungreed\Enemy\Creature.h" />
     <ClInclude Include="Object\GameObject\Bullet.h" />
@@ -231,6 +231,7 @@
     <ClInclude Include="Object\Dungreed\Map\Tile.h" />
     <ClInclude Include="Object\Dungreed\Map\TileMap.h" />
     <ClInclude Include="Object\GameObject\Temp.h" />
+    <ClInclude Include="Object\Dungreed\Player\TestPlayer.h" />
     <ClInclude Include="TypeDef.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -241,11 +242,11 @@
     <ClInclude Include="Object\Dungreed\Player\Weapon.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Object\BagicObject\EnemyManager.cpp" />
     <ClCompile Include="Object\BagicObject\Enemy.cpp" />
     <ClCompile Include="Object\Dungreed\Item\ItemIcon.cpp" />
     <ClCompile Include="Object\Dungreed\Item\Inventery.cpp" />
     <ClCompile Include="Object\Dungreed\Item\Item.cpp" />
+    <ClCompile Include="Object\BagicObject\Players.cpp" />
     <ClCompile Include="Scene\BagicScene\ItemScene.cpp" />
     <ClCompile Include="Object\Dungreed\Enemy\Creature.cpp" />
     <ClCompile Include="Object\GameObject\Bullet.cpp" />
@@ -318,6 +319,7 @@
     <ClCompile Include="Object\Dungreed\Map\Tile.cpp" />
     <ClCompile Include="Object\Dungreed\Map\TileMap.cpp" />
     <ClCompile Include="Object\GameObject\Temp.cpp" />
+    <ClCompile Include="Object\Dungreed\Player\TestPlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc" />

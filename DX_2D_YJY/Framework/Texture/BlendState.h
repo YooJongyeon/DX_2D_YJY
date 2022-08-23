@@ -9,6 +9,7 @@ public:
 
 	void Alpha();
 	void Additive();
+
 	void Changed();
 
 private:

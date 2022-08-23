@@ -30,26 +30,21 @@ private:
 class ColorBuffer : public ConstantBuffer
 {
 public:
-
 	struct Data
 	{
 		XMFLOAT4 color;
 	};
-	
+
 	ColorBuffer()
-		:ConstantBuffer(&_data, sizeof(Data) )
+		: ConstantBuffer(&_data, sizeof(Data))
 	{
 		_data.color = { 1,1,1,1 };
 	}
 
 	void SetColor(const XMFLOAT4& color) { _data.color = color; }
 
-
 private:
 	Data _data;
-
-
-
 };
 
 class FrameBuffer : public ConstantBuffer
@@ -107,7 +102,6 @@ public:
 	}
 };
 
-
 class ImageSizeBuffer : public ConstantBuffer
 {
 public:
@@ -116,13 +110,15 @@ public:
 		XMFLOAT2 size = { 0.0f,0.0f };
 		XMFLOAT2 padding = { 0.0f,0.0f };
 	}data;
+
 	ImageSizeBuffer()
 		: ConstantBuffer(&data, sizeof(Data))
 	{
 
 	}
 };
-class ButtonBuffer :public ConstantBuffer
+
+class ButtonBuffer : public ConstantBuffer
 {
 public:
 	struct Data
@@ -132,10 +128,10 @@ public:
 		float clicked = 0.0f;
 		float padding;
 	} data;
+
 	ButtonBuffer()
 		: ConstantBuffer(&data, sizeof(Data))
 	{
 
 	}
-
 };

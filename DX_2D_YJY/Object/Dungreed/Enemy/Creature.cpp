@@ -3,8 +3,8 @@
 
 Creature::Creature()
 {
-	_idleEnemy = make_shared<Enemy>(L"Resource/Creature/idle.png", Vector2(12, 1), 0.07f);
-	_moveEnemy = make_shared<Enemy>(L"Resource/Creature/move.png", Vector2(6, 1), 0.07f);
+	_idleEnemy = make_shared<Enemy>(L"Resource/Creature/idle.png", Vector2(12, 1), 0.1f);
+	_moveEnemy = make_shared<Enemy>(L"Resource/Creature/move.png", Vector2(6, 1), 0.1f);
 	_idleEnemy->Play(CENTER);
 	_moveEnemy->Play(CENTER);
 }

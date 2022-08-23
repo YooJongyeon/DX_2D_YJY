@@ -4,7 +4,8 @@
 BinaryReader::BinaryReader(wstring filePath)
 	:_size(0)
 {
-	_file = CreateFile(filePath.c_str(), GENERIC_READ, FILE_SHARE_READ, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+	_file = CreateFile(filePath.c_str(), GENERIC_READ, FILE_SHARE_READ,
+		0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
 }
 
 BinaryReader::~BinaryReader()
@@ -41,7 +42,7 @@ string BinaryReader::String()
 	UINT size = Uint();
 
 	char* temp = new char[size + 1];
-	assert(ReadFile(_file, &temp, sizeof(char)* size, OUT & _size, nullptr));
+	assert(ReadFile(_file, temp, sizeof(char) * size, OUT & _size, nullptr));
 
 	return temp;
 }

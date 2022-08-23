@@ -45,7 +45,7 @@ void Bullet::Render()
 void Bullet::SetDirection(Vector2 dir)
 {
 	_direction = dir;
-	_quad->GetTransform()->GetAnagle() = dir.Angle();
+	_quad->GetTransform()->GetAngle() = dir.Angle();
 }
 
 bool Bullet::IsCollision(shared_ptr<class Monster> monster)

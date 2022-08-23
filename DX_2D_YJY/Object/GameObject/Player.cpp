@@ -126,7 +126,7 @@ void Player::Aiming()
 {
 	Vector2 v = MOUSE_POS - _revolverTrans->GetWorldPos();
 	float angle = v.Angle();
-	_revolverTrans->GetAnagle() = angle;
+	_revolverTrans->GetAngle() = angle;
 }
 
 void Player::Fire()

@@ -15,6 +15,10 @@ void CircleCollider::Update()
 {
 	Collider::Update();
 }
+void CircleCollider::Render()
+{
+	Collider::Render();
+}
 void CircleCollider::CreateData()
 {
 	_type = Collider::ColType::CIRCLE;
@@ -22,9 +26,11 @@ void CircleCollider::CreateData()
 	VertexPos vertex;
 	for (int i = 0; i < 37; i++)
 	{
-		float x = cos(PI * (static_cast<float>(i) / 18)) * _radius;
-		float y = sin(PI * (static_cast<float>(i) / 18)) * _radius;
-		vertex.pos = XMFLOAT3(x, y, 0.0f);
+		float theta = PI * 2 / 36;
+		vertex.pos.x = _radius * cosf(theta * i);
+		vertex.pos.y = _radius * sinf(theta * i);
+		vertex.pos.z = 0;
+
 		_vertices.push_back(vertex);
 	}
 	Collider::CreateData();

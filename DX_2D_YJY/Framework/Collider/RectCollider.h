@@ -17,26 +17,10 @@ public:
 	 virtual void Update() override;
 	 virtual void CreateData() override;
 
-	 float Left()
-	 { 
-		 Vector2 temp = GetWorldPosition();
-		 return temp.x - GetWorldHalfX();
-	 }
-	 float Right() 
-	 {
-		 Vector2 temp = GetWorldPosition();
-		 return temp.x + GetWorldHalfX();
-	 }
-	 float Top() 
-	 { 
-		 Vector2 temp = GetWorldPosition();
-		 return temp.y + GetWorldHalfY();
-	 }
-	 float Bottom() 
-	 { 
-		 Vector2 temp = GetWorldPosition();
-		 return temp.y - GetWorldHalfY();
-	 }
+	 float Left() { return GetWorldPosition().x - GetWorldHalfX(); }
+	 float Right() { return GetWorldPosition().x + GetWorldHalfX(); }
+	 float Top() { return GetWorldPosition().y + GetWorldHalfY(); }
+	 float Bottom() { return GetWorldPosition().y - GetWorldHalfY(); }
 
 	 float GetWorldHalfX() { return _halfSize.x * GetWorldScale().x; }
 	 float GetWorldHalfY() { return _halfSize.y * GetWorldScale().y; }

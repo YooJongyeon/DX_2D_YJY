@@ -14,9 +14,6 @@ public:
 	void Test(int test);
 	Vector2 LoadPos();
 
-
-
-
 private:
 	shared_ptr<Quad> _backGround;
 	shared_ptr<Zelda> _zelda;

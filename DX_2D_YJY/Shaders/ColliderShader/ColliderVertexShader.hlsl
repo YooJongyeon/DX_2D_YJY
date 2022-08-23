@@ -16,9 +16,7 @@ cbuffer Projection : register(b2)
 struct VertexInput
 {
 	float4 pos : POSITION;
-
 };
-
 
 struct VertexOutput
 {

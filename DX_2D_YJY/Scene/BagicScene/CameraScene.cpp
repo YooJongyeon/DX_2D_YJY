@@ -7,7 +7,6 @@ CameraScene::CameraScene()
 	_backGround->GetTransform()->GetPos().x *= _backGround->GetHalfSize().x;
 	_backGround->GetTransform()->GetPos().y *= _backGround->GetHalfSize().y;
 
-
 	_zelda = make_shared<Zelda>();
 
 	_zeldaFollowTrans = make_shared<Transform>();
@@ -18,7 +17,7 @@ CameraScene::CameraScene()
 
 	Camera::GetInstance()->SetTarget(_zeldaFollowTrans);
 	Vector2 leftBottom = {0,0};
-	Vector2 rightTop = { _backGround->GetHalfSize().x  , _backGround->GetHalfSize().y};
+	Vector2 rightTop = { _backGround->GetHalfSize().x * 2.0f, _backGround->GetHalfSize().y * 2.0f };
 	Camera::GetInstance()->SetLeftBottom(leftBottom);
 	Camera::GetInstance()->SetRightTop(rightTop);
 

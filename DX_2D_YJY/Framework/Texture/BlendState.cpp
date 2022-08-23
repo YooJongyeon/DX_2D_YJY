@@ -53,8 +53,6 @@ void BlendState::Additive()
 void BlendState::Changed()
 {
 	if (_state != nullptr)
-	{
 		_state->Release();
-	}
 	DEVICE->CreateBlendState(&_blendDesc, _state.GetAddressOf());
 }

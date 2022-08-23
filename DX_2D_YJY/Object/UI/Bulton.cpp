@@ -3,7 +3,7 @@
 
 Bulton::Bulton()
 {
-	_stae = Bulton::BultonState::NONE;
+	_state = Bulton::BultonState::NONE;
 
 	_quad = make_shared<Quad>(L"Resource/Button.png", L"Shaders/TextureVertexShader.hlsl", L"Shaders/ButtonPixelShader.hlsl");
 	
@@ -44,6 +44,7 @@ void Bulton::Update()
 
 void Bulton::PostRender()
 {
+	
 	_buttonBuffer->SetPSBuffer(0);
 	_quad->Render();
 	_col->Render();
@@ -88,28 +89,28 @@ void Bulton::SetState()
 {
 	if (_col->IsCollision(MOUSE_POS))
 	{
-		_stae = HOVER;
+		_state = HOVER;
 
 		if (KEY_PRESS(VK_LBUTTON))
 		{
-			_stae = CLICK;
+			_state = CLICK;
 		}
 
 		if (KEY_Up(VK_LBUTTON))
 		{
-			if (_callBack != nullptr)
-				_callBack();
+			if (_callback != nullptr)
+				_callback();
 
-			if (_callBackParam != nullptr)
-				_callBackParam(_param);
+			if (_callbackParam != nullptr)
+				_callbackParam(_param);
 		}
 	}
 	else
 	{
-		_stae = NONE;
+		_state = NONE;
 	}
 
-	switch (_stae)
+	switch (_state)
 	{
 	case Bulton::NONE:
 		_buttonBuffer->data.state = 0;

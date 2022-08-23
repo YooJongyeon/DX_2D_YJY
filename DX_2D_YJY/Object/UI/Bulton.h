@@ -21,15 +21,15 @@ public:
 	void SetText(string text);
 
 	void SetState();
-	void SetEvent(CallBack callBack) { _callBack = callBack; }
+	void SetEvent(CallBack callBack) { _callback = callBack; }
 	void SetEventParam(CallBackParam callBackParam, int param) 
 	{ 
-		_callBackParam = callBackParam;
+		_callbackParam = callBackParam;
 		_param = param; 
 	}
 	
 private:
-	BultonState _stae;
+	BultonState _state;
 
 	shared_ptr<Quad> _quad;
 	shared_ptr<RectCollider> _col;
@@ -39,9 +39,8 @@ private:
 
 	shared_ptr<ButtonBuffer> _buttonBuffer;
 
-	CallBack _callBack;
-	CallBackParam _callBackParam;
-
+	CallBack _callback;
+	CallBackParam _callbackParam;
 	int _param = 0;
 };
 

@@ -6,7 +6,6 @@ public:
 	Vector2(float x, float y) : XMFLOAT2(x, y) {}
 	Vector2(int x, int y) : XMFLOAT2((float)x, (float)y) {}
 	Vector2(size_t x, size_t y) : XMFLOAT2((float)x, (float)y) {}
-
 	~Vector2() {}
 
 	Vector2 operator+(const Vector2& value) const;
@@ -38,5 +37,6 @@ public:
 	int Manhattan(const Vector2& value) const;
 
 	static Vector2 TransformCoord(const Vector2& v, const XMMATRIX& matrix);
-};
+ };
+
 
