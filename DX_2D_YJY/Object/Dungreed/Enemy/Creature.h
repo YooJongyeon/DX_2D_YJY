@@ -13,6 +13,13 @@ class Creature
 		MOVE_SHDT
 	};
 
+	enum Direction
+	{
+		LEFT,
+		RIGHT,
+	};
+
+
 public:
 	Creature();
 	~Creature();
@@ -27,15 +34,21 @@ public:
 	void Attack(shared_ptr<class Character> character);
 	void Move();
 	void SEltDLE();
+	void SetTravel(Vector2 tra);
+
+	bool _isActive = false;
 
 private:
 	State _aniState = IDLE;
+	Direction _dir = LEFT;
+
 	shared_ptr<Enemy> _idleEnemy;
 	shared_ptr<Enemy> _moveEnemy;
 	Vector2 _maxFrame;
-	Vector2 _creaturePos = { 300.0f, 100.0f };
+	Vector2 _creaturePos = {700.0f, 50.0f };
+	Vector2 _travel;
 
 	float _runTime = 0.0f;
-	float _destroyTime = 5.0f;
+	float _travelTime = 2.0f;
 };
 

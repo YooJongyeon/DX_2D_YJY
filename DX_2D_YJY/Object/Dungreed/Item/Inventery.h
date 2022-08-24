@@ -30,7 +30,7 @@ private:
 	Vector2 _size = {0,0};
 	Vector2 _slotOffset = { 75.0f,90.0f };
 
-	UINT _slotSize = 9;
+	int _slotSize = 9;
 	UINT _money = 30000;
 
 

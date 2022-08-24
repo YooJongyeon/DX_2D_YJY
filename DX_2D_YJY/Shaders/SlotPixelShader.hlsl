@@ -1,3 +1,11 @@
+cbuffer BgOrSlot : register(b0)
+{
+	int bgOrSlot;
+	float padding0;
+	float padding1;
+	float padding2;
+}
+
 Texture2D map : register(t0); // srv
 SamplerState samp : register(s0); // sampler
 

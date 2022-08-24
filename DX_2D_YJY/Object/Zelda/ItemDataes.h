@@ -7,6 +7,7 @@ public:
 
 
 	ItemData* FindItem(string name);
+
 	void InitData();
 
 

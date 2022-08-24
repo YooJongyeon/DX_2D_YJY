@@ -58,7 +58,7 @@ void ItemIcon::SetItemIconTable()
 		_instancingDataes[i].matrix = XMMatrixTranspose(t->GetMatrix());
 
 		data.isActive = false;
-		data.data = make_shared<InstanceData>(_instancingDataes[i]);
+		data.data = &_instancingDataes[i];
 		data.transform = t;
 
 		switch (temp)

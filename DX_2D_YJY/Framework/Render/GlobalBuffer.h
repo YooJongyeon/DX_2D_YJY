@@ -135,3 +135,22 @@ public:
 
 	}
 };
+
+class BGorSlotBuffer :public ConstantBuffer
+{
+public:
+	struct Data
+	{
+		int bgOrSlet = 0;
+		float padding0 = 0.0f;
+		float padding1 = 0.0f;
+		float padding2 = 0.0f;
+	} data;
+
+	BGorSlotBuffer()
+		: ConstantBuffer(&data, sizeof(Data))
+	{
+
+	}
+
+};

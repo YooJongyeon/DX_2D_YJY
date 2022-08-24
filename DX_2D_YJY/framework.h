@@ -119,6 +119,7 @@ using namespace std;
 #include "Object/BagicObject/Players.h"
 #include "Object/UI/Bulton.h"
 #include "Object/UI/MinMap.h"
+#include "Object/UI/Store.h"
 
 //Obj
 #include "Object/GameObject/Player.h"

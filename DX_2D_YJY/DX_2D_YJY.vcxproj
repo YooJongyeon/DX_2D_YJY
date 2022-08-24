@@ -216,6 +216,7 @@
     <ClInclude Include="Framework\Render\ShaderManger.h" />
     <ClInclude Include="Framework\Render\Shader.h" />
     <ClInclude Include="Object\BagicObject\Sprite.h" />
+    <ClInclude Include="Object\UI\Store.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Framework\Texture\Texture.h" />
     <ClInclude Include="Scene\BagicScene\TextureScene.h" />
@@ -320,6 +321,7 @@
     <ClCompile Include="Object\Dungreed\Map\TileMap.cpp" />
     <ClCompile Include="Object\GameObject\Temp.cpp" />
     <ClCompile Include="Object\Dungreed\Player\TestPlayer.cpp" />
+    <ClCompile Include="Object\UI\Store.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc" />

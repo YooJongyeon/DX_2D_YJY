@@ -15,6 +15,7 @@ Creature::~Creature()
 
 void Creature::Update()
 {
+	Move();
 	switch (_aniState)
 	{
 	case Creature::IDLE:
@@ -34,8 +35,14 @@ void Creature::Update()
 	default:
 		break;
 	}
-	
-	Move();
+
+	_runTime += DELTA_TIME;
+	if (_runTime > _travelTime)
+	{
+		_isActive = false;
+		_runTime = 0.0f;
+	}
+
 	
 }
 
@@ -91,20 +98,35 @@ void Creature::Move()
 {
 	this->SetPostion(_creaturePos.x, _creaturePos.y);
 
-	if (KEY_PRESS('L'))
+	if (_dir == Creature::Direction::LEFT)
 	{
-		_creaturePos.x += 150 * DELTA_TIME;
-		this->SetPlay(Creature::State::MOVE);
-
-		return;
+		if (_creaturePos.x >= 550.0f)
+		{
+			
+			_creaturePos.x -= 50.0f * DELTA_TIME;
+			this->SetPlay(Creature::State::MOVE);
+			return;
+		}
+		else 
+		{
+			_dir = Creature::Direction::RIGHT;
+			return;
+		}
 	}
 
-	if (KEY_PRESS('K'))
+	if (_dir == Creature::Direction::RIGHT)
 	{
-		_creaturePos.x -= 150 * DELTA_TIME;
-		this->SetPlay(Creature::State::MOVE);
-
-		return;
+		if (_creaturePos.x <= 850.0f)
+		{
+			_creaturePos.x += 50.0f * DELTA_TIME;
+			this->SetPlay(Creature::State::MOVE);
+			return;
+		}
+		else 
+		{
+			_dir = Creature::Direction::LEFT;
+			return;
+		}
 	}
 	SEltDLE();
 
@@ -129,4 +151,9 @@ void Creature::SEltDLE()
 	default:
 		break;
 	}
+}
+
+void Creature::SetTravel(Vector2 tra)
+{
+	_travel = tra;
 }

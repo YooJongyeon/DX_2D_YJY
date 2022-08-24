@@ -11,9 +11,10 @@ public:
 
 	struct IconData
 	{
+		~IconData() { data = nullptr; }
 		bool isActive;
 		string name;
-		shared_ptr<InstanceData> data;
+		InstanceData* data;
 		shared_ptr<Transform> transform;
 	};
 
