@@ -18,5 +18,8 @@ struct PixelInput
 // SV_TARGET : 그릴 곳... 우리한테는 후면버퍼
 float4 PS(PixelInput input) : SV_TARGET
 {
+	if (bgOrSlot == 0)
+		return float4(0.8f, 0.8f, 0.8f, 0.8f);
+
 	return float4(0.3f,0.3f,0.3f,0.8f);
 }

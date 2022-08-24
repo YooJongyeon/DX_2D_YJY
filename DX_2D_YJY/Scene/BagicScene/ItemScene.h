@@ -10,11 +10,13 @@ public:
 	virtual void Render() override;
 	virtual void PreRender() override;
 	virtual void PostRender() override;
+	virtual void Init() override;
 
 
 private:
-	shared_ptr<ItemDataes> _itemData;
+	shared_ptr<ItemDataes> _itemDataes;
 	shared_ptr<Inventery> _inventory;
+	shared_ptr<Store> _store;
 
 };
 

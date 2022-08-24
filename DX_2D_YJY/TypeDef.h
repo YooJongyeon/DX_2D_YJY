@@ -34,6 +34,8 @@
 #define SOUND            Audio::GetInstance()
 #define SCENE            SceneManager::GetInstance()
 
+#define DATA			DataManager::GetInstance()
+
 #define ADD_VS(k)       ShaderManger::Getinstance()->AddVS(k)
 #define ADD_PS(k)       ShaderManger::Getinstance()->AddPS(k)
 

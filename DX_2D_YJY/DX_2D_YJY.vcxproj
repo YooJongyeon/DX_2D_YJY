@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Framework\Utillty\DataManager.h" />
     <ClInclude Include="Object\BagicObject\Enemy.h" />
     <ClInclude Include="Object\Dungreed\Item\ItemIcon.h" />
     <ClInclude Include="Object\Dungreed\Item\Inventery.h" />
@@ -243,6 +244,7 @@
     <ClInclude Include="Object\Dungreed\Player\Weapon.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\Utillty\DataManager.cpp" />
     <ClCompile Include="Object\BagicObject\Enemy.cpp" />
     <ClCompile Include="Object\Dungreed\Item\ItemIcon.cpp" />
     <ClCompile Include="Object\Dungreed\Item\Inventery.cpp" />

@@ -88,6 +88,7 @@ using namespace std;
 #include"Framework/Utillty/tinyxml2.h"
 #include "Framework/Utillty/MathUtillty.h"
 #include "Framework/Utillty/Audio.h"
+#include "Framework/Utillty/DataManager.h"
 
 
 
