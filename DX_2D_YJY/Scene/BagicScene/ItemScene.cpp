@@ -3,6 +3,8 @@
 
 ItemScene::ItemScene()
 {
+	DATA->AddMoney(30000);
+
 	_itemDataes = make_shared<ItemDataes>();
 	_inventory = make_shared<Inventery>(Vector2(300.0f, 400.0f));
 	_inventory->AddItme(*_itemDataes->FindItem("Sword_1"));

@@ -65,6 +65,18 @@ void Store::InitStore()
 	}
 }
 
+void Store::InitBuyStore()
+{
+	_buyBulton = make_shared<Bulton>();
+
+	Vector2 pos;
+	{
+		pos.x = _backGround->LeftBottom().x + 100.0f;
+		pos.y = _backGround->LeftBottom().y + 40.0f;
+	}
+	_buyBulton->SetPosition(pos);
+}
+
 void Store::Update()
 {
 	for (auto& slot : _slots)
@@ -85,4 +97,8 @@ void Store::PostRender()
 		slot->Render();
 
 	_itemIcon->Render();
+}
+
+void Store::BuyItem()
+{
 }

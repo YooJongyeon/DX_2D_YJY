@@ -142,6 +142,7 @@ using namespace std;
 #include "Object/Dungreed/Player/Character.h"
 #include "Object/Dungreed/Player/Weapon.h"
 #include "Object/Dungreed/Player/TestPlayer.h"
+#include "Object/Dungreed/Player/TigerPunch.h"
 
 // Scene
 #include "Scene/Scene.h"

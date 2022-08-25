@@ -11,6 +11,9 @@ TestPlayer::TestPlayer()
 
 	_FjumpEnemy = make_shared<Players>(L"Resource/Player/player_jump.png", Vector2(1, 1), 0.1f);
 
+	
+
+
 	_FidleEnemy->Play(CENTER);
 	_FmoveEnemy->Play(CENTER);
 
@@ -18,6 +21,7 @@ TestPlayer::TestPlayer()
 	_BmoveEnemy->Play(CENTER);
 
 	_FjumpEnemy->Play(CENTER);
+	
 }
 
 TestPlayer::~TestPlayer()
@@ -44,12 +48,17 @@ void TestPlayer::Update()
 	case TestPlayer::F_JUMP:
 		_FjumpEnemy->Update();
 		break;
+	
 	default:
 		break;
 	}
+
+
 	_jumpPower -= (float)pow(_gravity, 2) * DELTA_TIME;
 	Move();
 	Jumping();
+
+
 }
 
 void TestPlayer::Render()
@@ -74,6 +83,7 @@ void TestPlayer::Render()
 	default:
 		break;
 	}
+	
 }
 
 void TestPlayer::PostRender()
@@ -189,3 +199,4 @@ void TestPlayer::Jumping()
 	}
 
 }
+

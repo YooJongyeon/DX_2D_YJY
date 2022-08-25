@@ -56,6 +56,9 @@ void Inventery::Render()
 		slot->Render();
 
 	_itemIcon->Render();
+
+
+
 }
 
 void Inventery::SetRTV()

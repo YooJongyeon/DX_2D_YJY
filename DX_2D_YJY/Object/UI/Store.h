@@ -6,9 +6,13 @@ public:
 	~Store();
 
 	void InitStore();
+	void InitBuyStore();
+
 
 	void Update();
 	void PostRender();
+
+	void BuyItem();
 
 private:
 	shared_ptr<class ItemIcon> _itemIcon;
@@ -18,6 +22,8 @@ private:
 	shared_ptr<BGorSlotBuffer> _bsBuffer;
 
 	vector<ItemData> _items;
+
+	shared_ptr<Bulton> _buyBulton;
 
 	Vector2 _size = { 0,0 };
 	Vector2 _slotOffset = { 75.0f,90.0f };

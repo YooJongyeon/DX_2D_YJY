@@ -35,6 +35,7 @@
 #define SCENE            SceneManager::GetInstance()
 
 #define DATA			DataManager::GetInstance()
+#define TEXT            DirectWrite::GetInstance()
 
 #define ADD_VS(k)       ShaderManger::Getinstance()->AddVS(k)
 #define ADD_PS(k)       ShaderManger::Getinstance()->AddPS(k)

@@ -65,20 +65,7 @@ Character::Character()
 	_weaponTrans5->GetPos().x = _spriteBackIdle->GetHalfFrameSize().x + 5;
 	_weaponTrans5->GetPos().y = _spriteBackIdle->GetHalfFrameSize().y - 10;
 
-	_weapon = make_shared<Weapon>();
-	_weapon->SetPlayer(_weaponTrans);
-
-	_weapon2 = make_shared<Weapon>();
-	_weapon2->SetPlayer(_weaponTrans2);
-
-	_weapon3 = make_shared<Weapon>();
-	_weapon3->SetPlayer(_weaponTrans3);
-
-	_weapon4 = make_shared<Weapon>();
-	_weapon4->SetPlayer(_weaponTrans4);
-
-	_weapon5 = make_shared<Weapon>();
-	_weapon5->SetPlayer(_weaponTrans5);
+	
 
 	
 	CreateActions();

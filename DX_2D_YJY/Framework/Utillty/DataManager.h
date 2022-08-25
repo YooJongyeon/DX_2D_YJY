@@ -29,6 +29,7 @@ public:
 	void SubMoney(int amount);
 	shared_ptr<ItemDataes> GetItemDataes() { return _itemDataes; }
 
+
 private:
 	DataManager();
 	~DataManager();

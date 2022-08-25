@@ -11,6 +11,9 @@ public:
 	void Render();
 
 	void Play(Vector2 pos);
+	void Fire();
+
+	void Aiming();
 	void End() { _isActive = false; }
 	shared_ptr<Transform> GetTransform() { return _sprite->GetTransform(); }
 	shared_ptr<Collider> GetColl() { return _col; }
@@ -24,7 +27,12 @@ private:
 	shared_ptr<Sprite> _sprite;
 	shared_ptr<Collider> _col;
 	shared_ptr<Transform> _FollowTrans;
-
+	shared_ptr<Transform> _AnginTrans;
 	Vector2 _maxFrame;
+
+	shared_ptr<class Weapon> _Weapon;
+	shared_ptr<class Weapon> _WeaponIdle;
+
+	shared_ptr<Transform> _WeaponTrans;
 };
 

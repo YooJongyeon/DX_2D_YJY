@@ -3,10 +3,13 @@
 
 TestScene::TestScene()
 {
+	_angle = make_shared <Quad>(L"Resource/purpleaiming.png");
+	_angle->GetTransform()->GetScale() *= 0.2f;
 	_townMap = make_shared<TownMap>();
 	_tileMap = make_shared<TileMap>();
 	_creature = make_shared <Creature>();
 	_test = make_shared<TestPlayer>();
+
 
 	_test->SetTile(_tileMap->GetTile());
 
@@ -40,10 +43,10 @@ void TestScene::Update()
 		return;
 
 
-
 	_townMap->Update();
 	_tileMap->Update();
 	_creature->Update();
+	_angle->Update();
 	_test->Update();
 
 
@@ -57,6 +60,7 @@ void TestScene::Update()
 		_FollowTrans->GetPos() = LERP(_FollowTrans->GetPos(), _test->GetTransform()->GetPos(), 0.001f);
 	}
 	
+	_angle->GetTransform()->GetPos() = MOUSE_POS;
 	/*if (KEY_Down(VK_F2))
 	{
 		SOUND->Play("Slash01", 0.5f);
@@ -66,10 +70,10 @@ void TestScene::Update()
 void TestScene::Render()
 {
 	
-
 	_townMap->Render();
 	_tileMap->Render();
 	_creature->Render();
+	_angle->Render();
 	_test->Render();
 
 

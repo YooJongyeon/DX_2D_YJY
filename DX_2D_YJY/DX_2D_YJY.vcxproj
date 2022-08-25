@@ -234,6 +234,7 @@
     <ClInclude Include="Object\Dungreed\Map\TileMap.h" />
     <ClInclude Include="Object\GameObject\Temp.h" />
     <ClInclude Include="Object\Dungreed\Player\TestPlayer.h" />
+    <ClInclude Include="Object\Dungreed\Player\TigerPunch.h" />
     <ClInclude Include="TypeDef.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -324,6 +325,7 @@
     <ClCompile Include="Object\GameObject\Temp.cpp" />
     <ClCompile Include="Object\Dungreed\Player\TestPlayer.cpp" />
     <ClCompile Include="Object\UI\Store.cpp" />
+    <ClCompile Include="Object\Dungreed\Player\TigerPunch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc" />
@@ -383,8 +385,11 @@
     <Image Include="Resource\redbullet.png" />
     <Image Include="Resource\revolver.png" />
     <Image Include="Resource\sun.PNG" />
+    <Image Include="Resource\Weapon\Boomerang_Moving.png" />
+    <Image Include="Resource\Weapon\MetalBoomerang.png" />
     <Image Include="Resource\Weapon\ShortSword.png" />
     <Image Include="Resource\Weapon\Sword.png" />
+    <Image Include="Resource\Weapon\TigerPunch.png" />
     <Image Include="Resource\zelda.png" />
     <Image Include="small.ico" />
   </ItemGroup>

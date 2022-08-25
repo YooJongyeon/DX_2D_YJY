@@ -21,6 +21,7 @@ private:
 
 	shared_ptr<Transform> _FollowTrans;
 
+	shared_ptr<Quad> _angle;
 
 	bool _timeStop = false;
 };

@@ -30,6 +30,8 @@ public:
 	void Move();
 	void SEltDLE();
 	void Jumping();
+	
+	
 
 private:
 	State _aniState = F_IDLE;
@@ -41,7 +43,7 @@ private:
 
 	shared_ptr<Players> _FjumpEnemy;
 
-
+	shared_ptr<class TigerPunch>_tigerPunch;
 
 	Vector2 _maxFrame;
 	Vector2 _PlayerPos = { 300.0f, 100.0f };
