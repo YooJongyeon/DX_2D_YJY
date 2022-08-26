@@ -8,7 +8,7 @@ public:
 	void Update();
 	void Render();
 
-	bool TileCollision(shared_ptr<class Character> character);
+	
 	shared_ptr<Transform> GetTransform() { return _quad->GetTransform(); }
 	shared_ptr<Quad> GetQuad() { return _quad; }
 	shared_ptr<Collider> GetColl() { return _collider; }

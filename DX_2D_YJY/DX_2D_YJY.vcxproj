@@ -172,7 +172,6 @@
     <ClInclude Include="Scene\BagicScene\InstancingScene.h" />
     <ClInclude Include="Object\UI\MinMap.h" />
     <ClInclude Include="Object\Zelda\ItemDataes.h" />
-    <ClInclude Include="Object\Dungreed\Player\Character.h" />
     <ClInclude Include="Object\UI\Bulton.h" />
     <ClInclude Include="Framework\Utillty\DirectWrite.h" />
     <ClInclude Include="Framework\Utillty\BinaryReader.h" />
@@ -234,7 +233,6 @@
     <ClInclude Include="Object\Dungreed\Map\TileMap.h" />
     <ClInclude Include="Object\GameObject\Temp.h" />
     <ClInclude Include="Object\Dungreed\Player\TestPlayer.h" />
-    <ClInclude Include="Object\Dungreed\Player\TigerPunch.h" />
     <ClInclude Include="TypeDef.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -264,7 +262,6 @@
     <ClCompile Include="Scene\BagicScene\InstancingScene.cpp" />
     <ClCompile Include="Object\UI\MinMap.cpp" />
     <ClCompile Include="Object\Zelda\ItemDataes.cpp" />
-    <ClCompile Include="Object\Dungreed\Player\Character.cpp" />
     <ClCompile Include="Object\UI\Bulton.cpp" />
     <ClCompile Include="Framework\Utillty\DirectWrite.cpp" />
     <ClCompile Include="Framework\Utillty\BinaryReader.cpp" />
@@ -325,7 +322,6 @@
     <ClCompile Include="Object\GameObject\Temp.cpp" />
     <ClCompile Include="Object\Dungreed\Player\TestPlayer.cpp" />
     <ClCompile Include="Object\UI\Store.cpp" />
-    <ClCompile Include="Object\Dungreed\Player\TigerPunch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc" />

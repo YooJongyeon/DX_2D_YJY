@@ -20,10 +20,13 @@ public:
 	}
 	void SetPosition(const Vector2& pos) { _sprite->GetTransform()->GetPos() = pos; }
 
+	bool IsCollision(shared_ptr<class Enemy> enemy);
+
 	shared_ptr<Transform> GetTransform() { return _sprite->GetTransform(); }
 	shared_ptr<Collider> GetColl() { return _col; }
 	shared_ptr<Action> GetAction() { return _action; }
 
+	
 	bool _isActive = false;
 private:
 

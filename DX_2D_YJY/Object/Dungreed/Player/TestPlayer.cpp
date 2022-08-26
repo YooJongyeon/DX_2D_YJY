@@ -11,9 +11,6 @@ TestPlayer::TestPlayer()
 
 	_FjumpEnemy = make_shared<Players>(L"Resource/Player/player_jump.png", Vector2(1, 1), 0.1f);
 
-	
-
-
 	_FidleEnemy->Play(CENTER);
 	_FmoveEnemy->Play(CENTER);
 
@@ -22,6 +19,9 @@ TestPlayer::TestPlayer()
 
 	_FjumpEnemy->Play(CENTER);
 	
+
+	_Weapon = make_shared<Weapon>(L"Resource/Weapon/TigerPunch.png", Vector2(10, 1), 0.5f);
+
 }
 
 TestPlayer::~TestPlayer()
@@ -53,11 +53,12 @@ void TestPlayer::Update()
 		break;
 	}
 
+	_Weapon->Update();
 
 	_jumpPower -= (float)pow(_gravity, 2) * DELTA_TIME;
 	Move();
 	Jumping();
-
+	Fire();
 
 }
 
@@ -83,7 +84,8 @@ void TestPlayer::Render()
 	default:
 		break;
 	}
-	
+	_Weapon->Render();
+
 }
 
 void TestPlayer::PostRender()
@@ -198,5 +200,29 @@ void TestPlayer::Jumping()
 		}
 	}
 
+}
+
+
+void TestPlayer::Fire()
+{
+	if (KEY_Down(VK_LBUTTON))
+	{
+		Vector2 v = MOUSE_POS;
+		_Weapon->SetPosition(v);
+		_Weapon->Play();
+	}
+}
+
+void TestPlayer::AttackMonsters()
+{
+	if (_enemy->GetColl()->IsCollision(_Weapon->GetColl()))
+	{
+		_enemy->GetColl()->SetRed();
+		_enemy->_hp -= 10.0f;
+	}
+	else
+	{
+		_enemy->GetColl()->SetGreen();
+	}
 }
 

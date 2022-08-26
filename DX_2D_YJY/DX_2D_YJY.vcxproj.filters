@@ -165,9 +165,6 @@
     <ClInclude Include="Object\UI\Bulton.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\Dungreed\Player\Character.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Scene\TestScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -289,9 +286,6 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Utillty\DataManager.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Object\Dungreed\Player\TigerPunch.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -431,9 +425,6 @@
     <ClCompile Include="Object\UI\Bulton.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\Dungreed\Player\Character.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Scene\TestScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -519,9 +510,6 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Utillty\DataManager.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Object\Dungreed\Player\TigerPunch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -4,6 +4,7 @@
 Players::Players(wstring file, Vector2 maxFrame, float speed)
 	: _maxFrame(maxFrame)
 {
+	
 	_sprite = make_shared<Sprite>(file, maxFrame);
 	_col = make_shared<RectCollider>(_sprite->GetHalfFrameSize());
 
@@ -13,22 +14,7 @@ Players::Players(wstring file, Vector2 maxFrame, float speed)
 	CreateAction(file, speed);
 	_action->SetEndEvent(std::bind(&Players::End, this));
 
-	_FollowTrans = make_shared<Transform>();
-	_FollowTrans->GetPos() = _sprite->GetTransform()->GetPos();
 
-	_AnginTrans = make_shared<Transform>();
-	_AnginTrans->SetParent(_sprite->GetTransform());
-	_AnginTrans->GetPos().x = _sprite->GetHalfSize().x;
-
-	_Weapon = make_shared<Weapon>(L"Resource/Weapon/Boomerang_Moving.png", Vector2(2, 1), 0.5f);
-
-	_WeaponTrans = make_shared<Transform>();
-	_WeaponTrans->SetParent(_sprite->GetTransform());
-	_WeaponTrans->GetPos().x = _sprite->GetHalfSize().x;
-
-	_WeaponIdle = make_shared<Weapon>(L"Resource/Weapon/Boomerang_Moving.png", Vector2(1, 1), 0.5f);
-	_WeaponIdle->SetPlayer(_WeaponTrans);
-	_WeaponIdle->Play();
 }
 
 Players::~Players()
@@ -60,32 +46,20 @@ void Players::Update()
 	if (_isActive == false)
 		return;
 
-	_WeaponIdle->Update();
-
 	_sprite->Update();
 	_action->Update();
 	_col->Update();
 	_sprite->SetClipToActionBuffer(_action->GetCurClip());
-	_Weapon->Update();
-	_WeaponIdle->Update();
 
-	
-	Aiming();
-	Fire();
 }
 
 void Players::Render()
 {
 	if (_isActive == false)
 		return;
-
-	_WeaponIdle->Render();
-
 	_sprite->Render();
 	_col->Render();
-	_Weapon->Render();
-	_WeaponIdle->Render();
-
+	
 }
 
 void Players::Play(Vector2 pos)
@@ -98,21 +72,3 @@ void Players::Play(Vector2 pos)
 
 
 
-void Players::Aiming()
-{
-	Vector2 v = MOUSE_POS - _AnginTrans->GetWorldPos();
-	float angle = v.Angle();
-	_AnginTrans->GetAngle() = angle;
-}
-
-void Players::Fire()
-{
-	if (KEY_Down(VK_LBUTTON))
-	{
-		Vector2 v = MOUSE_POS - _sprite->GetTransform()->GetWorldPos();
-		v.Normallize();
-		_Weapon->SetDirection(v);
-		_Weapon->SetPosition(_sprite->GetTransform()->GetWorldPos());
-		_Weapon->Play();
-	}
-}

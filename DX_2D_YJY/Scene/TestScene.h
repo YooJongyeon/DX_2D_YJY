@@ -17,7 +17,6 @@ private:
 	shared_ptr<Quad> _townSky;
 	shared_ptr<Quad> _townLayer;
 	shared_ptr<TestPlayer> _test;
-	shared_ptr<Character> _ch;
 
 	shared_ptr<Transform> _FollowTrans;
 

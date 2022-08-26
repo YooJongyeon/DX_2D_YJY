@@ -53,10 +53,10 @@ void Enemy::Update()
 
 void Enemy::Render()
 {
-
 	if (_isActive == false)
 		return;
 
+	ImGui::Text("Target hp: %d", (UINT)_hp);
 	_sprite->Render();
 	_col->Render();
 }

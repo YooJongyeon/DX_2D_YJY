@@ -35,7 +35,7 @@ void Weapon::CreateAction(wstring file, float speed)
 	size_t t = file.find(L"Weapon/", 0);
 	string temp = WstringToString(file.substr(t + 8, file.length()));
 
-	_action = make_shared<Action>(clips, temp.substr(0, temp.length() - 4), Action::LOOP, speed);
+	_action = make_shared<Action>(clips, temp.substr(0, temp.length() - 4), Action::END, speed);
 }
 
 void Weapon::Update()
@@ -43,13 +43,14 @@ void Weapon::Update()
 	if (_isActive == false)
 		return;
 
-	_sprite->GetTransform()->GetPos() += _enemyPos * 300.0f * DELTA_TIME;
+	_sprite->GetTransform()->GetPos() += _enemyPos * 100.0f * DELTA_TIME;
 	_sprite->Update();
 	_action->Update();
 	_col->Update();
 	_sprite->SetClipToActionBuffer(_action->GetCurClip());
 
-	_sprite->GetTransform()->GetPos() += _enemyPos * 300.0f * DELTA_TIME;
+	_sprite->GetTransform()->GetPos() += _enemyPos * 100.0f * DELTA_TIME;
+
 	_runTime += DELTA_TIME;
 	if (_runTime > _destroyTime)
 	{
@@ -80,4 +81,17 @@ void Weapon::SetDirection(Vector2 dir)
 	_enemyPos = dir;
 	_sprite->GetTransform()->GetAngle() = dir.Angle();
 }
+
+bool Weapon::IsCollision(shared_ptr<class Enemy> enemy)
+{
+	if (enemy->_isActive == false && _isActive == false)
+		return false;
+	if (_col->IsCollision(enemy->GetColl()))
+	{
+		return true;
+	}
+	return false;
+}
+
+
 

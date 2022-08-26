@@ -139,10 +139,9 @@ using namespace std;
 #include "Object/Dungreed/Map/Tile.h"
 #include "Object/Dungreed/Map/TileMap.h"
 #include "Object/Dungreed/Map/TownMap.h"
-#include "Object/Dungreed/Player/Character.h"
 #include "Object/Dungreed/Player/Weapon.h"
 #include "Object/Dungreed/Player/TestPlayer.h"
-#include "Object/Dungreed/Player/TigerPunch.h"
+
 
 // Scene
 #include "Scene/Scene.h"

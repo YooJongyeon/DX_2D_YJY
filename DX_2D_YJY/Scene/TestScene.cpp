@@ -12,23 +12,23 @@ TestScene::TestScene()
 
 
 	_test->SetTile(_tileMap->GetTile());
+	_test->SetCreature(_creature->GerEnemy());
 
 	_FollowTrans = make_shared<Transform>();
 	_FollowTrans->GetPos() = _test->GetTransform()->GetPos();
 
 	Camera::GetInstance()->SetTarget(_FollowTrans);
-	Vector2 leftBottom = {0,0};
-	Vector2 rightTop = { _townMap->GetTrasform()->GetHalfSize().x * 2.0f, _townMap->GetTrasform()->GetHalfSize().y  * 2.0f};
+	Vector2 leftBottom = { 0,0 };
+	Vector2 rightTop = { _townMap->GetTrasform()->GetHalfSize().x * 2.0f, _townMap->GetTrasform()->GetHalfSize().y * 2.0f };
 	Camera::GetInstance()->SetLeftBottom(leftBottom);
 	Camera::GetInstance()->SetRightTop(rightTop);
-	
-	
+
+
 
 	/*OUND->Add("BGM_1", "Resource/Sound/DungeonClose.wav");
 	SOUND->Add("Slash01", "Resource/Sound/generalAttack.wav");
 	SOUND->Play("BGM_1",0.5f);*/
 }
-
 
 TestScene::~TestScene()
 {
@@ -49,11 +49,6 @@ void TestScene::Update()
 	_angle->Update();
 	_test->Update();
 
-
-	//_test->Update();
-
-
-	
 	float distance = _test->GetTransform()->GetPos().Distance(_FollowTrans->GetPos());
 	if (distance >= 30.0f)
 	{
@@ -61,6 +56,13 @@ void TestScene::Update()
 	}
 	
 	_angle->GetTransform()->GetPos() = MOUSE_POS;
+
+	_test->AttackMonsters();
+
+	if (_creature->GerEnemy()->_hp == 0)
+	{
+		_creature->GerEnemy()->_isActive = false;
+	}
 	/*if (KEY_Down(VK_F2))
 	{
 		SOUND->Play("Slash01", 0.5f);

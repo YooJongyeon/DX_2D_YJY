@@ -6,8 +6,6 @@ Tile::Tile()
 	_quad = make_shared<Quad>(L"Resource/Map/townAtlas2.png");
 	_collider = make_shared<RectCollider>(_quad->GetHalfSize() * 1.0f);
 	_collider->SetParent(_quad->GetTransform());
-	
-
 }
 
 Tile::~Tile()
@@ -31,16 +29,6 @@ void Tile::Render()
 	
 }
 
-bool Tile::TileCollision(shared_ptr<class Character> character)
-{
-	if (character->_isActive == false && _isActive == false)
-		return false;
-	if (_collider->IsCollision(character->GetCollider()->_center))
-	{
-		return true;
-	}
-	return false;
-}
 
 
 

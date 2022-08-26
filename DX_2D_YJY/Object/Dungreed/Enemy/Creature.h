@@ -31,10 +31,14 @@ public:
 
 	void SetPostion(float x, float y);
 	void SetPlay(State stay);
-	void Attack(shared_ptr<class Character> character);
+
 	void Move();
 	void SEltDLE();
 	void SetTravel(Vector2 tra);
+	
+	
+	shared_ptr<Collider> GetCol(){ return _idleEnemy->GetColl();}
+	shared_ptr<Enemy> GerEnemy() { return _moveEnemy; }
 
 	bool _isActive = false;
 

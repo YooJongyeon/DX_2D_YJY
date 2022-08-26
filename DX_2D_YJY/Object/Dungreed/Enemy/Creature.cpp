@@ -88,11 +88,6 @@ void Creature::SetPlay(State stay)
 	_aniState = stay;
 }
 
-void Creature::Attack(shared_ptr<class Character> character)
-{
-	
-	
-}
 
 void Creature::Move()
 {
