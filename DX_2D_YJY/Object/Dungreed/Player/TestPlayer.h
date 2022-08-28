@@ -24,9 +24,10 @@ public:
 
 	void SetTile(vector<shared_ptr<Tile>>tiles) { _tile = tiles; }
 	void SetCreature(shared_ptr<Enemy> Enemy) { _enemy = Enemy; }
-	
-	shared_ptr<Transform> GetTransform() { return _FidleEnemy->GetTransform(); }
 
+	shared_ptr<Transform> GetTransform() { return _FidleEnemy->GetTransform(); }
+	shared_ptr<Players> GetPlayer() { return _FidleEnemy; }
+	Vector2 GetPlayerPos() { return _PlayerPos; }
 	void SetPostion(float x, float y);
 	void SetPlay(State stay);
 	void Move();
@@ -36,6 +37,7 @@ public:
 	
 	void AttackMonsters();
 
+	float _weaponDamage = 0.01f;
 private:
 	State _aniState = F_IDLE;
 	shared_ptr<Players> _FidleEnemy;
@@ -47,9 +49,9 @@ private:
 	shared_ptr<Players> _FjumpEnemy;
 
 	shared_ptr<class Weapon> _Weapon;
+	Vector2 _PlayerPos = { 300.0f, 50.0f };
 
 	Vector2 _maxFrame;
-	Vector2 _PlayerPos = { 300.0f, 100.0f };
 
 	vector<shared_ptr<Tile>> _tile;
 

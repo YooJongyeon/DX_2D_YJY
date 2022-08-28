@@ -15,7 +15,7 @@ Creature::~Creature()
 
 void Creature::Update()
 {
-	Move();
+	Move(_players->GetPlayerPos());
 	switch (_aniState)
 	{
 	case Creature::IDLE:
@@ -89,40 +89,54 @@ void Creature::SetPlay(State stay)
 }
 
 
-void Creature::Move()
+void Creature::Move(Vector2 pos)
 {
 	this->SetPostion(_creaturePos.x, _creaturePos.y);
 
+	if ((pos - _creaturePos).Length() < 10.0f)
+		return;
+
+	Vector2 vector = (pos - _creaturePos);
+	vector.Normallize();
+
+	if (_creaturePos.x == _players->GetPlayerPos().x || _creaturePos.y == _players->GetPlayerPos().y)
+	{
+		_dir = Creature::Direction::LEFT;
+	}
+
 	if (_dir == Creature::Direction::LEFT)
 	{
-		if (_creaturePos.x >= 550.0f)
+		if (_creaturePos.x >= _players->GetPlayerPos().x)
 		{
-			
-			_creaturePos.x -= 50.0f * DELTA_TIME;
+			_creaturePos.x += vector.x * DELTA_TIME * _speed;
+			_creaturePos.y += vector.y * DELTA_TIME * _speed;
 			this->SetPlay(Creature::State::MOVE);
 			return;
-		}
-		else 
+		}else
 		{
 			_dir = Creature::Direction::RIGHT;
 			return;
 		}
 	}
-
+	
 	if (_dir == Creature::Direction::RIGHT)
 	{
-		if (_creaturePos.x <= 850.0f)
+		if (_creaturePos.x <= _players->GetPlayerPos().x)
 		{
-			_creaturePos.x += 50.0f * DELTA_TIME;
-			this->SetPlay(Creature::State::MOVE);
+			_creaturePos.x += vector.x * DELTA_TIME * _speed;
+			_creaturePos.y += vector.y * DELTA_TIME * _speed;
+			this->SetPlay(Creature::State::IDLE);
 			return;
 		}
-		else 
+		else
 		{
 			_dir = Creature::Direction::LEFT;
 			return;
 		}
 	}
+	
+	
+
 	SEltDLE();
 
 }

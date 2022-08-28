@@ -18,9 +18,8 @@ TestPlayer::TestPlayer()
 	_BmoveEnemy->Play(CENTER);
 
 	_FjumpEnemy->Play(CENTER);
-	
 
-	_Weapon = make_shared<Weapon>(L"Resource/Weapon/TigerPunch.png", Vector2(10, 1), 0.5f);
+	_Weapon = make_shared<Weapon>(L"Resource/Weapon/TigerPunch.png", Vector2(10, 1), 0.07f);
 
 }
 
@@ -218,7 +217,7 @@ void TestPlayer::AttackMonsters()
 	if (_enemy->GetColl()->IsCollision(_Weapon->GetColl()))
 	{
 		_enemy->GetColl()->SetRed();
-		_enemy->_hp -= 10.0f;
+		_enemy->_hp -= _weaponDamage;
 	}
 	else
 	{

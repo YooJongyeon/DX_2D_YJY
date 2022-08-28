@@ -12,16 +12,14 @@ TestScene::TestScene()
 
 
 	_test->SetTile(_tileMap->GetTile());
-	_test->SetCreature(_creature->GerEnemy());
+	_test->SetCreature(_creature->GetMoveEnemy());
+	_creature->SetPlayer(_test);
 
 	_FollowTrans = make_shared<Transform>();
-	_FollowTrans->GetPos() = _test->GetTransform()->GetPos();
+	_FollowTrans->GetPos() = _test->GetPlayer()->GetTransform()->GetPos();
 
 	Camera::GetInstance()->SetTarget(_FollowTrans);
-	Vector2 leftBottom = { 0,0 };
-	Vector2 rightTop = { _townMap->GetTrasform()->GetHalfSize().x * 2.0f, _townMap->GetTrasform()->GetHalfSize().y * 2.0f };
-	Camera::GetInstance()->SetLeftBottom(leftBottom);
-	Camera::GetInstance()->SetRightTop(rightTop);
+
 
 
 
@@ -59,9 +57,9 @@ void TestScene::Update()
 
 	_test->AttackMonsters();
 
-	if (_creature->GerEnemy()->_hp == 0)
+	if (_creature->GetMoveEnemy()->_hp <= 0)
 	{
-		_creature->GerEnemy()->_isActive = false;
+		_creature->GetMoveEnemy()->_isActive = false;
 	}
 	/*if (KEY_Down(VK_F2))
 	{

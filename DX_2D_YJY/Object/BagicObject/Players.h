@@ -19,7 +19,7 @@ public:
 	shared_ptr<Action> GetAction() { return _action; }
 
 
-	Vector2 _enemyPos = { 0.0f, 0.0f };
+	Vector2 _enemyPos;
 	bool _isActive = false;
 private:
 	shared_ptr<Sprite> _sprite;
