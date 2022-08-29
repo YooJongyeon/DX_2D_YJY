@@ -48,7 +48,6 @@ void Enemy::Update()
 	_action->Update();
 	_col->Update();
 	_sprite->SetClipToActionBuffer(_action->GetCurClip());
-	
 }
 
 void Enemy::Render()
@@ -56,7 +55,7 @@ void Enemy::Render()
 	if (_isActive == false)
 		return;
 
-	ImGui::Text("Target hp: %d", (UINT)_hp);
+
 	_sprite->Render();
 	_col->Render();
 }

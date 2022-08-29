@@ -20,7 +20,8 @@ TestPlayer::TestPlayer()
 	_FjumpEnemy->Play(CENTER);
 
 	_Weapon = make_shared<Weapon>(L"Resource/Weapon/TigerPunch.png", Vector2(10, 1), 0.07f);
-
+	
+	_isActive = true;
 }
 
 TestPlayer::~TestPlayer()
@@ -29,7 +30,8 @@ TestPlayer::~TestPlayer()
 
 void TestPlayer::Update()
 {
-
+	if (_isActive == false)
+		return;
 	switch (_aniState)
 	{
 	case TestPlayer::F_IDLE:
@@ -59,10 +61,13 @@ void TestPlayer::Update()
 	Jumping();
 	Fire();
 
+
 }
 
 void TestPlayer::Render()
 {
+	if (_isActive == false)
+		return;
 	switch (_aniState)
 	{
 	case TestPlayer::F_IDLE:
@@ -84,6 +89,8 @@ void TestPlayer::Render()
 		break;
 	}
 	_Weapon->Render();
+
+	ImGui::Text("Target hp: %d", (UINT)_hp);
 
 }
 
@@ -212,16 +219,32 @@ void TestPlayer::Fire()
 	}
 }
 
-void TestPlayer::AttackMonsters()
+void TestPlayer::AttackMonsters(shared_ptr<class Creature> Enemy)
 {
-	if (_enemy->GetColl()->IsCollision(_Weapon->GetColl()))
+	if (!_Weapon->_isActive)
+		return;
+	
+	if (Enemy->GetCol1()->IsCollision(_Weapon->GetColl()))
 	{
-		_enemy->GetColl()->SetRed();
-		_enemy->_hp -= _weaponDamage;
+		Enemy->GetCol1()->SetRed();
+		Enemy->_hp -= _weaponDamage;
 	}
 	else
 	{
-		_enemy->GetColl()->SetGreen();
+		Enemy->GetCol1()->SetGreen();
 	}
+
+
+	if (Enemy->GetCol2()->IsCollision(_Weapon->GetColl()))
+	{
+		Enemy->GetCol2()->SetRed();
+		Enemy->_hp -= _weaponDamage;
+	}
+	else
+	{
+		Enemy->GetCol2()->SetGreen();
+	}
+
+	
 }
 

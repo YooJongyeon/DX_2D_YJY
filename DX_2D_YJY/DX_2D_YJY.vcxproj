@@ -335,6 +335,8 @@
     <Image Include="Resource\Creature\attack_shot.png" />
     <Image Include="Resource\Creature\idle.png" />
     <Image Include="Resource\Creature\idle_shot.png" />
+    <Image Include="Resource\Creature\leftidle.png" />
+    <Image Include="Resource\Creature\leftmove.png" />
     <Image Include="Resource\Creature\move.png" />
     <Image Include="Resource\Creature\move_shot.png" />
     <Image Include="Resource\earth.PNG" />

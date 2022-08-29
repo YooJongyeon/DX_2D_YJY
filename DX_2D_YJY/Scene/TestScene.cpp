@@ -12,9 +12,10 @@ TestScene::TestScene()
 
 
 	_test->SetTile(_tileMap->GetTile());
-	_test->SetCreature(_creature->GetMoveEnemy());
-	_creature->SetPlayer(_test);
+	_test->SetCreature(_creature);
 
+	_creature->SetPlayer(_test);
+	
 	_FollowTrans = make_shared<Transform>();
 	_FollowTrans->GetPos() = _test->GetPlayer()->GetTransform()->GetPos();
 
@@ -55,12 +56,17 @@ void TestScene::Update()
 	
 	_angle->GetTransform()->GetPos() = MOUSE_POS;
 
-	_test->AttackMonsters();
+	_test->AttackMonsters(_creature);
+	_creature->AttackPlayer(_test);
 
-	if (_creature->GetMoveEnemy()->_hp <= 0)
+
+
+	if (_creature->_hp <= 0)
 	{
-		_creature->GetMoveEnemy()->_isActive = false;
+		_creature->_isActive = false;
 	}
+	
+
 	/*if (KEY_Down(VK_F2))
 	{
 		SOUND->Play("Slash01", 0.5f);

@@ -5,12 +5,13 @@ class Creature
 	{
 		IDLE,
 		IDLE_SHOT,
+		LEFTIDLE,
 
 		ATTACK,
-		ATTACK_SHOT,
 
 		MOVE,
-		MOVE_SHDT
+		LEFTMOVE,
+
 	};
 
 	enum Direction
@@ -33,25 +34,39 @@ public:
 
 	void SetPostion(float x, float y);
 	void SetPlay(State stay);
-
 	void Move(Vector2 pos);
+
 	void SEltDLE();
+	void AttackPlayer(shared_ptr<class TestPlayer > player);
 	void SetTravel(Vector2 tra);
 	void SetPlayer(shared_ptr<class TestPlayer> players) { _players = players; }
+
+	shared_ptr<Collider> GetCol1(){ return _moveEnemy->GetColl();}
+	shared_ptr<Collider> GetCol2(){ return _leftMoveEnemy->GetColl();}
+
+
+	shared_ptr<Enemy> GetMoveEnemy() { return _idleEnemy; }
+	shared_ptr<Enemy> GetMoveEnemy2() { return _leftMoveEnemy; }
 	
-	
-	shared_ptr<Collider> GetCol(){ return _idleEnemy->GetColl();}
-	shared_ptr<Enemy> GetMoveEnemy() { return _moveEnemy; }
-	
+	float _hp = 100.0f;
+	float _Damage = 0.01f;
 
 	bool _isActive = false;
 
-private:
 	State _aniState = IDLE;
+private:
 	Direction _dir = NOME;
 
 	shared_ptr<Enemy> _idleEnemy;
 	shared_ptr<Enemy> _moveEnemy;
+
+	shared_ptr<Enemy> _leftIdleEnemy;
+	shared_ptr<Enemy> _leftMoveEnemy;
+
+	shared_ptr<Enemy> _attack;
+;
+
+	shared_ptr<class Weapon> _Weapon;
 	Vector2 _maxFrame;
 	Vector2 _creaturePos = {50.0f,50.0f};
 	Vector2 _travel;
