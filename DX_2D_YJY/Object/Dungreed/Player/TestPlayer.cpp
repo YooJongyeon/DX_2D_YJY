@@ -20,7 +20,7 @@ TestPlayer::TestPlayer()
 	_FjumpEnemy->Play(CENTER);
 
 	_Weapon = make_shared<Weapon>(L"Resource/Weapon/TigerPunch.png", Vector2(10, 1), 0.07f);
-	
+
 	_isActive = true;
 }
 
@@ -193,7 +193,7 @@ void TestPlayer::Jumping()
 		if (tile->GetColl()->IsCollision(_FjumpEnemy->GetColl(), false))
 		{
 			tile->GetColl()->SetRed();
-			if (_PlayerPos.y <= tile->GetColl()->Top() + _FjumpEnemy->GetColl()->GetWorldHalfY() + 30.0f)
+			if (_PlayerPos.y <=  (tile->GetColl()->Top()) + _FjumpEnemy->GetColl()->GetWorldHalfY() + 30.0f)
 			{
 				this->SetPlay(TestPlayer::State::F_IDLE);
 				_jumpPower = 200.0f;

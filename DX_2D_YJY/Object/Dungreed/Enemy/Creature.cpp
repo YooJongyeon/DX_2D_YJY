@@ -19,7 +19,7 @@ Creature::Creature()
 
 	_attack->Play(CENTER);
 
-
+	_dir = Creature::Direction::LEFT;
 	_isActive = true;
 }
 
@@ -117,13 +117,11 @@ void Creature::Move(Vector2 pos)
 	if ((pos - _creaturePos).Length() < 10.0f)
 		return;
 
+	
 	Vector2 vector = (pos - _creaturePos);
 	vector.Normallize();
 
-	if (_creaturePos.x == _players->GetPlayerPos().x || _creaturePos.y == _players->GetPlayerPos().y)
-	{
-		_dir = Creature::Direction::LEFT;
-	}
+	
 
 	if (_dir == Creature::Direction::LEFT)
 	{
@@ -166,6 +164,7 @@ void Creature::SEltDLE()
 	switch (_aniState)
 	{
 	case Creature::ATTACK:
+		SetPlay(State::IDLE);
 		break;
 	case Creature::MOVE:
 		SetPlay(State::IDLE);
@@ -181,7 +180,12 @@ void Creature::SEltDLE()
 
 void Creature::AttackPlayer(shared_ptr<class TestPlayer> player)
 {
+	if (!player->_isActive)
+	{
+		return;
+	}
 	this->SetPostion(_creaturePos.x, _creaturePos.y);
+
 	if (player->GetCol1()->IsCollision(_moveEnemy->GetColl()))
 	{
 		this->SetPlay(Creature::State::ATTACK);
@@ -190,13 +194,13 @@ void Creature::AttackPlayer(shared_ptr<class TestPlayer> player)
 			player->GetCol1()->SetRed();
 			player->_hp -= _Damage;
 		}
-		
-		
 	}
 	else
 	{
 		player->GetCol1()->SetGreen();
 	}
+
+	
 }
 
 void Creature::SetTravel(Vector2 tra)

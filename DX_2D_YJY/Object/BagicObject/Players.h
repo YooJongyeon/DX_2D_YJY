@@ -18,7 +18,7 @@ public:
 	shared_ptr<Collider> GetColl() { return _col; }
 	shared_ptr<Action> GetAction() { return _action; }
 
-
+	float _hp = 100.0f;
 	Vector2 _enemyPos;
 	bool _isActive = false;
 private:

@@ -43,6 +43,7 @@ public:
 	Vector2 GetPlayerPos() { return _PlayerPos; }
 
 	shared_ptr<Players> GetPlayer() { return _FidleEnemy; }
+
 	
 	shared_ptr<class Weapon>GetWeapon() { return _Weapon; }
 
@@ -74,7 +75,7 @@ private:
 
 	float _jumpPower = 200.0f;
 	float _jumpTime = 0.0f;
-	float _gravity = 9.8f;
+	float _gravity = 10.8f;
 
 	bool _isJumping = false;
 
