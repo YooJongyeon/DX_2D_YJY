@@ -3,6 +3,8 @@
 
 TestScene::TestScene()
 {
+
+	
 	_angle = make_shared <Quad>(L"Resource/purpleaiming.png");
 	_angle->GetTransform()->GetScale() *= 0.2f;
 	_townMap = make_shared<TownMap>();
@@ -10,17 +12,19 @@ TestScene::TestScene()
 	_creature = make_shared <Creature>();
 	_test = make_shared<TestPlayer>();
 
-
 	_test->SetTile(_tileMap->GetTile());
 	_test->SetCreature(_creature);
 
 	_creature->SetPlayer(_test);
 	
 	_FollowTrans = make_shared<Transform>();
-	_FollowTrans->GetPos() = _test->GetPlayer()->GetTransform()->GetPos();
+	_FollowTrans->GetPos() = _test->GetPlayer1()->GetTransform()->GetPos();
 
 	Camera::GetInstance()->SetTarget(_FollowTrans);
-
+	Vector2 leftBottom = { 0,0 };
+	Vector2 rightTop = { _townMap->GetTrasform()->GetHalfSize().x * 2.0f, _townMap->GetTrasform()->GetHalfSize().y * 2.0f };
+	Camera::GetInstance()->SetLeftBottom(leftBottom);
+	Camera::GetInstance()->SetRightTop(rightTop);
 
 
 
@@ -41,12 +45,21 @@ void TestScene::Update()
 	if (_timeStop == true)
 		return;
 
-
 	_townMap->Update();
 	_tileMap->Update();
 	_creature->Update();
 	_angle->Update();
 	_test->Update();
+
+	_angle->GetTransform()->GetPos() = MOUSE_POS;
+
+	_test->AttackMonsters(_creature);
+	//_creature->AttackPlayer(_test);
+
+	if (_creature->_hp <= 0)
+	{
+		_creature->_isActive = false;
+	}
 
 	float distance = _test->GetTransform()->GetPos().Distance(_FollowTrans->GetPos());
 	if (distance >= 30.0f)
@@ -54,17 +67,9 @@ void TestScene::Update()
 		_FollowTrans->GetPos() = LERP(_FollowTrans->GetPos(), _test->GetTransform()->GetPos(), 0.001f);
 	}
 	
-	_angle->GetTransform()->GetPos() = MOUSE_POS;
-
-	_test->AttackMonsters(_creature);
-	_creature->AttackPlayer(_test);
 
 
 
-	if (_creature->_hp <= 0)
-	{
-		_creature->_isActive = false;
-	}
 	
 
 	/*if (KEY_Down(VK_F2))
@@ -75,7 +80,7 @@ void TestScene::Update()
 
 void TestScene::Render()
 {
-	
+
 	_townMap->Render();
 	_tileMap->Render();
 	_creature->Render();

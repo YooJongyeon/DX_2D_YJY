@@ -20,6 +20,11 @@ public:
 
     Vector2 LeftBottom();
     Vector2 RightTop();
+
+    float Top() { return _transform->GetWorldPos().y + (GetHalfSize().y * _transform->GetWorldScale().y); }
+    float Bottom() { return _transform->GetWorldPos().y - (GetHalfSize().y * _transform->GetWorldScale().y); }
+    float Right() { return _transform->GetWorldPos().x + (GetHalfSize().x * _transform->GetWorldScale().x); }
+    float Left() { return _transform->GetWorldPos().x - (GetHalfSize().x * _transform->GetWorldScale().x); }
     
     bool _isActive = true;
 

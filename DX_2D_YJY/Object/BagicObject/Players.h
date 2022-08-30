@@ -12,11 +12,11 @@ public:
 
 	void Play(Vector2 pos);
 
-
 	void End() { _isActive = false; }
 	shared_ptr<Transform> GetTransform() { return _sprite->GetTransform(); }
 	shared_ptr<Collider> GetColl() { return _col; }
 	shared_ptr<Action> GetAction() { return _action; }
+	shared_ptr<Sprite> GetSprite() { return _sprite; }
 
 	float _hp = 100.0f;
 	Vector2 _enemyPos;
@@ -27,5 +27,8 @@ private:
 	shared_ptr<Action> _action;
 	Vector2 _maxFrame;
 
+	
+	bool _isPass = false;
+	bool _onTile = false;
 };
 

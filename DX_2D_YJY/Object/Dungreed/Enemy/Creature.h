@@ -19,6 +19,7 @@ class Creature
 		NOME,
 		LEFT,
 		RIGHT,
+	
 		
 	};
 
@@ -68,7 +69,7 @@ private:
 
 	shared_ptr<class Weapon> _Weapon;
 	Vector2 _maxFrame;
-	Vector2 _creaturePos = {50.0f,50.0f};
+	Vector2 _creaturePos = {500.0f,300.0f};
 	Vector2 _travel;
 
 	shared_ptr<class TestPlayer> _players;

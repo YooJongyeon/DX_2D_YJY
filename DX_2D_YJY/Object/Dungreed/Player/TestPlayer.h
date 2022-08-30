@@ -10,7 +10,10 @@ class TestPlayer
 		B_RUN,
 
 		F_JUMP,
+		B_JUMP
 	};
+
+
 
 
 public:
@@ -30,6 +33,8 @@ public:
 	void Move();
 	void SEltDLE();
 	void Jumping();
+	void BackJumping();
+
 	void Fire();
 	void AttackMonsters(shared_ptr<class Creature> Enemy);
 
@@ -38,21 +43,24 @@ public:
 	shared_ptr<Collider> GetCol3() { return _BidleEnemy->GetColl(); }
 	shared_ptr<Collider> GetCol4() { return _BmoveEnemy->GetColl(); }
 	shared_ptr<Collider> GetCol5() { return _FjumpEnemy->GetColl(); }
+	shared_ptr<Collider> GetCol6() { return _BjumpEnemy->GetColl(); }
 
 	shared_ptr<Transform> GetTransform() { return _FidleEnemy->GetTransform(); }
 	Vector2 GetPlayerPos() { return _PlayerPos; }
 
 	shared_ptr<Players> GetPlayer() { return _FidleEnemy; }
+	shared_ptr<Players> GetPlayer1() { return _FmoveEnemy; }
 
 	
 	shared_ptr<class Weapon>GetWeapon() { return _Weapon; }
 
 
 	float _hp = 100.0f;
-	float _weaponDamage = 0.01f;
+	float _weaponDamage = 0.08f;
 	bool _isActive = false;
 private:
 	State _aniState = F_IDLE;
+
 	shared_ptr<Players> _FidleEnemy;
 	shared_ptr<Players> _FmoveEnemy;
 
@@ -60,9 +68,10 @@ private:
 	shared_ptr<Players> _BmoveEnemy;
 
 	shared_ptr<Players> _FjumpEnemy;
+	shared_ptr<Players> _BjumpEnemy;
 
 	shared_ptr<class Weapon> _Weapon;
-	Vector2 _PlayerPos = { 300.0f, 50.0f };
+	Vector2 _PlayerPos = {100.0f, 40.0f};
 
 	Vector2 _maxFrame;
 
@@ -74,10 +83,13 @@ private:
 	float _destroyTime = 5.0f;
 
 	float _jumpPower = 200.0f;
+	float _BackjumpPower = 200.0f;
 	float _jumpTime = 0.0f;
 	float _gravity = 10.8f;
+	float _spead = 100.0f;
 
 	bool _isJumping = false;
+	bool _isBackJumping = false;
 
 };
 

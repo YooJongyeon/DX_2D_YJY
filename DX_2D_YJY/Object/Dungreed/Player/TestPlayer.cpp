@@ -10,14 +10,16 @@ TestPlayer::TestPlayer()
 	_BmoveEnemy = make_shared<Players>(L"Resource/Player/player_run_left.png", Vector2(8, 1), 0.1f);
 
 	_FjumpEnemy = make_shared<Players>(L"Resource/Player/player_jump.png", Vector2(1, 1), 0.1f);
+	_BjumpEnemy = make_shared<Players>(L"Resource/Player/player_Backjump.png", Vector2(1, 1), 0.1f);
 
-	_FidleEnemy->Play(CENTER);
-	_FmoveEnemy->Play(CENTER);
+	_FidleEnemy->Play(Vector2( WIN_WIDTH, WIN_HEIGHT));
+	_FmoveEnemy->Play(Vector2(WIN_WIDTH, WIN_HEIGHT));
 
-	_BidleEnemy->Play(CENTER);
-	_BmoveEnemy->Play(CENTER);
+	_BidleEnemy->Play(Vector2(WIN_WIDTH, WIN_HEIGHT));
+	_BmoveEnemy->Play(Vector2(WIN_WIDTH, WIN_HEIGHT));
 
-	_FjumpEnemy->Play(CENTER);
+	_FjumpEnemy->Play(Vector2(WIN_WIDTH, WIN_HEIGHT));
+	_BjumpEnemy->Play(Vector2(WIN_WIDTH, WIN_HEIGHT));
 
 	_Weapon = make_shared<Weapon>(L"Resource/Weapon/TigerPunch.png", Vector2(10, 1), 0.07f);
 
@@ -49,6 +51,9 @@ void TestPlayer::Update()
 	case TestPlayer::F_JUMP:
 		_FjumpEnemy->Update();
 		break;
+	case TestPlayer::B_JUMP:
+		_BjumpEnemy->Update();
+		break;
 	
 	default:
 		break;
@@ -56,9 +61,11 @@ void TestPlayer::Update()
 
 	_Weapon->Update();
 
-	_jumpPower -= (float)pow(_gravity, 2) * DELTA_TIME;
+
+
 	Move();
 	Jumping();
+	BackJumping();
 	Fire();
 
 
@@ -85,6 +92,9 @@ void TestPlayer::Render()
 	case TestPlayer::F_JUMP:
 		_FjumpEnemy->Render();
 		break;
+	case TestPlayer::B_JUMP:
+		_BjumpEnemy->Render();
+		break;
 	default:
 		break;
 	}
@@ -105,6 +115,7 @@ void TestPlayer::SetPostion(float x, float y)
 	_BidleEnemy->GetTransform()->GetPos() = { x,y };
 	_BmoveEnemy->GetTransform()->GetPos() = { x,y };
 	_FjumpEnemy->GetTransform()->GetPos() = { x,y };
+	_BjumpEnemy->GetTransform()->GetPos() = { x,y };
 	_PlayerPos = { x,y };
 }
 
@@ -123,7 +134,7 @@ void TestPlayer::Move()
 		_PlayerPos.x -= 150 * DELTA_TIME;
 		if (KEY_PRESS(VK_SPACE))
 		{
-			_isJumping = true;
+			_isBackJumping = true;
 
 			return;
 		}
@@ -146,14 +157,31 @@ void TestPlayer::Move()
 		return;
 	}
 
-	if (_isJumping == false)
+	if (_aniState == TestPlayer::State::B_IDLE)
 	{
-		if (KEY_PRESS(VK_SPACE))
+		if (_isBackJumping == false)
 		{
-			_isJumping = true;
-			return;
+			if (KEY_PRESS(VK_SPACE))
+			{
+				_isBackJumping = true;
+
+				return;
+			}
 		}
 	}
+	if (_aniState == TestPlayer::State::F_IDLE)
+	{
+		if (_isJumping == false)
+		{
+			if (KEY_PRESS(VK_SPACE))
+			{
+				_isJumping = true;
+				return;
+			}
+		}
+	}
+
+	
 
 	SEltDLE();
 }
@@ -179,7 +207,7 @@ void TestPlayer::Jumping()
 		return;
 
 	Vector2 temp;
-
+	_jumpPower -= (float)pow(_gravity, 2) * DELTA_TIME;
 	temp.y = _jumpPower;
 	_PlayerPos += temp * DELTA_TIME;
 	this->SetPlay(TestPlayer::State::F_JUMP);
@@ -190,15 +218,17 @@ void TestPlayer::Jumping()
 		{
 			continue;
 		}
-		if (tile->GetColl()->IsCollision(_FjumpEnemy->GetColl(), false))
+		if (tile->GetColl()->IsCollision(_FjumpEnemy->GetColl()))
 		{
 			tile->GetColl()->SetRed();
-			if (_PlayerPos.y <=  (tile->GetColl()->Top()) + _FjumpEnemy->GetColl()->GetWorldHalfY() + 30.0f)
+			
+			if (_PlayerPos.y <= tile->GetQuad()->Top() + _FjumpEnemy->GetSprite()->GetHalfFrameSize().y + 20.0f)
 			{
 				this->SetPlay(TestPlayer::State::F_IDLE);
 				_jumpPower = 200.0f;
 				_isJumping = false;
 			}
+			
 		}
 		else
 		{
@@ -206,6 +236,42 @@ void TestPlayer::Jumping()
 		}
 	}
 
+}
+
+void TestPlayer::BackJumping()
+{
+	if (_isBackJumping == false)
+		return;
+
+	Vector2 temp;
+	_BackjumpPower -= (float)pow(_gravity, 2) * DELTA_TIME;
+	temp.y = _BackjumpPower;
+	_PlayerPos += temp * DELTA_TIME;
+	this->SetPlay(TestPlayer::State::B_JUMP);
+
+	for (auto& tile : _tile)
+	{
+		if (tile->_isActive == false)
+		{
+			continue;
+		}
+		if (tile->GetColl()->IsCollision(_BjumpEnemy->GetColl()))
+		{
+			tile->GetColl()->SetRed();
+
+			if (_PlayerPos.y <= tile->GetQuad()->Top() + _BjumpEnemy->GetSprite()->GetHalfFrameSize().y + 20.0f)
+			{
+				this->SetPlay(TestPlayer::State::B_IDLE);
+				_BackjumpPower = 200.0f;
+				_isBackJumping = false;
+			}
+
+		}
+		else
+		{
+			tile->GetColl()->SetGreen();
+		}
+	}
 }
 
 

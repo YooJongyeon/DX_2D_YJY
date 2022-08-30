@@ -41,12 +41,15 @@ void SceneManager::Update()
 {
 	if (!_curScene.expired())
 		_curScene.lock()->Update();
+
 }
 
 void SceneManager::Render()
 {
 	if (!_curScene.expired())
 		_curScene.lock()->Render();
+
+
 }
 
 void SceneManager::PreRender()

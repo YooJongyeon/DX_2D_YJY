@@ -373,6 +373,7 @@
     <Image Include="Resource\playe.png" />
     <Image Include="Resource\Player\Bullet_Big.png" />
     <Image Include="Resource\Player\GatlingGun.png" />
+    <Image Include="Resource\Player\player_Backjump.png" />
     <Image Include="Resource\Player\player_die.png" />
     <Image Include="Resource\Player\player_idle.png" />
     <Image Include="Resource\Player\player_idle_left.png" />

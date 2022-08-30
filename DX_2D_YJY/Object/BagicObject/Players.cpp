@@ -59,7 +59,7 @@ void Players::Render()
 		return;
 	_sprite->Render();
 	_col->Render();
-	ImGui::Text("Target hp: %d", (UINT)_hp);
+	
 }
 
 void Players::Play(Vector2 pos)

@@ -708,6 +708,9 @@
     <Image Include="Resource\Creature\leftmove.png">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="Resource\Player\player_Backjump.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\TexturePixelShader.hlsl" />
