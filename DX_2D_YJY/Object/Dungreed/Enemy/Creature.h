@@ -74,7 +74,7 @@ private:
 
 	shared_ptr<class TestPlayer> _players;
 
-	float _speed = 100.0f;
+	float _speed = 50.0f;
 
 	float _runTime = 0.0f;
 	float _travelTime = 2.0f;

@@ -13,12 +13,15 @@ public:
 private:
 	shared_ptr<TownMap> _townMap;
 	shared_ptr<TileMap> _tileMap;
-	shared_ptr<Creature> _creature;
+	vector<shared_ptr<Creature>> _creature;
+	
 	shared_ptr<TestPlayer> _test;
 	shared_ptr<Transform> _FollowTrans;
 
 	shared_ptr<Quad> _angle;
 
+	int _monsterCount = 8;
+	float _pos = 0.0f;
 	bool _timeStop = false;
 };
 

@@ -180,7 +180,7 @@ void Creature::SEltDLE()
 
 void Creature::AttackPlayer(shared_ptr<class TestPlayer> player)
 {
-	if (player->_isActive == true || _moveEnemy->_isActive== true)
+	if (player->_isActive == false || _moveEnemy->_isActive== false)
 	{
 		return;
 	}
@@ -200,19 +200,6 @@ void Creature::AttackPlayer(shared_ptr<class TestPlayer> player)
 		player->GetCol1()->SetGreen();
 	}
 
-	if (player->GetCol3()->IsCollision(_moveEnemy->GetColl()))
-	{
-		this->SetPlay(Creature::State::ATTACK);
-		if (player->GetCol3()->IsCollision(_attack->GetColl()))
-		{
-			player->GetCol3()->SetRed();
-			player->_hp -= _Damage;
-		}
-	}
-	else
-	{
-		player->GetCol3()->SetGreen();
-	}
 
 	
 }

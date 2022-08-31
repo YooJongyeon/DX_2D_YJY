@@ -49,15 +49,14 @@ public:
 	Vector2 GetPlayerPos() { return _PlayerPos; }
 
 	shared_ptr<Players> GetPlayer() { return _FidleEnemy; }
-	shared_ptr<Players> GetPlayer1() { return _FmoveEnemy; }
 
-	
 	shared_ptr<class Weapon>GetWeapon() { return _Weapon; }
 
 
 	float _hp = 100.0f;
 	float _weaponDamage = 0.08f;
 	bool _isActive = false;
+	
 private:
 	State _aniState = F_IDLE;
 
@@ -71,7 +70,7 @@ private:
 	shared_ptr<Players> _BjumpEnemy;
 
 	shared_ptr<class Weapon> _Weapon;
-	Vector2 _PlayerPos = {100.0f, 40.0f};
+	Vector2 _PlayerPos = {100.0f, 200.0f};
 
 	Vector2 _maxFrame;
 

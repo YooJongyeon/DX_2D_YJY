@@ -584,9 +584,13 @@
     <Xml Include="Resource\Xml\ItemData.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="Resource\Sound\1.JailField.wav" />
     <Media Include="Resource\Sound\DungeonClose.wav" />
     <Media Include="Resource\Sound\DungeonOpen.wav" />
     <Media Include="Resource\Sound\generalAttack.wav" />
+    <Media Include="Resource\Sound\Jumping.wav" />
+    <Media Include="Resource\Sound\step_lth1.wav" />
+    <Media Include="Resource\Sound\TigerRoar.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="fmod.dll" />

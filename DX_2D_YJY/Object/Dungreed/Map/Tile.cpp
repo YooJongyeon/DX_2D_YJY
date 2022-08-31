@@ -5,6 +5,7 @@ Tile::Tile()
 {
 	_quad = make_shared<Quad>(L"Resource/Map/townAtlas3.png");
 	_collider = make_shared<RectCollider>(_quad->GetHalfSize() * 1.0f);
+	_quad->GetTransform()->GetScale().x += 1.0f;
 	_collider->SetParent(_quad->GetTransform());
 }
 

@@ -14,7 +14,8 @@ TownMap::TownMap()
 	_townLayer->GetTransform()->GetPos() = { WIN_WIDTH * 0.5f , WIN_HEIGHT * 0.23f };
 
 
-
+	SOUND->Add("JailField", "Resource/Sound/1.JailField.wav");
+	SOUND->Play("JailField", 0.5f);
 
 }
 
@@ -26,7 +27,7 @@ void TownMap::Update()
 {
 	_townSky->Update();
 	_townLayer->Update();
-
+	
 	
 }
 

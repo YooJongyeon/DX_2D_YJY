@@ -23,6 +23,10 @@ TestPlayer::TestPlayer()
 
 	_Weapon = make_shared<Weapon>(L"Resource/Weapon/TigerPunch.png", Vector2(10, 1), 0.07f);
 
+	SOUND->Add("TigerToar", "Resource/Sound/TigerRoar.wav");
+	SOUND->Add("jumping", "Resource/Sound/Jumping.wav");
+	
+
 	_isActive = true;
 }
 
@@ -58,17 +62,14 @@ void TestPlayer::Update()
 	default:
 		break;
 	}
+	
 
 	_Weapon->Update();
-
-
 
 	Move();
 	Jumping();
 	BackJumping();
 	Fire();
-
-
 }
 
 void TestPlayer::Render()
@@ -128,13 +129,13 @@ void TestPlayer::SetPlay(State stay)
 void TestPlayer::Move()
 {
 	this->SetPostion(_PlayerPos.x, _PlayerPos.y);
-
 	if (KEY_PRESS('A'))
 	{
 		_PlayerPos.x -= 150 * DELTA_TIME;
 		if (KEY_PRESS(VK_SPACE))
 		{
 			_isBackJumping = true;
+			SOUND->Play("jumping", 0.5f);
 
 			return;
 		}
@@ -149,9 +150,11 @@ void TestPlayer::Move()
 		if (KEY_PRESS(VK_SPACE))
 		{
 			_isJumping = true;
+			SOUND->Play("jumping", 0.1f);
 
 			return;
 		}
+	
 		this->SetPlay(TestPlayer::State::F_RUN);
 
 		return;
@@ -164,6 +167,7 @@ void TestPlayer::Move()
 			if (KEY_PRESS(VK_SPACE))
 			{
 				_isBackJumping = true;
+				SOUND->Play("jumping", 0.5f);
 
 				return;
 			}
@@ -176,12 +180,11 @@ void TestPlayer::Move()
 			if (KEY_PRESS(VK_SPACE))
 			{
 				_isJumping = true;
+				SOUND->Play("jumping", 0.5f);
 				return;
 			}
 		}
 	}
-
-	
 
 	SEltDLE();
 }
@@ -218,6 +221,10 @@ void TestPlayer::Jumping()
 		{
 			continue;
 		}
+		if (_jumpPower >=0.0f)
+		{
+			break;
+		}
 		if (tile->GetColl()->IsCollision(_FjumpEnemy->GetColl()))
 		{
 			tile->GetColl()->SetRed();
@@ -228,7 +235,6 @@ void TestPlayer::Jumping()
 				_jumpPower = 200.0f;
 				_isJumping = false;
 			}
-			
 		}
 		else
 		{
@@ -255,6 +261,10 @@ void TestPlayer::BackJumping()
 		{
 			continue;
 		}
+		if (_BackjumpPower >= 0.0f)
+		{
+			break;
+		}
 		if (tile->GetColl()->IsCollision(_BjumpEnemy->GetColl()))
 		{
 			tile->GetColl()->SetRed();
@@ -274,13 +284,13 @@ void TestPlayer::BackJumping()
 	}
 }
 
-
 void TestPlayer::Fire()
 {
 	if (KEY_Down(VK_LBUTTON))
 	{
 		Vector2 v = MOUSE_POS;
 		_Weapon->SetPosition(v);
+		SOUND->Play("TigerToar", 0.5f);
 		_Weapon->Play();
 	}
 }
