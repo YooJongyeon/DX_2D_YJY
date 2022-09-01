@@ -288,6 +288,9 @@
     <ClInclude Include="Framework\Utillty\DataManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\PorfolioStartScreen.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX_2D_YJY.cpp">
@@ -512,6 +515,9 @@
     <ClCompile Include="Framework\Utillty\DataManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\PorfolioStartScreen.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DX_2D_YJY.rc">
@@ -709,6 +715,9 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="Resource\Player\player_Backjump.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\ShootingCursor2.png">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

@@ -12,19 +12,19 @@ TestPlayer::TestPlayer()
 	_FjumpEnemy = make_shared<Players>(L"Resource/Player/player_jump.png", Vector2(1, 1), 0.1f);
 	_BjumpEnemy = make_shared<Players>(L"Resource/Player/player_Backjump.png", Vector2(1, 1), 0.1f);
 
-	_FidleEnemy->Play(Vector2( WIN_WIDTH, WIN_HEIGHT));
-	_FmoveEnemy->Play(Vector2(WIN_WIDTH, WIN_HEIGHT));
+	_FidleEnemy->Play(Vector2( 0.0f, 0.0f));
+	_FmoveEnemy->Play(Vector2(0.0f, 0.0f));
 
-	_BidleEnemy->Play(Vector2(WIN_WIDTH, WIN_HEIGHT));
-	_BmoveEnemy->Play(Vector2(WIN_WIDTH, WIN_HEIGHT));
+	_BidleEnemy->Play(Vector2(0.0f, 0.0f));
+	_BmoveEnemy->Play(Vector2(0.0f, 0.0f));
 
-	_FjumpEnemy->Play(Vector2(WIN_WIDTH, WIN_HEIGHT));
-	_BjumpEnemy->Play(Vector2(WIN_WIDTH, WIN_HEIGHT));
+	_FjumpEnemy->Play(Vector2(0.0f, 0.0f));
+	_BjumpEnemy->Play(Vector2(0.0f, 0.0f));
 
 	_Weapon = make_shared<Weapon>(L"Resource/Weapon/TigerPunch.png", Vector2(10, 1), 0.07f);
 
-	SOUND->Add("TigerToar", "Resource/Sound/TigerRoar.wav");
-	SOUND->Add("jumping", "Resource/Sound/Jumping.wav");
+	SOUND->Add("TigerToar","Resource/Sound/TigerRoar.wav");
+	SOUND->Add("jumping","Resource/Sound/Jumping.wav");
 	
 
 	_isActive = true;
@@ -63,7 +63,7 @@ void TestPlayer::Update()
 		break;
 	}
 	
-
+	
 	_Weapon->Update();
 
 	Move();
@@ -210,7 +210,7 @@ void TestPlayer::Jumping()
 		return;
 
 	Vector2 temp;
-	_jumpPower -= (float)pow(_gravity, 2) * DELTA_TIME;
+	_jumpPower -= (float)pow(_gravity, 2);
 	temp.y = _jumpPower;
 	_PlayerPos += temp * DELTA_TIME;
 	this->SetPlay(TestPlayer::State::F_JUMP);
@@ -232,7 +232,7 @@ void TestPlayer::Jumping()
 			if (_PlayerPos.y <= tile->GetQuad()->Top() + _FjumpEnemy->GetSprite()->GetHalfFrameSize().y + 20.0f)
 			{
 				this->SetPlay(TestPlayer::State::F_IDLE);
-				_jumpPower = 200.0f;
+				_jumpPower = 400.0f;
 				_isJumping = false;
 			}
 		}
@@ -250,7 +250,7 @@ void TestPlayer::BackJumping()
 		return;
 
 	Vector2 temp;
-	_BackjumpPower -= (float)pow(_gravity, 2) * DELTA_TIME;
+	_BackjumpPower -= (float)pow(_gravity, 2);
 	temp.y = _BackjumpPower;
 	_PlayerPos += temp * DELTA_TIME;
 	this->SetPlay(TestPlayer::State::B_JUMP);
@@ -272,7 +272,7 @@ void TestPlayer::BackJumping()
 			if (_PlayerPos.y <= tile->GetQuad()->Top() + _BjumpEnemy->GetSprite()->GetHalfFrameSize().y + 20.0f)
 			{
 				this->SetPlay(TestPlayer::State::B_IDLE);
-				_BackjumpPower = 200.0f;
+				_BackjumpPower = 400.0f;
 				_isBackJumping = false;
 			}
 
@@ -288,7 +288,7 @@ void TestPlayer::Fire()
 {
 	if (KEY_Down(VK_LBUTTON))
 	{
-		Vector2 v = MOUSE_POS;
+		Vector2 v = MOUSE_WORLDPOS;
 		_Weapon->SetPosition(v);
 		SOUND->Play("TigerToar", 0.5f);
 		_Weapon->Play();

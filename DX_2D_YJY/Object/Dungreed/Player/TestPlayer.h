@@ -13,9 +13,6 @@ class TestPlayer
 		B_JUMP
 	};
 
-
-
-
 public:
 	TestPlayer();
 	~TestPlayer();
@@ -45,13 +42,12 @@ public:
 	shared_ptr<Collider> GetCol5() { return _FjumpEnemy->GetColl(); }
 	shared_ptr<Collider> GetCol6() { return _BjumpEnemy->GetColl(); }
 
-	shared_ptr<Transform> GetTransform() { return _FidleEnemy->GetTransform(); }
+	shared_ptr<Transform> GetTransform() { return _FmoveEnemy->GetTransform(); }
 	Vector2 GetPlayerPos() { return _PlayerPos; }
 
-	shared_ptr<Players> GetPlayer() { return _FidleEnemy; }
+	shared_ptr<Players> GetPlayer() { return _FmoveEnemy; }
 
 	shared_ptr<class Weapon>GetWeapon() { return _Weapon; }
-
 
 	float _hp = 100.0f;
 	float _weaponDamage = 0.08f;
@@ -81,10 +77,10 @@ private:
 	float _runTime = 0.0f;
 	float _destroyTime = 5.0f;
 
-	float _jumpPower = 200.0f;
-	float _BackjumpPower = 200.0f;
+	float _jumpPower = 400.0f;
+	float _BackjumpPower = 400.0f;
 	float _jumpTime = 0.0f;
-	float _gravity = 10.8f;
+	float _gravity = 0.78f;
 	float _spead = 100.0f;
 
 	bool _isJumping = false;

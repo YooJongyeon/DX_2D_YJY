@@ -151,6 +151,7 @@
     <ClInclude Include="Object\Dungreed\Item\Inventery.h" />
     <ClInclude Include="Object\Dungreed\Item\Item.h" />
     <ClInclude Include="Object\BagicObject\Players.h" />
+    <ClInclude Include="Scene\PorfolioStartScreen.h" />
     <ClInclude Include="Scene\BagicScene\ItemScene.h" />
     <ClInclude Include="Object\Dungreed\Enemy\Creature.h" />
     <ClInclude Include="Object\GameObject\Bullet.h" />
@@ -249,6 +250,7 @@
     <ClCompile Include="Object\Dungreed\Item\Inventery.cpp" />
     <ClCompile Include="Object\Dungreed\Item\Item.cpp" />
     <ClCompile Include="Object\BagicObject\Players.cpp" />
+    <ClCompile Include="Scene\PorfolioStartScreen.cpp" />
     <ClCompile Include="Scene\BagicScene\ItemScene.cpp" />
     <ClCompile Include="Object\Dungreed\Enemy\Creature.cpp" />
     <ClCompile Include="Object\GameObject\Bullet.cpp" />
@@ -383,6 +385,7 @@
     <Image Include="Resource\purpleaiming.png" />
     <Image Include="Resource\redbullet.png" />
     <Image Include="Resource\revolver.png" />
+    <Image Include="Resource\ShootingCursor2.png" />
     <Image Include="Resource\sun.PNG" />
     <Image Include="Resource\Weapon\Boomerang_Moving.png" />
     <Image Include="Resource\Weapon\MetalBoomerang.png" />

@@ -3,10 +3,8 @@
 
 TestScene::TestScene()
 {
-
-	
-	_angle = make_shared <Quad>(L"Resource/purpleaiming.png");
-	_angle->GetTransform()->GetScale() *= 0.2f;
+	_angle = make_shared <Quad>(L"Resource/ShootingCursor2.png");
+	_angle->GetTransform()->GetScale() * 0.2f;
 	_townMap = make_shared<TownMap>();
 	_tileMap = make_shared<TileMap>();
 
@@ -22,13 +20,13 @@ TestScene::TestScene()
 		_pos = (i + 1) * 200;
 		_creature.push_back(temp);
 	}
-	
-	_FollowTrans = make_shared<Transform>();
-	_FollowTrans->GetPos() = _test->GetPlayer()->GetTransform()->GetPos();
 
+	_FollowTrans = make_shared<Transform>();
+	_FollowTrans->GetPos() = _test->GetTransform()->GetPos();
+	
 	Camera::GetInstance()->SetTarget(_FollowTrans);
 	Vector2 leftBottom = { 0,0 };
-	Vector2 rightTop = { _townMap->GetTrasform()->GetHalfSize().x * 2.0f, _townMap->GetTrasform()->GetHalfSize().y * 2.0f };
+	Vector2 rightTop = { _townMap->GetTrasform()->GetHalfSize().x *2.0f, _townMap->GetTrasform()->GetHalfSize().y*2.0f};
 	Camera::GetInstance()->SetLeftBottom(leftBottom);
 	Camera::GetInstance()->SetRightTop(rightTop);
 
@@ -48,8 +46,8 @@ void TestScene::Update()
 
 	_townMap->Update();
 	_tileMap->Update();
-	_angle->Update();
 	_test->Update();
+	_angle->Update();
 
 	for (auto& monster : _creature)
 	{
@@ -62,14 +60,13 @@ void TestScene::Update()
 			monster->_isActive = false;
 	}
 
-	_angle->GetTransform()->GetPos() = MOUSE_POS;
-
-
 	float distance = _test->GetTransform()->GetPos().Distance(_FollowTrans->GetPos());
 	if (distance >= 30.0f)
 	{
 		_FollowTrans->GetPos() = LERP(_FollowTrans->GetPos(), _test->GetTransform()->GetPos(), 0.001f);
 	}
+	_angle->GetTransform()->GetPos() = MOUSE_WORLDPOS;
+	
 }
 
 void TestScene::Render()
@@ -82,10 +79,8 @@ void TestScene::Render()
 		monster->Render();
 
 	}
-	_angle->Render();
 	_test->Render();
-
-
+	_angle->Render();
 
 }
 
