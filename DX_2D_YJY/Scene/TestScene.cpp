@@ -23,12 +23,13 @@ TestScene::TestScene()
 
 	_FollowTrans = make_shared<Transform>();
 	_FollowTrans->GetPos() = _test->GetTransform()->GetPos();
-	
+
 	Camera::GetInstance()->SetTarget(_FollowTrans);
 	Vector2 leftBottom = { 0,0 };
-	Vector2 rightTop = { _townMap->GetTrasform()->GetHalfSize().x *2.0f, _townMap->GetTrasform()->GetHalfSize().y*2.0f};
+	Vector2 rightTop = { _test->GetPlayer()->GetSprite()->GetHalfSize().x *40.0f,  _test->GetPlayer()->GetSprite()->GetHalfSize().y * 40.0f };
 	Camera::GetInstance()->SetLeftBottom(leftBottom);
 	Camera::GetInstance()->SetRightTop(rightTop);
+
 
 }
 

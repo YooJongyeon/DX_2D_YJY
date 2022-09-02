@@ -26,7 +26,6 @@ TestPlayer::TestPlayer()
 	SOUND->Add("TigerToar","Resource/Sound/TigerRoar.wav");
 	SOUND->Add("jumping","Resource/Sound/Jumping.wav");
 	
-
 	_isActive = true;
 }
 
@@ -58,11 +57,9 @@ void TestPlayer::Update()
 	case TestPlayer::B_JUMP:
 		_BjumpEnemy->Update();
 		break;
-	
 	default:
 		break;
 	}
-	
 	
 	_Weapon->Update();
 
@@ -136,7 +133,7 @@ void TestPlayer::Move()
 		{
 			_isBackJumping = true;
 			SOUND->Play("jumping", 0.5f);
-
+		
 			return;
 		}
 		this->SetPlay(TestPlayer::State::B_RUN);
@@ -151,7 +148,6 @@ void TestPlayer::Move()
 		{
 			_isJumping = true;
 			SOUND->Play("jumping", 0.1f);
-
 			return;
 		}
 	
@@ -229,11 +225,12 @@ void TestPlayer::Jumping()
 		{
 			tile->GetColl()->SetRed();
 			
-			if (_PlayerPos.y <= tile->GetQuad()->Top() + _FjumpEnemy->GetSprite()->GetHalfFrameSize().y + 20.0f)
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _FjumpEnemy->GetColl()->GetWorldHalfX() + 20.0f)
 			{
+				
 				this->SetPlay(TestPlayer::State::F_IDLE);
-				_jumpPower = 400.0f;
 				_isJumping = false;
+				_jumpPower = 400.0f;
 			}
 		}
 		else
@@ -269,11 +266,11 @@ void TestPlayer::BackJumping()
 		{
 			tile->GetColl()->SetRed();
 
-			if (_PlayerPos.y <= tile->GetQuad()->Top() + _BjumpEnemy->GetSprite()->GetHalfFrameSize().y + 20.0f)
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _BjumpEnemy->GetColl()->GetWorldHalfX() + 20.0f)
 			{
 				this->SetPlay(TestPlayer::State::B_IDLE);
-				_BackjumpPower = 400.0f;
 				_isBackJumping = false;
+				_BackjumpPower = 400.0f;
 			}
 
 		}

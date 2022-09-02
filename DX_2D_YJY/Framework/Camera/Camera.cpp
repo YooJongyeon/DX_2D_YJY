@@ -143,6 +143,13 @@ void Camera::Shake()
 		_transform->GetPos() = _originPos;
 }
 
+void Camera::SetZoom(float value)
+{
+
+	_transform->GetScale() = { value ,value };
+	_moveTransform->GetScale() = { value ,value };
+}
+
 Vector2 Camera::GetMouseWorldPos()
 {
 	XMMATRIX inverseView = XMMatrixInverse(nullptr, _transform->GetMatrix());

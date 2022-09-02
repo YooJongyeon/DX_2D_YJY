@@ -14,7 +14,7 @@ public:
 
 	void End() { _isActive = false; }
 	shared_ptr<Transform> GetTransform() { return _sprite->GetTransform(); }
-	shared_ptr<Collider> GetColl() { return _col; }
+	shared_ptr<Collider> GetColl() { return _eventCol; }
 	shared_ptr<Action> GetAction() { return _action; }
 	shared_ptr<Sprite> GetSprite() { return _sprite; }
 
@@ -24,6 +24,7 @@ public:
 private:
 	shared_ptr<Sprite> _sprite;
 	shared_ptr<Collider> _col;
+	shared_ptr<Collider> _eventCol;
 	shared_ptr<Action> _action;
 	Vector2 _maxFrame;
 

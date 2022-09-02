@@ -32,10 +32,13 @@ public:
 	void SetTarget(shared_ptr<Transform> transform) { _target = transform; }
 	void SetLeftBottom(Vector2 value) { _leftBottom = value; }
 	void SetRightTop(Vector2 value) { _rightTop = value; }
+	void SetZoom(float value);
+
 
 	Vector2 GetMouseWorldPos();
 
 	shared_ptr<Transform> GetTransform() { return _moveTransform; }
+
 
 	
 private:

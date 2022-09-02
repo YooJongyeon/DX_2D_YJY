@@ -7,9 +7,12 @@ Players::Players(wstring file, Vector2 maxFrame, float speed)
 	
 	_sprite = make_shared<Sprite>(file, maxFrame);
 	_col = make_shared<RectCollider>(_sprite->GetHalfFrameSize());
+	_eventCol = make_shared<RectCollider>(Vector2(9, 0));
+	_eventCol->GetLocalPosition() = Vector2(0.0f, -9.0f);
 
 	_sprite->GetTransform()->GetScale() = { 2.0f,2.0f };
 	_col->SetParent(_sprite->GetTransform());
+	_eventCol->SetParent(_sprite->GetTransform());
 
 	CreateAction(file, speed);
 	_action->SetEndEvent(std::bind(&Players::End, this));
@@ -46,10 +49,12 @@ void Players::Update()
 	if (_isActive == false)
 		return;
 
+	
 	_sprite->Update();
 	_action->Update();
-	_col->Update();
 	_sprite->SetClipToActionBuffer(_action->GetCurClip());
+	_col->Update();
+	_eventCol->Update();
 
 }
 
@@ -59,6 +64,7 @@ void Players::Render()
 		return;
 	_sprite->Render();
 	_col->Render();
+	_eventCol->Render();
 	
 }
 
