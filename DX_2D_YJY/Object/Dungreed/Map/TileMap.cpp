@@ -67,6 +67,113 @@ TileMap::TileMap()
 			temp->_isActive = true;
 			break;
 
+		case 13:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.3f  , WIN_HEIGHT * 0.27f };
+			temp->_isActive = true;
+			break;
+		case 14:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.4f  , WIN_HEIGHT * 0.27f };
+			temp->_isActive = true;
+			break;
+		case 15:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.5f  , WIN_HEIGHT * 0.27f };
+			temp->_isActive = true;
+			break;
+		case 16:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.6f  , WIN_HEIGHT * 0.27f };
+			temp->_isActive = true;
+			break;
+
+		case 17:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.7f  , WIN_HEIGHT * 0.27f };
+			temp->_isActive = true;
+			break;
+
+		case 18:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.8f  , WIN_HEIGHT * 0.27f };
+			temp->_isActive = true;
+			break;
+
+		case 19:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.9f  , WIN_HEIGHT * 0.27f };
+			temp->_isActive = true;
+			break;
+
+		case 20:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 1.1f  , WIN_HEIGHT * 0.15f };
+			temp->_isActive = true;
+			break;
+
+		case 21:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 1.3f  , WIN_HEIGHT * 0.27f };
+			temp->_isActive = true;
+			break;
+
+		case 22:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 1.4f  , WIN_HEIGHT * 0.27f };
+			temp->_isActive = true;
+			break;
+
+		case 23:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 1.5f  , WIN_HEIGHT * 0.27f };
+			temp->_isActive = true;
+			break;
+
+		case 24:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 1.6f  , WIN_HEIGHT * 0.27f };
+			temp->_isActive = true;
+			break;
+		case 25:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 1.8f  , WIN_HEIGHT * 0.15f };
+			temp->_isActive = true;
+			break;
+
+		case 26:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.05f  , WIN_HEIGHT * 0.4f };
+			temp->_isActive = true;
+			break;
+
+		case 27:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.3f  , WIN_HEIGHT * 0.55f };
+			temp->_isActive = true;
+			break;
+		case 28:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.4f  , WIN_HEIGHT * 0.55f };
+			temp->_isActive = true;
+			break;
+		case 29:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.5f  , WIN_HEIGHT * 0.55f };
+			temp->_isActive = true;
+			break;
+		case 30:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.6f  , WIN_HEIGHT * 0.55f };
+			temp->_isActive = true;
+			break;
+
+		case 31:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.8f  , WIN_HEIGHT * 0.45f };
+			temp->_isActive = true;
+			break;
+
+		case 32:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 1.35f  , WIN_HEIGHT * 0.55f };
+			temp->_isActive = true;
+			break;
+		case 33:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 1.45f  , WIN_HEIGHT * 0.55f };
+			temp->_isActive = true;
+			break;
+		case 34:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 1.55f  , WIN_HEIGHT * 0.55f };
+			temp->_isActive = true;
+			break;
+
+		case 35:
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 1.1f  , WIN_HEIGHT * 0.6f };
+			temp->_isActive = true;
+			break;
+
+
 		default:
 			break;
 		}

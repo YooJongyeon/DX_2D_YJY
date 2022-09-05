@@ -25,7 +25,7 @@ TestPlayer::TestPlayer()
 
 	SOUND->Add("TigerToar","Resource/Sound/TigerRoar.wav");
 	SOUND->Add("jumping","Resource/Sound/Jumping.wav");
-	
+	_isfal = true;
 	_isActive = true;
 }
 
@@ -64,9 +64,14 @@ void TestPlayer::Update()
 	_Weapon->Update();
 
 	Move();
+	Gravity();
+	BackGravity();
 	Jumping();
 	BackJumping();
 	Fire();
+
+
+	
 }
 
 void TestPlayer::Render()
@@ -126,6 +131,7 @@ void TestPlayer::SetPlay(State stay)
 void TestPlayer::Move()
 {
 	this->SetPostion(_PlayerPos.x, _PlayerPos.y);
+	
 	if (KEY_PRESS('A'))
 	{
 		_PlayerPos.x -= 150 * DELTA_TIME;
@@ -204,6 +210,7 @@ void TestPlayer::Jumping()
 {
 	if (_isJumping == false)
 		return;
+	this->SetPostion(_PlayerPos.x, _PlayerPos.y);
 
 	Vector2 temp;
 	_jumpPower -= (float)pow(_gravity, 2);
@@ -225,7 +232,7 @@ void TestPlayer::Jumping()
 		{
 			tile->GetColl()->SetRed();
 			
-			if (_PlayerPos.y <= tile->GetColl()->Top() + _FjumpEnemy->GetColl()->GetWorldHalfX() + 20.0f)
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _FjumpEnemy->GetColl()->GetWorldHalfY() + 20.0f)
 			{
 				
 				this->SetPlay(TestPlayer::State::F_IDLE);
@@ -245,6 +252,7 @@ void TestPlayer::BackJumping()
 {
 	if (_isBackJumping == false)
 		return;
+	this->SetPostion(_PlayerPos.x, _PlayerPos.y);
 
 	Vector2 temp;
 	_BackjumpPower -= (float)pow(_gravity, 2);
@@ -266,7 +274,7 @@ void TestPlayer::BackJumping()
 		{
 			tile->GetColl()->SetRed();
 
-			if (_PlayerPos.y <= tile->GetColl()->Top() + _BjumpEnemy->GetColl()->GetWorldHalfX() + 20.0f)
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _BjumpEnemy->GetColl()->GetWorldHalfY() + 20.0f)
 			{
 				this->SetPlay(TestPlayer::State::B_IDLE);
 				_isBackJumping = false;
@@ -277,6 +285,94 @@ void TestPlayer::BackJumping()
 		else
 		{
 			tile->GetColl()->SetGreen();
+		}
+	}
+}
+
+void TestPlayer::Gravity()
+{
+	if (_isfal == false)
+		return;
+	this->SetPostion(_PlayerPos.x, _PlayerPos.y);
+
+	if (_aniState == TestPlayer::State::F_IDLE)
+	{
+
+		if (_isfal == true)
+		{
+			Vector2 temp;
+			_fGravutyPower -= (float)pow(_fGravity, 2);
+			temp.y = _fGravutyPower;
+			_PlayerPos += temp * DELTA_TIME;
+		}
+
+	}
+	
+	for (auto& tile : _tile)
+	{
+		if (tile->_isActive == false)
+		{
+			continue;
+		}
+		if (_fGravutyPower >= 0.0f)
+		{
+			break;
+		}
+		if (tile->GetColl()->IsCollision(_FidleEnemy->GetColl()))
+		{
+			tile->GetColl()->SetRed();
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _FidleEnemy->GetColl()->GetWorldHalfY() + 20.0f)
+			{
+				_fGravutyPower = 1.0f;
+			}
+		}
+		else
+		{
+			tile->GetColl()->SetGreen();
+			_isfal = true;
+		}
+	}
+}
+
+void TestPlayer::BackGravity()
+{
+	if (_backIsfal == false)
+		return;
+
+	this->SetPostion(_PlayerPos.x, _PlayerPos.y);
+	if (_aniState == TestPlayer::State::B_IDLE)
+	{
+		if (_backIsfal == true)
+		{
+			Vector2 temp;
+			_bGravutyPower -= (float)pow(_bGravity, 2);
+			temp.y = _bGravutyPower;
+			_PlayerPos += temp * DELTA_TIME;
+		}
+	}
+
+	for (auto& tile : _tile)
+	{
+		if (tile->_isActive == false)
+		{
+			continue;
+		}
+		if (_bGravutyPower >= 0.0f)
+		{
+			break;
+		}
+		if (tile->GetColl()->IsCollision(_BidleEnemy->GetColl()))
+		{
+			tile->GetColl()->SetRed();
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _BidleEnemy->GetColl()->GetWorldHalfY() + 20.0f)
+			{
+				_bGravutyPower = 1.0f;
+			}
+		}
+		else
+		{
+			tile->GetColl()->SetGreen();
+			_backIsfal = true;
 		}
 	}
 }

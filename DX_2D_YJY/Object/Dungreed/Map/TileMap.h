@@ -13,7 +13,7 @@ public:
 	vector<shared_ptr<Tile>> GetTile() { return _tile; }
 private:
 	vector<shared_ptr<Tile>> _tile;
-	UINT _tileCount = 30;
+	UINT _tileCount = 50;
 	shared_ptr<Transform> _transform;
 };
 

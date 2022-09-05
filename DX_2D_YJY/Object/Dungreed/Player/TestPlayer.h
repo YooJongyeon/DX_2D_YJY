@@ -31,6 +31,8 @@ public:
 	void SEltDLE();
 	void Jumping();
 	void BackJumping();
+	void Gravity();
+	void BackGravity();
 
 	void Fire();
 	void AttackMonsters(shared_ptr<class Creature> Enemy);
@@ -77,12 +79,19 @@ private:
 	float _runTime = 0.0f;
 	float _destroyTime = 5.0f;
 
-	float _jumpPower = 400.0f;
+	float _fGravutyPower = 3.0f;
+	float _bGravutyPower = 3.0f;
+
+	float _jumpPower = 600.0f;
 	float _BackjumpPower = 400.0f;
-	float _jumpTime = 0.0f;
+
 	float _gravity = 0.78f;
+	float _fGravity = 0.78f;
+	float _bGravity = 0.78f;
 	float _spead = 100.0f;
 
+	bool _isfal = true;
+	bool _backIsfal = true;
 	bool _isJumping = false;
 	bool _isBackJumping = false;
 
