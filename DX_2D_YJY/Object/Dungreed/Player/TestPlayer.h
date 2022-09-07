@@ -23,7 +23,7 @@ public:
 	void PostRender();
 
 	void SetTile(vector<shared_ptr<Tile>>tiles) { _tile = tiles; }
-	void SetCreature(shared_ptr<class Creature> Enemy) { _enemy = Enemy; }
+
 
 	void SetPostion(float x, float y);
 	void SetPlay(State stay);
@@ -33,16 +33,19 @@ public:
 	void BackJumping();
 	void Gravity();
 	void BackGravity();
+	void FRunGravity();
+	void BRunGravity();
 
 	void Fire();
 	void AttackMonsters(shared_ptr<class Creature> Enemy);
+	void AttackGhost(shared_ptr<class Ghost> Ghost);
 
-	shared_ptr<Collider> GetCol1() { return _FidleEnemy->GetColl(); }
-	shared_ptr<Collider> GetCol2() { return _FmoveEnemy->GetColl(); }
-	shared_ptr<Collider> GetCol3() { return _BidleEnemy->GetColl(); }
-	shared_ptr<Collider> GetCol4() { return _BmoveEnemy->GetColl(); }
-	shared_ptr<Collider> GetCol5() { return _FjumpEnemy->GetColl(); }
-	shared_ptr<Collider> GetCol6() { return _BjumpEnemy->GetColl(); }
+	shared_ptr<Collider> GetFidleColl() { return _FidleEnemy->GetColl(); }
+	shared_ptr<Collider> GetFMoveColl() { return _FmoveEnemy->GetColl(); }
+	shared_ptr<Collider> GetBidleColl() { return _BidleEnemy->GetColl(); }
+	shared_ptr<Collider> GetBmoveColl() { return _BmoveEnemy->GetColl(); }
+	shared_ptr<Collider> GetFjumpColl() { return _FjumpEnemy->GetColl(); }
+	shared_ptr<Collider> GetBjumpColl() { return _BjumpEnemy->GetColl(); }
 
 	shared_ptr<Transform> GetTransform() { return _FmoveEnemy->GetTransform(); }
 	Vector2 GetPlayerPos() { return _PlayerPos; }
@@ -74,24 +77,34 @@ private:
 
 	vector<shared_ptr<Tile>> _tile;
 
-	shared_ptr<class Creature>_enemy;
-
 	float _runTime = 0.0f;
 	float _destroyTime = 5.0f;
 
 	float _fGravutyPower = 3.0f;
 	float _bGravutyPower = 3.0f;
 
+	float _fRunGravutyPower = 3.0f;
+	float _bRuneGravutyPower = 3.0f;
+
 	float _jumpPower = 600.0f;
 	float _BackjumpPower = 400.0f;
 
 	float _gravity = 0.78f;
+
 	float _fGravity = 0.78f;
 	float _bGravity = 0.78f;
+
+	float _fRunGravity = 0.78f;
+	float _bRunbGravity = 0.78f;
+
 	float _spead = 100.0f;
 
 	bool _isfal = true;
 	bool _backIsfal = true;
+
+	bool _FRunIsfal = true;
+	bool _BRunIsfal = true;
+
 	bool _isJumping = false;
 	bool _isBackJumping = false;
 

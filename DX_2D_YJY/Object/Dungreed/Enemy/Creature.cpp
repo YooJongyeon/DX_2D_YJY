@@ -11,13 +11,13 @@ Creature::Creature()
 
 	_attack = make_shared<Enemy>(L"Resource/Creature/attack.png", Vector2(1, 1), 0.1f);
 
-	_idleEnemy->Play(CENTER);
-	_moveEnemy->Play(CENTER);
+	_idleEnemy->Play(Vector2(1200,300));
+	_moveEnemy->Play(Vector2(1200, 300));
 
-	_leftIdleEnemy->Play(CENTER);
-	_leftMoveEnemy->Play(CENTER);
+	_leftIdleEnemy->Play(Vector2(1200, 300));
+	_leftMoveEnemy->Play(Vector2(1200, 300));
 
-	_attack->Play(CENTER);
+	_attack->Play(Vector2(1200, 300));
 
 	_dir = Creature::Direction::LEFT;
 	_isActive = true;
@@ -94,14 +94,14 @@ void Creature::PostRender()
 	
 }
 
-void Creature::SetPostion(float x, float y)
+void Creature::SetPostion(Vector2 x, Vector2 y)
 {
-	_idleEnemy->GetTransform()->GetPos() = { x,y };
-	_moveEnemy->GetTransform()->GetPos() = { x,y };
-	_leftIdleEnemy->GetTransform()->GetPos() = { x,y };
-	_leftMoveEnemy->GetTransform()->GetPos() = { x,y };
-	_attack->GetTransform()->GetPos() = { x,y };
-	_creaturePos = { x,y };
+	_idleEnemy->GetTransform()->GetPos() = ( x,y );
+	_moveEnemy->GetTransform()->GetPos() = (x, y);
+	_leftIdleEnemy->GetTransform()->GetPos() = (x, y);
+	_leftMoveEnemy->GetTransform()->GetPos() = (x, y);
+	_attack->GetTransform()->GetPos() = (x, y);
+	_creaturePos = (x, y);
 }
 
 void Creature::SetPlay(State stay)
@@ -112,7 +112,7 @@ void Creature::SetPlay(State stay)
 
 void Creature::Move(Vector2 pos)
 {
-	this->SetPostion(_creaturePos.x, _creaturePos.y);
+	this->SetPostion(_creaturePos, _creaturePos);
 
 	if ((pos - _creaturePos).Length() < 10.0f)
 		return;
@@ -184,30 +184,35 @@ void Creature::AttackPlayer(shared_ptr<class TestPlayer> player)
 	{
 		return;
 	}
-	this->SetPostion(_creaturePos.x, _creaturePos.y);
+	this->SetPostion(_creaturePos, _creaturePos);
 
-	if (player->GetCol1()->IsCollision(_moveEnemy->GetColl()))
+	if (player->GetFidleColl()->IsCollision(_moveEnemy->GetColl()))
 	{
+		player->GetFidleColl()->SetRed();
 		this->SetPlay(Creature::State::ATTACK);
-		if (player->GetCol1()->IsCollision(_attack->GetColl()))
+		if (player->GetFidleColl()->IsCollision(_attack->GetColl()))
 		{
-			player->GetCol1()->SetRed();
 			player->_hp -= _Damage;
 		}
 	}
 	else
 	{
-		player->GetCol1()->SetGreen();
+		player->GetFidleColl()->SetGreen();
 	}
 
-
-	
+	if (player->GetFidleColl()->IsCollision(_leftMoveEnemy->GetColl()))
+	{
+		player->GetFidleColl()->SetRed();
+		this->SetPlay(Creature::State::ATTACK);
+		if (player->GetFidleColl()->IsCollision(_attack->GetColl()))
+		{
+			player->_hp -= _Damage;
+		}
+	}
+	else
+	{
+		player->GetFidleColl()->SetGreen();
+	}
 }
-
-void Creature::SetTravel(Vector2 tra)
-{
-	_travel = tra;
-}
-
 
 

@@ -15,10 +15,22 @@ TestScene::TestScene()
 	for (int i = 0; i < _monsterCount; i++)
 	{
 		shared_ptr<Creature> temp = make_shared<Creature>();
-		temp->SetPostion(_pos, _pos);
 		temp->SetPlayer(_test);
-		_pos = (i + 1) * 200;
+		_pos.x = (i + 1) * 300;
+		_pos.y = (i + 1) * 100;
+		temp->SetPostion(_pos, _pos);
 		_creature.push_back(temp);
+	}
+
+	_ghost.reserve(_GostCount);
+	for (int i = 0; i < _GostCount; i++)
+	{
+		shared_ptr<Ghost> temp = make_shared<Ghost>();
+		temp->SetPlayer(_test);
+		_gostPos.x = (i + 1) * 200;
+		_gostPos.y = (i + 1) * 200;
+		temp->SetPostion(_gostPos, _gostPos);
+		_ghost.push_back(temp);
 	}
 
 	_FollowTrans = make_shared<Transform>();
@@ -61,11 +73,23 @@ void TestScene::Update()
 			monster->_isActive = false;
 	}
 
+	for (auto& ghost : _ghost)
+	{
+		ghost->Update();
+
+		ghost->AttackPlayer(_test);
+		_test->AttackGhost(ghost);
+
+		if (ghost->_hp <= 0)
+			ghost->_isActive = false;
+	}
+
 	float distance = _test->GetTransform()->GetPos().Distance(_FollowTrans->GetPos());
 	if (distance >= 30.0f)
 	{
 		_FollowTrans->GetPos() = LERP(_FollowTrans->GetPos(), _test->GetTransform()->GetPos(), 0.001f);
 	}
+
 	_angle->GetTransform()->GetPos() = MOUSE_WORLDPOS;
 	
 }
@@ -78,6 +102,12 @@ void TestScene::Render()
 	for (auto& monster : _creature)
 	{
 		monster->Render();
+
+	}
+
+	for (auto& ghost : _ghost)
+	{
+		ghost->Render();
 
 	}
 	_test->Render();

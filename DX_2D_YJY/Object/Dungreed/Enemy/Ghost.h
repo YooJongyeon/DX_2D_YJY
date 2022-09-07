@@ -1,16 +1,13 @@
 #pragma once
-class Creature
+class Ghost
 {
 	enum State
 	{
-		IDLE,
-		IDLE_SHOT,
-		LEFTIDLE,
-
-		ATTACK,
-
 		MOVE,
 		LEFTMOVE,
+		ATTACK,
+		
+
 
 	};
 
@@ -19,14 +16,14 @@ class Creature
 		NOME,
 		LEFT,
 		RIGHT,
-	
-		
+
+
 	};
 
 
 public:
-	Creature();
-	~Creature();
+	Ghost();
+	~Ghost();
 
 
 	void Update();
@@ -37,31 +34,25 @@ public:
 	void SetPlay(State stay);
 	void Move(Vector2 pos);
 
-	void SEltDLE();
 	void AttackPlayer(shared_ptr<class TestPlayer > player);
 
 	void SetPlayer(shared_ptr<class TestPlayer> players) { _players = players; }
 
-	shared_ptr<Collider> GetCol1(){ return _moveEnemy->GetColl();}
-	shared_ptr<Collider> GetCol2(){ return _leftMoveEnemy->GetColl();}
+	shared_ptr<Collider> GetCol1() { return _moveEnemy->GetColl(); }
+	shared_ptr<Collider> GetCol2() { return _leftMoveEnemy->GetColl(); }
 
-
-	shared_ptr<Enemy> GetMoveEnemy() { return _idleEnemy; }
 	shared_ptr<Enemy> GetMoveEnemy2() { return _leftMoveEnemy; }
-	
+
 	float _hp = 100.0f;
 	float _Damage = 0.01f;
 
 	bool _isActive = false;
 
-	State _aniState = IDLE;
+	State _aniState = MOVE;
 private:
 	Direction _dir = NOME;
 
-	shared_ptr<Enemy> _idleEnemy;
 	shared_ptr<Enemy> _moveEnemy;
-
-	shared_ptr<Enemy> _leftIdleEnemy;
 	shared_ptr<Enemy> _leftMoveEnemy;
 
 	shared_ptr<Enemy> _attack;
@@ -70,11 +61,10 @@ private:
 	shared_ptr<class TestPlayer> _players;
 
 	Vector2 _maxFrame;
-	Vector2 _creaturePos = {500.0f,300.0f};
+	Vector2 _creaturePos = { 500.0f,300.0f };
 
 
 	float _speed = 50.0f;
-
 
 };
 

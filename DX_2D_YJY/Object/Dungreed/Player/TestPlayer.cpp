@@ -12,7 +12,7 @@ TestPlayer::TestPlayer()
 	_FjumpEnemy = make_shared<Players>(L"Resource/Player/player_jump.png", Vector2(1, 1), 0.1f);
 	_BjumpEnemy = make_shared<Players>(L"Resource/Player/player_Backjump.png", Vector2(1, 1), 0.1f);
 
-	_FidleEnemy->Play(Vector2( 0.0f, 0.0f));
+	_FidleEnemy->Play(Vector2(0.0f, 0.0f));
 	_FmoveEnemy->Play(Vector2(0.0f, 0.0f));
 
 	_BidleEnemy->Play(Vector2(0.0f, 0.0f));
@@ -64,6 +64,8 @@ void TestPlayer::Update()
 	_Weapon->Update();
 
 	Move();
+	FRunGravity();
+	BRunGravity();
 	Gravity();
 	BackGravity();
 	Jumping();
@@ -228,11 +230,11 @@ void TestPlayer::Jumping()
 		{
 			break;
 		}
-		if (tile->GetColl()->IsCollision(_FjumpEnemy->GetColl()))
+		if (tile->GetColl()->IsCollision(_FjumpEnemy->GetTileEventColl()))
 		{
 			tile->GetColl()->SetRed();
 			
-			if (_PlayerPos.y <= tile->GetColl()->Top() + _FjumpEnemy->GetColl()->GetWorldHalfY() + 20.0f)
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _FjumpEnemy->GetTileEventColl()->Bottom() + 20.0f)
 			{
 				
 				this->SetPlay(TestPlayer::State::F_IDLE);
@@ -270,11 +272,11 @@ void TestPlayer::BackJumping()
 		{
 			break;
 		}
-		if (tile->GetColl()->IsCollision(_BjumpEnemy->GetColl()))
+		if (tile->GetColl()->IsCollision(_BjumpEnemy->GetTileEventColl()))
 		{
 			tile->GetColl()->SetRed();
 
-			if (_PlayerPos.y <= tile->GetColl()->Top() + _BjumpEnemy->GetColl()->GetWorldHalfY() + 20.0f)
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _BjumpEnemy->GetTileEventColl()->Bottom() + 20.0f)
 			{
 				this->SetPlay(TestPlayer::State::B_IDLE);
 				_isBackJumping = false;
@@ -318,11 +320,12 @@ void TestPlayer::Gravity()
 		{
 			break;
 		}
-		if (tile->GetColl()->IsCollision(_FidleEnemy->GetColl()))
+		if (tile->GetColl()->IsCollision(_FidleEnemy->GetTileEventColl()))
 		{
 			tile->GetColl()->SetRed();
-			if (_PlayerPos.y <= tile->GetColl()->Top() + _FidleEnemy->GetColl()->GetWorldHalfY() + 20.0f)
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _FidleEnemy->GetTileEventColl()->Bottom() + 20.0f)
 			{
+				
 				_fGravutyPower = 1.0f;
 			}
 		}
@@ -361,11 +364,12 @@ void TestPlayer::BackGravity()
 		{
 			break;
 		}
-		if (tile->GetColl()->IsCollision(_BidleEnemy->GetColl()))
+		if (tile->GetColl()->IsCollision(_BidleEnemy->GetTileEventColl()))
 		{
 			tile->GetColl()->SetRed();
-			if (_PlayerPos.y <= tile->GetColl()->Top() + _BidleEnemy->GetColl()->GetWorldHalfY() + 20.0f)
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _BidleEnemy->GetTileEventColl()->Bottom() + 20.0f)
 			{
+				
 				_bGravutyPower = 1.0f;
 			}
 		}
@@ -373,6 +377,94 @@ void TestPlayer::BackGravity()
 		{
 			tile->GetColl()->SetGreen();
 			_backIsfal = true;
+		}
+	}
+}
+
+void TestPlayer::FRunGravity()
+{
+	if (_FRunIsfal == false)
+		return;
+
+	this->SetPostion(_PlayerPos.x, _PlayerPos.y);
+	if (_aniState == TestPlayer::State::F_RUN)
+	{
+		if (_FRunIsfal == true)
+		{
+			Vector2 temp;
+			_fRunGravutyPower -= (float)pow(_fRunGravity, 2);
+			temp.y = _fRunGravutyPower;
+			_PlayerPos += temp * DELTA_TIME;
+		}
+	}
+
+	for (auto& tile : _tile)
+	{
+		if (tile->_isActive == false)
+		{
+			continue;
+		}
+		if (_fRunGravutyPower >= 0.0f)
+		{
+			break;
+		}
+		if (tile->GetColl()->IsCollision(_FmoveEnemy->GetTileEventColl()))
+		{
+			tile->GetColl()->SetRed();
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _FmoveEnemy->GetTileEventColl()->Bottom() + 20.0f)
+			{
+				
+				_fRunGravutyPower = 1.0f;
+			}
+		}
+		else
+		{
+			tile->GetColl()->SetGreen();
+			_FRunIsfal = true;
+		}
+	}
+}
+
+void TestPlayer::BRunGravity()
+{
+	if (_BRunIsfal == false)
+		return;
+
+	this->SetPostion(_PlayerPos.x, _PlayerPos.y);
+	if (_aniState == TestPlayer::State::B_RUN)
+	{
+		if (_BRunIsfal == true)
+		{
+			Vector2 temp;
+			_bRuneGravutyPower -= (float)pow(_bRunbGravity, 2);
+			temp.y = _bRuneGravutyPower;
+			_PlayerPos += temp * DELTA_TIME;
+		}
+	}
+
+	for (auto& tile : _tile)
+	{
+		if (tile->_isActive == false)
+		{
+			continue;
+		}
+		if (_bRuneGravutyPower >= 0.0f)
+		{
+			break;
+		}
+		if (tile->GetColl()->IsCollision(_BmoveEnemy->GetTileEventColl()))
+		{
+			tile->GetColl()->SetRed();
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _BmoveEnemy->GetTileEventColl()->Bottom() + 20.0f)
+			{
+				
+				_bRuneGravutyPower = 1.0f;
+			}
+		}
+		else
+		{
+			tile->GetColl()->SetGreen();
+			_BRunIsfal = true;
 		}
 	}
 }
@@ -415,5 +507,34 @@ void TestPlayer::AttackMonsters(shared_ptr<class Creature> Enemy)
 	}
 
 	
+}
+
+void TestPlayer::AttackGhost(shared_ptr<class Ghost> Ghost)
+{
+
+	if (!_Weapon->_isActive)
+		return;
+
+	if (Ghost->GetCol1()->IsCollision(_Weapon->GetColl()))
+	{
+		Ghost->GetCol1()->SetRed();
+		Ghost->_hp -= _weaponDamage;
+	}
+	else
+	{
+		Ghost->GetCol1()->SetGreen();
+	}
+
+
+	if (Ghost->GetCol2()->IsCollision(_Weapon->GetColl()))
+	{
+		Ghost->GetCol2()->SetRed();
+		Ghost->_hp -= _weaponDamage;
+	}
+	else
+	{
+		Ghost->GetCol2()->SetGreen();
+	}
+
 }
 

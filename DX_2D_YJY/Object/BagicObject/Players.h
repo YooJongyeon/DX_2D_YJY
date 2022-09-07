@@ -14,7 +14,8 @@ public:
 
 	void End() { _isActive = false; }
 	shared_ptr<Transform> GetTransform() { return _sprite->GetTransform(); }
-	shared_ptr<Collider> GetColl() { return _eventCol; }
+	shared_ptr<Collider> GetTileEventColl() { return _eventCol; }
+	shared_ptr<Collider> GetColl() { return _col; }
 	shared_ptr<Action> GetAction() { return _action; }
 	shared_ptr<Sprite> GetSprite() { return _sprite; }
 
