@@ -336,6 +336,7 @@
     <Image Include="Resource\Angle.png" />
     <Image Include="Resource\Button.png" />
     <Image Include="Resource\Creature\attack.png" />
+    <Image Include="Resource\Creature\Die.png" />
     <Image Include="Resource\Creature\Ghostattack.png" />
     <Image Include="Resource\Creature\Ghostmove.png" />
     <Image Include="Resource\Creature\GhostTwistAttack.png" />
@@ -346,6 +347,7 @@
     <Image Include="Resource\Creature\move.png" />
     <Image Include="Resource\earth.PNG" />
     <Image Include="Resource\Effects\BlueExplosion.png" />
+    <Image Include="Resource\Effects\Die.png" />
     <Image Include="Resource\Effects\explosion.png" />
     <Image Include="Resource\Effects\fire_8x2.png" />
     <Image Include="Resource\Effects\GreenExplosion.png" />
@@ -358,6 +360,19 @@
     <Image Include="Resource\Fatalis.png" />
     <Image Include="Resource\Item\Item_11x5.png" />
     <Image Include="Resource\LostArk.png" />
+    <Image Include="Resource\Map\BlackSmith.png" />
+    <Image Include="Resource\Map\BlackSmithDisplay.png" />
+    <Image Include="Resource\Map\Boutique.png" />
+    <Image Include="Resource\Map\FrontCloud.png" />
+    <Image Include="Resource\Map\Gunsmith.png" />
+    <Image Include="Resource\Map\InDungeonShop.png" />
+    <Image Include="Resource\Map\MainLogo.png" />
+    <Image Include="Resource\Map\PlayOff_Kor.png" />
+    <Image Include="Resource\Map\Shop.png" />
+    <Image Include="Resource\Map\Target.png" />
+    <Image Include="Resource\Map\Tavern.png" />
+    <Image Include="Resource\Map\Temple.png" />
+    <Image Include="Resource\Map\TempleFront.png" />
     <Image Include="Resource\Map\torch.png" />
     <Image Include="Resource\Map\townAtlas.png" />
     <Image Include="Resource\Map\townAtlas1.png" />

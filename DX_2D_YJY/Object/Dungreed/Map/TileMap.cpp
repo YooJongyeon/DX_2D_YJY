@@ -63,7 +63,7 @@ TileMap::TileMap()
 			temp->_isActive = true;
 			break;
 		case 12:
-			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.15f  , WIN_HEIGHT * 0.15f };
+			temp->GetTransform()->GetPos() = { WIN_WIDTH * 0.1f  , WIN_HEIGHT * 0.15f };
 			temp->_isActive = true;
 			break;
 

@@ -65,7 +65,7 @@ void Weapon::Render()
 		return;
 
 	_sprite->Render();
-	_col->Render();
+	//_col->Render();
 }
 
 void Weapon::Play()

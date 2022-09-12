@@ -6,7 +6,7 @@ class Ghost
 		MOVE,
 		LEFTMOVE,
 		ATTACK,
-		
+	
 
 
 	};
@@ -55,6 +55,7 @@ private:
 	shared_ptr<Enemy> _moveEnemy;
 	shared_ptr<Enemy> _leftMoveEnemy;
 
+	
 	shared_ptr<Enemy> _attack;
 
 	shared_ptr<class Weapon> _Weapon;

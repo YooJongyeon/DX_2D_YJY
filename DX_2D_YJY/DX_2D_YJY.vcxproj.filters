@@ -729,6 +729,51 @@
     <Image Include="Resource\Creature\GhostTwistMove.png">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="Resource\Map\BlackSmith.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\BlackSmithDisplay.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\Boutique.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\Gunsmith.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\InDungeonShop.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\Shop.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\Target.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\Tavern.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\Temple.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\TempleFront.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\FrontCloud.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\MainLogo.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Map\PlayOff_Kor.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Creature\Die.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Resource\Effects\Die.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\TexturePixelShader.hlsl" />

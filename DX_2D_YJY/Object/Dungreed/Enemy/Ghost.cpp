@@ -5,7 +5,6 @@ Ghost::Ghost()
 {
 	_moveEnemy = make_shared<Enemy>(L"Resource/Creature/Ghostmove.png", Vector2(6, 1), 0.1f);
 	_leftMoveEnemy = make_shared<Enemy>(L"Resource/Creature/GhostTwistMove.png", Vector2(6, 1), 0.1f);
-
 	_attack = make_shared<Enemy>(L"Resource/Creature/Ghostattack.png", Vector2(3, 1), 0.1f);
 	
 	_moveEnemy->Play(Vector2(1200, 300));
@@ -24,6 +23,8 @@ void Ghost::Update()
 {
 	if (_isActive == false)
 		return;
+	
+		
 	Move(_players->GetPlayerPos());
 
 
@@ -32,7 +33,6 @@ void Ghost::Update()
 	case Ghost::MOVE:
 		_moveEnemy->Update();
 		break;
-
 	case Ghost::LEFTMOVE:
 		_leftMoveEnemy->Update();
 		break;
@@ -48,6 +48,8 @@ void Ghost::Render()
 {
 	if (_isActive == false)
 		return;
+	
+		
 	switch (_aniState)
 	{
 	case Ghost::MOVE:
@@ -60,6 +62,7 @@ void Ghost::Render()
 	case Ghost::ATTACK:
 		_attack->Render();
 		break;
+
 	default:
 		break;
 	}

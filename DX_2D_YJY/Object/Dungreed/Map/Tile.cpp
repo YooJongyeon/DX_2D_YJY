@@ -27,7 +27,7 @@ void Tile::Render()
 	if (_isActive == false)
 		return;
 	_quad->Render();
-	_collider->Render();
+	//_collider->Render();
 	
 }
 

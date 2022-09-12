@@ -13,6 +13,12 @@ class TestPlayer
 		B_JUMP
 	};
 
+	enum Direction
+	{
+		RIGHT,
+		LEFT
+	};
+
 public:
 	TestPlayer();
 	~TestPlayer();
@@ -60,7 +66,8 @@ public:
 	
 private:
 	State _aniState = F_IDLE;
-
+	Direction _direction = RIGHT;
+	shared_ptr<Quad> _quad;
 	shared_ptr<Players> _FidleEnemy;
 	shared_ptr<Players> _FmoveEnemy;
 
@@ -86,8 +93,8 @@ private:
 	float _fRunGravutyPower = 3.0f;
 	float _bRuneGravutyPower = 3.0f;
 
-	float _jumpPower = 600.0f;
-	float _BackjumpPower = 400.0f;
+	float _jumpPower = 500.0f;
+	float _BackjumpPower = 500.0f;
 
 	float _gravity = 0.78f;
 

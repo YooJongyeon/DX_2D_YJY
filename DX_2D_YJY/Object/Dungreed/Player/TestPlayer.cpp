@@ -21,6 +21,10 @@ TestPlayer::TestPlayer()
 	_FjumpEnemy->Play(Vector2(0.0f, 0.0f));
 	_BjumpEnemy->Play(Vector2(0.0f, 0.0f));
 
+	_quad = make_shared <Quad>(L"Resource/adventure.png");
+	_quad->GetTransform()->GetScale() = { 0.9f, 0.9f };
+	_quad->SetParent(_FidleEnemy->GetTransform());
+
 	_Weapon = make_shared<Weapon>(L"Resource/Weapon/TigerPunch.png", Vector2(10, 1), 0.07f);
 
 	SOUND->Add("TigerToar","Resource/Sound/TigerRoar.wav");
@@ -37,6 +41,8 @@ void TestPlayer::Update()
 {
 	if (_isActive == false)
 		return;
+
+	
 	switch (_aniState)
 	{
 	case TestPlayer::F_IDLE:
@@ -60,6 +66,7 @@ void TestPlayer::Update()
 	default:
 		break;
 	}
+	_quad->Update();
 	
 	_Weapon->Update();
 
@@ -73,6 +80,8 @@ void TestPlayer::Update()
 	Fire();
 
 
+
+
 	
 }
 
@@ -80,6 +89,7 @@ void TestPlayer::Render()
 {
 	if (_isActive == false)
 		return;
+
 	switch (_aniState)
 	{
 	case TestPlayer::F_IDLE:
@@ -134,6 +144,10 @@ void TestPlayer::Move()
 {
 	this->SetPostion(_PlayerPos.x, _PlayerPos.y);
 	
+	if (MOUSE_WORLDPOS.x  < (_FidleEnemy->GetColl()->Left() + CHARACTER_WIDTH * 0.5))
+		_aniState = B_IDLE;
+	else if (MOUSE_WORLDPOS.x > (_FidleEnemy->GetColl()->Left() + CHARACTER_WIDTH * 0.5))
+		_aniState = F_IDLE;
 	if (KEY_PRESS('A'))
 	{
 		_PlayerPos.x -= 150 * DELTA_TIME;
@@ -239,7 +253,7 @@ void TestPlayer::Jumping()
 				
 				this->SetPlay(TestPlayer::State::F_IDLE);
 				_isJumping = false;
-				_jumpPower = 400.0f;
+				_jumpPower = 500.0f;
 			}
 		}
 		else
@@ -280,7 +294,7 @@ void TestPlayer::BackJumping()
 			{
 				this->SetPlay(TestPlayer::State::B_IDLE);
 				_isBackJumping = false;
-				_BackjumpPower = 400.0f;
+				_BackjumpPower = 500.0f;
 			}
 
 		}
@@ -326,7 +340,7 @@ void TestPlayer::Gravity()
 			if (_PlayerPos.y <= tile->GetColl()->Top() + _FidleEnemy->GetTileEventColl()->Bottom() + 20.0f)
 			{
 				
-				_fGravutyPower = 1.0f;
+				_fGravutyPower = 2.0f;
 			}
 		}
 		else
@@ -370,7 +384,7 @@ void TestPlayer::BackGravity()
 			if (_PlayerPos.y <= tile->GetColl()->Top() + _BidleEnemy->GetTileEventColl()->Bottom() + 20.0f)
 			{
 				
-				_bGravutyPower = 1.0f;
+				_bGravutyPower = 2.0f;
 			}
 		}
 		else
@@ -414,7 +428,7 @@ void TestPlayer::FRunGravity()
 			if (_PlayerPos.y <= tile->GetColl()->Top() + _FmoveEnemy->GetTileEventColl()->Bottom() + 20.0f)
 			{
 				
-				_fRunGravutyPower = 1.0f;
+				_fRunGravutyPower = 2.0f;
 			}
 		}
 		else
@@ -458,7 +472,7 @@ void TestPlayer::BRunGravity()
 			if (_PlayerPos.y <= tile->GetColl()->Top() + _BmoveEnemy->GetTileEventColl()->Bottom() + 20.0f)
 			{
 				
-				_bRuneGravutyPower = 1.0f;
+				_bRuneGravutyPower = 2.0f;
 			}
 		}
 		else

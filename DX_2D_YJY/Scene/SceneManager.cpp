@@ -16,10 +16,12 @@
 #include "../Scene/BagicScene/InstancingScene.h"
 #include "../Scene/BagicScene/ItemScene.h"
 
+
 SceneManager* SceneManager::_instance = nullptr;
 
 SceneManager::SceneManager()
 {
+	
 	_sceneTable["Test"] = make_shared<TestScene>();
 
 

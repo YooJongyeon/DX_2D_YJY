@@ -4,7 +4,9 @@
 TestScene::TestScene()
 {
 	_angle = make_shared <Quad>(L"Resource/ShootingCursor2.png");
-	_angle->GetTransform()->GetScale() * 0.2f;
+	_angle->GetTransform()->GetScale() = { 0.5f, 0.5f };
+
+
 	_townMap = make_shared<TownMap>();
 	_tileMap = make_shared<TileMap>();
 
@@ -16,8 +18,8 @@ TestScene::TestScene()
 	{
 		shared_ptr<Creature> temp = make_shared<Creature>();
 		temp->SetPlayer(_test);
-		_pos.x = (i + 1) * 300;
-		_pos.y = (i + 1) * 100;
+		_pos.x = (i + 1) * 350.0f;
+		_pos.y = (i + 1) * 100.0f;
 		temp->SetPostion(_pos, _pos);
 		_creature.push_back(temp);
 	}
@@ -27,8 +29,8 @@ TestScene::TestScene()
 	{
 		shared_ptr<Ghost> temp = make_shared<Ghost>();
 		temp->SetPlayer(_test);
-		_gostPos.x = (i + 1) * 200;
-		_gostPos.y = (i + 1) * 200;
+		_gostPos.x = (i + 1) * 250.0f;
+		_gostPos.y = (i + 1) * 200.0f;
 		temp->SetPostion(_gostPos, _gostPos);
 		_ghost.push_back(temp);
 	}
@@ -38,10 +40,12 @@ TestScene::TestScene()
 
 	Camera::GetInstance()->SetTarget(_FollowTrans);
 	Vector2 leftBottom = { 0,0 };
-	Vector2 rightTop = { _test->GetPlayer()->GetSprite()->GetHalfSize().x *40.0f,  _test->GetPlayer()->GetSprite()->GetHalfSize().y * 40.0f };
+	Vector2 rightTop = { _townMap->GetTrasform()->GetHalfSize().x * 2.0f, _townMap->GetTrasform()->GetHalfSize().y * 2.0f };
 	Camera::GetInstance()->SetLeftBottom(leftBottom);
 	Camera::GetInstance()->SetRightTop(rightTop);
-
+	
+	SOUND->Add("JailField", "Resource/Sound/1.JailField.wav");
+	SOUND->Play("JailField", 0.5f);
 
 }
 
@@ -57,6 +61,7 @@ void TestScene::Update()
 	if (_timeStop == true)
 		return;
 
+	
 	_townMap->Update();
 	_tileMap->Update();
 	_test->Update();
@@ -70,7 +75,11 @@ void TestScene::Update()
 		_test->AttackMonsters(monster);
 
 		if (monster->_hp <= 0)
+		{
+		
 			monster->_isActive = false;
+		}
+			
 	}
 
 	for (auto& ghost : _ghost)
@@ -81,7 +90,10 @@ void TestScene::Update()
 		_test->AttackGhost(ghost);
 
 		if (ghost->_hp <= 0)
+		{
 			ghost->_isActive = false;
+		}
+			
 	}
 
 	float distance = _test->GetTransform()->GetPos().Distance(_FollowTrans->GetPos());
@@ -101,8 +113,8 @@ void TestScene::Render()
 	_tileMap->Render();
 	for (auto& monster : _creature)
 	{
+	
 		monster->Render();
-
 	}
 
 	for (auto& ghost : _ghost)
@@ -121,7 +133,3 @@ void TestScene::PostRender()
 
 }
 
-void TestScene::NextScene()
-{
-	SCENE->SetScene("Dungreed");
-}
