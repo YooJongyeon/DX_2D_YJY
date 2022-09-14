@@ -1,12 +1,12 @@
 ﻿  TestPlayer.cpp
-C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(155,35): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(170,35): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(236,23): warning C4244: '인수': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(278,23): warning C4244: '인수': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(324,25): warning C4244: '인수': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(369,25): warning C4244: '인수': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(413,25): warning C4244: '인수': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(457,25): warning C4244: '인수': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(168,35): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(183,35): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(249,23): warning C4244: '인수': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(291,23): warning C4244: '인수': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(337,25): warning C4244: '인수': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(382,25): warning C4244: '인수': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(426,25): warning C4244: '인수': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Object\Dungreed\Player\TestPlayer.cpp(470,25): warning C4244: '인수': 'double'에서 'const float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Framework\Camera\Camera.h(21): warning C4715: 'Camera::GetInstance': 모든 제어 경로에서 값을 반환하지는 않습니다.
 C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Framework\Collider\Collider.h(30): warning C4172: 지역 변수 또는 임시의 주소를 반환하고 있습니다.
 C:\Users\com\Documents\GitHub\DX_2D_YJY\DX_2D_YJY\Framework\Collider\Collider.h(31): warning C4172: 지역 변수 또는 임시의 주소를 반환하고 있습니다.

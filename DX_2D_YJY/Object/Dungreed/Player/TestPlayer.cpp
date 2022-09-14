@@ -23,7 +23,7 @@ TestPlayer::TestPlayer()
 
 	_quad = make_shared <Quad>(L"Resource/adventure.png");
 	_quad->GetTransform()->GetScale() = { 0.9f, 0.9f };
-	_quad->SetParent(_FmoveEnemy->GetTransform());
+	_quad->SetParent(_FidleEnemy->GetTransform());
 
 	_Weapon = make_shared<Weapon>(L"Resource/Weapon/TigerPunch.png", Vector2(10, 1), 0.07f);
 
@@ -70,10 +70,23 @@ void TestPlayer::Update()
 	
 	_Weapon->Update();
 
-	if (MOUSE_WORLDPOS.x <= (_quad->Left()))
-		_aniState = B_IDLE;
-	else if (MOUSE_WORLDPOS.x >= (_quad->Left()))
-		_aniState = F_IDLE;
+	if (_aniState == TestPlayer::State::F_IDLE)
+	{
+		if (MOUSE_WORLDPOS.x < (_FidleEnemy->GetColl()->Left() + (CHARACTER_WIDTH * 0.5)))
+			_aniState = B_IDLE;
+		else if (MOUSE_WORLDPOS.x > (_FidleEnemy->GetColl()->Left() + (CHARACTER_HEIGHT * 0.5)))
+			_aniState = F_IDLE;
+	}
+
+	if (_aniState == TestPlayer::State::B_IDLE)
+	{
+		if (MOUSE_WORLDPOS.x < (_FidleEnemy->GetColl()->Left() + (CHARACTER_WIDTH * 0.5)))
+			_aniState = B_IDLE;
+		else if (MOUSE_WORLDPOS.x > (_FidleEnemy->GetColl()->Left() + (CHARACTER_HEIGHT * 0.5)))
+			_aniState = F_IDLE;
+	}
+
+	
 
 	Move();
 	Gravity();
