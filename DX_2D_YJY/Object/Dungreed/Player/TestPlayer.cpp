@@ -23,7 +23,7 @@ TestPlayer::TestPlayer()
 
 	_quad = make_shared <Quad>(L"Resource/adventure.png");
 	_quad->GetTransform()->GetScale() = { 0.9f, 0.9f };
-	_quad->SetParent(_FidleEnemy->GetTransform());
+	_quad->SetParent(_FmoveEnemy->GetTransform());
 
 	_Weapon = make_shared<Weapon>(L"Resource/Weapon/TigerPunch.png", Vector2(10, 1), 0.07f);
 
@@ -70,11 +70,16 @@ void TestPlayer::Update()
 	
 	_Weapon->Update();
 
+	if (MOUSE_WORLDPOS.x <= (_quad->Left()))
+		_aniState = B_IDLE;
+	else if (MOUSE_WORLDPOS.x >= (_quad->Left()))
+		_aniState = F_IDLE;
+
 	Move();
-	FRunGravity();
-	BRunGravity();
 	Gravity();
 	BackGravity();
+	FRunGravity();
+	BRunGravity();
 	Jumping();
 	BackJumping();
 	Fire();
@@ -144,10 +149,7 @@ void TestPlayer::Move()
 {
 	this->SetPostion(_PlayerPos.x, _PlayerPos.y);
 	
-	if (MOUSE_WORLDPOS.x  < (_FidleEnemy->GetColl()->Left() + CHARACTER_WIDTH * 0.5))
-		_aniState = B_IDLE;
-	else if (MOUSE_WORLDPOS.x > (_FidleEnemy->GetColl()->Left() + CHARACTER_WIDTH * 0.5))
-		_aniState = F_IDLE;
+	
 	if (KEY_PRESS('A'))
 	{
 		_PlayerPos.x -= 150 * DELTA_TIME;
@@ -248,7 +250,7 @@ void TestPlayer::Jumping()
 		{
 			tile->GetColl()->SetRed();
 			
-			if (_PlayerPos.y <= tile->GetColl()->Top() + _FjumpEnemy->GetTileEventColl()->Bottom() + 20.0f)
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _FjumpEnemy->GetTileEventColl()->Bottom() + 10.0f)
 			{
 				
 				this->SetPlay(TestPlayer::State::F_IDLE);
@@ -290,7 +292,7 @@ void TestPlayer::BackJumping()
 		{
 			tile->GetColl()->SetRed();
 
-			if (_PlayerPos.y <= tile->GetColl()->Top() + _BjumpEnemy->GetTileEventColl()->Bottom() + 20.0f)
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _BjumpEnemy->GetTileEventColl()->Bottom() + 10.0f)
 			{
 				this->SetPlay(TestPlayer::State::B_IDLE);
 				_isBackJumping = false;
@@ -337,7 +339,7 @@ void TestPlayer::Gravity()
 		if (tile->GetColl()->IsCollision(_FidleEnemy->GetTileEventColl()))
 		{
 			tile->GetColl()->SetRed();
-			if (_PlayerPos.y <= tile->GetColl()->Top() + _FidleEnemy->GetTileEventColl()->Bottom() + 20.0f)
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _FidleEnemy->GetTileEventColl()->Bottom() + 10.0f)
 			{
 				
 				_fGravutyPower = 2.0f;
@@ -381,7 +383,7 @@ void TestPlayer::BackGravity()
 		if (tile->GetColl()->IsCollision(_BidleEnemy->GetTileEventColl()))
 		{
 			tile->GetColl()->SetRed();
-			if (_PlayerPos.y <= tile->GetColl()->Top() + _BidleEnemy->GetTileEventColl()->Bottom() + 20.0f)
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _BidleEnemy->GetTileEventColl()->Bottom() + 10.0f)
 			{
 				
 				_bGravutyPower = 2.0f;
@@ -425,7 +427,7 @@ void TestPlayer::FRunGravity()
 		if (tile->GetColl()->IsCollision(_FmoveEnemy->GetTileEventColl()))
 		{
 			tile->GetColl()->SetRed();
-			if (_PlayerPos.y <= tile->GetColl()->Top() + _FmoveEnemy->GetTileEventColl()->Bottom() + 20.0f)
+			if (_PlayerPos.y <= tile->GetColl()->Top() + _FmoveEnemy->GetTileEventColl()->Bottom() + 10.0f)
 			{
 				
 				_fRunGravutyPower = 2.0f;

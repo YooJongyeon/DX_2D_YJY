@@ -288,10 +288,10 @@
     <ClInclude Include="Framework\Utillty\DataManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\PorfolioStartScreen.h">
+    <ClInclude Include="Object\Dungreed\Enemy\Ghost.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Object\Dungreed\Enemy\Ghost.h">
+    <ClInclude Include="Scene\ProjectScene.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -518,10 +518,10 @@
     <ClCompile Include="Framework\Utillty\DataManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\PorfolioStartScreen.cpp">
+    <ClCompile Include="Object\Dungreed\Enemy\Ghost.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Object\Dungreed\Enemy\Ghost.cpp">
+    <ClCompile Include="Scene\ProjectScene.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

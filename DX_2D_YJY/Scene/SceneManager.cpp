@@ -11,7 +11,7 @@
 #include "../Scene/BagicScene/EffectScene.h"
 #include "../Scene/BagicScene/CameraScene.h"
 #include "../Scene/TestScene.h"
-#include "../Scene/PorfolioStartScreen.h"
+#include "../Scene/ProjectScene.h"
 #include "../Scene/BagicScene/XmlLoadScene.h"
 #include "../Scene/BagicScene/InstancingScene.h"
 #include "../Scene/BagicScene/ItemScene.h"
@@ -22,10 +22,10 @@ SceneManager* SceneManager::_instance = nullptr;
 SceneManager::SceneManager()
 {
 	
-	_sceneTable["Test"] = make_shared<TestScene>();
+	_sceneTable["Project"] = make_shared<ProjectScene>();
 
 
-	_curScene = _sceneTable["Test"];
+	_curScene = _sceneTable["Project"];
 	
 }
 

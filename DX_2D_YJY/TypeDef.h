@@ -3,8 +3,8 @@
 #define WIN_WIDTH 1280
 #define WIN_HEIGHT 720
 
-#define CHARACTER_WIDTH 60
-#define CHARACTER_HEIGHT 80
+#define CHARACTER_WIDTH 30
+#define CHARACTER_HEIGHT 40
 
 
 #define CENTER Vector2(640,360)

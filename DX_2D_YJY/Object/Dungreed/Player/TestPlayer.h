@@ -98,8 +98,8 @@ private:
 
 	float _gravity = 0.78f;
 
-	float _fGravity = 0.78f;
-	float _bGravity = 0.78f;
+	float _fGravity = 0.48f;
+	float _bGravity = 0.48f;
 
 	float _fRunGravity = 0.78f;
 	float _bRunbGravity = 0.78f;
